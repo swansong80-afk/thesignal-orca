@@ -77,6 +77,8 @@
   }
   /* 헤더가 책 페이지의 skip / site-head 자리를 대신한다 */
   .site-head{display:none}
+  .site-foot .cols{grid-template-columns:1fr}
+  @media(min-width:700px){ .site-foot .cols{grid-template-columns:1.3fr .9fr 1fr 1fr} }
 </style>
 </head>
 <body>
