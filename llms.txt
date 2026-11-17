@@ -129,7 +129,7 @@ Weekly Legacy.01~09, Deep Research Legacy.01~03, 한 주의 지도 Legacy.01~02.
 - [홈](https://thesignal-orca.pages.dev/): The Signal 소개, 세 갈래 리서치, 검증 시스템, 발행인
 - [아카이브](https://thesignal-orca.pages.dev/archive): Weekly·한 주의 지도·Deep Research·Legacy 전체 목록
 - [Weekly No.06](https://thesignal-orca.pages.dev/weekly-06): 칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경
-- [3권의 책](https://thesignal-orca.pages.dev/books.html): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
+- [3권의 책](https://thesignal-orca.pages.dev/books): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
 - [검증 시스템](https://thesignal-orca.pages.dev/verify-system) · [검증 규칙](https://thesignal-orca.pages.dev/verify)
 - [제1권 요약본](https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md): 22장 + 에필로그
 - [제2권 요약본](https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md): 3부 22장 + 에필로그
