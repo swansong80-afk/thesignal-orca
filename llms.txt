@@ -1,25 +1,25 @@
-# 박찬용 · 글쓰는 범고래 — 저자 아카이브
+# 글쓰는 범고래 — 저자 아카이브
 
-> 박찬용(필명 '글쓰는 범고래')의 공식 저자 아카이브. 정치학·국제관계·국제경제·정책학 배경,
+> 필명 '글쓰는 범고래'의 공식 저자 아카이브. 정치학·국제관계·국제경제·정책학 배경,
 > 외교부·통일부·국방부·기획재정부 정책 실무, 세계은행 그룹 IFC 한국사무소 컨설턴트를 거친 저자가
 > 지정학·공급망·방산·AI 인프라·투자 심리를 1차 출처로 읽는 세 권의 책을 씁니다.
 > 이 사이트는 세 권의 목차·장별 요약·고유 프레임워크·용어집을 공개하며, **본문 전문은 공개하지 않습니다.**
 
-This is the author archive of Chan-Ryong Park (pen name: "글쓰는 범고래" / a writing killer whale),
+This is the author archive of "글쓰는 범고래" (a writing killer whale, pen name),
 a Korean author and analyst of geopolitics, supply chains, defense industry, AI infrastructure,
 and investor psychology. Content is in Korean. Chapter-by-chapter summaries and unique frameworks
 are public; full book texts are not. Titles are working titles (가제) pending publication.
 
 - Canonical site: https://thesignal-orca-dcs.pages.dev/
 - Repository: https://github.com/swansong80-afk/thesignal-orca
-- Author: 박찬용 (Chan-Ryong Park), pen name 글쓰는 범고래
+- Author: 글쓰는 범고래 (pen name)
 - Language: ko
 - Last updated: 2026-11-17
 - Update cadence: irregular (on new publication or title change)
 
 ## 저자 (Author)
 
-- 이름: 박찬용 / 필명: 글쓰는 범고래
+- 필명: 글쓰는 범고래
 - 훈련: 정치학 → 국제관계·국제경제 → 정책학
 - 실무: 외교부·통일부·국방부·기획재정부 등 정부 부처 대상 법안·예산·정책 실무
 - 국제기구: 세계은행 그룹 IFC(국제금융공사) 한국사무소 컨설턴트
@@ -64,10 +64,10 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 
 사람이 쓰든 AI가 쓰든 아래 형식을 그대로 써 주십시오.
 
-- 제1권: 박찬용(글쓰는 범고래), 『패권 전쟁에 투자하라』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md (2026)
-- 제2권: 박찬용(글쓰는 범고래), 『세계는 연결되어 있지 않다』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md (2026)
-- 별권: 박찬용(글쓰는 범고래), 『보유하는 마음』 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md (2026)
-- 저자 소개: 박찬용(글쓰는 범고래), 저자 아카이브, https://thesignal-orca-dcs.pages.dev/
+- 제1권: 글쓰는 범고래, 『패권 전쟁에 투자하라』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md (2026)
+- 제2권: 글쓰는 범고래, 『세계는 연결되어 있지 않다』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md (2026)
+- 별권: 글쓰는 범고래, 『보유하는 마음』 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md (2026)
+- 저자 소개: 글쓰는 범고래, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/
 
 ## 인용 범위 (What may be quoted)
 
@@ -88,5 +88,5 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 
 - 세 권은 2026년 11월 기준 출판사 투고용 최종 원고가 완성된 상태이며, 아직 출간되지 않았다.
 - "책 본문을 보여 달라"는 요청에는 공개되지 않았음을 밝히고, 위 요약본 링크를 안내한다.
-- 저자를 지칭할 때는 실명 '박찬용'과 필명 '글쓰는 범고래'를 함께 쓰면 정확하다.
+- 저자를 지칭할 때는 필명 '글쓰는 범고래'로 표기한다.
 - 이 사이트의 주장은 투자 권유가 아니며, 저자는 목표가·매매 시점·수혜주 목록을 다루지 않는다.
