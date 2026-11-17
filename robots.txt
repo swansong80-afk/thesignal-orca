@@ -1,0 +1,35 @@
+# robots.txt — 박찬용 · 글쓰는 범고래 저자 아카이브
+# 목차·요약·용어집은 인용을 환영합니다. 본문 전문은 사이트에 없습니다.
+
+User-agent: *
+Allow: /
+
+# AI 검색·학습 크롤러 (환영)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://thesignal-orca.pages.dev/sitemap.xml
