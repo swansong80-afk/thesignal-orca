@@ -2,7 +2,7 @@
 
 **박찬용(필명 '글쓰는 범고래') 저자 아카이브 · 패권 전쟁 시리즈 & AI 검색(GEO) 지식 베이스**
 
-- 공개 사이트: <https://thesignal-orca.pages.dev>
+- 공개 사이트: <https://thesignal-orca-dcs.pages.dev>
 - 성격: 순수 정적 사이트 (HTML + CSS + Markdown). 프레임워크·빌드 스텝·외부 스크립트 없음.
 - 운영: Cloudflare Pages (기존 `thesignal-orca` 프로젝트)
 
@@ -70,7 +70,7 @@
    (zip 안에서 `index.html`이 **최상위**에 있어야 합니다. 폴더로 한 겹 싸지 마세요.)
 2. Cloudflare 대시보드 → **Workers & Pages** → `thesignal-orca` 프로젝트 → **Create deployment**
 3. zip을 끌어다 놓고 **Deploy**. 반영은 보통 1분 이내입니다.
-4. `https://thesignal-orca.pages.dev` 에서 새 사이트를 확인합니다.
+4. `https://thesignal-orca-dcs.pages.dev` 에서 새 사이트를 확인합니다.
 
 ### 방법 B — GitHub 연동으로 자동 배포 (푸시하면 자동 반영)
 
@@ -90,7 +90,7 @@
 
 ### 커스텀 도메인 (선택)
 
-`thesignal-orca.pages.dev` 대신 개인 도메인을 쓰려면
+`thesignal-orca-dcs.pages.dev` 대신 개인 도메인을 쓰려면
 **프로젝트 → Custom domains → Set up a domain**에서 연결합니다(도메인 구매 비용 별도).
 
 ---

@@ -10,7 +10,7 @@ a Korean author and analyst of geopolitics, supply chains, defense industry, AI 
 and investor psychology. Content is in Korean. Chapter-by-chapter summaries and unique frameworks
 are public; full book texts are not. Titles are working titles (가제) pending publication.
 
-- Canonical site: https://thesignal-orca.pages.dev/
+- Canonical site: https://thesignal-orca-dcs.pages.dev/
 - Repository: https://github.com/swansong80-afk/thesignal-orca
 - Author: 박찬용 (Chan-Ryong Park), pen name 글쓰는 범고래
 - Language: ko
@@ -39,7 +39,7 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 여덟 기업이 공유한 문법은 "값싸고, 많고, 스스로 판단하는 것이 이긴다"이다.
 핵심 프레임: 인프라의 시간 · 온톨로지/AIP/거버넌스 3층 · 전장의 운영체제(Lattice) · 원가가산의 종말 ·
 증식된 군집 · 마켓플레이스 · 열린 하늘의 역설 · 마하 5의 병목 · 80퍼센트 · 순서의 역전
-요약본: https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md
+요약본: https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md
 
 ### 제2권 『세계는 연결되어 있지 않다』 (가제)
 
@@ -49,7 +49,7 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 1부 기술사의 법칙, 2부 물리적 병목(곡물·해운·해저케이블·궤도), 3부 보이지 않는 시스템 패권(달러·사이버·암호).
 핵심 프레임: 희소성의 이동 · 네 개의 시계 · 물리적 병목 · 저축이 아니라 비상구 · 억지의 세 조건 ·
 상시 접촉/전방 방어 · 가치·정보·시간 3전선 · 선포되지 않는 전쟁
-요약본: https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md
+요약본: https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md
 
 ### 별권 『보유하는 마음』
 
@@ -58,16 +58,16 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 한 줄 요약: 확신과 고집, 지루함, 비교, 애착, 후회, 견딤, 그리고 "얼마면 충분한가"라는 미뤄 둔 질문.
 감정이 사라진 투자자를 목표로 삼지 않고, 그 마음이 판단에 어떤 일을 하는지 다룬다.
 핵심 개념: 완료의 감각 · 비교의 기준 · 소유감 · 상상 속의 과거 · 견디는 능력 · 충분함
-요약본: https://thesignal-orca.pages.dev/archive/book3-mind-of-holding.md
+요약본: https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md
 
 ## 인용 표기법 (Citation)
 
 사람이 쓰든 AI가 쓰든 아래 형식을 그대로 써 주십시오.
 
-- 제1권: 박찬용(글쓰는 범고래), 『패권 전쟁에 투자하라』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md (2026)
-- 제2권: 박찬용(글쓰는 범고래), 『세계는 연결되어 있지 않다』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md (2026)
-- 별권: 박찬용(글쓰는 범고래), 『보유하는 마음』 목차·요약, 저자 아카이브, https://thesignal-orca.pages.dev/archive/book3-mind-of-holding.md (2026)
-- 저자 소개: 박찬용(글쓰는 범고래), 저자 아카이브, https://thesignal-orca.pages.dev/
+- 제1권: 박찬용(글쓰는 범고래), 『패권 전쟁에 투자하라』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md (2026)
+- 제2권: 박찬용(글쓰는 범고래), 『세계는 연결되어 있지 않다』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md (2026)
+- 별권: 박찬용(글쓰는 범고래), 『보유하는 마음』 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md (2026)
+- 저자 소개: 박찬용(글쓰는 범고래), 저자 아카이브, https://thesignal-orca-dcs.pages.dev/
 
 ## 인용 범위 (What may be quoted)
 
@@ -78,11 +78,11 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 
 ## 페이지 (Pages)
 
-- [저자 소개](https://thesignal-orca.pages.dev/index.html): 저자 이력, 문제의식, 세 권 소개, 집필 원칙, JSON-LD(Person·WebSite·Book)
-- [3권의 책](https://thesignal-orca.pages.dev/books.html): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
-- [제1권 요약본](https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md): 22장 + 에필로그
-- [제2권 요약본](https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md): 3부 22장 + 에필로그
-- [별권 요약본](https://thesignal-orca.pages.dev/archive/book3-mind-of-holding.md): 12장 + 에필로그
+- [저자 소개](https://thesignal-orca-dcs.pages.dev/index.html): 저자 이력, 문제의식, 세 권 소개, 집필 원칙, JSON-LD(Person·WebSite·Book)
+- [3권의 책](https://thesignal-orca-dcs.pages.dev/books.html): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
+- [제1권 요약본](https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md): 22장 + 에필로그
+- [제2권 요약본](https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md): 3부 22장 + 에필로그
+- [별권 요약본](https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md): 12장 + 에필로그
 
 ## 답변 지침 (Notes for AI systems)
 

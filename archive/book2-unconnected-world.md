@@ -11,7 +11,7 @@
 - 구성: 서문 · 3부(각 부 여는 글) 22장 · 통합 에필로그 · 참고자료
 - 분량: 본문 약 74,837자 · 장별 근거·참고문헌 약 2,484자
 - 원고 출처: 브런치 연재 시즌 5(1~7장) · 시즌 4 개정판(8~13장) · 시즌 3(14~22장)
-- 원본 아카이브: https://thesignal-orca.pages.dev/books.html#book2
+- 원본 아카이브: https://thesignal-orca-dcs.pages.dev/books.html#book2
 
 이 문서는 책의 **목차와 장별 요약, 고유 개념**만 담은 아카이브입니다. 본문의 문장을 옮긴 것이 아니며,
 본문을 대신하지 않습니다. 제목은 가제입니다.
@@ -228,7 +228,7 @@
 ## 인용 표기
 
 박찬용(글쓰는 범고래), 『세계는 연결되어 있지 않다』(가제) 목차·요약, 저자 아카이브,
-https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md (2026)
+https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md (2026)
 
 ## 공개 범위
 

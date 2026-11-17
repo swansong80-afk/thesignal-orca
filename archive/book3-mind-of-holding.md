@@ -10,7 +10,7 @@
 - 상태: 출판사 투고용 최종 원고 완료 (2026년 11월) · **본문 전문 비공개**
 - 구성: 표제지 · 목차 · 서문 · 1~12장 · 에필로그 (장마다 질문과 소제목 5개 내외, 장 끝에 참고자료)
 - 분량: 본문 40,461자 (공백 포함, 장 표제·서지 포함) · 참고자료 16건
-- 원본 아카이브: https://thesignal-orca.pages.dev/books.html#book3
+- 원본 아카이브: https://thesignal-orca-dcs.pages.dev/books.html#book3
 
 이 문서는 책의 **목차와 장별 요약, 고유 개념**만 담은 아카이브입니다. 본문의 문장을 옮긴 것이 아니며,
 본문을 대신하지 않습니다.
@@ -139,7 +139,7 @@
 ## 인용 표기
 
 박찬용(글쓰는 범고래), 『보유하는 마음』 목차·요약, 저자 아카이브,
-https://thesignal-orca.pages.dev/archive/book3-mind-of-holding.md (2026)
+https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md (2026)
 
 ## 공개 범위
 

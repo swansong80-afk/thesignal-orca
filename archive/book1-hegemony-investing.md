@@ -11,7 +11,7 @@
 - 구성: 일러두기 · 1부 10장 · 2부 12장 · 에필로그
 - 분량: 본문 102,768자 (공백 제외) / 전체 문서 129,162자 (공백 포함)
 - 원고 출처: 브런치 연재 「패권 전쟁에 투자하라」 시즌 1 10편, 시즌 2 13편
-- 원본 아카이브: https://thesignal-orca.pages.dev/books.html#book1
+- 원본 아카이브: https://thesignal-orca-dcs.pages.dev/books.html#book1
 
 이 문서는 책의 **목차와 장별 요약, 고유 개념**만 담은 아카이브입니다. 본문의 문장을 옮긴 것이 아니며,
 본문을 대신하지 않습니다. 제목은 모두 가제입니다.
@@ -196,7 +196,7 @@ AI 인프라에서 우주, 희토류, 그리고 한국의 반도체까지.
 ## 인용 표기
 
 박찬용(글쓰는 범고래), 『패권 전쟁에 투자하라』(가제) 목차·요약, 저자 아카이브,
-https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md (2026)
+https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md (2026)
 
 ## 공개 범위
 

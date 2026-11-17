@@ -32,4 +32,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://thesignal-orca.pages.dev/sitemap.xml
+Sitemap: https://thesignal-orca-dcs.pages.dev/sitemap.xml
