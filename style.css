@@ -69,6 +69,8 @@ body {
   letter-spacing: -.003em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -442,7 +444,7 @@ em { font-style: italic; }
   margin-bottom: clamp(2rem, 4vw, 2.8rem);
 }
 @media (min-width: 820px) {
-  .book-head { grid-template-columns: 1fr 17rem; gap: 2.4rem; align-items: start; }
+  .book-head { grid-template-columns: 1fr 19rem; gap: 2.4rem; align-items: start; }
 }
 .book-head .title-block h2 { margin-bottom: .5rem; }
 .book-head .sub {
@@ -456,13 +458,14 @@ em { font-style: italic; }
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   background: var(--surface);
-  padding: 1.1rem 1.2rem;
-  font-size: .84rem;
+  padding: 1.05rem 1.15rem;
+  font-size: .82rem;
+  line-height: 1.62;
   margin: 0;
   display: grid;
   gap: .55rem;
 }
-.book-facts div { display: grid; grid-template-columns: 5.4rem 1fr; gap: .6rem; }
+.book-facts div { display: grid; grid-template-columns: 4.4rem 1fr; gap: .5rem; }
 .book-facts dt { color: var(--ink-mute); font-size: .78rem; letter-spacing: .04em; }
 .book-facts dd { margin: 0; color: var(--ink-soft); }
 
@@ -472,14 +475,15 @@ em { font-style: italic; }
   border-top: 1px solid var(--rule);
 }
 .part-head {
-  display: flex;
-  align-items: baseline;
-  gap: .9rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: .45rem .9rem;
   margin-bottom: 1.4rem;
 }
-.part-head h3 { margin: 0; }
+.part-head h3 { margin: 0; grid-column: 2; }
 .part-head .tag {
+  justify-self: start;
   font-size: .74rem;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -490,7 +494,7 @@ em { font-style: italic; }
   white-space: nowrap;
 }
 .part-head .note {
-  flex-basis: 100%;
+  grid-column: 1 / -1;
   font-size: .9rem;
   color: var(--ink-mute);
   margin: 0;
@@ -526,6 +530,7 @@ em { font-style: italic; }
 }
 .chapter .q {
   grid-column: 2;
+  max-width: 42em;
   font-size: .85rem;
   color: var(--ink-mute);
   margin: 0 0 .55rem;
@@ -542,9 +547,10 @@ em { font-style: italic; }
   margin-right: .55rem;
   vertical-align: .08em;
 }
-.chapter p { grid-column: 2; margin: 0; font-size: .94rem; color: var(--ink-soft); line-height: 1.74; }
+.chapter p { grid-column: 2; margin: 0; font-size: .94rem; color: var(--ink-soft); line-height: 1.74; max-width: 42em; }
 .chapter .frame {
   grid-column: 2;
+  max-width: 42em;
   margin: .55rem 0 0;
   font-size: .82rem;
   color: var(--ink-mute);
