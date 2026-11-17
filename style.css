@@ -116,7 +116,8 @@ button:focus-visible {
 .narrow { max-width: var(--measure); }
 
 section { padding-block: clamp(3.2rem, 7vw, 5.6rem); }
-section + section { border-top: 1px solid var(--rule-soft); }
+section + section,
+article + section { border-top: 1px solid var(--rule-soft); }
 
 /* -------------------------------------------------------------- header -- */
 
