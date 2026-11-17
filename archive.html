@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아카이브 · The Signal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14171C; --navy:#1C4A82; --deep:#0F2743; --deep2:#0A1B31;
+    --paper:#F5F6F8; --card:#FFFFFF; --muted:#697079; --line:#E4E7EC;
+    --gold:#C6983A; --goldline:#D9B45A;
+    --slab:"Roboto Slab",serif; --serif:"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.7;
+    letter-spacing:-0.01em;word-break:keep-all;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:820px;margin:0 auto;padding:0 26px}
+  .eyebrow{font-family:var(--slab);font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--navy)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(245,246,248,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .wm{font-family:var(--slab);font-weight:700;font-size:19px;color:var(--ink)}
+  .wm .the{color:var(--navy)}
+  .navr{display:flex;gap:20px;align-items:center}
+  .navr a{font-size:14px;color:var(--muted);font-weight:600}
+  .navr a:hover{color:var(--ink)}
+  .btn{background:var(--navy);color:#fff;font-weight:700;font-size:14px;padding:9px 18px;border-radius:7px}
+
+  .head{padding:64px 0 10px}
+  .head h1{font-family:var(--serif);font-weight:700;font-size:36px;letter-spacing:-0.02em;margin:14px 0 10px}
+  .head p{color:var(--muted);font-size:16px;max-width:52ch}
+
+  .group{padding:34px 0 0}
+  .grouphead{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:11px;margin-bottom:6px}
+  .grouphead .gl{font-family:var(--slab);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .grouphead h2{font-family:var(--serif);font-size:20px;font-weight:700}
+
+  .item{display:block;padding:20px 4px;border-bottom:1px solid var(--line);transition:padding .15s}
+  .item:hover{padding-left:10px}
+  .item .no{font-family:var(--slab);font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.03em}
+  .item .it{font-size:18px;font-weight:800;color:var(--ink);margin:4px 0 5px;line-height:1.45}
+  .item:hover .it{color:var(--navy)}
+  .item .id{font-size:14px;color:var(--muted);line-height:1.6}
+  .item .arw{color:var(--navy);font-weight:700}
+
+  .cta{margin:56px 0 0;background:linear-gradient(160deg,var(--deep),var(--deep2));color:#EAF0F7;
+    border-radius:16px;padding:40px 32px;text-align:center}
+  .cta .eyebrow{color:var(--goldline)}
+  .cta h3{font-family:var(--serif);font-weight:700;font-size:24px;margin:12px 0 8px;color:#fff}
+  .cta p{color:#B8C7DA;font-size:15px;margin-bottom:22px}
+  .cta a{display:inline-block;background:var(--gold);color:#241a06;font-weight:800;font-size:15px;padding:14px 28px;border-radius:9px}
+
+  footer{margin-top:50px;border-top:1px solid var(--line);padding:26px 0 60px;font-size:13px;color:var(--muted)}
+  footer b{color:var(--ink)}
+  :focus-visible{outline:2px solid var(--goldline);outline-offset:2px}
+  @media(max-width:600px){.head h1{font-size:28px}.navr a:not(.btn){display:none}}
+</style>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html"><span class="wm"><span class="the">The</span> Signal</span></a>
+    <div class="navr">
+      <a href="index.html">홈</a>
+      <a href="books.html">3권의 책</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="head">
+    <div class="eyebrow">Archive</div>
+    <h1>지난 글 전체</h1>
+    <p>먼저 현행 검증 시스템(출처 원장 대조)을 통과한 글을 싣고, 그 아래에 검증 시스템 도입 이전의 ‘이전 글(Legacy)’을 따로 모았습니다. 두 구역은 명확히 구분됩니다.</p>
+  </div>
+
+  <div class="group">
+    <div class="grouphead"><span class="gl">신호 · The Signal : Weekly</span><h2>Weekly</h2></div>
+    <a class="item" href="weekly-06.html">
+      <div class="no">No.06 · 2026.11.17 · 현행 검증 완료</div>
+      <div class="it">칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경</div>
+      <div class="id">시장은 하루 9,600억 달러 증발로 읽었다 — 그 아래에서 미국은 '물건'을 막던 규제를 '접속'을 허가하는 규제로 바꿨다. <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="weekly-05.html">
+      <div class="no">No.05 · 2026.08.01 · 현행 검증 완료</div>
+      <div class="it">버핏이 옳았다, 그런데 그가 본 것은 아니다</div>
+      <div class="id">시장은 capex 논쟁을 아마존 실적으로 덮었다 — 그 아래서 메모리는 이미 되돌릴 수 없이 재배치되고 있다. <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="weekly-04.html">
+      <div class="no">No.04 · 2026.08.01 · 현행 검증 완료</div>
+      <div class="it">워시가 말을 멈추자, 표를 던진 건 세 총재였다</div>
+      <div class="id">9-3 표결 — 무게중심은 매파 쪽으로 쏠렸지만, 그것이 실제로 물가를 잡을 것이라는 확신까지 시장이 준 것은 아니다. <span class="arw">읽기 →</span></div>
+    </a>
+    <a href="weekly-04-appendix.html" style="display:block;margin:-4px 0 14px 18px;font-size:13px;color:#7a828a;text-decoration:none;">↳ 부록 · 워시 의장 모두발언 전문, 원문·번역·주석</a>
+    <a class="item" href="weekly-03.html">
+      <div class="no">No.03 · 2026.07.31 · 현행 검증 완료</div>
+      <div class="it">확신이 담보로 바뀌는 순간</div>
+      <div class="id">아셴브레너의 439% 헤지펀드가 시타델에 넘어간 하루 — 레버리지는 테제가 맞았는지를 묻지 않는다, 얼마나 많은 빚을 얹었는지만 묻는다. <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="weekly-02.html">
+      <div class="no">No.02 · 2026.07.23 · 현행 검증 완료</div>
+      <div class="it">적자가 아니라, 빚으로 갈아탄 것이다</div>
+      <div class="id">알파벳 첫 현금 적자가 드러낸 조달 구조의 전환 — 빅테크가 벌어서 짓던 회사에서 빌려서 짓는 회사로. <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="weekly-01.html">
+      <div class="no">No.01 · 2026.07.18 · 현행 검증 완료</div>
+      <div class="it">아직 다운로드도 안 되는 모델이 실리콘밸리를 흔들었다</div>
+      <div class="id">중국 Kimi K3는 성능이 아니라 “열겠다”는 약속 하나로 폐쇄 AI의 해자를 흔들었다. <span class="arw">읽기 →</span></div>
+    </a>
+  </div>
+
+  <div class="group">
+    <div class="grouphead"><span class="gl">종합 · The Signal : 한 주의 지도</span><h2>Weekly Map</h2></div>
+    <a class="item" href="map-01.html">
+      <div class="no">No.01 · 2026.07.27 · 현행 검증 완료</div>
+      <div class="it">빚을 낸 게 아니라, 도착할 비용을 선불한 것이다</div>
+      <div class="id">하이퍼스케일러 감가상각 벽 — 지은 것과 비용으로 인식한 것 사이의 갭이 손익계산서로 오는 시점. <span class="arw">읽기 →</span></div>
+    </a>
+  </div>
+
+  <div class="group">
+    <div class="grouphead"><span class="gl">심층 · The Signal : Deep Research</span><h2>Deep Research</h2></div>
+    <a class="item" href="deep-03-part2.html">
+      <div class="no">No.03 · 2026.08.08 · 현행 검증 완료 · 2부작 완결 · 2편</div>
+      <div class="it">팔란티어와 젠슨 황이 서 있는 안보의 재정의</div>
+      <div class="id">폐쇄형 진영은 과거의 패배를 극복할 것인가, 또 다시 패배할 것인가 — 팔란티어의 논리와 젠슨 황의 두 번째 선언. <span class="arw">읽기 →</span></div>
+    </a>
+    <a href="deep-03.html" style="display:block;margin:-4px 0 14px 18px;font-size:13px;color:#7a828a;text-decoration:none;">↳ 1편 · 팔란티어가 중국 모델을 올린 날, 오픈소스 40년 전쟁의 세 번째 라운드가 시작되었다</a>
+    <a class="item" href="deep-02.html">
+      <div class="no">No.02 · 2026.08.02 · 현행 검증 완료 · 2부작 1편</div>
+      <div class="it">"LOL, 아직 접속되네"</div>
+      <div class="id">애플이 오픈AI를 영업비밀 절도로 고소했다 — 41쪽 소장, 그런데 이 소송은 이기려고 낸 것이 아닐 수 있다. <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="deep-01.html">
+      <div class="no">No.01 · 2026.07.20 · 현행 검증 완료</div>
+      <div class="it">관할권이라는 초크포인트</div>
+      <div class="id">희토류 통제가 ‘물질’에서 ‘관할권’으로 옮겨갔다 — 미국의 설계도를 거울처럼 되비춘 중국. 1차 출처 원장 전체 공개. <span class="arw">읽기 →</span></div>
+    </a>
+  </div>
+
+  <div class="group">
+    <div class="grouphead"><span class="gl">원칙</span><h2>검증</h2></div>
+    <a class="item" href="verify-system.html">
+      <div class="no">검증 시스템</div>
+      <div class="it">한 장으로 보는 검증 구조</div>
+      <div class="id">문장 분류(F·A·I)부터 원장 봉인, 층별 대조, 외부 검토까지 — 시스템 전체를 한 장에. <span class="arw">보기 →</span></div>
+    </a>
+    <a class="item" href="verify.html">
+      <div class="no">검증 규칙</div>
+      <div class="it">확신이 아니라, 검증된 정직함</div>
+      <div class="id">사실을 어떻게 확정하고, 검증하고, 틀렸을 때 어떻게 정정하는가 — 전체 조문. <span class="arw">읽기 →</span></div>
+    </a>
+  </div>
+
+  <div style="border-top:2px dashed #cdbf9e;margin:34px 0 6px;"></div>
+  <div class="group">
+    <div class="grouphead"><span class="gl" style="color:#a9832f;">The Signal 이전 · Legacy</span><h2>이전 글</h2></div>
+    <p style="font-size:13px;color:#7a7566;margin:-2px 0 4px;line-height:1.65;">현행 검증 시스템 도입 이전에 쓴 글입니다. 출처를 확인하고 썼지만 원장 기반 사전 검증은 거치지 않았습니다 — 각 글 상단의 고지를 참고하세요. 분석의 틀과 계보는 그대로 싣습니다.</p>
+  </div>
+
+  <div class="group">
+    <div class="grouphead"><span class="gl">이전 · Weekly</span><h2>Weekly</h2></div>
+    <a class="item" href="legacy-w09.html">
+      <div class="no">Weekly · Legacy.09 · 2026.07</div>
+      <div class="it">모든 진실을 합치면 진실이 아니다</div>
+      <div class="id">TSMC는 순이익 77% 급증으로 사상 최대 분기를 냈고, 주가는 4% 빠졌다 — 자본지출 640억 달러와 애리조나 1,000억 달러 앞에서 웨이 회장이 던진 이 한 문장 안에, 시장이 무서워한 것이 전부 들어 있다 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-w08.html">
+      <div class="no">Weekly · Legacy.08 · 2026.07</div>
+      <div class="it">통행세는 하루를 못 넘겼다 — 철회가 아니라, 낼 사람이 바뀐 것이다</div>
+      <div class="id">트럼프의 호르무즈 20% 통행세를 하루도 안 돼 접게 만든 것은 IMO의 위법 판정이 아니라 이란 외무장관 아락치의 한 문장이었다 — 그 자리는 걸프 국가들의 '투자 약속'이 채웠고, 이란의 표적도 곧바로 걸프로 옮겨갔다 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-w07.html">
+      <div class="no">Weekly · Legacy.07 · 2026.07</div>
+      <div class="it">애플이 오픈AI를 고소했다 — 협업이 아니라 산업 스파이 소송이었다</div>
+      <div class="id">2024년 아이폰에 챗GPT를 심었던 두 회사가, 2026년엔 41쪽짜리 소장으로 마주 섰다 — 애플 출신 400명 이상이 오픈AI로 옮겨간 결과다 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-w06.html">
+      <div class="no">Weekly · Legacy.06 · 2026.07</div>
+      <div class="it">봉쇄가 아니라 압력테스트였다</div>
+      <div class="id">이란은 '봉쇄'를, 미국은 '20% 통행세'를 선언했다 — 같은 충격에 코스피는 무너졌고 S&amp;P500은 버텼다, 그 차이가 진짜 신호다 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-w05.html">
+      <div class="no">Weekly · Legacy.05 · 2026.07</div>
+      <div class="it">희토류가 아니라 자석이었다</div>
+      <div class="id">중국의 수출통제 '제도화'가 드러낸 진짜 병목, 그리고 돈이 향하는 곳 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-w04.html">
+      <div class="no">Weekly · Legacy.04 · 2026.07</div>
+      <div class="it">발표에서 배송으로 — 유럽이 무기를 실제로 만들기 시작했다</div>
+      <div class="id">나토 앙카라 정상회담이 드러낸 방위산업의 진짜 승부처 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-w03.html">
+      <div class="no">Weekly · Legacy.03 · 2026.07</div>
+      <div class="it">한국이 1.3조 달러를 메모리에 걸었다</div>
+      <div class="id">AI의 병목이 연산에서 메모리로 옮겨간 순간, 그 돈은 어디로 흐르는가 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-w02.html">
+      <div class="no">Weekly · Legacy.02 · 2026.07</div>
+      <div class="it">엔비디아 없이, 중국이 AI를 훈련했다</div>
+      <div class="id">수출통제의 벽에 생긴 금, 그리고 돈이 다시 고이는 길목 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-w01.html">
+      <div class="no">Weekly · Legacy.01 · 2026.07</div>
+      <div class="it">미국이 오픈AI의 '주주'가 되려 한다</div>
+      <div class="id">정부가 AI 지분을 갖는다는 신호, 그 돈은 어디로 흐르는가 <span class="arw">읽기 →</span></div>
+    </a>
+  </div>
+
+  <div class="group">
+    <div class="grouphead"><span class="gl">이전 · Deep Research</span><h2>Deep Research</h2></div>
+    <a class="item" href="legacy-dr03.html">
+      <div class="no">Deep Research · Legacy.03 · 2026.07</div>
+      <div class="it">이건 소송이 아니라, 5년 늦게 도착한 청구서였다</div>
+      <div class="id">2021년 메타, 2026년 오픈AI — 플랫폼에 세 들어 살던 두 회사가 똑같은 방식으로 대가를 치르고, 똑같은 방식으로 반격했다 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-dr02.html">
+      <div class="no">Deep Research · Legacy.02 · 2026.07</div>
+      <div class="it">국가안보가 아니라, 전화 한 통이었다</div>
+      <div class="id">1996년 PGP, 2015년 바세나르, 그리고 2026년 Fable 5·Mythos 5 — 90분 만에 걸린 빗장이 19일 만에 풀린 이유 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-dr01.html">
+      <div class="no">Deep Research · Legacy.01 · 2026.07</div>
+      <div class="it">심리가 아니라 배관이었다</div>
+      <div class="id">1987년, 2018년, 2020년, 그리고 삼전닉스 — 실적 서프라이즈에도 주가가 무너지는 현상의 진짜 정체 <span class="arw">읽기 →</span></div>
+    </a>
+  </div>
+
+  <div class="group">
+    <div class="grouphead"><span class="gl">이전 · 한 주의 지도</span><h2>Weekly Map</h2></div>
+    <a class="item" href="legacy-m02.html">
+      <div class="no">한 주의 지도 · Legacy.02 · 2026.07</div>
+      <div class="it">무기와 자석이 부딪힌 한 주</div>
+      <div class="id">나토는 재무장을 배송 일정으로 증명했고, 중국은 같은 시기 그 무기의 심장을 만드는 공정을 제도로 잠갔다 <span class="arw">읽기 →</span></div>
+    </a>
+    <a class="item" href="legacy-m01.html">
+      <div class="no">한 주의 지도 · Legacy.01 · 2026.07</div>
+      <div class="it">중심이 흔들린 한 주</div>
+      <div class="id">세 개의 신호가 같은 길목을 가리켰다 — No.01~03을 하나로 잇다 <span class="arw">읽기 →</span></div>
+    </a>
+  </div>
+
+  <div class="cta">
+    <div class="eyebrow">언제든, 여기서</div>
+    <h3>새 신호는 이 자리에 계속 쌓입니다.</h3>
+    <a href="index.html">The Signal 홈으로 →</a>
+  </div>
+
+  <footer>
+    <b>The Signal</b> · 세상의 변화를 먼저 읽는 리서치 &nbsp;·&nbsp; by 글 쓰는 범고래 (ORCA) &nbsp;·&nbsp; © 2026
+  </footer>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

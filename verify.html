@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Signal 제작 규칙</title>
+<style>
+:root{--ink:#1f2128;--muted:#6b6d76;--bg:#faf8f3;--accent:#2f4a6b;--gold:#a9832f;
+--card:#ffffff;--line:#e7e2d6;--whybg:#f5f2ea;}
+*{box-sizing:border-box;}
+body{max-width:760px;margin:0 auto;padding:76px 26px 100px;background:var(--bg);color:var(--ink);
+font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+line-height:1.8;font-size:16px;word-break:keep-all;-webkit-font-smoothing:antialiased;}
+h1{font-family:"Nanum Myeongjo",Georgia,serif;font-size:32px;font-weight:800;text-align:center;
+letter-spacing:-.01em;margin:0 0 10px;}
+.tagline{text-align:center;color:var(--gold);font-size:16px;font-weight:700;margin:0 0 6px;
+font-family:"Nanum Myeongjo",serif;font-style:italic;}
+.rule-hr{width:44px;height:3px;background:var(--accent);border:none;margin:22px auto 44px;border-radius:2px;}
+.preamble{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:44px;}
+.pre-h{font-family:"Nanum Myeongjo",serif;font-size:19px;font-weight:800;margin:0 0 14px;color:var(--accent);}
+.pre-p{margin:0 0 15px;font-size:15.5px;}
+.pre-p:last-child{margin-bottom:0;}
+h2.chap{font-family:"Nanum Myeongjo",serif;font-size:22px;font-weight:800;margin:52px 0 20px;
+padding-bottom:11px;border-bottom:2px solid var(--accent);color:var(--accent);display:flex;align-items:baseline;gap:12px;}
+.chapnum{font-size:14px;font-weight:800;color:var(--gold);letter-spacing:.02em;flex:0 0 auto;}
+.art{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin-bottom:15px;
+box-shadow:0 1px 3px rgba(40,35,20,.04);}
+.arthead{display:flex;align-items:baseline;gap:10px;margin-bottom:9px;flex-wrap:wrap;}
+.artnum{font-weight:800;font-size:15px;color:#fff;background:var(--accent);padding:2px 12px;border-radius:20px;flex:0 0 auto;}
+.arttitle{font-weight:800;font-size:17px;color:var(--ink);}
+.rule{margin:0;font-size:15.5px;font-weight:600;line-height:1.75;color:#26282f;}
+.why{margin:12px 0 0;padding:12px 15px 12px 14px;background:var(--whybg);border-left:3px solid var(--gold);
+border-radius:0 8px 8px 0;font-size:14px;color:#55524a;line-height:1.7;}
+.whmark{display:inline-block;font-weight:800;font-size:11.5px;color:#fff;background:var(--gold);
+padding:1px 8px;border-radius:20px;margin-right:8px;vertical-align:1px;}
+.closing{margin:48px 0 0;padding-top:26px;border-top:1px solid var(--line);
+font-size:14px;color:var(--muted);font-style:italic;line-height:1.75;text-align:center;}
+strong{font-weight:800;}
+</style><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+<h1>The Signal 제작 규칙</h1>
+<div class="tagline">신뢰도를 올릴 뿐, 완벽은 없다</div>
+<hr class="rule-hr">
+<section class="preamble"><h2 class="pre-h">여는 글</h2>
+<p class="pre-p">우리는 뉴스를 팔지 않는다. 뉴스는 이미 모두가 가졌다. 우리가 파는 것은 <strong>남들이 못 본 관점 — 인사이트</strong>다. 그리고 그 인사이트는 사실을 촘촘히 늘어놓는다고 나오지 않는다. 하나의 사안을 둘러싼 지형을 넓게 살피고, 그 안에서 무엇이 진짜 쟁점인지를 알아보는 순간에 태어난다.</p>
+<p class="pre-p">그래서 이 채널의 가장 중요한 순간은 검증이 아니라 <strong>정찰</strong>이다. 정찰이 얕으면 그 뒤에 아무리 정교한 검증을 얹어도 얕은 관점 위에서 정교해질 뿐이다. 이후의 모든 조문 — 사실의 선재성, 원장, 검증의 층 — 은 정찰에서 나온 관점이 체리피킹이 되지 않도록 지키는 장치이지, 그 자체가 목적이 아니다.</p>
+<p class="pre-p">이 규칙은 완벽을 약속하지 않는다. 완벽을 약속하는 시스템은 틀렸을 때 그것을 인정할 자리를 스스로 없앤다. 우리는 반대로 간다 — <strong>우리는 틀릴 수 있음을 전제로 설계한다.</strong> 검증의 층을 겹치는 것은 오류를 0으로 만들기 위해서가 아니라, 오류가 걸릴 확률을 촘촘히 높이기 위해서다. 그리고 그렇게 하고도 남는 불확실성은 숨기지 않고 드러낸다.</p>
+<p class="pre-p">이 문서는 규칙의 목록이 아니라, 우리가 왜 이렇게까지 하는가에 대한 대답이다. 각 조문은 명령이 아니라 이유를 담는다. 우리가 어떻게 쓰는가가 곧 우리가 무엇을 믿는가이기 때문이다.</p>
+</section><h2 class="chap"><span class="chapnum">제1장</span>근본 원칙</h2>
+<div class="art"><div class="arthead"><span class="artnum">제1조</span><span class="arttitle">정찰의 우위</span></div><p class="rule">우리가 파는 것은 뉴스가 아니라 관점이다. 관점은 사안의 지형을 넓게 살피는 정찰에서 태어난다. 이 채널의 모든 조문 중 가장 중요한 순간은 검증이 아니라 정찰이다.</p><p class="why"><span class="whmark">왜</span> 정찰이 얕으면 그 위에 아무리 정교한 검증을 얹어도 얕은 관점 위에서 정교해질 뿐이다. 정찰의 질이 이 채널이 파는 상품 가치의 상한선을 정한다. 이후의 조문들은 이 관점이 오염되지 않도록 지키는 장치이지, 그 자체가 목적이 아니다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제2조</span><span class="arttitle">프레임은 발견되는 것</span></div><p class="rule">프레임은 미리 정해서 출처를 끼워 맞추는 것이 아니다. 지형을 정찰하는 과정에서 쟁점이 여러 갈래로 자연스럽게 드러나며, 우리는 그 갈래를 있는 그대로 짚어 제시한다. 그중 하나를 선택하는 것이 프레임 확정이다.</p><p class="why"><span class="whmark">왜</span> 프레임을 먼저 세우고 그것을 뒷받침할 출처를 찾는 것은 체리피킹이다. 정찰이 프레임보다 먼저 오면, 프레임은 정찰이 실제로 허용하는 범위 안에서만 나올 수 있다. 이 순서가 우리를 손쉬운 결론에서 지킨다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제3조</span><span class="arttitle">사실의 선재성</span></div><p class="rule">프레임이 선택된 뒤, 그 프레임을 뒷받침할 사실은 집필 이전에 확정된다. 출처 원장에 없는 사실은 문장으로 태어나지 못한다.</p><p class="why"><span class="whmark">왜</span> 글을 먼저 쓰고 출처를 나중에 붙이면, 출처는 이미 쓰인 글을 정당화하러 동원되고, 맞는 출처가 없으면 지어내게 된다. 그래서 순서를 뒤집는다. 문장이 사실을 부르는 것이 아니라, 확인된 사실만이 문장이 될 수 있다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제4조</span><span class="arttitle">틀의 우선</span></div><p class="rule">우리가 파는 것은 정답이 아니라 세상을 보는 틀이다. 그러므로 사실은 최소화하고, 판단은 자유롭다.</p><p class="why"><span class="whmark">왜</span> 좋은 글은 사실이 많은 글이 아니라 판단이 정확한 글이다. 검증해야 할 사실을 줄이는 것은 게으름이 아니라, 상품이 무엇인지 아는 것이다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제5조</span><span class="arttitle">불완전성의 인정</span></div><p class="rule">어떤 검증도 완벽을 주지 않는다. 검증은 증명이 아니라 신뢰도다.</p><p class="why"><span class="whmark">왜</span> 각 층은 앞 층이 놓친 것을 잡을 가능성을 더할 뿐, 어느 층도 &quot;여기서부터는 확실하다&quot;를 선언하지 못한다. 우리는 이 사실을 약점으로 숨기지 않고 설계의 전제로 삼는다.</p></div>
+<h2 class="chap"><span class="chapnum">제2장</span>문장의 분류</h2>
+<div class="art"><div class="arthead"><span class="artnum">제6조</span><span class="arttitle">삼분</span></div><p class="rule">모든 문장은 사실(F)·귀속(A)·해석(I) 중 하나에 속한다. 무엇을 검증할지는 이 분류에서 결정된다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제7조</span><span class="arttitle">사실 F</span></div><p class="rule">날짜·수치·비율·금액·직함·인용·귀속처럼 검증 가능한 진술은 사실이다. 사실은 최소화하며, 남은 사실은 원장에 올려 무겁게 검증한다.</p><p class="why"><span class="whmark">왜</span> 신뢰가 무너지는 지점은 언제나 사실이다. 그러니 사실은 적을수록 안전하고, 남긴 것은 완전해야 한다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제8조</span><span class="arttitle">귀속 A</span></div><p class="rule">&quot;이런 통설이 있다&quot;를 전하는 문장은 귀속이다. 여기서 검증하는 것은 그 통설의 참·거짓이 아니라, 그런 통설이 실제로 존재하는가다.</p><p class="why"><span class="whmark">왜</span> 우리는 통설을 대신 판정하지 않는다. 다만 없는 통설을 지어내지 않는다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제9조</span><span class="arttitle">해석 I</span></div><p class="rule">길목·병목·시나리오·프레임처럼 우리의 판단인 문장은 해석이다. 해석은 검증하지 않는다. 해석이 빗나가는 것은 오류가 아니라 우리가 파는 상품이며, 훗날 답안지에서 채점된다.</p><p class="why"><span class="whmark">왜</span> 판단을 팔면서 판단이 틀릴까 두려워 검증하려 드는 것은 모순이다. 우리는 판단을 숨기지 않고, 그것에 책임지는 방식(제31조)을 따로 둔다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제10조</span><span class="arttitle">인과의 금지</span></div><p class="rule">&quot;A 때문에 B&quot;라는 인과 문장은 기본적으로 금지된다. 1차 출처가 그 인과를 명시적으로 진술한 경우에만 사실로 쓴다.</p><p class="why"><span class="whmark">왜</span> 인과는 거의 언제나 사실로 방어할 수 없으면서 사실의 외양을 갖는다. 시간적으로 붙어 일어난 두 사건을 인과로 엮는 순간, 우리는 흔한 시장 해설이 된다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제11조</span><span class="arttitle">의심스러울 때</span></div><p class="rule">어느 등급인지 애매한 문장은 사실이 아니라 귀속이나 해석으로 내린다.</p><p class="why"><span class="whmark">왜</span> 애매함을 사실로 올리면 검증 부담이 늘고 단정의 위험이 커진다. 의심스러울 때 우리는 덜 단정하는 쪽을 택한다.</p></div>
+<h2 class="chap"><span class="chapnum">제3장</span>출처 원장</h2>
+<div class="art"><div class="arthead"><span class="artnum">제12조</span><span class="arttitle">원장의 구성</span></div><p class="rule">각 사실에는 고유 번호, 1차 출처의 원문 발췌, 출처와 그 위계, 실제 URL, 인출일, 확인 상태가 붙는다.</p><p class="why"><span class="whmark">왜</span> 발췌 없는 사실, URL 없는 출처는 검증할 수 없다. 검증할 수 없는 것은 원장에 없는 것과 같다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제13조</span><span class="arttitle">출처의 위계</span></div><p class="rule">출처는 1차(원문·공시·제출서류)·2차(주요 매체)·3차(재인용·집계)로 나뉜다. 3차에서 멈춘 사실은 그 사실 자체를 원장에 적는다. 제목·부제처럼 노출이 큰 자리에는 복수 출처로 확인된 사실만 올린다.</p><p class="why"><span class="whmark">왜</span> 모든 사실이 같은 무게를 갖지 않는다. 얼마나 깊은 출처에서 왔는지, 얼마나 눈에 띄는 자리에 쓰이는지에 따라 요구되는 확신의 수준이 다르다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제14조</span><span class="arttitle">원장은 경보다</span></div><p class="rule">원장이 길어지는 것은 규칙 위반이 아니라, 상품이 틀에서 사실 나열로 흘러가고 있다는 경보다.</p><p class="why"><span class="whmark">왜</span> 사실이 늘면 검증을 강화할 것이 아니라, 그 사실들이 정말 필요한지부터 다시 물어야 한다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제15조</span><span class="arttitle">봉인</span></div><p class="rule">프레임이 확정되면 원장을 봉인한다. 봉인은 &quot;사실 수집이 끝났다&quot;가 아니라 &quot;이 프레임을 지탱할 사실이 전부 모였다&quot;는 선언이다. 봉인 이후 사실은 늘지 않는다.</p><p class="why"><span class="whmark">왜</span> 봉인은 사실과 프레임이 서로를 확정한 지점에 찍힌다. 이 잠금이 없으면 집필 중에 사실이 스며들고, 그것이 제3조의 붕괴다.</p></div>
+<h2 class="chap"><span class="chapnum">제4장</span>제작의 순서</h2>
+<div class="art"><div class="arthead"><span class="artnum">제16조</span><span class="arttitle">제작의 순서</span></div><p class="rule">제작은 다음 순서로만 진행된다 — 이슈 확정 → <strong>정찰</strong> → 프레임 발견·제시 → 프레임 확정 → 출처 심화 인출 → 원장 봉인 → 집필.</p><p class="why"><span class="whmark">왜</span> 프레임을 먼저 정하고 출처를 나중에 찾으면, 출처는 그 프레임을 정당화하러 동원된다(확증 편향). 정찰이 먼저 오면, 프레임은 정찰이 실제로 드러낸 쟁점 안에서만 나올 수 있다. 이 순서가 우리를 손쉬운 결론에서 지킨다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제17조</span><span class="arttitle">정찰의 산출물</span></div><p class="rule">정찰은 출처 링크를 나열하는 것이 아니다. 정찰의 산출물은 <strong>쟁점 지도</strong>다 — 어느 매체·기관이 사안을 어떻게 다르게 프레이밍하는지, 어디서 해석이 갈리는지를 직접 짚어 말로 제시하는 것이다. 도구(AI)는 이 쟁점 지도를 작성할 책임을 진다.</p><p class="why"><span class="whmark">왜</span> 출처만 던져놓고 쟁점을 짚지 않으면, 프레임을 고르는 부담이 전부 사람에게 넘어간다. 그러면 정찰은 정찰이 아니라 자료 수집으로 전락하고, 이 채널이 파는 관점은 태어나지 못한다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제18조</span><span class="arttitle">재봉인의 고리</span></div><p class="rule">집필 중 사실이 더 필요하면, 그 자리에서 채우지 않는다. 출처 인출 단계로 돌아가 확인하고, 재봉인한 뒤 집필을 재개한다. 이 고리는 필요할 때마다 반복된다.</p><p class="why"><span class="whmark">왜</span> &quot;그 자리에서 채우지 않는다&quot;가 전부다. 집필의 흐름 속에서 사실을 즉석으로 만들어내는 순간이 곧 시스템이 무너지는 순간이다. 되돌아가는 번거로움이 그 붕괴를 막는다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제19조</span><span class="arttitle">수정하지 않고 삭제한다</span></div><p class="rule">검증에서 걸린 사실은 고치지 않고 삭제한 뒤, 필요하면 처음부터 다시 인출한다.</p><p class="why"><span class="whmark">왜</span> 수정은 새 오류를 만들고, 수정한 사람은 자기가 방금 만든 오류를 보지 못한다. 그래서 우리는 고치는 대신 지운다.</p></div>
+<h2 class="chap"><span class="chapnum">제5장</span>검증의 층</h2>
+<div class="art"><div class="arthead"><span class="artnum">제20조</span><span class="arttitle">실재성 · L2</span></div><p class="rule">원장의 발췌가 실제 1차 출처에 있는지, 사람이 그 URL을 열어 확인한다. 이것은 집필 이전에 이루어진다.</p><p class="why"><span class="whmark">왜</span> 이 층은 시스템이 바깥 세계와 닿는 유일한 지점이다. 사람이 실제로 눈으로 보았다는 이 행위 위에, 이후의 모든 신뢰가 얹힌다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제21조</span><span class="arttitle">무결성 · L1</span></div><p class="rule">봉인된 사실이 본문으로 옮겨지며 변형되지 않았는지, 원장과 본문을 나란히 놓고 대조한다. 이것은 집필 이후에 이루어진다.</p><p class="why"><span class="whmark">왜</span> 봉인은 원장을 잠글 뿐, 본문이 그 원장을 충실히 따랐는지는 보장하지 못한다. &quot;약 25년&quot;이 &quot;정확히 25년&quot;으로 미끄러지는 것을 막는 것이 이 층이다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제22조</span><span class="arttitle">적합성 · L3</span></div><p class="rule">사실이 실재하더라도, 그것을 이렇게 써도 되는지를 판단한다 — 누가 말했는가(화자), 얼마나 단정하는가(확정도), 오염된 숫자인가(성격), 상관을 인과로 우겼는가(인과). 이것은 기계가 못 잡으며, 사람만이 결정한다.</p><p class="why"><span class="whmark">왜</span> 진짜 신뢰가 무너지는 곳은 &quot;숫자가 틀렸다&quot;가 아니라 &quot;숫자는 맞는데 정직하지 않게 쓰였다&quot;이다. 이 층이 우리를 거짓말이 아닌 것들 속의 부정직에서 지킨다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제23조</span><span class="arttitle">층위는 순서가 아니다</span></div><p class="rule">L1·L2·L3는 진행 순서가 아니라 대조 대상의 층위 이름이다. 실제 시간 순서는 L2(봉인 전) → L1·L3(봉인 후)다.</p><p class="why"><span class="whmark">왜</span> 번호를 순서로 오해하면 출처 확인(L2)을 집필 뒤로 미루게 되고, 그것은 제3조에 정면으로 어긋난다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제24조</span><span class="arttitle">자기 증거의 금지</span></div><p class="rule">원장을 쓴 자는 그 원장의 증거를 스스로 확정하지 않는다. 발췌가 실재하는지의 최종 확인(L2)은 반드시 사람 또는 분리된 검증의 눈이 한다.</p><p class="why"><span class="whmark">왜</span> 장부를 쓴 손이 증거까지 만들면, 장부와 증거가 서로를 보증할 뿐 아무도 바깥을 보지 않는다. 그럴듯한 발췌는 그럴듯하게 읽힌다. 이 조문은 우리가 겪은 실패에서 태어났다.</p></div>
+<h2 class="chap"><span class="chapnum">제6장</span>외부 검토</h2>
+<div class="art"><div class="arthead"><span class="artnum">제25조</span><span class="arttitle">창의 분리</span></div><p class="rule">완성된 글은 매 호, 그리고 매 수정 후, 맥락을 모르는 새 대화창에서 다시 검증한다. 제작한 창에서 열지 않는다.</p><p class="why"><span class="whmark">왜</span> 검증의 힘은 그 눈이 아무것도 모른다는 데서 나온다. 제작의 맥락이 남아 있으면 그것이 판단을 물들이는 닻이 된다. 새 창은 그 닻을 끊는다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제26조</span><span class="arttitle">무맥락의 원칙</span></div><p class="rule">검토에는 봉인된 원장과 완성본만 넘긴다. &quot;이렇게 썼다&quot;는 설명을 붙이지 않는다.</p><p class="why"><span class="whmark">왜</span> 모든 설명은 앵커다. 우리가 무엇을 어떻게 판단했는지 알려주는 순간, 검토는 우리가 그어놓은 선을 따라 읽을 뿐 독립적이지 않게 된다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제27조</span><span class="arttitle">정지 규칙</span></div><p class="rule">검토에서 실질적인 수정이 한 건이라도 발생하면, 수정본을 또 다른 새 창에 한 번 더 넘긴다.</p><p class="why"><span class="whmark">왜</span> 수정은 새 오류를 만들 수 있고, 그 오류는 방금 고친 눈에 보이지 않는다. 그래서 고친 뒤에는 반드시 보지 않은 눈이 다시 본다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제28조</span><span class="arttitle">검토는 보증이 아니다</span></div><p class="rule">검토의 눈도 결국 같은 종류의 도구이며, 같은 맹점을 공유할 수 있다. 검토가 통과시켰다는 사실은 글이 옳다는 증거가 아니다.</p><p class="why"><span class="whmark">왜</span> 외부 검토는 그물을 하나 더 치는 것이지 보증서가 아니다. 이 층을 더해도 완벽은 오지 않는다. 다만 신뢰도가 오른다. 그것으로 충분하다.</p></div>
+<h2 class="chap"><span class="chapnum">제7장</span>발행과 그 이후</h2>
+<div class="art"><div class="arthead"><span class="artnum">제29조</span><span class="arttitle">발행의 관문</span></div><p class="rule">발행 직전, 정해진 관문을 통과하지 못한 글은 완성본이 아니라 초안이다. 하나라도 아니면 내지 않는다.</p><p class="why"><span class="whmark">왜</span> 관문은 형식이 아니라 최소한의 양심이다. 통과하지 못한 것을 내보내지 않겠다는 약속이, 통과한 것을 신뢰할 수 있게 만든다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제30조</span><span class="arttitle">출처의 공개</span></div><p class="rule">사용된 사실의 출처 목록을 글에 공개한다.</p><p class="why"><span class="whmark">왜</span> 출처 공개는 방어가 아니라 우리가 파는 정직함의 이행이다. 약한 고리를 숨기지 않겠다는 약속이, 공개된 링크로 실물이 된다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제31조</span><span class="arttitle">답안지</span></div><p class="rule">우리는 우리의 예측을 공개적으로 채점한다. 해석(I)이 빗나간 것은 오류가 아니라 상품의 일부이며, 오직 사실(F)이 틀린 것만을 정정 이력으로 바로잡는다.</p><p class="why"><span class="whmark">왜</span> 확신을 파는 자는 자기 예측을 채점하지 않는다. 우리는 그 반대다. 틀림을 예상하고 설계했기에, 틀렸을 때 숨지 않고 고칠 자리를 처음부터 마련해 둔다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제32조</span><span class="arttitle">세 벌의 산출물</span></div><p class="rule">모든 글은 원장·검토본·발행본 세 벌로 존재한다. 검토본 없이 완성본을 내지 않는다.</p><p class="why"><span class="whmark">왜</span> 원장은 사실이 어디서 왔는지, 검토본은 무엇을 사람이 판단했는지, 발행본은 독자가 읽는 것이다. 셋이 다 있어야 우리는 우리가 한 일을 되짚을 수 있다.</p></div>
+<h2 class="chap"><span class="chapnum">제8장</span>사람과 도구</h2>
+<div class="art"><div class="arthead"><span class="artnum">제33조</span><span class="arttitle">역할의 분담</span></div><p class="rule">사람은 프레임과 검증 기준을 설계하고, 사실을 확인하고, 발행을 결정한다. 도구(AI)는 그 안에서 자료를 나르고 초안을 생산한다. 도구는 판단하지 않는다.</p><p class="why"><span class="whmark">왜</span> 이 시스템에서 대체 불가능한 것은 문장을 뽑아내는 능력이 아니라, 무엇을 사실로 인정하고 어떻게 검증할지를 정하는 판단이다. 그 판단이 저작의 자리다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제34조</span><span class="arttitle">최종의 닻</span></div><p class="rule">검증의 사슬은 어딘가에서 사람의 눈에 닻을 내려야 끝난다. 그 닻은 L2의 클릭과 L3의 판단이다.</p><p class="why"><span class="whmark">왜</span> 각 층은 앞 층을 신뢰하고 자기 구간만 지킨다. 그러나 그 신뢰가 무한히 뒤로 미뤄지지 않도록, 사슬의 끝에는 반드시 사람이 실제로 본 지점이 있어야 한다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제35조</span><span class="arttitle">투명성</span></div><p class="rule">우리는 도구를 사용했다는 사실을 밝힌다.</p><p class="why"><span class="whmark">왜</span> 정직함이 상품인 채널이 제작 도구만 숨기는 것은 앞뒤가 맞지 않는다. 어떤 도구를 썼는가가 아니라 어떤 통제 아래 썼는가를 보이는 것이, 숨기는 것보다 언제나 강하다.</p></div>
+<h2 class="chap"><span class="chapnum">제9장</span>범위와 개정</h2>
+<div class="art"><div class="arthead"><span class="artnum">제36조</span><span class="arttitle">비례의 원칙</span></div><p class="rule">검증의 무게는 위험에 비례한다. 사실이 많고 노출이 큰 글에는 이 규칙의 절차가 온전히 적용되고, 사실이 거의 없는 글(에세이 등)은 그 성격에 맞게 가볍게 다룬다. 다만 어느 글도 근본 원칙(제1~3장)에서 벗어나지 않는다.</p><p class="why"><span class="whmark">왜</span> 사실이 둘뿐인 글에 사실이 스물인 글과 같은 부하를 거는 것은 안전이 아니라 낭비다. 노력은 위험이 있는 곳에 집중되어야 지속 가능하다.</p></div>
+<div class="art"><div class="arthead"><span class="artnum">제37조</span><span class="arttitle">개정</span></div><p class="rule">이 규칙은 실패에서 배운다. 새로운 실패는 새로운 조문이 된다. 완성된 규칙은 없으며, 우리는 다만 신뢰도를 올려갈 뿐이다.</p><p class="why"><span class="whmark">왜</span> 제24조가 하나의 실패에서 태어났듯, 앞으로의 조문도 그러할 것이다. 이 문서가 완벽하다고 믿는 순간, 이 문서는 제5조를 배반한다.</p></div>
+<p class="closing">이 규칙은 사실의 생산·검증·정정에 관한 우리의 철학이다. 세부 절차는 별도의 규약과 편집 매뉴얼에 있으며, 충돌 시 이 규칙의 정신이 우선한다 — 완벽이 아니라 신뢰도, 확신이 아니라 정직.</p>
+
+<div style="max-width:640px;margin:0 auto;padding:8px 24px 64px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="index.html" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="verify-system.html" style="color:#26467d;font-weight:600;text-decoration:none;">검증 시스템 한눈에</a>
+    &nbsp;·&nbsp;
+    <a href="archive.html" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+  </div>
+</div>
+
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body></html>

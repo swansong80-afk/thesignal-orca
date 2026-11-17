@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Signal · Weekly · Legacy.07 — 애플이 오픈AI를 고소했다, 협업이 아니라 산업 스파이 소송이었다</title>
+<style>
+  :root{ --ink:#161b24; --muted:#6b7280; --line:#e4e6ea; --accent:#8a6d1f; --cap:#5c4712; --boxbg:#faf6ec; --boxline:#e7dbb8; }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:#f3f4f6; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif; line-height:1.85; -webkit-font-smoothing:antialiased; }
+  .wrap{max-width:740px; margin:0 auto; padding:52px 24px 96px;}
+  article{background:#fff; border:1px solid var(--line); border-radius:6px; padding:52px 48px 56px; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .brand{font-size:.82rem; letter-spacing:.14em; color:var(--accent); font-weight:800;}
+  .brandsub{font-size:.78rem; color:var(--muted); letter-spacing:.02em; margin:2px 0 20px;}
+  .meta{font-size:.9rem; color:var(--muted); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:14px 0; margin:0 0 32px;}
+  .meta div{margin:3px 0;} .meta b{color:var(--ink);}
+  h1{font-size:1.86rem; line-height:1.34; margin:0 0 8px; letter-spacing:-.01em;}
+  .dek{font-size:1.05rem; color:var(--muted); font-weight:500; margin:0 0 30px;}
+  h2{font-size:1.24rem; margin:40px 0 6px; letter-spacing:-.01em;}
+  p{margin:0 0 17px; font-size:1.02rem;}
+  b,strong{font-weight:700;}
+  hr{border:0; border-top:1px solid var(--line); margin:30px 0;}
+  blockquote{margin:22px 0; padding:18px 22px; background:var(--boxbg); border:1px solid var(--boxline); border-left:4px solid var(--accent); border-radius:4px; font-size:1.0rem;}
+  blockquote p{margin:0 0 8px; font-size:.98rem;} blockquote p:last-child{margin-bottom:0;}
+  .layer{background:#fbfcfd; border:1px solid var(--boxline); border-radius:6px; padding:18px 22px; margin:20px 0;}
+  .layer .lh{font-weight:700; color:var(--cap); margin:0 0 6px;}
+  .layer p{margin:0 0 10px; font-size:.98rem;} .layer p:last-child{margin-bottom:0;}
+  .teaser{background:#faf7ee; border-left:3px solid var(--accent); padding:14px 20px; margin:26px 0 0; font-size:1.02rem;}
+  .summary{background:#fbfaf8; border:1px solid var(--boxline); border-radius:4px; padding:18px 22px; font-size:1.02rem; margin:24px 0;}
+  .check{background:#faf8f1; border:1px solid var(--boxline); border-radius:6px; padding:16px 22px; margin:20px 0;}
+  .check ol{margin:0; padding-left:1.3em;} .check li{margin:0 0 11px; font-size:1.0rem; line-height:1.7;} .check li:last-child{margin-bottom:0;}
+  .check .ci{font-weight:700; color:var(--cap); margin:0 0 10px;}
+  .sources{font-size:.88rem; color:#444;}
+  .sources h3{font-size:1rem; margin:26px 0 10px;}
+  .sources ul{margin:0; padding-left:1.15em;} .sources li{margin:0 0 6px; line-height:1.6;}
+  .disc{margin-top:26px; padding:16px 20px; border:1px solid var(--boxline); border-radius:4px; background:#f0f1f3; font-size:.85rem; color:#555; line-height:1.7;}
+  .disc b{display:block; margin-bottom:5px; color:#333;}
+  em{font-style:normal; color:var(--muted);}
+</style>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+<div class="wrap">
+<article>
+
+  <div class="brand">The Signal · Weekly · Legacy.07</div>
+  <div class="brandsub">세상의 변화를 먼저 읽는 리서치</div>
+
+  <div class="meta">
+    <div><b>발행</b> · The Signal Weekly</div>
+    <div><b>도메인</b> · 기술 × 산업 × AI</div>
+    <div><b>신호</b> · 2026년 7월 10~13일 · 애플, 오픈AI·io 상대 영업비밀 침해 소송</div>
+  </div>
+
+  <div style="margin:22px 0 26px;padding:16px 18px;border:1px solid #d9c9a3;border-left:4px solid #C6983A;background:#faf6ec;border-radius:10px;font-size:13.5px;line-height:1.65;color:#5a5344;"><div style="font-weight:800;color:#8a6410;margin-bottom:6px;">📎 The Signal 이전 글</div>이 글은 현행 검증 시스템 도입 이전에 작성되었습니다. 출처를 가지고 쓴 글이지만 개별 사실이 현행 기준의 사전 검증을 거치지 않았으므로, 수치·귀속은 그 점을 감안해 읽어 주시기 바랍니다. 분석의 틀과 계보는 그대로 유효하다고 판단해 원문대로 공개합니다. 오류가 확인되면 이 자리에 정정 이력을 남깁니다.</div>
+<h1>애플이 오픈AI를 고소했다 — 협업이 아니라 산업 스파이 소송이었다</h1>
+  <p class="dek">2024년 아이폰에 챗GPT를 심었던 두 회사가, 2026년엔 41쪽짜리 소장으로 마주 섰다 — 애플 출신 400명 이상이 오픈AI로 옮겨간 결과다</p>
+
+  <p>2024년 6월, 애플은 자사 음성비서 '시리'(Siri)에 오픈AI의 챗GPT를 심겠다고 발표했다. 경쟁사가 아니라 <b>파트너</b>로 소개된 순간이었다. 그로부터 딱 2년 뒤인 2026년 7월 10일, 애플은 그 오픈AI를 캘리포니아 연방법원에 세웠다 — 이유는 계약 분쟁이 아니라, <b>영업비밀 침해</b>라는 훨씬 날 선 혐의였다.</p>
+
+  <h2>먼저, 무슨 일이 있었나</h2>
+  <p>2026년 7월 10일 금요일, 애플은 오픈AI와 그 하드웨어 자회사 <b>'io'</b>(아이오 — 애플 전 디자인 총괄 조니 아이브가 이끌며, 오픈AI가 2025년 5월 약 65억 달러에 인수한 팀)를 상대로 41쪽 분량의 영업비밀 침해 소송을 제기했다. 애플이 그리는 그림은 단순한 이직이 아니라, <b>조직적으로 설계된 정보 유출</b>이다.</p>
+  <p>소장이 제시하는 혐의는 크게 세 갈래다. 첫째는 <b>무단 시스템 접근</b>이다. 애플의 전직 시니어 시스템 엔지니어 창 리우(Chang Liu)는 동료의 업무용 컴퓨터에 있던 인증 결함을 이용해 애플의 내부 네트워크 저장소에 접근했다고 애플은 주장한다. 리우는 이 사실을 "낄낄, 나 이거 접근되는 거 발견했어, 완전 웃기다"는 메시지로 공유했고, 이후 수십 건의 기밀 하드웨어 파일을 내려받은 뒤 오픈AI로 이직했다는 것이 애플 측 설명이다.</p>
+  <p>둘째는 <b>'두더지' 네트워크</b>다. 애플은 리우가 퇴사 후에도 동료 유팅 펑(Yu-Ting Peng)과 연락을 유지하며 애플의 독점 자료를 계속 코칭했고, 펑 역시 뒤이어 오픈AI로 옮겨가면서 정보가 끊이지 않고 흘러가는 통로가 만들어졌다고 주장한다. 셋째는 <b>채용을 가장한 정보 수집</b>이다. 오픈AI의 하드웨어 총괄 탕유 탄(Tang Yew Tan — 애플에서 아이폰·애플워치 제품 디자인 부사장을 지낸 인물)이 애플 재직 중인 직원들을 면접하면서 프로젝트 코드네임까지 거론하며 최대한 많은 정보를 캐냈고, 후보자들에게 CAD 도면과 시제품, 심지어 실제 부품까지 면접 자리에 가져오라고 요구했다는 것이 애플의 주장이다. 이직에 성공한 직원들에게는 애플에 퇴사 사실을 최대한 숨기고 더 오래 조직 안에 남아 있으라고 코칭했다는 대목도 소장에 담겼다.</p>
+  <p>이 유출의 <b>규모</b>도 애플이 강조하는 지점이다. 애플 출신으로 현재 오픈AI에 재직 중인 인원이 <b>400명</b> 이상이라고 소장은 밝힌다. 애플은 또 io가 애플의 <b>금속 가공 기법과 독자적 디자인 공정</b>을 부적절하게 사용했다고도 주장한다. 애플은 2026년 2월 이미 이 우려를 오픈AI 측에 전달했으나 별다른 답을 받지 못했다고 밝혔고, 이번 소송에서는 영업비밀 사용·공개 중단(금지명령), 관련 자료 반환, 그리고 영업비밀 침해와 계약 위반에 따른 손해배상을 요구하고 있다(구체적 청구 금액은 소장에 공개되지 않았다). CNBC는 이 사건을 애플이 "조직적 시도"("scheme")로 규정했다고 보도했다.</p>
+  <p>오픈AI 측 반응은 짧고 방어적이었다. 회사는 "우리는 다른 회사의 영업비밀에는 관심이 없다. 우리는 계속해서 사람들에게 힘을 주는 혁신적 기술을 만드는 데 집중하고 있다"는 공식 입장만 냈다. 정작 이 모든 논란의 중심에 있는 오픈AI의 하드웨어 기기 자체는 여전히 베일에 싸여 있다 — 샘 알트먼 CEO가 2025년 5월 초기 프로토타입을 두고 "세상이 지금까지 본 것 중 가장 멋진 기술 조각"이라 언급한 것 말고는, 구체적 사양이나 출시 시점 모두 공개되지 않았다. 다만 업계에서는 이 기기가 스마트폰을 대체할 차세대 AI 접점을 노린다는 관측이 나온다.</p>
+
+  <div class="layer">
+    <div class="lh">이 소송은 어디서 왔는가 — 2년 전 악수의 결말</div>
+    <p>2024년 6월, 애플은 챗GPT를 시리와 애플 인텔리전스에 통합하겠다고 발표했다. 오픈AI 내부에서는 이 협업을 구글이 애플 사파리의 기본 검색엔진 자리를 지키려 매년 200억 달러 넘게 지불하는 그 유명한 계약에 견줘 기대했다는 보도가 있다. 그러나 그해 9월 iOS 18과 함께 실제로 나온 통합은 기대에 크게 못 미쳤다 — 대화 기억 기능도, 커스텀 GPT도, 고급 음성모드도 빠졌고, 사용자는 시리 안에서 매번 일일이 "챗GPT"를 호출해야 했다. 블룸버그가 인용한 오픈AI 관계자는 이 시기를 이렇게 요약했다 — "그들[애플]은 기본적으로 <b>'오픈AI가 일단 믿고 맡겨야 한다'는 태도</b>였다. 그리고 잘 되지 않았다." 실제 매출도 애초 기대치 근처에도 못 갔다고 블룸버그는 전했다.</p>
+    <p>2026년 5월 5일, 애플은 iOS 27부터 시리 안에서 챗GPT 대신 클로드·제미나이도 선택할 수 있게 하겠다고 밝혔다 — 그리고 새 기본값은 구글과의 별도 계약을 통해 <b>제미나이 기반 모델</b>이 될 예정이라고 보도됐다. 챗GPT는 애플 생태계 안에서 유일한 파트너에서, 여러 선택지 중 하나로 내려앉았다. 그로부터 9일 뒤인 5월 14일, 블룸버그는 오픈AI가 이 "삐걱거리는" 파트너십을 이유로 애플을 상대로 한 계약 위반 소송을 검토 중이며 이미 외부 자문을 선임했다고 보도했다. 그리고 다시 두 달 뒤인 7월 10일, 이번엔 반대로 애플이 오픈AI를 상대로 영업비밀 소송을 걸었다.</p>
+  </div>
+
+  <p>2024년 애플이 오픈AI에 요구한 것은 "일단 믿고 맡겨 달라"는 leap of faith였다. 2026년 애플이 오픈AI에 내놓은 답은 "이제 기본값은 제미나이"라는 통보였다 — 그리고 그 통보가 나온 두 달 뒤, 두 회사는 서로 다른 이유로 서로를 법정에 세울 준비를 하고 있었다.</p>
+
+  <blockquote>
+    <p><b>신호 판정 — 5표식 충족</b></p>
+    <p><b>구조변화</b>: 플랫폼 안에 얹혀사는 AI가 얼마나 쉽게 대체될 수 있는지가, 챗GPT의 시리 기본값 상실이라는 구체적 사건으로 확인됐다 — 그리고 그 종속에서 벗어나려던 시도(자체 하드웨어)가 오히려 소송으로 번졌다.</p>
+    <p><b>자금·권력 이동</b>: 애플은 기본 AI 자리를 구글의 제미나이로 넘겼고, 오픈AI는 65억 달러를 들인 하드웨어 조직(io)과 애플 출신 400명 이상의 인재로 활로를 찾다 소송에 걸렸다 — 권력은 플랫폼(애플)에서 다음 플랫폼(구글)으로, 자본과 인재는 소프트웨어에서 하드웨어로 동시에 움직였다.</p>
+    <p><b>선례</b>: 애플이 요긴했던 파트너를 대체 가능해지는 순간 밀어내는 것도(구글 지도·플래시·스포티파이), 밀려난 쪽이 자체 하드웨어로 반격하는 것도 처음이 아니다 — 2021년 메타가 애플의 추적 정책 변경 하나로 연 100억 달러대 광고 매출을 잃은 뒤 자체 하드웨어(리얼리티랩)에 사활을 건 것과 같은 패턴이, 5년 만에 다른 산업에서 반복되고 있다.</p>
+    <p><b>도메인 교차</b>: 기술(AI를 담을 하드웨어 인터페이스)×산업(플랫폼 종속과 파트너 마진화)×AI(대체 가능해진 모델의 위상)가 한 사건 안에서 얽혔다.</p>
+    <p><b>논란</b>: 애플만 오픈AI를 고소한 게 아니다 — 오픈AI도 애플 상대 계약위반 소송을 저울질하고 있었다는 점에서, 이건 일방적 소송이 아니라 양쪽 다 법적 카드를 만지작거리는 상호 긴장이다.</p>
+  </blockquote>
+
+  <p class="teaser">여기까지가 '무슨 일이 있었는가'다. 그러나 The Signal이 진짜 추적하는 것은 그다음이다 — 오픈AI는 왜 하필 '하드웨어'로 도피했는가, 그리고 그 도피가 왜 오픈AI만의 이야기가 아닌지다.</p>
+
+  <hr>
+
+  <h2>왜 신호인가</h2>
+  <p>표면만 보면 이 소송은 "AI랩이 빅테크 인재를 빼가다 걸렸다"는 인사 분쟁처럼 읽힌다. 그러나 오픈AI가 왜 하필 한 번도 해본 적 없는 <b>하드웨어</b>에 65억 달러를 태우고 뛰어들었는지를 놓고 보면 다른 그림이 보인다. 오픈AI는 애플의 플랫폼 안에서 자신이 어떻게 다뤄지는지를 이미 2년째 지켜본 뒤였다. 대화 기억도 고급 음성모드도 빠진 채 묻힌 통합, 기대에 못 미친 매출, 그리고 마지막엔 기본값 자리마저 경쟁사(구글)에 내주는 통보 — 이 모든 게 오픈AI가 아무것도 되돌릴 수 없는 위치에서 일어났다. 애플이 정하면 오픈AI는 따를 뿐이었다.</p>
+  <p>이 경험이 남긴 교훈은 단순하다 — <b>남의 기기 안에 사는 AI는, 그 기기를 쥔 쪽이 마음을 바꾸는 순간 언제든 대체될 수 있다는 것</b>이다. 그리고 이 교훈에 도달한 게 오픈AI 혼자가 아니라는 사실이, 이 사건을 애플·오픈AI만의 해프닝이 아니라 업계 전체의 신호로 만든다. 구글은 2026년 5월 I/O에서 삼성과 손잡고 제미나이 기반 스마트글래스를 공개하며 메타의 레이밴을 정면으로 겨눴고, 메타는 같은 해 6월 더 저렴한 자체 AI 글래스를 새로 설계 중이라고 밝혔다. 세 회사 모두 출발점은 달랐지만 같은 결론에 도달했다 — AI 모델의 성능만으로는 충분하지 않고, 사용자가 직접 만지는 <b>기기 그 자체</b>를 쥐고 있어야 다른 플랫폼의 결정에 좌우되지 않는다는 결론이다.</p>
+
+  <h2>신호에서 체제로</h2>
+  <p>이 사건이 체제 수준에서 말하는 것은, AI 경쟁의 승부처가 모델 성능 하나에서 <b>사용자와의 접점 소유권</b>으로 넓어지고 있다는 사실이다. 소프트웨어로만 존재하는 AI는 결국 누군가의 화면 위, 누군가의 운영체제 안에 세 들어 사는 처지를 벗어나지 못한다. 애플이 구글 지도·플래시·스포티파이를 상대로 반복해온 패턴 — 유용할 때는 들이고, 대체할 수 있게 되면 밀어낸다 — 은 소프트웨어에 갇힌 기업이 치르는 대가를 앞서 보여준 전례이기도 하다. 2021년 메타는 애플의 추적 정책 변경(ATT) 하나로 연 100억 달러대 광고 매출을 잃었고, 저커버그는 그해 10월 창업자 서한에서 "그들의 규칙 아래 사는 것이 테크 업계를 보는 제 관점을 근본적으로 바꿔놨다"고 밝히며 리얼리티랩에 수십조 원을 쏟아부었다. 오픈AI는 그 학습을 5년 뒤 다른 산업에서 반복하고 있다.</p>
+  <p>그래서 이 사건의 진짜 무게는 소송의 승패가 아니라, <b>구글·메타·오픈AI가 서로 다른 이유로 같은 시기에 같은 결론(자체 하드웨어)에 도달했다는 사실</b>에 있다. 하드웨어는 이제 애플 같은 디자인 중심 기업만의 관심사가 아니라, 플랫폼에 종속되지 않으려는 모든 AI 사업자의 조건이 되고 있다. 앞으로 AI 경쟁을 지켜볼 때 던져야 할 질문은 "어느 모델이 가장 똑똑한가"가 아니라, <b>"어느 회사가 자기 모델을 얹을 자기 기기를 갖고 있는가"</b>다.</p>
+
+  <h2>무엇을 지켜볼 것인가</h2>
+  <div class="check">
+    <div class="ci">자가 점검</div>
+    <ol>
+      <li>iOS 27이 실제로 출시된 뒤 시리의 기본 AI가 제미나이로 넘어가면서, 챗GPT의 애플 생태계 안 사용량이 실제로 줄어드는지.</li>
+      <li>오픈AI가 검토해온 애플 상대 계약위반 소송을 실제로 제기하는지 — 제기되면 이번 영업비밀 소송과 맞물려 두 회사가 서로를 동시에 법정에 세우는 구도가 완성된다.</li>
+      <li>구글(제미나이 글래스)·메타(자체 저가형 글래스)·오픈AI(io) 세 곳 중 어느 쪽이 실물 기기를 먼저 내놓는지, 그리고 그 기기가 실제로 소프트웨어만으로는 못 만든 사용자 락인을 만들어내는지.</li>
+      <li>이번 소송에서 애플이 요청한 가처분(영업비밀 사용·공개 금지)이 실제로 받아들여져 오픈AI의 하드웨어 개발 일정이 지연되는지.</li>
+    </ol>
+  </div>
+
+  <div class="summary"><b>한 줄 정의</b> — 오픈AI가 애플의 플랫폼 안에서 2년간 겪은 것은 대체 가능한 파트너의 자리였다. 그 자리에서 벗어나려 뛰어든 하드웨어가 오히려 소송을 불렀다는 것은, AI 경쟁의 승부처가 이제 모델 성능이 아니라 <b>사용자와의 접점을 누가 소유하는가</b>로 옮겨가고 있다는 신호다 — 그리고 그 신호를 구글과 메타도 같은 시기, 같은 방향으로 읽고 있다.</div>
+
+  <div class="sources">
+    <h3>출처</h3>
+    <ul>
+      <li>Apple sues OpenAI for trade secret theft — <em>Axios</em> (2026-07-10)</li>
+      <li>Apple sues OpenAI over alleged trade secret theft — <em>TechCrunch</em> (2026-07-10)</li>
+      <li>The wildest allegations in Apple's trade secrets lawsuit against OpenAI — <em>TechCrunch</em> (2026-07-13)</li>
+      <li>Apple sues OpenAI alleging trade secret theft, says scheme was "at every level" — <em>CNBC</em> (2026-07-10)</li>
+      <li>Apple accuses OpenAI of using stolen trade secrets to create its upcoming AI gadgets — <em>CNN</em> (2026-07-10)</li>
+      <li>Apple Sues OpenAI for Trade Secret Theft Over AI Hardware Designs — <em>Bloomberg</em> (2026-07-10)</li>
+      <li>Stolen laptops, data breaches, secret moles, and recruiting-as-espionage — <em>Fortune</em> (2026-07-13)</li>
+      <li>Apple isn't paying OpenAI to use ChatGPT — <em>Fortune</em> (2024-06-13)</li>
+      <li>iOS 27 Will Let You Pick Claude or Gemini Instead of ChatGPT for Apple Intelligence — <em>MacRumors</em> (2026-05-05)</li>
+      <li>OpenAI-Apple Partnership Frays, Setting Up Possible Legal Fight — <em>Bloomberg</em> (2026-05-14)</li>
+      <li>OpenAI is reportedly preparing legal action against Apple; it wouldn't be the first partner to feel burned — <em>TechCrunch</em> (2026-05-14)</li>
+      <li>OpenAI Considering Legal Action Against Apple Over "Strained" Siri Partnership — <em>MacRumors</em> (2026-05-14)</li>
+      <li>Google I/O 2026: Samsung and Google unveil Gemini-powered smart glasses to rival Ray-Ban Meta — <em>Digit</em> (2026-05)</li>
+      <li>Meta is now designing its own, cheaper AI smart glasses — <em>CNN</em> (2026-06-23)</li>
+      <li>Facebook says Apple iOS privacy change will result in $10 billion revenue hit this year — <em>CNBC</em> (2022-02-02)</li>
+      <li>Apple, Meta And The $10 Billion Impact Of Privacy Changes — <em>Forbes</em> (2022-02-10)</li>
+      <li>Founder's Letter, 2021("Living under their rules has profoundly shaped my views on the tech industry") — <em>Meta(about.fb.com)</em> (2021-10)</li>
+    </ul>
+  </div>
+
+  <div class="disc">
+    <b>면책</b>
+    언급된 기업은 산업 구조를 설명하기 위한 예시이며, 특정 금융투자상품의 매수·매도를 권유하지 않습니다. 인용된 수치·기관·사실은 신호 해석을 위한 근거이며, 투자 판단이나 종목의 매력도를 의미하지 않습니다.
+  </div>
+
+</article>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;"><div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;"><a href="index.html" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>&nbsp;·&nbsp;<a href="archive.html" style="color:#26467d;font-weight:600;text-decoration:none;">이전 글 전체 보기</a></div></div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

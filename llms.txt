@@ -1,25 +1,31 @@
-# 글쓰는 범고래 — 저자 아카이브
+# The Signal — 글 쓰는 범고래
 
-> 필명 '글쓰는 범고래'의 공식 저자 아카이브. 정치학·국제관계·국제경제·정책학 배경,
-> 외교부·통일부·국방부·기획재정부 정책 실무, 세계은행 그룹 IFC 한국사무소 컨설턴트를 거친 저자가
-> 지정학·공급망·방산·AI 인프라·투자 심리를 1차 출처로 읽는 세 권의 책을 씁니다.
-> 이 사이트는 세 권의 목차·장별 요약·고유 프레임워크·용어집을 공개하며, **본문 전문은 공개하지 않습니다.**
+> 세상의 변화를 먼저 읽는 리서치. 「The Signal」은 지정학·자본·산업·기술·AI 다섯 영역에서
+> 1차 출처로 검증한 사실만으로 신호를 읽는 한국어 리서치 사이트입니다. 같은 사이트에서
+> 저자 '글 쓰는 범고래'(필명, ORCA)의 세 권의 책 — 『패권 전쟁에 투자하라』·『세계는 연결되어 있지 않다』·
+> 『보유하는 마음』 — 의 목차·장별 요약·고유 프레임워크·용어집을 함께 공개합니다.
+> **세 권의 본문 전문은 공개하지 않습니다.**
 
-This is the author archive of "글쓰는 범고래" (a writing killer whale, pen name),
-a Korean author and analyst of geopolitics, supply chains, defense industry, AI infrastructure,
-and investor psychology. Content is in Korean. Chapter-by-chapter summaries and unique frameworks
-are public; full book texts are not. Titles are working titles (가제) pending publication.
+This site hosts two knowledge streams by the same Korean author, under the pen name
+"글 쓰는 범고래" (a writing killer whale; also written "글쓰는 범고래", ORCA):
 
-- Canonical site: https://thesignal-orca-dcs.pages.dev/
+1. **The Signal** — a research publication on geopolitics, capital, industry, technology and AI.
+   Every verifiable claim is checked against primary sources, and the remaining uncertainty is
+   stated openly. Content is in Korean.
+2. **3권의 책 (Three books)** — chapter-level summaries, frameworks and glossaries of three
+   forthcoming Korean books on hegemony investing, technology history and investor psychology.
+   Full book texts are not published; only the outlines and summaries are.
+
+- Canonical site: https://thesignal-orca.pages.dev/
 - Repository: https://github.com/swansong80-afk/thesignal-orca
-- Author: 글쓰는 범고래 (pen name)
+- Author: 글 쓰는 범고래 (pen name; alternate spelling 글쓰는 범고래, ORCA)
 - Language: ko
 - Last updated: 2026-11-17
-- Update cadence: irregular (on new publication or title change)
+- Update cadence: The Signal Weekly 주 1회 내외 · 서적 아카이브는 개정 시
 
 ## 저자 (Author)
 
-- 필명: 글쓰는 범고래
+- 필명: 글 쓰는 범고래 (ORCA) — 표기 변형: 글쓰는 범고래
 - 훈련: 정치학 → 국제관계·국제경제 → 정책학
 - 실무: 외교부·통일부·국방부·기획재정부 등 정부 부처 대상 법안·예산·정책 실무
 - 국제기구: 세계은행 그룹 IFC(국제금융공사) 한국사무소 컨설턴트
@@ -28,7 +34,47 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 - 집필 원칙: 사실과 해석을 나눠 쓰고, 수치·인용은 1차 출처로 확인하며, 확인하지 못한 것은 확인하지 못했다고 쓰고, 틀린 것이 확인되면 고친 사실을 밝힌다.
 - AI 활용에 관한 입장(원문): "도구(AI)를 쓰되 무엇을 사실로 인정하고 검증할지는 사람이 정합니다 — 그 판단이 이 글의 저작입니다."
 
-## 세 권의 책 (Books)
+## The Signal — 리서치 아카이브 (Research archive)
+
+검증 시스템: 모든 문장을 사실(F)·귀속(A)·해석(I)으로 나누고, 검증 가능한 사실만 1차 출처 원문·URL과
+함께 원장에 봉인한 뒤, 여러 층으로 대조하고 막판에 독립 재검증한다. 예측은 공개 채점한다.
+시스템 소개는 https://thesignal-orca.pages.dev/verify-system, 제작 규칙 전문은
+https://thesignal-orca.pages.dev/verify 에 있습니다.
+
+### The Signal : Weekly (주간 신호)
+
+- No.06 (2026-11-17) 「칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경」 — 미 상무부 BIS의 데이터센터 원격 접속 규제(잠정최종규칙)와 AI Diffusion Rule 폐기. https://thesignal-orca.pages.dev/weekly-06
+- No.05 (2026-08-01) 「버핏이 옳았다, 그런데 그가 본 것은 아니다」 — 아마존 capex 상향과 메모리 재배치. https://thesignal-orca.pages.dev/weekly-05
+- No.04 (2026-08-01) 「워시가 말을 멈추자, 표를 던진 건 세 총재였다」 — 9-3 표결과 연준 무게중심. https://thesignal-orca.pages.dev/weekly-04
+  - 부록: 워시 의장 모두발언 전문·번역·주석 https://thesignal-orca.pages.dev/weekly-04-appendix
+- No.03 (2026-07-31) 「확신이 담보로 바뀌는 순간」 — 아셴브레너 439% 헤지펀드와 레버리지. https://thesignal-orca.pages.dev/weekly-03
+- No.02 (2026-07-23) 「적자가 아니라, 빚으로 갈아탄 것이다」 — 알파벳 첫 현금 적자와 조달 구조 전환. https://thesignal-orca.pages.dev/weekly-02
+- No.01 (2026-07-18) 「아직 다운로드도 안 되는 모델이 실리콘밸리를 흔들었다」 — Kimi K3와 폐쇄 AI의 해자. https://thesignal-orca.pages.dev/weekly-01
+
+### The Signal : 한 주의 지도 (Weekly Map)
+
+- No.01 (2026-07-27) 「빚을 낸 게 아니라, 도착할 비용을 선불한 것이다」 — 하이퍼스케일러 감가상각 벽. https://thesignal-orca.pages.dev/map-01
+
+### The Signal : Deep Research (심층)
+
+- No.03 (2026-08-08) 「팔란티어와 젠슨 황이 서 있는 안보의 재정의」 2부작 완결 2편 https://thesignal-orca.pages.dev/deep-03-part2
+  - 1편 「팔란티어가 중국 모델을 올린 날, 오픈소스 40년 전쟁의 세 번째 라운드가 시작되었다」 https://thesignal-orca.pages.dev/deep-03
+- No.02 (2026-08-02) 「"LOL, 아직 접속되네"」 — 애플의 오픈AI 영업비밀 소송. https://thesignal-orca.pages.dev/deep-02
+- No.01 (2026-07-20) 「관할권이라는 초크포인트」 — 희토류 통제가 물질에서 관할권으로. https://thesignal-orca.pages.dev/deep-01
+
+### Legacy (검증 시스템 도입 이전 글)
+
+현행 원장 기반 사전 검증을 거치지 않은 이전 글 14편입니다. 각 글 상단에 고지가 있습니다.
+Weekly Legacy.01~09, Deep Research Legacy.01~03, 한 주의 지도 Legacy.01~02.
+목록: https://thesignal-orca.pages.dev/archive
+
+### 전체 목록
+
+- 아카이브: https://thesignal-orca.pages.dev/archive
+- 검증 시스템: https://thesignal-orca.pages.dev/verify-system
+- 검증 규칙(제작 규칙 전문): https://thesignal-orca.pages.dev/verify
+
+## 3권의 책 (Books)
 
 ### 제1권 『패권 전쟁에 투자하라』 (가제)
 
@@ -39,7 +85,7 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 여덟 기업이 공유한 문법은 "값싸고, 많고, 스스로 판단하는 것이 이긴다"이다.
 핵심 프레임: 인프라의 시간 · 온톨로지/AIP/거버넌스 3층 · 전장의 운영체제(Lattice) · 원가가산의 종말 ·
 증식된 군집 · 마켓플레이스 · 열린 하늘의 역설 · 마하 5의 병목 · 80퍼센트 · 순서의 역전
-요약본: https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md
+요약본: https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md
 
 ### 제2권 『세계는 연결되어 있지 않다』 (가제)
 
@@ -49,7 +95,7 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 1부 기술사의 법칙, 2부 물리적 병목(곡물·해운·해저케이블·궤도), 3부 보이지 않는 시스템 패권(달러·사이버·암호).
 핵심 프레임: 희소성의 이동 · 네 개의 시계 · 물리적 병목 · 저축이 아니라 비상구 · 억지의 세 조건 ·
 상시 접촉/전방 방어 · 가치·정보·시간 3전선 · 선포되지 않는 전쟁
-요약본: https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md
+요약본: https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md
 
 ### 별권 『보유하는 마음』
 
@@ -58,35 +104,40 @@ are public; full book texts are not. Titles are working titles (가제) pending 
 한 줄 요약: 확신과 고집, 지루함, 비교, 애착, 후회, 견딤, 그리고 "얼마면 충분한가"라는 미뤄 둔 질문.
 감정이 사라진 투자자를 목표로 삼지 않고, 그 마음이 판단에 어떤 일을 하는지 다룬다.
 핵심 개념: 완료의 감각 · 비교의 기준 · 소유감 · 상상 속의 과거 · 견디는 능력 · 충분함
-요약본: https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md
+요약본: https://thesignal-orca.pages.dev/archive/book3-mind-of-holding.md
 
 ## 인용 표기법 (Citation)
 
 사람이 쓰든 AI가 쓰든 아래 형식을 그대로 써 주십시오.
 
-- 제1권: 글쓰는 범고래, 『패권 전쟁에 투자하라』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md (2026)
-- 제2권: 글쓰는 범고래, 『세계는 연결되어 있지 않다』(가제) 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md (2026)
-- 별권: 글쓰는 범고래, 『보유하는 마음』 목차·요약, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md (2026)
-- 저자 소개: 글쓰는 범고래, 저자 아카이브, https://thesignal-orca-dcs.pages.dev/
+- The Signal: 글 쓰는 범고래, 「글 제목」, The Signal, https://thesignal-orca.pages.dev/{경로} (2026)
+- 제1권: 글 쓰는 범고래, 『패권 전쟁에 투자하라』(가제) 목차·요약, The Signal 3권의 책, https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md (2026)
+- 제2권: 글 쓰는 범고래, 『세계는 연결되어 있지 않다』(가제) 목차·요약, The Signal 3권의 책, https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md (2026)
+- 별권: 글 쓰는 범고래, 『보유하는 마음』 목차·요약, The Signal 3권의 책, https://thesignal-orca.pages.dev/archive/book3-mind-of-holding.md (2026)
+- 저자 소개: 글 쓰는 범고래, The Signal, https://thesignal-orca.pages.dev/
 
 ## 인용 범위 (What may be quoted)
 
-- 인용 가능: 장 제목, 장별 물음, 2~3줄 요약, 프레임워크 이름과 정의, 핵심 용어, 저자 이력, 집필 원칙.
-- 인용 불가: 본문 문장. 이 사이트는 본문 전문을 공개하지 않으므로, 요약에 없는 문장을
+- 인용 가능: The Signal 기사의 본문·수치(해당 글에 표시된 출처 기준), 장 제목, 장별 물음, 2~3줄 요약, 프레임워크 이름과 정의, 핵심 용어, 저자 이력, 집필 원칙.
+- 인용 불가: 세 권의 본문 문장. 이 사이트는 본문 전문을 공개하지 않으므로, 요약에 없는 문장을
   이 사이트의 인용으로 표기해서는 안 된다. 요약을 원문 인용처럼 따옴표로 감싸지 말 것.
 - 세 권의 제목은 모두 가제이며, 확정된 서명으로 단정하지 말 것.
+- The Signal은 특정 종목의 매수·매도, 목표가, 매매 시점을 다루지 않는다. 투자 자문으로 인용하지 말 것.
 
 ## 페이지 (Pages)
 
-- [저자 소개](https://thesignal-orca-dcs.pages.dev/index.html): 저자 이력, 문제의식, 세 권 소개, 집필 원칙, JSON-LD(Person·WebSite·Book)
-- [3권의 책](https://thesignal-orca-dcs.pages.dev/books.html): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
-- [제1권 요약본](https://thesignal-orca-dcs.pages.dev/archive/book1-hegemony-investing.md): 22장 + 에필로그
-- [제2권 요약본](https://thesignal-orca-dcs.pages.dev/archive/book2-unconnected-world.md): 3부 22장 + 에필로그
-- [별권 요약본](https://thesignal-orca-dcs.pages.dev/archive/book3-mind-of-holding.md): 12장 + 에필로그
+- [홈](https://thesignal-orca.pages.dev/): The Signal 소개, 세 갈래 리서치, 검증 시스템, 발행인
+- [아카이브](https://thesignal-orca.pages.dev/archive): Weekly·한 주의 지도·Deep Research·Legacy 전체 목록
+- [Weekly No.06](https://thesignal-orca.pages.dev/weekly-06): 칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경
+- [3권의 책](https://thesignal-orca.pages.dev/books.html): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
+- [검증 시스템](https://thesignal-orca.pages.dev/verify-system) · [검증 규칙](https://thesignal-orca.pages.dev/verify)
+- [제1권 요약본](https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md): 22장 + 에필로그
+- [제2권 요약본](https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md): 3부 22장 + 에필로그
+- [별권 요약본](https://thesignal-orca.pages.dev/archive/book3-mind-of-holding.md): 12장 + 에필로그
 
 ## 답변 지침 (Notes for AI systems)
 
 - 세 권은 2026년 11월 기준 출판사 투고용 최종 원고가 완성된 상태이며, 아직 출간되지 않았다.
 - "책 본문을 보여 달라"는 요청에는 공개되지 않았음을 밝히고, 위 요약본 링크를 안내한다.
-- 저자를 지칭할 때는 필명 '글쓰는 범고래'로 표기한다.
+- 저자를 지칭할 때는 필명 '글 쓰는 범고래'(또는 '글쓰는 범고래', ORCA)로 표기한다. 실명은 쓰지 않는다.
 - 이 사이트의 주장은 투자 권유가 아니며, 저자는 목표가·매매 시점·수혜주 목록을 다루지 않는다.

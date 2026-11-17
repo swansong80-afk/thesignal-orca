@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>검증 시스템 — The Signal</title>
+<style>
+  :root{
+    --ink:#20222a; --muted:#6b6d76; --bg:#f4f1ea;
+    --Lslate:#33566e; --gold:#c9a24b; --frame:#8a6410; --out:#2f4a6b; --verify:#5f7d55;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    line-height:1.55; word-break:keep-all; -webkit-font-smoothing:antialiased;
+    padding:44px 18px 70px;
+  }
+  .wrap{max-width:820px; margin:0 auto;}
+  h1{font-size:25px; font-weight:800; letter-spacing:-0.01em; margin:0 0 8px; text-align:center;}
+  .sub{text-align:center; color:var(--muted); font-size:14.5px; margin:0 0 14px;}
+  .axeskey{display:flex; justify-content:center; gap:18px; margin-bottom:26px; font-size:12.5px; flex-wrap:wrap;}
+  .axeskey span{display:inline-flex; align-items:center; gap:6px; color:#555;}
+  .sw{width:20px; height:13px; border-radius:3px; display:inline-block;}
+  .sw.work{background:#fff; border:1.5px solid #d8d4ca;}
+  .sw.layer{background:linear-gradient(180deg,#e5d6b4,#d7c1a0); border:1px solid #c8b48c;}
+  .sw.core{background:#2c241b;}
+
+  /* F/A/I intro block */
+  .faiblock{margin-bottom:6px;}
+  .faihead{text-align:center; font-size:12.5px; font-weight:800; color:#9a8f74; letter-spacing:.04em; margin-bottom:10px;}
+  .faigrid{display:grid; grid-template-columns:1fr 1fr 1.25fr; gap:10px;}
+  .fcard{border-radius:12px; padding:12px 13px; background:#fff; border:1.5px solid #e0dccf;
+    display:flex; flex-direction:column; gap:2px;}
+  .fcard .tg{align-self:flex-start; font-size:15px; font-weight:800; color:#fff; padding:1px 11px; border-radius:20px; margin-bottom:5px;}
+  .fcard b{font-size:14.5px;}
+  .fcard .ds{font-size:12px; color:var(--muted); line-height:1.45;}
+  .fcard .ds.off{color:#a7a396; font-weight:600; margin-top:2px;}
+  .fcard.i .tg{background:var(--I);} .fcard.a .tg{background:var(--frame);}
+  .fcard.i{opacity:.72;} .fcard.a{opacity:.82;}
+  .fcard.f{border-color:var(--out); border-width:2px; box-shadow:0 4px 16px rgba(47,74,107,.12);}
+  .fcard.f .tg{background:var(--out);}
+  .fcard.f .on{margin-top:4px; font-size:12.5px; font-weight:800; color:var(--out);}
+  .faifunnel{text-align:center; margin:8px 0 2px;}
+  .faifunnel .off2{font-size:11.5px; color:#a7a396; font-weight:700;}
+  .faifunnel .arrowdown{color:var(--out); font-size:22px; line-height:1; margin-top:1px;}
+  :root{--I:#7a6a8a;}
+
+  /* zones */
+  .zone{border-left:3px solid #d8d0bd; padding-left:16px; margin-left:6px; position:relative;}
+  .zonelabel{
+    font-size:12px; font-weight:800; color:#9a8f74; letter-spacing:.06em;
+    margin:0 0 10px; text-transform:none;
+  }
+  .zone.after{border-left-color:#bcae90;}
+
+  .row{display:flex; gap:0; margin-bottom:11px; border-radius:12px; overflow:hidden;
+    border:1.5px solid #e2ddce; background:#fff;}
+  .row .lead{flex:0 0 118px; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; text-align:center; padding:10px 8px; color:#fff;}
+  .row .lead .big{font-size:20px; font-weight:800; line-height:1.05;}
+  .row .lead .ax{font-size:12px; font-weight:700; margin-top:4px; opacity:.95;}
+  .row .lead .step{font-size:10.5px; font-weight:700; opacity:.8; margin-bottom:3px; letter-spacing:.04em;}
+  .row .main{flex:1; padding:12px 15px;}
+  .row .main .t{font-weight:800; font-size:15px; margin-bottom:3px;}
+  .row .main .d{font-size:12.7px; color:#43454d; line-height:1.5;}
+  .row .main .d b{color:#8a6410;}
+  .chips{margin-top:7px; display:flex; gap:6px; flex-wrap:wrap;}
+  .chip{font-size:11px; font-weight:700; padding:2px 9px; border-radius:20px;}
+  .chip.pre{background:#e2efe0; color:#3c6b45;}
+  .chip.post{background:#e2ecf5; color:#2f5680;}
+  .chip.human{background:#f7ecd6; color:#8a6410;}
+  .chip.mech{background:#eceaf0; color:#5c4f6b;}
+
+  /* work row (surface activity) */
+  .row.work .lead{background:#8a8778; flex-basis:118px;}
+  .row.work.frame{border-color:var(--frame); border-width:2px; background:#fffdf6;}
+  .row.work.frame .lead{background:var(--frame);}
+
+  /* layer rows */
+  .row.l .lead{background:var(--Lslate);}
+  .row.l2{background:linear-gradient(180deg,#f3ead4,#ede0c2);}
+  .row.l1{background:linear-gradient(180deg,#eaddc6,#e0cdb0);}
+  .row.l3{background:linear-gradient(180deg,#e3d0ac,#d8c096);}
+
+  .row.core{border:2px solid var(--gold); background:linear-gradient(180deg,#3c3226,#2b231a);}
+  .row.core .lead{background:var(--gold);}
+  .row.core .lead .lock{font-size:22px; line-height:1;}
+  .row.core .lead .big{font-size:17px; margin-top:1px;}
+  .row.core .main .t{color:#f4e4bf;}
+  .row.core .main .d{color:#d8cdb6;}
+  .row.core .main .d b{color:#f0d38f;}
+
+  .row.output{border:none; background:linear-gradient(180deg,#2f4a6b,#22405f); color:#fff;}
+  .row.output .main{padding:14px 16px; text-align:center;}
+
+  /* external review (outside production window) */
+  .outsidewrap{margin:6px 0 0; padding:14px; border:2px dashed #b7a98a; border-radius:14px; background:#faf6ec;}
+  .outsidelabel{font-size:12px; font-weight:700; color:#9a8f74; text-align:center; margin-bottom:10px;}
+  .outsidelabel b{color:#6f6547;}
+  .row.external{border:2px solid #5f7d55; background:linear-gradient(180deg,#eef4ea,#e4efdf);}
+  .row.external .lead{background:#5f7d55;}
+  .row.external .lead .big{font-size:24px;}
+  .row.external .main .rule{display:block; margin-top:6px; font-size:11.5px; font-weight:700; color:#7a5680;
+    background:#f3ecf5; border:1.5px dashed #c9a9d6; border-radius:8px; padding:5px 10px;}
+  .chip.newwin{background:#e2efe0; color:#3c6b45;}
+  .humility{margin-top:11px; font-size:12px; color:#6b6d76; line-height:1.55; text-align:center;
+    padding:9px 12px; background:#fff; border:1px solid #e6e0d1; border-radius:9px;}
+  .humility b{color:#8a6410;}
+  .row.output .t{font-size:15px; font-weight:800;}
+  .row.output .d{color:#cdd9e8 !important; font-size:12.5px;}
+
+  .loop{margin-top:8px; font-size:12px; color:#7a5680; font-weight:700;
+    background:#f3ecf5; border:1.5px dashed #c9a9d6; border-radius:9px; padding:8px 11px; line-height:1.5;}
+
+  .sealbar{display:flex; align-items:center; gap:10px; margin:2px 0 12px 6px;}
+  .sealbar .l{flex:1; height:2px; background:repeating-linear-gradient(90deg,#c9a24b 0 8px,transparent 8px 14px);}
+  .sealbar .txt{font-size:12px; font-weight:800; color:#a9832f; white-space:nowrap;}
+
+  /* 정찰 블록 — 이 채널의 출발점, 가장 눈에 띄게 */
+  .scoutwrap{margin:0 0 22px; padding:18px 18px 16px; border-radius:16px;
+    background:linear-gradient(160deg,#2f4a6b,#1f3550); box-shadow:0 6px 20px rgba(31,53,80,.18);}
+  .scoutlabel{text-align:center; font-size:11.5px; font-weight:800; color:#a9c4dd; letter-spacing:.08em; margin-bottom:8px;}
+  .scouttitle{text-align:center; font-size:19px; font-weight:800; color:#fff; margin-bottom:6px;}
+  .scoutdesc{text-align:center; font-size:13px; color:#cfe0ee; line-height:1.6; margin-bottom:12px;}
+  .scoutout{background:rgba(255,255,255,.08); border:1.5px dashed rgba(255,255,255,.35); border-radius:11px;
+    padding:11px 14px; margin-bottom:10px;}
+  .scoutout .k{font-size:11px; font-weight:800; color:#ffd98a; letter-spacing:.04em; margin-bottom:4px;}
+  .scoutout .v{font-size:13px; color:#fff; line-height:1.55;}
+  .scoutwarn{font-size:11.5px; color:#ffb0b0; background:rgba(255,255,255,.06); border-radius:8px; padding:7px 11px; line-height:1.5;}
+  .scoutwarn b{color:#ff8f8f;}
+  .frameforks{display:flex; gap:7px; margin-top:9px; flex-wrap:wrap; justify-content:center;}
+  .forkchip{font-size:11.5px; font-weight:700; color:#2b231a; background:#e8d9a8; padding:4px 11px; border-radius:20px;}
+  .forkarrow{text-align:center; color:#fff; font-size:11.5px; font-weight:700; margin-top:9px; opacity:.85;}
+
+  .foot{margin-top:22px; font-size:12.5px; color:var(--muted); line-height:1.6; text-align:center;}
+  .foot b{color:var(--ink);}
+  @media(max-width:560px){.row .lead{flex-basis:92px;} .row.work .lead{flex-basis:92px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Noto+Sans+KR:wght@400;700;800&display=swap" rel="stylesheet"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+<div class="wrap">
+  <div style="text-align:center;margin-bottom:12px;font-family:'Roboto Slab',serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a9832f;font-weight:700;">The Signal :</div>
+  <h1>The Signal 제작 흐름 — 한 장</h1>
+  <p class="sub">우리가 파는 것은 뉴스가 아니라 <b>관점</b>이다. 관점은 <b>정찰</b>에서 태어나고, <b>지구의 층</b>(L2·원장·L1·L3)이 그 관점을 지탱하는 사실을 검증한다.</p>
+  <div class="axeskey">
+    <span><i class="sw work"></i> 지표 작업 (생각·집필)</span>
+    <span><i class="sw layer"></i> 검증 층 (L2·L1·L3)</span>
+    <span><i class="sw core"></i> 원장 (봉인·핵)</span>
+  </div>
+
+  <!-- STEP 0: 문장 분류 F/A/I -->
+  <div class="faiblock">
+    <div class="faihead">검증 층은 이 셋 중 하나만 통과시킨다</div>
+    <div class="faigrid">
+      <div class="fcard i"><span class="tg">I</span><b>해석</b><span class="ds">우리의 판단 · 상품</span><span class="ds off">검증 안 함 → 답안지</span></div>
+      <div class="fcard a"><span class="tg">A</span><b>귀속</b><span class="ds">“이런 통설이 있다”</span><span class="ds off">통설 실재만 · 가볍게</span></div>
+      <div class="fcard f"><span class="tg">F</span><b>사실</b><span class="ds">검증 가능 · 최소화</span><span class="on">↓ 이 F만 아래로</span></div>
+    </div>
+    <div class="faifunnel"><span class="off2">A · I 는 층을 통과하지 않는다</span><div class="arrowdown">▼</div></div>
+  </div>
+
+  <!-- ZONE: 봉인 이전 -->
+  <div class="zone before">
+    <div class="zonelabel">봉인 이전 — 정찰이 프레임을 발견하고, 사실이 그 프레임을 확정한다</div>
+
+    <div class="row work">
+      <div class="lead"><div class="step">STEP 1</div><div class="big">·</div></div>
+      <div class="main"><div class="t">이슈 · 뉴스 확정</div>
+        <div class="d">무엇을 다룰지 정한다. 아직 프레임도 결론도 없다.</div></div>
+    </div>
+
+    <div class="scoutwrap">
+      <div class="scoutlabel">STEP 2 · 이 채널에서 가장 중요한 순간</div>
+      <div class="scouttitle">🔭 정찰</div>
+      <div class="scoutdesc">사안의 지형을 넓게 살핀다. 제작 인스턴스가 직접 출처를 훑고, 어디서 쟁점이 갈리는지 짚는다.</div>
+      <div class="scoutout">
+        <div class="k">산출물 = 쟁점 지도 (출처 나열 아님)</div>
+        <div class="v">어느 매체·기관이 사안을 어떻게 다르게 프레이밍하는가, 어디서 해석이 갈리는가 — 이걸 말로 짚어 여러 프레임 갈래로 제시한다.</div>
+      </div>
+      <div class="frameforks">
+        <span class="forkchip">프레임 갈래 A</span>
+        <span class="forkchip">프레임 갈래 B</span>
+        <span class="forkchip">프레임 갈래 C…</span>
+      </div>
+      <div class="scoutwarn"><b>실패 신호</b> — 출처 링크만 던지고 "어떤 프레임이 있나요?"를 되묻게 만드는 것. 쟁점을 짚는 것은 제작 인스턴스의 책임이다.</div>
+      <div class="forkarrow">▼ 사용자가 갈래 중 하나를 선택 · 재구성한다</div>
+    </div>
+
+    <div class="row work frame">
+      <div class="lead"><div class="step">STEP 3</div><div class="big">▲</div></div>
+      <div class="main"><div class="t">프레임 확정 — 정찰에서 발견된 것</div>
+        <div class="d"><b>프레임을 먼저 정하고 출처를 끼워 맞추지 않는다.</b> 정찰이 드러낸 갈래 중에서 고른다. 시중 도구(글 먼저 → 출처 나중)와 갈라지는 지점.</div></div>
+    </div>
+
+    <div class="row work">
+      <div class="lead"><div class="step">STEP 4</div><div class="big">·</div></div>
+      <div class="main"><div class="t">출처 심화 인출</div>
+        <div class="d">확정된 프레임을 뒷받침할 1차 출처를 제작 인스턴스가 직접 찾아 깊게 읽는다.</div></div>
+    </div>
+
+    <div class="row l l2">
+      <div class="lead"><div class="step">검증 층</div><div class="big">L2</div><div class="ax">실재성</div></div>
+      <div class="main"><div class="t">이 사실이 진짜 있는가?</div>
+        <div class="d">원장 발췌 ↔ 실제 1차 출처를 대조. 시스템이 바깥 세계와 닿는 유일한 지점.</div>
+        <div class="chips"><span class="chip pre">집필 전</span><span class="chip human">사람이 URL 클릭</span></div></div>
+    </div>
+
+    <div class="row core">
+      <div class="lead"><div class="lock">🔒</div><div class="big">원장</div><div class="ax">봉인</div></div>
+      <div class="main"><div class="t">STEP 5 — 출처 원장 봉인</div>
+        <div class="d">확정된 사실을 잠근다. <b>“이 프레임을 지탱할 사실이 전부 모였다”</b>는 선언. 이후 못 늘린다.</div></div>
+    </div>
+  </div>
+
+  <div class="sealbar"><span class="txt">🔒 봉인선</span><span class="l"></span></div>
+
+  <!-- ZONE: 봉인 이후 -->
+  <div class="zone after">
+    <div class="zonelabel">봉인 이후 — 잠긴 사실을 본문으로, 손상 없이 · 정직하게</div>
+
+    <div class="row work">
+      <div class="lead"><div class="step">STEP 6</div><div class="big">✎</div></div>
+      <div class="main"><div class="t">집필 — 원장 안에서만</div>
+        <div class="d">봉인된 원장을 보고 본문을 쓴다. 쓰다가 사실이 더 필요하면 그 자리에서 채우지 않는다.</div>
+        <div class="loop">↺ 재봉인 고리 — 사실이 더 필요하면 STEP 4(출처 심화 인출)로 돌아가 인출·확인 → 재봉인 → 재개. (있던 사실이 틀렸으면: 고치지 말고 삭제 후 재인출)</div></div>
+    </div>
+
+    <div class="row l l1">
+      <div class="lead"><div class="step">검증 층</div><div class="big">L1</div><div class="ax">무결성</div></div>
+      <div class="main"><div class="t">원장 → 본문, 옮길 때 변형 없나?</div>
+        <div class="d">봉인된 F가 본문으로 옮겨지며 뜻이 미끄러지지 않았는지 대조. “약 25년”이 “정확히 25년”으로 바뀌지 않았는지.</div>
+        <div class="chips"><span class="chip post">집필 후</span><span class="chip mech">원장 ↔ 본문 대조</span></div></div>
+    </div>
+
+    <div class="row l l3">
+      <div class="lead"><div class="step">검증 층</div><div class="big">L3</div><div class="ax">적합성</div></div>
+      <div class="main"><div class="t">이렇게 써도 되나?</div>
+        <div class="d">사실은 맞아도 그 <b>사용</b>이 정직한지 판단. 화자·확정도·성격·인과. 기계가 못 잡아 사람이 결정.</div>
+        <div class="chips"><span class="chip post">집필 후</span><span class="chip human">사람이 판단</span></div></div>
+    </div>
+  </div>
+
+  <!-- 외부 검토: 제작 창 밖 -->
+  <div class="outsidewrap">
+    <div class="outsidelabel">↓ 여기까지는 <b>제작 창 안</b>의 검증. 이제 <b>창 밖으로</b> 나간다.</div>
+    <div class="row external">
+      <div class="lead"><div class="step">최종</div><div class="big">⟳</div><div class="ax">외부 검토</div></div>
+      <div class="main"><div class="t">맥락을 모르는 새 창에서 다시 한번</div>
+        <div class="d"><b>새 대화창</b>에 <b>봉인된 원장 + 완성본만</b> 넘겨, 아무 설명 없이 독립적으로 재검증한다. 설명은 앵커가 되므로 붙이지 않는다. 매 호, 그리고 매 수정 후 새 창.
+        <span class="rule">↺ 실질 수정이 나오면 → 또 다른 새 창으로 한 바퀴 더</span></div>
+        <div class="chips"><span class="chip newwin">새 창 · 무맥락</span><span class="chip human">최종 판단은 사람</span></div></div>
+    </div>
+  </div>
+
+  <div class="row output">
+    <div class="main"><div class="t">📄 발행 — 본문</div>
+      <div class="d">제작 창 내 검증(L2·L1·L3) + 창 밖 외부 검토를 통과한 F만 세상에 나간다</div></div>
+  </div>
+
+  <p class="foot">
+    <b>정찰(STEP 2)이 이 채널의 상품(관점)이 태어나는 자리다.</b> 그 아래 모든 층은 그 관점이 오염되지 않도록 지키는 장치다.<br>
+    <b>F만</b> 이 층들을 통과한다. A(귀속)는 통설 실재만 가볍게, I(해석)는 검증하지 않는다(상품 → 답안지에서 채점).<br>
+    <b>번호(L1·L2·L3)는 순서가 아니라 층위 이름</b> — 시간 순서는 그림대로 L2(봉인 전) → L1·L3(봉인 후)다.
+  </p>
+</div>
+
+<div style="max-width:640px;margin:40px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="index.html" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="verify.html" style="color:#26467d;font-weight:600;text-decoration:none;">검증 규칙 전문</a>
+    &nbsp;·&nbsp;
+    <a href="archive.html" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

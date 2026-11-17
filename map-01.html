@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>빚을 낸 게 아니라, 도착할 비용을 선불한 것이다 — The Signal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff; --page:#f3f4f6; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee; --main:720px;
+    --dom:#101c30; --dom-line:rgba(255,255,255,.10); --dom-label:#b9c2d6; --gold:#d9a842;
+    --slab:"Roboto Slab",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--page); color:var(--ink); font-family:var(--sans);
+       font-size:17px; line-height:1.85; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--main); margin:0 auto; background:var(--paper);
+        padding:60px 40px 80px; box-shadow:0 1px 40px -18px rgba(20,24,28,.18);}
+  .masthead{font-family:var(--slab); font-size:1.02rem; letter-spacing:.14em; text-transform:uppercase;
+            color:var(--accent); font-weight:700; margin:0;}
+  .mhrule{border:0; border-top:1px solid var(--rule); margin:15px 0 28px;}
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft); font-weight:600;}
+  h1{font-size:2.05rem; line-height:1.32; letter-spacing:-.02em; margin:0 0 14px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.62; color:var(--ink-soft); font-weight:500; margin:0 0 26px;}
+  .lead{font-size:1.06rem; margin:0 0 4px;}
+  hr{border:0; border-top:1px solid var(--rule); margin:34px 0;}
+  .sigcard{background:var(--dom); border-radius:10px; padding:24px 24px 20px; margin:30px 0 40px;
+           color:#fff; box-shadow:0 22px 46px -28px rgba(16,28,48,.6);}
+  .sigcard .t{font-family:var(--slab); font-size:.8rem; letter-spacing:.26em; text-transform:uppercase;
+              color:var(--gold); margin:0 0 16px; display:flex; justify-content:space-between;}
+  .sigcard .t .rt{color:var(--dom-label); letter-spacing:.18em; font-weight:600;}
+  .sigrow{display:flex; justify-content:space-between; align-items:baseline; gap:18px;
+          padding:10px 0; border-bottom:1px solid var(--dom-line);}
+  .sigrow .k{font-size:13px; color:var(--dom-label); white-space:nowrap;}
+  .sigrow .v{font-size:14.5px; color:#fff; font-weight:500; text-align:right;}
+  .sigrow .star{color:var(--gold); letter-spacing:3px;}
+  .sigweak{margin-top:16px; padding-top:15px; border-top:1px solid var(--dom-line);}
+  .sigweak .k{font-family:var(--slab); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 7px;}
+  .sigweak p{font-size:13.5px; line-height:1.7; color:#e2e6ee; margin:0;}
+  .cap-note{font-size:12px; color:var(--dom-label); margin:14px 0 0; padding-top:12px; border-top:1px solid var(--dom-line); line-height:1.65;}
+  .part{font-family:var(--slab); font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
+        color:var(--accent); font-weight:700; margin:46px 0 4px;}
+  h3.head{font-size:1.42rem; line-height:1.4; letter-spacing:-.01em; font-weight:700; margin:0 0 20px; color:var(--ink);}
+  h4{font-size:1.05rem; font-weight:700; color:var(--cap); margin:22px 0 10px;}
+  p{margin:0 0 20px;}
+  .lead-in{font-weight:700; color:var(--cap);}
+  strong,b{font-weight:700;}
+  ul{margin:0 0 20px; padding-left:0; list-style:none;}
+  ul li{position:relative; padding-left:20px; margin-bottom:12px;}
+  ul li::before{content:""; position:absolute; left:1px; top:.75em; width:7px; height:2px; background:var(--accent);}
+  .box{background:var(--box); border:1px solid var(--boxline); border-radius:10px; padding:18px 20px; margin:0 0 26px;}
+  .box .k{font-family:var(--slab); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; font-weight:700;}
+  .box div{margin:5px 0; font-size:14.5px;}
+  .scorecard{background:#fbf9f4; border:1px solid #e8dcc0; border-left:3px solid var(--gold); border-radius:8px; padding:20px 22px; margin:0 0 30px;}
+  .scorecard .k{font-family:var(--slab); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:#9a7b2e; margin:0 0 12px; font-weight:700;}
+  .scorecard p{font-size:15px; margin:0 0 12px;}
+  .scorecard p:last-child{margin-bottom:0;}
+  .sources{margin-top:48px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.7;}
+  .sources .h{font-family:var(--slab); font-weight:700; color:var(--cap); font-size:1.02rem; margin-bottom:14px;}
+  .sources ol{margin:0; padding-left:22px;} .sources li{margin-bottom:10px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .tier{font-size:.72rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px; padding:0 5px; margin-right:7px; vertical-align:1px;}
+  .tier.t1{color:#2f4f7a; border-color:#c6d3e8;}
+  .disc{margin-top:38px; padding:16px 20px; border:1px solid var(--boxline); border-radius:6px; background:#f0f1f3; font-size:13px; color:#555; line-height:1.75;}
+  .disc b{display:block; margin-bottom:6px; color:var(--ink-soft);}
+  .signoff{margin-top:44px; padding-top:38px; border-top:2.5px solid var(--cap); text-align:center;}
+  .ss-brand{font-family:var(--slab); font-size:2.3rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1; margin-bottom:10px;}
+  .ss-line{font-size:1.05rem; color:var(--accent); font-weight:500; letter-spacing:.04em;}
+  @media(max-width:600px){ .wrap{padding:40px 20px 64px;} body{font-size:16px;} .sigrow{flex-direction:column; gap:2px; align-items:flex-start;} .sigrow .v{text-align:left;} }
+  @media print{
+    body{background:#fff;}
+    .wrap{box-shadow:none; max-width:100%; padding:28px 34px;}
+    .sigcard, .box, .scorecard, .sources, .disc, .signoff{ break-inside:avoid; page-break-inside:avoid; }
+    h1, h2, h3, h4{ break-after:avoid; page-break-after:avoid; }
+    p, li{ orphans:3; widows:3; }
+    a{ color:inherit !important; text-decoration:underline; }
+  }
+</style>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+<div class="wrap">
+<article>
+
+  <div class="masthead">THE SIGNAL · 한 주의 지도</div>
+  <hr class="mhrule">
+  <div class="meta">
+    <b>발행</b> · 한 주의 지도 No.01 · 2026년 7월 27일<br>
+    <b>도메인</b> · 자본 × 기술<br>
+    <b>신선도</b> · 알파벳 7월 22일 실적 기준 · 메타·아마존 실적(7/29~30) 직전<br>
+    <b>종합</b> · Weekly 「적자가 아니라 빚으로 갈아탄 것이다」 후속 지도
+  </div>
+
+  <h1>빚을 낸 게 아니라, 도착할 비용을 선불한 것이다</h1>
+  <h2 class="sub">하이퍼스케일러 감가상각 벽 — 지은 것과 비용으로 인식한 것 사이의 갭이 손익계산서로 오는 시점</h2>
+  <p class="lead">지난 호에서 우리는 빅테크가 "빌려서까지 짓는 회사"가 됐다고 짚었다. 이번엔 그 다음 질문이다 — <b>왜 지금 미리 빌리는가.</b> 답의 실마리가 알파벳 한 회사의 현금흐름표 안에 있다. 이번 분기에 설비로 449억 달러를 썼는데, 같은 분기 현금흐름표에 유형자산 감가상각으로 잡힌 금액은 71억 달러였다.<sup style="color:var(--muted);font-size:.75em;">*</sup></p>
+  <p>이 두 숫자의 간격이 이 글 전체의 열쇠다. <b>돈을 쓴 것</b>과 <b>그 돈이 비용으로 잡히는 것</b>은 회계에서 같은 시점에 일어나지 않는다. 서버를 사면 돈은 지금 나가지만, 장부에는 그 값을 여러 해에 걸쳐 조금씩 비용으로 나눠 적는다. 그래서 지금처럼 짓는 속도가 빠른 국면에서는, 실제로 쓴 돈에 비해 <b>장부에 잡힌 비용이 한참 적게 보인다</b>. 나머지 비용은 사라진 게 아니라, 다음 몇 해에 걸쳐 반드시 도착한다. 이 글은 그 <b>도착이 예정된 비용</b>이 언제, 어떤 모습으로 손익계산서에 나타나는지에 관한 이야기다.</p>
+  <p style="font-size:13px;color:var(--muted);border-left:2px solid var(--rule);padding-left:12px;">* 이 71억은 알파벳이 현금흐름표에 별도로 표시한 유형자산 감가상각 조정치다. 실제로 이 비용은 매출원가·연구개발비 등 여러 손익 항목에 나뉘어 반영돼 있으며, 회사도 실적콜에서 감가상각이 이미 여러 비용 라인의 압박 요인이라고 밝혔다(다만 CFO는 이 압박이 앞으로 더 커질 것이라는 데 방점을 뒀다). 이 글이 "71억"으로 부르는 것은 <b>그 나뉜 비용을 한데 모은 합계선</b>이며, 무형자산 상각을 더해도(별도 대조 결과 분기당 2~3억 달러 수준) 6배라는 배율은 크게 달라지지 않는다.</p>
+
+  <hr>
+
+  <section class="sigcard" aria-label="시그널 카드">
+    <div class="t"><span>Signal Card</span><span class="rt">자본 × 기술</span></div>
+    <div class="sigrow"><span class="k">신호 강도</span><span class="v"><span class="star">★★★★</span>☆</span></div>
+    <div class="sigrow"><span class="k">신호 유형</span><span class="v">회계 시점 · 비용 인식 지연</span></div>
+    <div class="sigrow"><span class="k">신호 영역</span><span class="v">자본 (교차: 기술)</span></div>
+    <div class="sigrow"><span class="k">확신도</span><span class="v">중간</span></div>
+    <div class="sigrow"><span class="k">전개 시계</span><span class="v">2027~2028 · 근접 체크포인트는 7월 말 메타·아마존 실적</span></div>
+    <div class="sigrow"><span class="k">핵심 작동 원리</span><span class="v">지출과 비용 인식의 시차 (capex ≫ 감가상각)</span></div>
+    <div class="sigweak">
+      <div class="k">논리적 약한 고리</div>
+      <p>capex와 감가상각의 갭은 알파벳 자신의 현금흐름표에서 확인된다. 그러나 이를 "2027~2028에 도착할 비용의 선불"로 잇고 하이퍼스케일러 전반으로 넓히는 것은 우리의 해석이다. 회사가 그렇게 설명한 바 없고, 억제된 감가상각의 규모는 전부 외부 추정치다. 우리가 사실로 세우는 것은 한 회사에서 갭이 존재한다는 것까지이며, 그 갭이 업계 전체의 미래 실적을 압박한다는 것은 반증 가능한 판단이다.</p>
+    </div>
+    <p class="cap-note">이 등급은 신호의 구조적 명확성과 근거 강도를 평가한 것이며, 특정 투자 판단이나 종목의 매력도를 의미하지 않습니다.</p>
+  </section>
+
+  <p class="part">지도가 잇는 두 신호</p>
+  <h3 class="head">조달이 바뀌었다는 이야기의, 그 다음 마디</h3>
+  <p>지난 호(<b><a href="weekly-02.html" style="color:var(--accent);">「적자가 아니라, 빚으로 갈아탄 것이다」</a></b>)의 발견은 이랬다. 20년 동안 "돈이 남아 자사주를 사들이던" 빅테크가, 2026년 들어 <b>채권과 증자로 갈아타 짓기 시작했다</b>. 알파벳은 상장 이래 처음으로 분기 잉여현금흐름이 마이너스(-59억 달러)가 됐고, 그 구멍을 6월 증자 496억 달러와 회사채로 메웠다. 자사주 매입은 1년 전 132억 달러에서 이번 분기 0달러가 됐다.</p>
+  <p>그 이야기는 "누구 돈으로 짓느냐"에서 멈췄다. 이번 지도는 한 칸 더 내려간다 — <b>빌린 돈으로 지은 그 설비는, 언제 비용이 되는가.</b> 조달이 오늘의 이야기라면, 감가상각은 내일의 이야기다. 그리고 그 내일은 회계장부에 이미 예약돼 있다.</p>
+
+  <p class="part">표면</p>
+  <h3 class="head">449 대 71</h3>
+  <p>알파벳의 2분기 현금흐름표를 나란히 놓으면 숫자 두 개가 눈에 띈다. <b>설비 취득(자본지출)</b>(공장·서버·데이터센터 같은 설비를 사는 데 쓴 돈) 449억 달러. 그리고 같은 분기 <b>유형자산 감가상각</b>(이미 사둔 설비의 값을 쓰는 기간에 나눠 매 분기 조금씩 비용으로 처리하는 것, <b>여러 손익 항목에 나뉘어 반영된 것을 한 줄로 합친 값</b>) 71억 달러. 지은 것이 비용으로 잡힌 것의 <b>6배가 넘는다</b>. <span style="color:var(--muted);font-size:.92em;">(출처 ①)</span></p>
+  <p>이 6배가 왜 중요한가. 감가상각은 회사가 "돈을 벌었다/못 벌었다"를 계산할 때 <b>비용으로 빼주는 항목</b>이다. 그러니 감가상각이 71억으로 작게 잡히면, 그만큼 이익은 크게 남는다. 만약 이번에 쓴 449억이 곧바로 전부 비용이었다면 알파벳의 이번 분기 이익은 훨씬 초라했을 것이다. 다시 말해 지금의 기록적 이익에는 <b>"아직 비용으로 안 잡힌 449억"의 덕</b>이 섞여 있다. 물론 이 71억이 이미 이익을 누르고 있지 않다는 뜻은 아니다 — 회사도 감가상각이 매출원가·연구개발비 등을 통해 이미 이익을 압박하고 있다고 밝혔다. 요점은 그 압박의 크기가 아직 449억에는 한참 못 미친다는 것, 그리고 그 차이는 사라지지 않고 다음 해로, 그 다음 해로 미뤄질 뿐이라는 데 있다.</p>
+  <p>왜 이렇게 벌어지나. 회계에는 규칙이 하나 있다. 서버를 사는 순간 그 돈이 전부 비용이 되는 게 아니라, <b>여러 해에 걸쳐 나눠 비용으로 잡는다</b>. 데이터센터 서버라면 보통 4~6년에 걸쳐서다. 그러니 올해 449억을 새로 지어도, 올해 손익계산서에 떨어지는 건 그중 일부와, 이전에 지어둔 것들의 그 해 몫뿐이다.</p>
+  <p>지출이 급하게 늘어나는 국면에서는 이 간격이 더 벌어진다. 알파벳이 보유한 설비의 장부 가치(<b>유형자산 순액</b>)는 <b>반년 만에 2,466억에서 3,212억 달러로</b> 불어났다. <span style="color:var(--muted);font-size:.92em;">(출처 ①)</span> 새로 지은 설비가 창고에 쌓이는 속도를, 그것을 매 분기 조금씩 비용으로 떨어내는 속도가 못 따라가고 있다는 뜻이다. 쌓인 설비가 많을수록, 앞으로 매년 비용으로 떨어질 감가상각의 총량도 그만큼 커진다. 즉 지금 이 순간 손익계산서가 가벼워 보이는 대가로, <b>미래에 매년 짊어질 비용의 크기를 회사가 스스로 키우고 있는</b> 것이다.</p>
+
+  <p class="part">계보</p>
+  <h3 class="head">이건 알파벳만의 일이 아니다 — 그러나 알파벳만 사실로 말할 수 있다</h3>
+  <p>같은 구조가 하이퍼스케일러 전반에서 지목된다. 아마존·메타·마이크로소프트 모두 capex가 인식 감가상각을 크게 웃도는 국면에 있다는 게 여러 리서치의 공통된 관찰이다. 넷을 묶으면 갭이 훨씬 커진다는 집계도 있다. 다만 여기서 한 가지는 분명히 해두자 — <b>그 합산과 추정치는 우리가 1차로 확인한 숫자가 아니다.</b></p>
+  <p>지난 호에서 하이퍼스케일러 다섯 곳의 회사채 1,590억 달러는 "여러 회사를 묶은 집계"라고 밝히고, 알파벳 한 곳의 증자 496억만 회사 공시로 직접 확인한 수치로 구분했던 것과 같은 규율이다. 이번에도 우리가 회사 장부에서 직접 확인한 것은 <b>알파벳의 449 대 71, 그 갭 하나</b>다. 나머지 회사들의 정확한 숫자, 그리고 "억제된 감가상각이 수천억 달러"라는 규모는 전부 <b>외부 리서치의 추정</b>이다. 그래서 이 지도는 그 추정치들을 확정된 근거가 아니라 <b>배경</b>으로만 둔다. 논지는 한 회사에서 직접 확인된 갭 위에 서고, "다른 곳도 같은 방향일 것"이라는 부분은 어디까지나 통설로 받아들인다.</p>
+  <p>왜 이 구분에 집착하는가. 감가상각 벽을 말하는 글은 흔히 "5,490억 달러의 이연비용"처럼 큰 합산 숫자로 문을 연다. 그 숫자는 인상적이지만 검증할 수 없는 남의 계산이다. 우리가 파는 건 그 큰 숫자가 아니라, <b>작지만 회사 장부에서 직접 확인되는 갭 하나와 그것을 읽는 틀</b>이다.</p>
+
+  <p class="part">논쟁</p>
+  <h3 class="head">시차인가, 함정인가</h3>
+  <p>이 갭을 두고 해석이 갈린다. 양쪽 다 짚어둔다.</p>
+  <p><b>낙관 쪽</b>: 이건 함정이 아니라 <b>시차</b>일 뿐이다. 크게 투자하는 회사는 원래 지출이 비용 인식을 앞선다. AI 매출이 충분히 빨리 자라면, 2027~2028에 감가상각이 본격적으로 손익에 떨어질 때쯤엔 그걸 흡수할 만큼 이익도 커져 있을 것이다. 실제로 지금까지 자본지출 가이던스가 계속 올라간 것 자체가 수요를 믿는다는 신호다. 이 관점에서 갭은 성장의 그림자일 뿐이다.</p>
+  <p><b>경계 쪽</b>: 문제는 <b>비용이 늘어나는 속도와 매출이 늘어나는 속도가 다르다</b>는 데 있다. 설비 투자는 지금 당장 가파르게 뛰고 있고, 그만큼 미래에 잡힐 비용도 확정적으로 커진다. 반면 그 비용을 감당해야 할 매출이 같은 속도로 자랄지는 보장이 없다 — 컨센서스는 몇 년 뒤 매출 증가율이 투자 증가율만큼은 못 따라간다고 본다. 게다가 한번 지어 가동을 시작한 설비의 감가상각은 매 분기 꼬박꼬박 떨어지며, 이미 지은 것은 되돌릴 수 없다. 여기에 더해, 그동안 비용을 뒤로 미뤄주던 편법 — 서버를 더 오래 쓴다고 잡아 감가상각을 천천히 떨어내던 방식 — 마저 멈췄거나 되돌려졌다는 지적도 있다. 이 모든 게 겹치면, 비용의 벽은 예상보다 <b>이르게, 그리고 가파르게</b> 닥친다.</p>
+  <p><b>이 사례에 한정한 판단</b>: 어느 쪽이 옳은지는 매출 곡선이 정하며, 그건 아직 안 나왔다. 다만 <b>이번 알파벳 분기에 한정하면</b>, 갭은 이미 6배로 벌어졌고 회사는 속도를 줄이기는커녕 2026 가이던스를 1,950~2,050억으로 올렸다. 즉 갭을 좁히는 게 아니라 <b>더 벌리는 쪽</b>을 택했다. 낙관론이 성립하려면 매출이 이 벌어진 갭을 나중에 따라잡아야 하는데, 그 부담을 회사 스스로 키우고 있다는 뜻이다.</p>
+
+  <p class="part">종합</p>
+  <h3 class="head">채권은 호황의 자축이 아니라, 예약된 비용의 선불이다</h3>
+  <p>여기서 지난 호와 이번 호가 하나로 붙는다. 다시 첫 질문으로 돌아가자 — <b>왜 지금 미리 빌리는가.</b></p>
+  <p>한 가지 읽기는 이렇다. 경영진은 앞서 본 산수를 우리보다 훨씬 잘 안다. 지금 잡히지 않은 비용이 2027~2028에 감가상각으로 한꺼번에 몰려오면, 그때는 이익이 눌리고 회사가 벌어들이는 현금도 줄어든다. <b>회사 사정이 나빠 보일 때 돈을 빌리면 이자가 비싸다.</b> 그러니 아직 실적이 좋고 신용도 좋은 <b>지금</b>, 낮은 금리로 미리 돈을 확보해 두는 편이 유리하다. 이것이 "선불"이라는 말의 뜻이다 — 앞으로 닥칠 비용의 시기를 알고, 그에 대응할 자금을 <b>비용이 오기 전에 미리 마련</b>해 둔다는 것.</p>
+  <p>그래서 이 관점에서는, 지금 쏟아지는 채권 발행이 <b>"우리 사업이 잘돼서 신나게 투자한다"는 자신감의 표시가 아니라, "곧 비용이 이익을 앞지르는 구간이 온다"는 것을 아는 쪽의 방어 태세</b>로 읽힌다. 매출이 제때 크게 오면 그 빚은 넉넉한 현금 앞에서 별것 아니고, 매출이 늦으면 그때 가서 급하게 비싼 돈을 구하는 것보다 지금 싸게 빌려둔 편이 낫다. 어느 쪽이든 미리 빌려두는 게 손해가 아닌 셈이다.</p>
+  <p>이 읽기가 맞다면, 지난 호에서 짚은 걱정 위에 걱정이 하나 더 얹힌다. 지난 호의 IMF가 우려한 것은 <b>빌린 돈을 갚아야 하는 날이, 그 돈으로 지은 설비가 실제로 수익을 내주는 날보다 먼저 온다</b>는 것이었다. 빚 갚을 날은 정해져 있는데 그 설비가 언제부터 돈을 벌어줄지는 불확실하니, 그 사이가 위험하다는 이야기다.</p>
+  <p>여기에 이번 호가 본 <b>회계의 시간</b>을 겹쳐 보자. 빚을 갚아야 하는 날(상환일)만 수익보다 먼저 오는 게 아니다. 그 설비가 <b>장부에 비용으로 잡히는 날</b>(감가상각이 본격적으로 손익에 떨어지는 시점)마저 수익보다 먼저 올 수 있다. 정리하면 이렇다 — <b>갚을 돈</b>도, <b>장부에 찍힐 비용</b>도, 둘 다 <b>그것을 감당해 줄 매출</b>보다 앞서 도착한다. 그렇게 세 가지의 도착 순서가 어긋나는 구간이 2027~2028년이라는 것이다.</p>
+  <p>다만 이건 우리의 해석이다. 어떤 회사도 "우리는 감가상각 벽에 대비해 채권을 찍는다"고 밝힌 적 없다. 사실로 말할 수 있는 건 갭의 존재까지고, 그 갭이 왜 지금의 조달을 설명하는지는 판단이다.</p>
+
+  <p class="part">지도</p>
+  <h3 class="head">신호에서 판세 전환으로 — 실적의 시간이 어긋나며 판을 흔든다</h3>
+  <p>정리하면, 이 갭 하나가 가리키는 건 알파벳 한 회사의 회계 문제가 아니다. 지금 AI 인프라 투자 전체가 <b>돈이 나가는 시점 · 그 돈이 비용으로 잡히는 시점 · 그 투자가 수익을 내는 시점</b>이 서로 다른 해로 흩어지는 쪽으로 판이 기울고 있다. 돈은 지금 나가고(오늘), 비용은 몇 해 뒤에 몰려 잡히고(2027~2028), 수익이 얼마나 언제 날지는 아직 불확실하다(그 사이 어딘가).</p>
+  <p>세 시점이 이렇게 어긋나 있는 동안 벌어지는 일은 하나다 — <b>손익계산서가 실제보다 가벼워 보인다.</b> 아직 도착하지 않은 비용만큼 이익이 부풀려 보이기 때문이다. 그래서 지금의 기록적 이익을 "AI가 이미 그만큼 돈을 벌고 있다"는 증거로 읽으면 절반만 읽은 것이다. 그 이익의 상당 부분은 <b>아직 청구서가 도착하지 않아서 커 보이는 것</b>일 수 있다. 청구서는 오지 않은 게 아니라, 우편함에 도착하는 날짜가 2027~2028로 예약돼 있을 뿐이다. 그 청구서가 도착하는 순간, 지금 AI 인프라를 밀어붙이는 힘의 판도 함께 기운다.</p>
+
+  <h4>시나리오 A — 흡수</h4>
+  <p>AI 매출이 2027~2028에 충분히 커져 감가상각 램프를 삼킨다. 갭은 성장의 시차였을 뿐으로 판명되고, 잉여현금흐름이 스스로 회복된다. 이 경우 지금의 채권은 영리한 선제 조달로 기록된다.</p>
+  <p><b>확인 지표</b>: 다음 분기들에서 하이퍼스케일러의 인식 감가상각이 오를 때, 순이익률이 그만큼 눌리지 않고 버티는가. 애널리스트의 감가상각(D&amp;A) 추정치가 실제 지출을 따라 위로 조정되기 시작하는가.</p>
+
+  <h4>시나리오 B — 압박</h4>
+  <p>매출 증가율이 감가상각 램프를 못 따라가, 2027~2028 손익계산서가 컨센서스를 밑돈다. AI 서사 위에 세워진 밸류에이션이 배수 압축으로 재평가된다. 조달이 비쌀수록 미착공 투자부터 미뤄지고, 그 지연이 다시 메모리 주문을 뒤로 민다.</p>
+  <p><b>확인 지표</b>: 데이터센터 착공률(지난 호의 미착공 60%)이 줄지 않는가. 채권 청약 배수(2월 5배→7월 2배 밑)의 하락이 이어지는가. 둘 중 하나라도 계속 나빠지면 시나리오 B 쪽이다.</p>
+
+  <p class="part">우리가 짚은 것과 빗나간 것</p>
+  <div class="scorecard">
+    <div class="k">Weekly 「적자가 아니라 빚으로 갈아탄 것이다」 답안지</div>
+    <p><b>체크포인트 ① — 7월 말 메타·아마존 실적(자본지출 상향 반복·채권 언급):</b> 아직 켜지지 않았다. 발표는 7월 29~30일로, 이 지도 발행 직후다. 채점은 다음 지도로 넘긴다 — 여기서 미리 방향을 예단하지 않는다.</p>
+    <p><b>체크포인트 ② — 채권 청약 배수:</b> 지난 호 기준(2월 약 5배 → 7월 2배 밑)에서 아직 새 수치를 회사 공시로 직접 확인하지 못했다. "8월 이후에도 이어지는가"는 열린 채로 둔다.</p>
+    <p><b>체크포인트 ③ — 데이터센터 착공률:</b> 미착공 60%가 줄었다는 사실을 회사 공시로 직접 확인하지는 못했다. 이 지도의 시나리오 B 확인 지표로 그대로 이어진다.</p>
+    <p style="color:#9a7b2e;font-size:13.5px;margin-top:4px;">세 체크포인트 모두 아직 답이 나오지 않았다. 답이 없다는 것을 "아직 켜지지 않았다"로 적는 것이 채점의 정직이다 — 켜지지 않은 지표를 켜진 것처럼 읽지 않는다.</p>
+  </div>
+
+  <p class="part">그리고 이것도 한국의 이야기다</p>
+  <h3 class="head">비용의 시계가 메모리 주문의 시계를 흔든다</h3>
+  <p>연결은 지난 호와 같은 고리를 탄다. 빅테크가 데이터센터를 짓는다 → 그 안에 AI 반도체가 들어가고 → 거기 고대역폭 메모리가 여러 개 붙는다 → 그 메모리를 만드는 회사 둘이 한국에 있다.</p>
+  <p>지난 호는 그 예약 주문서를 <b>무엇이 뒷받침하느냐</b>(자기 돈 → 빌린 돈)를 짚었다. 이번 지도가 더하는 건 <b>시점</b>이다. 빌린 돈으로 지은 설비의 비용이 2027~2028에 손익으로 떨어질 때, 만약 그때 매출이 못 따라가면 — 가장 먼저 손대는 게 아직 삽도 안 뜬 투자다. 그리고 그 미착공 투자야말로 <b>미래의 메모리 주문서</b>다.</p>
+  <p>그러니 한국 메모리 회사의 호황은 이제 세 가지에 매인다. 빅테크가 지금 얼마를 버느냐(지난 호의 실적표), 그들이 그 투자 자금을 얼마나 싸게 빌리느냐(지난 호의 채권 금리), 그리고 <b>그 좋아 보이는 실적이 2027~2028에 감가상각이라는 뒤늦은 비용을 만났을 때도 버텨주느냐</b>(이번 호)이다.</p>
+  <p>앞의 두 가지는 지금 눈에 보이지만, 셋째는 아직 오지 않았다. 그리고 셋째가 가장 무겁다 — 만약 그때 매출이 비용을 못 따라가면, 빅테크가 가장 먼저 손대는 것은 <b>아직 삽도 뜨지 않은 미래의 투자</b>이고, 그 미래의 투자가 바로 한국 메모리 회사가 지금 기대고 있는 <b>미래의 주문서</b>이기 때문이다. 지금의 호황을 즐기되, 그 호황의 지속 여부를 판가름할 시계는 2027~2028에 있다는 것 — 이것이 이번 지도가 더하는 한 가지다.</p>
+
+  <p class="part">한계와 불확실성</p>
+  <ul>
+    <li><b>핵심 사실은 한 회사·한 분기다.</b> 이 지도에서 우리가 회사 공시로 직접 확인한 사실은 알파벳 2026년 2분기의 갭(449 대 71) 하나뿐이다. "하이퍼스케일러 전반"으로의 확장과 "수천억 달러 이연비용"은 전부 외부 리서치의 추정이며, 우리는 그것을 확정된 사실이 아니라 배경으로만 썼다.</li>
+    <li><b>71억은 유형자산 감가상각의 합계선이지, 무형자산까지 더한 총 D&amp;A는 아니다.</b> 다만 두 수치의 격차를 별도로 대조한 결과, 무형자산 상각은 분기당 2~3억 달러 수준으로 크지 않아 "6배" 배율을 뒤집을 정도는 아니다. 또한 회사는 실적콜에서 감가상각이 이미 여러 비용 라인을 통해 이익을 압박하고 있다고 밝혔으므로, "이익이 부풀려 보인다"는 이 글의 표현은 <b>정도의 문제</b>로 읽어야지 "감가상각이 전혀 반영되지 않았다"는 뜻으로 읽으면 안 된다.</li>
+    <li><b>선불 해석은 반증 가능하다.</b> "감가상각 벽 대비로 미리 빌린다"는 회사의 진술이 아니라 우리의 읽기다. 회사가 단지 낮은 금리를 기회로 봤을 뿐일 수도 있고, 그렇다면 이 종합의 한 축이 약해진다.</li>
+    <li><b>낙관 시나리오가 맞을 수 있다.</b> 매출이 감가상각 램프를 제때 흡수하면 갭은 시차로 끝나고, 지금의 경계는 과했던 것으로 기록된다. 그 반증 조건은 시나리오 A의 확인 지표에 적어뒀다.</li>
+    <li><b>내용연수 관련 서술은 통설 수준이다.</b> "감가상각을 늦추던 관행이 멈췄다"는 여러 리서치가 지적하는 내용이지만, 이 지도에서 회사 공시로 직접 확인하지는 않았다. 그래서 제목이나 시그널 카드의 핵심 근거로 올리지 않고, 본문에서 "~라는 지적이 있다" 정도의 참고로만 다뤘다.</li>
+  </ul>
+
+  <p class="part">한 줄 요약</p>
+  <p style="font-size:1.08rem;font-weight:600;color:var(--cap);">기록적 이익은 AI가 이미 돈을 벌고 있다는 신호가 아니라, 그 설비의 비용 청구서가 아직 도착하지 않았다는 신호다 — 그리고 그 청구서의 도착일은 회계장부에 이미 예약돼 있다.</p>
+
+  <section class="sources">
+    <div class="h">출처</div>
+    <ol>
+      <li><span class="tier t1">1차</span> Alphabet Inc. Form 8-K, Exhibit 99.1 (2026년 2분기 실적) — 연결 현금흐름표(유형자산 감가상각 $7,104M·설비취득 $44,924M)·연결 재무상태표(유형자산 순액 $246,597M→$321,212M) — <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm">sec.gov (SEC EDGAR)</a></li>
+      <li><span class="tier">배경</span> 자매편 The Signal Weekly No.02 「<a href="weekly-02.html">적자가 아니라, 빚으로 갈아탄 것이다</a>」 — 조달 구조 전환·capex 가이던스·청약배수·미착공 60%·IMF 만기 불일치의 원편</li>
+      <li><span class="tier">배경(추정)</span> 하이퍼스케일러 감가상각 갭·이연비용 규모·capex 컨센서스·내용연수 관련 지적 — 다수 리서치하우스 집계 및 추정(SA·CreditSights·PIMCO·Moody's·Goldman 등). 본문에서 1차가 아니라 배경·통설로만 인용.</li>
+      <li><span class="tier">배경(2차)</span> "71억"이 알파벳의 유형자산 감가상각 대표 수치로 통용되는지 — 독립 애널리스트 리포트 및 Silicon Analysts의 하이퍼스케일러 비교 방법론(4사 감가상각 정의 각사별 명시, 알파벳은 주석상 PP&E 감가상각 채택)에서 교차 확인. 10-Q 세부 주석의 정확한 총 D&A 단일 수치는 미대조.</li>
+    </ol>
+  </section>
+
+  <div class="disc">
+    <b>The Signal 고지</b>
+    The Signal은 산업과 자본의 구조를 해석하는 리서치로, 특정 종목의 매수·매도나 목표가·매매 시점을 다루지 않습니다. 본 리포트는 개별 투자자문이 아니며, 어떠한 금융투자상품의 매수·매도 권유도 아닙니다. 언급되는 기업·기관·수치는 구조를 설명하기 위한 예시이자 해석의 근거이며, 그 자체로 투자 판단의 기준이 될 수 없습니다. 본문의 판단(전개 시나리오·확인 지표)은 반증 가능한 해석이며, 독자 각자의 판단과 책임을 대신하지 않습니다. 회계·재무 용어의 괄호 설명은 이해를 돕기 위한 것으로, 정식 회계 정의와 차이가 있을 수 있습니다.
+  </div>
+
+  <div class="signoff">
+    <div class="ss-brand">The Signal</div>
+    <div class="ss-line">세상의 변화를 먼저 읽는 리서치</div>
+  </div>
+
+</article>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="index.html" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="archive.html" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Signal · Weekly · Legacy.02 — 엔비디아 없이, 중국이 AI를 훈련했다</title>
+<style>
+  :root{ --ink:#161b24; --muted:#6b7280; --line:#e4e6ea; --accent:#9a7400; --cap:#7a5c00; --boxbg:#fbf9f2; --boxline:#e6dfc9; }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:#f3f4f6; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif; line-height:1.85; -webkit-font-smoothing:antialiased; }
+  .wrap{max-width:740px; margin:0 auto; padding:52px 24px 96px;}
+  article{background:#fff; border:1px solid var(--line); border-radius:6px; padding:52px 48px 56px; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .brand{font-size:.82rem; letter-spacing:.14em; color:var(--accent); font-weight:800;}
+  .brandsub{font-size:.78rem; color:var(--muted); letter-spacing:.02em; margin:2px 0 20px;}
+  .meta{font-size:.9rem; color:var(--muted); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:14px 0; margin:0 0 32px;}
+  .meta div{margin:3px 0;} .meta b{color:var(--ink);}
+  h1{font-size:1.86rem; line-height:1.34; margin:0 0 8px; letter-spacing:-.01em;}
+  .dek{font-size:1.05rem; color:var(--muted); font-weight:500; margin:0 0 30px;}
+  h2{font-size:1.24rem; margin:40px 0 6px; letter-spacing:-.01em;}
+  p{margin:0 0 17px; font-size:1.02rem;}
+  b,strong{font-weight:700;}
+  hr{border:0; border-top:1px solid var(--line); margin:30px 0;}
+  blockquote{margin:22px 0; padding:18px 22px; background:var(--boxbg); border:1px solid var(--boxline); border-left:4px solid var(--accent); border-radius:4px; font-size:1.0rem;}
+  .layer{background:#fbfcfd; border:1px solid var(--boxline); border-radius:6px; padding:18px 22px; margin:20px 0;}
+  .layer .lh{font-weight:700; color:var(--cap); margin:0 0 6px;}
+  .layer p{margin:0 0 10px; font-size:.98rem;} .layer p:last-child{margin-bottom:0;}
+  .teaser{background:#fbf7f2; border-left:3px solid var(--accent); padding:14px 20px; margin:26px 0 0; font-size:1.02rem;}
+  .summary{background:#fbfaf8; border:1px solid var(--boxline); border-radius:4px; padding:18px 22px; font-size:1.02rem; margin:24px 0;}
+  .check{background:#f6f8fb; border:1px solid var(--boxline); border-radius:6px; padding:16px 22px; margin:20px 0;}
+  .check ol{margin:0; padding-left:1.3em;} .check li{margin:0 0 11px; font-size:1.0rem; line-height:1.7;} .check li:last-child{margin-bottom:0;}
+  .check .ci{font-weight:700; color:var(--cap); margin:0 0 10px;}
+  .sources{font-size:.88rem; color:#444;}
+  .sources h3{font-size:1rem; margin:26px 0 10px;}
+  .sources ul{margin:0; padding-left:1.15em;} .sources li{margin:0 0 6px; line-height:1.6;}
+  .disc{margin-top:26px; padding:16px 20px; border:1px solid var(--boxline); border-radius:4px; background:#f0f1f3; font-size:.85rem; color:#555; line-height:1.7;}
+  .disc b{display:block; margin-bottom:5px; color:#333;}
+  em{font-style:normal; color:var(--muted);}
+</style>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+<div class="wrap">
+<article>
+
+  <div class="brand">The Signal · Weekly · Legacy.02</div>
+  <div class="brandsub">세상의 변화를 먼저 읽는 리서치</div>
+
+  <div class="meta">
+    <div><b>발행</b> · The Signal Weekly</div>
+    <div><b>도메인</b> · 기술 × 지정학 × 자본</div>
+    <div><b>신호</b> · 2026년 6월 말 · 메이투안 LongCat-2.0 공개</div>
+  </div>
+
+  <div style="margin:22px 0 26px;padding:16px 18px;border:1px solid #d9c9a3;border-left:4px solid #C6983A;background:#faf6ec;border-radius:10px;font-size:13.5px;line-height:1.65;color:#5a5344;"><div style="font-weight:800;color:#8a6410;margin-bottom:6px;">📎 The Signal 이전 글</div>이 글은 현행 검증 시스템 도입 이전에 작성되었습니다. 출처를 가지고 쓴 글이지만 개별 사실이 현행 기준의 사전 검증을 거치지 않았으므로, 수치·귀속은 그 점을 감안해 읽어 주시기 바랍니다. 분석의 틀과 계보는 그대로 유효하다고 판단해 원문대로 공개합니다. 오류가 확인되면 이 자리에 정정 이력을 남깁니다.</div>
+<h1>엔비디아 없이, 중국이 AI를 훈련했다</h1>
+  <p class="dek">수출통제의 벽에 생긴 금, 그리고 돈이 다시 고이는 길목</p>
+
+  <p>2026년 6월 말, 중국에서 조용히, 그러나 무겁게 지나간 뉴스가 하나 있다. 중국의 배달·생활 서비스 기업 메이투안(Meituan)이 'LongCat-2.0(롱캣 2.0)'이라는 거대 AI 모델을 공개했다. 1.6조 개의 파라미터를 가진 대형 모델이다. 여기까지는 흔한 소식이다. 진짜 뉴스는 <b>이 모델이 무엇 위에서 만들어졌는가</b>에 있다. 메이투안은 이 모델을 약 5만 개의 칩으로 이뤄진 클러스터에서 밑바닥부터 훈련시켰다고 밝혔는데, 그 칩이 전부 <b>중국산</b>이었다. 엔비디아(NVIDIA)는 단 한 개도 쓰이지 않았다.</p>
+
+  <h2>먼저, 무슨 일이 있었나</h2>
+  <p>AI 모델을 만드는 과정은 크게 세 단계로 나뉜다. 모델이 방대한 데이터를 먹으며 세상의 패턴을 처음 배우는 '사전학습'(pre-training, 가장 무겁고 연산이 가장 많이 드는 단계), 그 모델을 사람 말을 잘 듣게 다듬는 '사후학습'(post-training), 완성된 모델이 실제 질문에 답하는 '추론'(inference)이다. 그동안 중국 AI는 가벼운 쪽(추론)에서만 중국산 칩을 써왔고, 무거운 사전학습은 여전히 엔비디아에 기댔다.</p>
+  <p>그런데 LongCat-2.0은 가장 무거운 사전학습을 처음부터 끝까지 중국산 칩 위에서 돌렸다. 훈련 도중 35조 개가 넘는 토큰을 먹었고, 한 번의 롤백이나 손실 급등('loss spike', 학습이 어긋나며 성능이 튀는 사고) 없이 완주했다 — 하드웨어뿐 아니라 그 위에서 대형 모델을 안정적으로 훈련시키는 <b>운영 능력</b>까지 확보했다는 뜻이다. 칩 공급사를 공식적으로 밝히진 않았으나, 화웨이의 칩 간 통신 라이브러리 'HCCL'을 쓴 정황이 화웨이 '어센드(Ascend)' 계열임을 강하게 가리킨다. 정리하면, LongCat-2.0은 <b>훈련과 추론 양쪽을 중국산 하드웨어로 완주한 첫 조(兆) 단위 파라미터 모델</b>이다.</p>
+
+  <h2>이건 '모델 하나'가 아니라 '벽'에 관한 이야기다</h2>
+  <p>여기서 한 층 아래를 봐야 한다. 이 뉴스의 진짜 주어는 LongCat이라는 모델이 아니라, <b>미국 수출통제라는 벽</b>이다. 미국이 엔비디아 최상위 칩의 중국 수출을 막은 논리는 정교한 가정 위에 서 있었다 — "추론은 가벼우니 중국산 칩으로도 되겠지만, 훈련은 무거우니 결국 엔비디아가 있어야 한다." 즉 수출통제의 급소는 <b>'훈련이라는 문턱'</b>이었다.</p>
+  <p>LongCat-2.0이 흔든 게 정확히 이 지점이다. 국가대표급 대기업도 아닌 생활 서비스 기업이 프런티어 규모 모델을 중국산 하드웨어로 사전학습했다는 건, 그 능력이 특정 소수에 갇혀 있지 않다는 신호로 읽힌다. 모건스탠리 자료를 인용한 보도에 따르면, 중국산 AI 칩들은 이미 미국이 수출을 허용한 가장 상위 칩(H20)을 여러 지표에서 앞서기 시작했다.</p>
+  <blockquote>이 사건의 본질은 한 줄로 이렇다. <b>"중국이 엔비디아를 이겼다"가 아니라, "엔비디아의 독점이 영원할 것"이라는 가정에 금이 갔다.</b></blockquote>
+
+  <h2>무엇이 바뀌는가 — 세계의 연산이 둘로 갈라진다</h2>
+  <p>기존 질서는 하나의 표준 위에 서 있었다. 전 세계 AI가 엔비디아의 'CUDA'(쿠다, 엔비디아 칩 위에서 AI를 개발하게 해주는 소프트웨어 생태계) 하나로 수렴해 있었다. 개발자 400만 명, 20년 가까이 쌓인 라이브러리 — 이 생태계 자체가 엔비디아의 진짜 해자(垓字)였다. 칩은 흉내 낼 수 있어도 이 소프트웨어 생태계는 흉내 내기 어렵다는 게 오랜 정설이었다.</p>
+  <p>지금 열리는 건 <b>'두 번째 스택'</b>(stack, 칩부터 소프트웨어까지 이어지는 한 벌의 기술 층)이다. 중국은 어센드 칩 위에 HCCL(통신)·CANN·MindSpore(개발 프레임워크)를 쌓아 CUDA에 대응하는 독자 생태계를 만들고 있다. 다만 <b>문턱을 넘은 것과 효율 격차를 좁힌 것은 전혀 다른 질문</b>이다. 중국산 가속기는 엔비디아 H800보다 칩당 메모리가 적어 메모리 한계가 사전학습의 가장 큰 병목이었고, 화웨이 방식은 성능이 낮은 칩을 수백~수천 개씩 묶어 메우는 구조라 같은 연산에 전력을 약 4배 더 쓴다는 분석도 있다. 실제로 한 중국 기업은 엔비디아에서 화웨이 칩으로 훈련 환경을 바꾸며 개발이 3개월 지연됐다고 보고했다.</p>
+  <p>게다가 미국은 제자리에 있지 않다. 엔비디아는 블랙웰(Blackwell)에서 루빈(Rubin)으로 이어지는 차세대 아키텍처를 예정보다 앞당겨 양산에 넣으며, 무어의 법칙보다 빠른 속도로 앞서 나가고 있다. 그래서 이 신호의 핵심은 '중국이 따라잡았다'가 아니다 — 격차는 유지되거나 오히려 벌어질 수도 있다. 무서운 건 다른 지점이다. 그 격차와 무관하게, 중국이 봉쇄 안에서 내수용으로 '느리지만 스스로 굴러가는 <b>독립 생태계</b>'를 완성했다는 사실이다. 봉쇄가 겨눈 것은 '중국이 최고 모델을 못 만들게' 하는 것이었는데, 정작 열린 것은 '최고가 아니어도 스스로 만들 수 있는' 길이다.</p>
+  <blockquote><b>어제까지의 세계</b> — 하나의 표준(CUDA·엔비디아) 위에 세계의 AI가 얹혀 있었다.<br><b>지금 열리는 세계</b> — 느리고 비효율적이지만 '따로 굴러가는' 두 번째 스택이 실재한다. 신호는 '중국이 따라잡았다'가 아니라, <b>격차가 벌어지더라도 스스로 굴러가는 독립 생태계</b>가 완성됐다는 것이다.</blockquote>
+
+  <p class="teaser">여기까지가 '무슨 일이 일어났고, 무엇이 바뀌는가'다. 그러나 The Signal이 진짜 추적하는 것은 그다음이다 — 스택이 둘로 갈라질 때 <b>돈은 어느 쪽으로 고이는가</b>. 그 답은 흔들리는 엔비디아도, 떠오르는 중국 칩도 아닌, 양쪽이 똑같이 목말라하는 자리에 있다.</p>
+
+  <hr>
+
+  <h2>그래서 돈은 어디로 흐르는가</h2>
+  <p>흔들리는 쪽부터 보자. 엔비디아의 중국 매출은 2026년 1월 마감 회계연도 기준 약 197억 달러, 전체의 9% 정도다. 중국이 중국산 스택으로 완전히 돌아서면 이 매출은 위협받는다. 하지만 '지갑'보다 '벽'이 더 중요한 숫자다 — 중국이 자급 가능한 스택을 실제로 증명할수록, "엔비디아는 구조적으로 대체 불가능하다"는 <b>밸류에이션의 전제 자체</b>가 재평가된다. 매출 9%보다 이 이야기가 더 무겁다.</p>
+  <p>반대로 단단해지는 쪽은, 스택이 둘로 갈라져도 <b>양쪽이 똑같이 목말라하는 자원</b>이다 — 메모리다. 엔비디아 GPU든 화웨이 어센드든, 대형 모델을 훈련하려면 고대역폭 메모리('HBM', 대량의 데이터를 빠르게 주고받는 고성능 메모리)가 반드시 필요하다. 미국 스택이 이기든 중국 스택이 이기든, 그 아래에서 메모리를 대는 층은 어느 시나리오에서도 수요가 끊기지 않는다. 이 지점이 한국 독자가 특히 귀를 세워야 할 곳이다 — HBM은 한국(SK하이닉스·삼성전자)이 세계에서 가장 강한 영역이다. '엔비디아 없는 AI'라는 뉴스는 얼핏 한국과 무관해 보이지만, 실제로는 정반대다.</p>
+  <blockquote><b>귀결점(레이어 단위)</b> — 마진은 특정 칩 회사가 아니라, 두 스택이 모두 지나가는 <b>'메모리·패키징' 공통 병목 공정</b>에서 발생한다. 다만 중국도 메모리를 자체 생산으로 밀어붙이고 있어, 5년 뒤를 지켜봐야 할 전선이다.</blockquote>
+
+  <h2>투자 지도</h2>
+  <p>이 판을 층으로 나누면 그림이 선명해진다(아래 회사 이름은 산업 구조를 설명하기 위한 예시이며, 매수·매도 대상으로 꼽는 것이 아니다).</p>
+  <div class="layer">
+    <p class="lh">① 연산 칩 — 스택의 얼굴</p>
+    <p>엔비디아가 여전히 세계 표준이지만, 이제 처음으로 '열등하지만 작동하는' 대안(화웨이 어센드, 캄브리콘, 알리바바 T-헤드 등)이 등장했다. 이들은 해외 투자자가 직접 담기 어려운 비상장·중국 본토 성격이라, 투자 대상이라기보다 <b>'엔비디아 독점 서사의 재평가'</b>라는 관점에서 봐야 하는 층이다.</p>
+  </div>
+  <div class="layer">
+    <p class="lh">② 공통 병목 — 양쪽이 모두 지나가는 길목</p>
+    <p>메모리(HBM)·첨단 패키징·제조(파운드리). 중국 스택의 발목을 잡는 것도, 미국 스택을 떠받치는 것도 결국 이 층이다. 스택이 둘로 갈라질수록 이 공통 병목의 값은 올라간다 — 가장 구조적으로 단단한 자리다. HBM에서 한국(SK하이닉스·삼성)이 앞선 위치를 점한다.</p>
+  </div>
+  <div class="layer">
+    <p class="lh">③ 소프트웨어 생태계 — 진짜 해자</p>
+    <p>CUDA 대 CANN·MindSpore의 대결이다. 엔비디아의 400만 개발자 생태계는 여전히 가장 넘기 힘든 벽이다. 관전 포인트는 명확하다 — 화웨이가 CANN·MindSpore를 예고대로 오픈소스로 풀어 생태계를 키우면, 바로 이 해자가 가장 먼저 얇아진다.</p>
+  </div>
+
+  <p><b>경로 시나리오.</b></p>
+  <p><b>경로 A</b> — 중국산 독립 스택이 내수 규모를 키우며 자립을 굳힌다면(효율 격차를 좁히지 못하더라도): 수출통제는 '벽'이 아니라 '비싼 우회로'가 되고, 엔비디아 독점 프리미엄이 재평가된다.<br><b>확인 지표</b> — 화웨이가 CANN·MindSpore를 예고대로 오픈소스로 공개하는지, 중국산 칩으로 프런티어 규모 모델을 훈련한 사례가 추가로 나오는지.</p>
+  <p><b>경로 B</b> — 제조(7나노 제약)·메모리·전력 병목이 발목을 잡고 소프트웨어 마찰이 이어진다면: 중국산 스택은 한 세대 뒤에 머물고, 두 스택이 공존하되 엔비디아가 선두를 지킨다.<br><b>확인 지표</b> — 중국산 칩 훈련의 전력·메모리 효율 지표가 개선되는지, 엔비디아 대비 개발 지연(예: 3개월)이 줄어드는지.</p>
+
+  <blockquote><b>핵심 투자 논리</b> — 이 산업의 돈은 결국, 두 스택이 모두 지나가는 <b>메모리·패키징 공통 병목</b>으로 집중된다. 누가 스택 전쟁의 승자가 될지는 아직 몰라도, 그 길목은 어느 쪽 미래에서도 붐빈다. 결론의 주어는 특정 칩이 아니라 그 병목이다.</blockquote>
+
+  <h2>무엇을 점검할 것인가</h2>
+  <p>아래는 답을 정해주는 목록이 아니다. 이 신호를 <b>당신의 눈으로</b> 다시 읽기 위한 질문이다.</p>
+  <div class="check">
+    <div class="ci">자가 점검</div>
+    <ol>
+      <li>나는 이 뉴스를 '중국이 엔비디아를 따라잡았다'로 읽고 있는가, '독립 생태계가 완성됐다'로 읽고 있는가 — 둘은 전혀 다른 신호다.</li>
+      <li>스택이 둘로 갈라져도 양쪽이 똑같이 지나가야 하는 '공통 병목'은 어디인가 — 나는 그것을 '뉴스'로 보는가, '구조'로 보는가?</li>
+      <li>'엔비디아가 흔들리는가'(지갑)와 '엔비디아 독점이라는 전제가 재평가되는가'(벽) 중, 지금 내가 붙들고 있는 건 어느 쪽인가?</li>
+      <li>이 두 스택 구도가 6개월 더 이어진다면, 내가 가장 먼저 다시 확인해야 할 '측정 가능한 신호'는 무엇인가?(예: 화웨이 CANN·MindSpore 오픈소스화, 중국 메모리 자립 진척)</li>
+    </ol>
+  </div>
+
+  <div class="summary"><b>한 줄 정의</b> — 세계의 연산이 둘로 갈라질 때, <b>돈은 승자의 칩이 아니라 두 갈래가 모두 지나가는 길목 — 메모리와 패키징 — 에 고인다</b>.</div>
+
+  <div class="sources">
+    <h3>출처</h3>
+    <ul>
+      <li>메이투안 LongCat-2.0 모델 카드 및 공개 발표 (2026년 6월 말)</li>
+      <li>파이낸셜타임스(FT) · 모건스탠리 — 중국 AI 칩 성능 비교</li>
+      <li>사우스차이나모닝포스트(SCMP) · CNBC — 중국산 칩 훈련 단계 진입</li>
+      <li>번스타인 · 골드만삭스 — 시장 영향 분석</li>
+    </ul>
+  </div>
+
+  <div class="disc">
+    <b>면책</b>
+    언급된 기업은 산업 구조를 설명하기 위한 예시이며, 특정 금융투자상품의 매수·매도를 권유하지 않습니다. 인용된 수치·기관·사실은 신호 해석을 위한 근거이며, 투자 판단이나 종목의 매력도를 의미하지 않습니다.
+  </div>
+
+</article>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;"><div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;"><a href="index.html" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>&nbsp;·&nbsp;<a href="archive.html" style="color:#26467d;font-weight:600;text-decoration:none;">이전 글 전체 보기</a></div></div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

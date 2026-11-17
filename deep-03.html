@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>도구는 누가 쥐는가 — The Signal Deep Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff; --page:#f3f4f6; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --card:#f4f6f8; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee; --main:720px;
+    --dom:#201a30; --dom-line:rgba(255,255,255,.10); --dom-label:#bcc0c6; --gold:#d9a842;
+    --slab:"Roboto Slab",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0; background:var(--page); color:var(--ink); font-family:var(--sans);
+       font-size:17px; line-height:1.85; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--main); margin:0 auto; background:var(--paper);
+        padding:60px 40px 80px; box-shadow:0 1px 40px -18px rgba(20,24,28,.18);}
+  article{margin:0;}
+  .mhrule{border:0; border-top:1px solid var(--rule); margin:15px 0 28px;}
+  .masthead{font-family:var(--slab); font-size:1.02rem; letter-spacing:.14em; text-transform:uppercase;
+            color:var(--accent); font-weight:700; margin:0;}
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft); font-weight:600;}
+  h1{font-size:2.05rem; line-height:1.32; letter-spacing:-.02em; margin:0 0 14px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.62; color:var(--ink-soft); font-weight:500;
+         letter-spacing:-.01em; margin:0 0 26px;}
+  .lead{font-size:1.06rem; color:var(--ink); margin:0 0 4px;}
+  hr{border:0; border-top:1px solid var(--rule); margin:34px 0;}
+  .sigcard{background:var(--dom); border-radius:10px; padding:24px 24px 20px; margin:30px 0 40px;
+           color:#fff; box-shadow:0 22px 46px -28px rgba(32,26,48,.7);}
+  .sigcard .t{font-family:var(--slab); font-size:.8rem; letter-spacing:.26em; text-transform:uppercase;
+              color:var(--gold); margin:0 0 16px; display:flex; justify-content:space-between;}
+  .sigcard .t .rt{color:var(--dom-label); letter-spacing:.18em; font-weight:600;}
+  .sigrow{display:flex; justify-content:space-between; align-items:baseline; gap:18px;
+          padding:10px 0; border-bottom:1px solid var(--dom-line);}
+  .sigrow .k{font-size:13px; color:var(--dom-label); white-space:nowrap;}
+  .sigrow .v{font-size:14.5px; color:#fff; font-weight:500; text-align:right;}
+  .sigrow .star{color:var(--gold); letter-spacing:3px;}
+  .sigweak{margin-top:16px; padding-top:15px; border-top:1px solid var(--dom-line);}
+  .sigweak .k{font-family:var(--slab); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+              color:var(--gold); margin:0 0 7px;}
+  .sigweak p{font-size:13.5px; line-height:1.7; color:#e7e3e0; margin:0;}
+  .part{font-family:var(--slab); font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
+        color:var(--accent); font-weight:700; margin:46px 0 4px;}
+  h3.head{font-size:1.42rem; line-height:1.4; letter-spacing:-.01em; font-weight:700; margin:0 0 20px;
+           color:var(--ink);}
+  p{margin:0 0 20px;}
+  .lead-in{font-weight:700; color:var(--cap);}
+  .term{font-style:normal; color:var(--accent); font-weight:600;}
+  .gloss{color:var(--muted); font-weight:400; font-size:.96em;}
+  strong,b{font-weight:700;}
+  ul{margin:0 0 20px; padding-left:0; list-style:none;}
+  ul li{position:relative; padding-left:20px; margin-bottom:12px;}
+  ul li::before{content:""; position:absolute; left:1px; top:.75em; width:7px; height:2px; background:var(--accent);}
+  .pullquote{border-left:3px solid var(--accent); padding:14px 20px; margin:24px 0;
+             background:var(--box); border-radius:0 6px 6px 0; font-size:1.05rem;
+             color:var(--cap); font-style:italic; line-height:1.7;}
+  /* 용어 설명 박스 */
+  .termbox{background:var(--box); border:1px solid var(--boxline); border-radius:8px;
+           padding:18px 22px; margin:22px 0; font-size:.93rem; line-height:1.78;}
+  .termbox .h{font-family:var(--slab); font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
+              color:var(--accent); margin:0 0 10px;}
+  .termbox dt{font-weight:700; color:var(--ink); margin-top:10px;}
+  .termbox dd{margin:2px 0 0 0; color:var(--ink-soft);}
+  /* 2편 예고 */
+  .nextep{background:linear-gradient(135deg,#1c3155 0%,#26467d 100%); color:#fff;
+          border-radius:10px; padding:22px 26px; margin:40px 0 0;}
+  .nextep .h{font-family:var(--slab); font-size:.78rem; letter-spacing:.2em; text-transform:uppercase;
+             color:var(--gold); margin:0 0 10px;}
+  .nextep p{font-size:.97rem; line-height:1.72; color:#d8dfe8; margin:0;}
+  .exec{background:var(--box); border:1px solid var(--boxline); border-radius:10px;
+        padding:26px 26px 20px; margin:24px 0 0;}
+  .exec .part{margin-top:0;}
+  .sources{margin-top:48px; padding-top:22px; border-top:2px solid var(--cap);
+           font-size:.9rem; color:var(--ink-soft); line-height:1.7;}
+  .sources .h{font-family:var(--slab); font-weight:700; color:var(--cap); font-size:1.02rem;
+              margin-bottom:14px; letter-spacing:.02em;}
+  .sources ol{margin:0; padding-left:22px;}
+  .sources li{margin-bottom:10px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .tier{font-size:.72rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px;
+        padding:0 5px; margin-right:7px; vertical-align:1px;}
+  .tier.t1{color:#7a3a3a; border-color:#e2c4c4;}
+  .disc{margin-top:38px; padding:16px 20px; border:1px solid var(--boxline); border-radius:6px;
+        background:#f0f1f3; font-size:13px; color:#555; line-height:1.75;}
+  .disc b{display:block; margin-bottom:6px; color:var(--ink-soft);}
+  .signoff{margin-top:44px; padding-top:38px; border-top:2.5px solid var(--cap); text-align:center;}
+  .ss-brand{font-family:var(--slab); font-size:2.3rem; font-weight:700; color:var(--cap);
+            text-transform:uppercase; letter-spacing:.05em; line-height:1; margin-bottom:10px;}
+  .ss-line{font-size:1.05rem; color:var(--accent); font-weight:500; letter-spacing:.04em;}
+  @media(max-width:600px){
+    .wrap{padding:40px 20px 64px;} body{font-size:16px;}
+    .sigrow{flex-direction:column; gap:2px; align-items:flex-start;}
+    .sigrow .v{text-align:left;}
+  }
+</style>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+<div class="wrap">
+<article>
+
+  <div class="masthead">The Signal · Deep Research</div>
+  <hr class="mhrule">
+  <div class="meta">
+    <b>발행</b> · Deep Research No.03 · 2026년 8월 8일<br>
+    <b>도메인</b> · AI × 지정학 × 산업<br>
+    <b>2편 예고</b> · 팔란티어의 기술적 논리 · 젠슨 황의 선언 · 산업 내전의 의미
+  </div>
+
+  <h1>팔란티어가 중국 모델을 올린 날, 오픈소스 40년 전쟁의 세 번째 라운드가 시작되었다</h1>
+  <h2 class="sub">팔란티어가 중국 모델을 올린 날, 오픈소스 40년 전쟁의 세 번째 라운드가 열렸다</h2>
+  <p class="lead">2026년 8월 4일, 미국 AI 산업의 지형이 바뀌었다. 그리고 그 변화는 예고 없이 온 것이 아니었다.</p>
+
+  <hr>
+
+  <section class="sigcard" aria-label="시그널 카드">
+    <div class="t"><span>Signal Card</span><span class="rt">AI · 지정학 · 산업</span></div>
+    <div class="sigrow"><span class="k">신호 강도</span><span class="v"><span class="star">★★★★</span>☆</span></div>
+    <div class="sigrow"><span class="k">신호 유형</span><span class="v">기술 패러다임 전환</span></div>
+    <div class="sigrow"><span class="k">신호 영역</span><span class="v">AI × 지정학 × 산업</span></div>
+    <div class="sigrow"><span class="k">확신도</span><span class="v">중간 — 논리적 약한 고리 참조</span></div>
+    <div class="sigrow"><span class="k">전개 시계</span><span class="v">즉시 진행 중 · 2026년 하반기가 분기점</span></div>
+    <div class="sigrow"><span class="k">핵심 작동 원리</span><span class="v">통제권 소재가 안보의 정의를 바꾼다</span></div>
+    <div class="sigrow"><span class="k">역사적 계보</span><span class="v">오픈소스 전쟁 1983 · 클라우드 전환 2006</span></div>
+    <div class="sigweak">
+      <div class="k">논리적 약한 고리</div>
+      <p>팔란티어 온톨로지 레이어가 데이터 격리를 보장하더라도, 모델 가중치 안에 내재된 의도적 편향·백도어까지 막을 수 있는지는 별개의 미검증 문제다. "통제권이 곧 안전"이라는 명제는 역사적으로 두 번 이겼지만, 이번에는 지정학 변수가 더해졌다. 이 두 번째 층의 리스크를 과소평가하면 이 신호를 오독한다.</p>
+    </div>
+  </section>
+
+  <div class="part">프롤로그</div>
+  <h3 class="head">1983년 매사추세츠, 한 프로그래머의 분노</h3>
+
+  <p>1983년 가을, 리처드 스톨먼은 자신의 사무실 프린터 앞에서 분노하고 있었다. MIT 인공지능 연구소의 새 레이저 프린터가 종이 걸림이 생겨도 아무에게도 알리지 않았다. 이전 프린터에서는 스톨먼이 직접 코드를 고쳐 이 문제를 해결했다. 그런데 새 프린터의 제조사 제록스는 소스코드를 공개하지 않았다. 코드를 볼 수도, 고칠 수도 없었다.</p>
+
+  <p>분노는 선언이 됐다. 스톨먼은 1983년 9월 GNU 프로젝트를 발표하고, 1985년 자유소프트웨어재단을 세웠다. 그의 선언문은 기술이 아니라 철학이었다. <em>"소프트웨어는 자유로워야 한다. 이것을 막는 것은 기술의 문제가 아니라 권력의 문제다."</em></p>
+
+  <p>당시 주류의 반응은 냉소였다. 빌 게이츠는 1976년에 이미 경고했다. <em>"취미가들이 소프트웨어를 훔쳐 공짜로 뿌리면 누가 전문적인 소프트웨어를 만들겠는가."</em> 당시 주류 기업들은 소스코드를 공개하면 품질이 떨어지고 보안이 약해진다는 입장이었다. 닫혀 있어야 통제할 수 있고, 통제할 수 있어야 안전하다 — 이것이 당시 기술 기업들의 공통 논리였다.</p>
+
+  <p>그로부터 40년이 지난 2026년, 이 싸움이 세 번째 라운드에 들어섰다. 무대는 AI 모델이고, 배우는 팔란티어·NVIDIA·OpenAI·Anthropic이며, 관객은 미국 의회와 백악관이다. 그리고 그 싸움의 결정적 하루가 2026년 8월 4일이었다.</p>
+
+  <hr>
+
+  <div class="part">Part I — 표면</div>
+  <h3 class="head">같은 날, 두 개의 사건, 하나의 신호</h3>
+
+  <p>2026년 8월 4일 오전, 워싱턴 DC에서 산업계 비공개 회의가 열렸다. Axios 보도에 따르면 백악관은 이 자리에서 연방 AI 안전검증 프레임워크를 공개하며, 오픈웨이트 모델은 이 프레임워크가 규정하는 심사 대상에서 제외된다고 발표했다. 발표의 핵심 논리는 이것이었다. 개발자의 통제를 벗어난 오픈웨이트 모델을 규제하는 것은 기술적으로 불가능하고, 그 시도가 오히려 미국의 AI 혁신을 가로막는다.</p>
+<p>같은 날 오후, 지구 반대편에서 온 신호가 팔란티어 공식 개발자 문서에 올라왔다. 미국 국방·정보기관의 핵심 AI 파트너인 팔란티어가 자사 플랫폼 AIP의 공식 발표 페이지를 갱신했다. 새로 등록된 것은 중국의 세 오픈웨이트 모델이었다. DeepSeek V3.2, GLM 5(Z.ai), Kimi 2.5(Moonshot AI) — 모두 아마존 웹 서비스(AWS)의 Bedrock 인프라를 경유해, 미국·EU·영국·일본 상업 플랫폼에서 사용 가능하다고 명시됐다.</p>
+<p>이 두 사건이 같은 날 일어났다는 것이 이 리포트의 출발점이다. 그러나 이 동시성을 단순한 타이밍의 우연으로 읽으면 이 신호의 깊이를 놓친다. 이것을 이해하려면 그 하루 이전의 11일로 돌아가야 한다.</p>
+
+  <div class="termbox">
+    <div class="h">이 리포트에 등장하는 핵심 개념</div>
+    <dl>
+      <dt>오픈웨이트 모델 (Open-weight model)</dt>
+      <dd>AI 모델의 학습된 수치 파라미터(가중치)가 공개되어 누구나 다운로드하고, 직접 실행하거나 수정할 수 있는 모델. 폐쇄형 모델이 API(외부 접속창)로만 사용할 수 있는 것과 달리, 가중치를 직접 내 서버에서 돌릴 수 있다. DeepSeek·Kimi·GLM이 여기에 해당하고, Meta의 Llama도 같은 방식이다.</dd>
+      <dt>AIP (Artificial Intelligence Platform)</dt>
+      <dd>팔란티어가 2023년 출시한 기업용 AI 플랫폼. 기업의 데이터와 AI 모델을 연결하는 중간 계층(미들웨어) 역할을 하며, 어떤 AI 모델이든 올려서 쓸 수 있는 모델 불가지론적 구조다. 자세한 설명은 2편에서 다룬다.</dd>
+      <dt>AWS Bedrock</dt>
+      <dd>아마존 웹 서비스(Amazon Web Services)가 제공하는 AI 모델 관리 인프라. 여러 AI 모델을 AWS 서버 안에서 실행하되, 사용자 데이터가 모델 제작사로 전송되지 않도록 격리하는 기술 구조를 갖춘다. 팔란티어가 이번에 등록한 중국 모델들은 모두 이 인프라를 경유한다.</dd>
+    </dl>
+  </div>
+
+  <div class="part">Part II — 11일의 내전</div>
+  <h3 class="head">7월 16일부터 8월 4일까지</h3>
+
+  <p>이 이야기는 2026년 7월 16일, 중국 베이징의 한 AI 연구소에서 시작된다.</p>
+
+  <p>그날 Moonshot AI는 Kimi K3를 공개했다. 2조 8,000억 개의 파라미터<span class="gloss">(모델이 학습한 수치 단위 — 많을수록 더 복잡한 사고를 할 수 있다고 여겨진다)</span>를 가진 거대 오픈웨이트 모델이었다. 그리고 그 성능이 충격이었다. Arena 프런트엔드 코드 블라인드 테스트에서 앤트로픽의 Claude Fable 5와 오픈AI의 GPT-5.6 Sol을 앞섰다는 결과가 나왔다. 적어도 프런트엔드 코드 Arena 리더보드라는 전장에서는, 중국 모델이 미국의 가장 비싼 폐쇄형 모델들을 앞섰다. 오픈웨이트(누구나 다운로드 가능한 가중치)는 7월 27일 공개 예정이라고 발표된 상태였다.</p>
+
+  <p>워싱턴이 즉각 반응했다. 데이비드 삭스(David Sacks) — 트럼프 2기 행정부에서 "AI·암호화폐 차르(Czar)"를 지냈으며, 3월 26일 그 직을 마친 뒤 이 시점에는 대통령 과학기술자문위원회(PCAST) 공동의장을 맡고 있었다 — 가 그날(7월 16일) X에 글을 올렸으며, 이튿날 Axios가 이를 보도했다. Axios는 그의 포스트를 이렇게 해설했다 — 미국이 규제의 관문을 세우는 동안 베이징은 그 관문을 걷지 않는다는 것이 삭스의 주장이라고, 그리고 Kimi K3가 바로 그 결과라고. 삭스 자신은 이것이 AI 경쟁에서 지는 방법이며, 허가 없는 혁신이 미국이 인터넷을 이긴 방식이었다고 썼다. 직함은 바뀌었어도, 트럼프 행정부의 AI 정책에서 그가 가진 무게는 달라지지 않았다.</p>
+
+  <p>7월 25일에는 뉴욕타임스가 워싱턴 내부의 균열을 보도했다. 오픈AI와 앤트로픽이 중국 오픈웨이트 모델에 대한 더 강한 규제를 지지하는 로비를 워싱턴에서 조용히 펼치고 있다는 것이었다. 공개석상에서 "오픈소스를 지지한다"고 말하는 오픈AI 수장 샘 알트먼과, 그 뒤에서 정반대 방향의 규제를 요청하는 오픈AI 사이의 간극이 처음으로 가시화됐다.</p>
+
+  <p>7월 24일, 그 간극이 폭발했다.</p>
+
+  <p>그날 오전, NVIDIA 서버에 하나의 PDF가 업로드됐다. 제목은 "Open Weights and American AI Leadership" — "오픈웨이트와 미국의 AI 리더십". 3페이지 분량의 이 정책 의견서는 미국 의회와 정부를 향해 하나의 주장을 담고 있었다. <em>"오픈웨이트 AI에 성급하게 제한을 가하면, 그것이 경쟁을 억누르고 혁신을 해외로 내몰 것이다."</em></p>
+
+  <p>그러나 내용보다 더 큰 울림을 가진 것은 서명자 명단이었다. 최초 서명자 25개사 중에는 NVIDIA, Microsoft, Meta, IBM, Dell, Palantir, Andreessen Horowitz, Hugging Face, Y Combinator, Mozilla, Mistral, Replit, Perplexity, Linux Foundation이 포함됐다. 그리고 그 명단에 없는 이름들이 이 편지의 진짜 의미를 드러냈다. OpenAI, Anthropic, Google, Amazon — AI 산업의 최전선을 이끌어온 이 네 회사는 모두 침묵했다. 미국 AI 산업이 두 진영으로 갈라지는 순간이었고, 그 균열의 선은 예상보다 훨씬 깊은 곳에 그어져 있었다.</p>
+<p>7월 24일 오후, 또 하나의 사건이 벌어졌다. 젠슨 황이 X 계정에 처음으로 글을 올렸다.</p>
+
+  <p>이것을 대수롭지 않게 넘기기 쉽다. 하지만 이 사건을 제대로 이해하려면 맥락이 필요하다. NVIDIA CEO 젠슨 황은 AI 시대에서 가장 영향력 있는 인물 중 한 명이다. AMD CEO 리사 수는 2017년부터 X에 있었고, Intel CEO도 오래전부터 소셜 미디어에서 활발했다. 반면 황은 X 계정을 2026년 6월에 개설하고도 약 한 달간 단 한 마디도 올리지 않았다. 그리고 그 침묵을 끝내며 처음으로 선택한 주제가 제품 발표도, 실적 발표도, 업계 축하 메시지도 아니었다는 것 — 그것이 이 게시물의 무게를 만들었다. 그가 처음으로 세상에 꺼낸 말은 오픈웨이트 서한이었다.</p>
+<p>게시물의 내용은 짧고 직접적이었다.</p>
+
+  <div class="pullquote">"For my first post, I'm sharing a letter @NVIDIA signed on why open models matter. AI will transform every industry, power every company, and be built by every country. Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty."<br><br>
+  <span style="font-size:.9rem; color:var(--ink-soft);">— 첫 게시물로 오픈 모델이 왜 중요한지를 담은 NVIDIA의 공개 서한을 공유합니다. AI는 앞으로 모든 산업의 판을 바꾸고, 모든 기업의 경쟁력을 좌우하는 핵심 기술이 될 것입니다. 또한 AI를 만드는 주체 역시 소수의 기업이 아니라 모든 국가로 확대될 것입니다. 오픈 모델은 더 안전한 AI와 강력한 사이버 보안을 가능하게 하고, 혁신이 더 빠르게 확산되도록 돕습니다. 나아가 각국이 특정 기업이나 국가에 의존하지 않고 자신만의 AI 역량과 기술 주권을 구축할 수 있는 기반이 됩니다.</span></div>
+
+  <p>게시물이 올라오자 X가 움직였다. 20분 만에 팔로워 1만 명을 넘었다. 사티아 나델라(Microsoft CEO)와 마크 저커버그(Meta CEO)가 즉각 공개 지지 게시물을 올렸다. 일론 머스크가 답글을 달았다. <em>"This has my full support. Jensen is right."</em> — "전적으로 지지한다. 젠슨이 옳다." AI 업계에서 가장 많은 영향력을 가진 사람들이 젠슨 황의 첫 목소리에 일제히 반응했다.</p>
+
+  <p>단 하루 만에 1천 1백만 뷰.</p>
+
+  <p>여기에 기름을 부은 것은 다음날 나온 보도였다. 7월 25일, 뉴욕타임스가 폭탄을 떨어뜨렸다. OpenAI와 Anthropic이 오픈소스 AI 모델을 제한하도록 워싱턴 규제 당국에 조용히 로비하고 있다고, 5명의 내부 관계자가 증언했다. Altman이 공개석상에서 오픈소스를 지지한다고 말하는 바로 그 시점에 말이다. 앞면과 뒷면이 다른 동전이었다.</p>
+<p>반응은 즉각적이었다. 삭스는 오픈AI·구글마저 서명한 직후 X에 올렸다. <em>"전체 기술 업계(앤트로픽 제외)가 오픈소스 AI를 지지했다."</em> 그리고 8개월 전 자신이 했던 발언을 다시 꺼냈다. <em>"앤트로픽은 공포 조장에 기반한 정교한 규제 포획 전략을 운영하고 있다."</em> 이 "규제 포획" 발언은 원래 2025년 10월의 것이었다 — 삭스는 이 싸움을 오래전부터 예고했고, 7월의 서한이 그 예고의 실물 증거가 됐다고 본 것이었다.</p>
+
+  <p>그 다음날인 7월 26일, 누군가가 7월 24일 NVIDIA 서버에 업로드된 바로 그 PDF를 다시 열었다면, 서명자 명단이 달라진 것을 발견했을 것이다. 주말 사이에 서명자가 약 두 배로 늘었고, 오픈AI도 그 명단에 이름을 올렸다.</p>
+<p>서명하고 나서 이틀 만에. 공개적으로 지지를 표명하면서 동시에 비공개 로비를 하고 있었다는 사실이 보도된 그날. OpenAI의 뒤늦은 서명은 입장 표명이 아니라, 더 이상 버티기 어려운 상황에서의 후퇴였다.</p>
+
+  <p>Anthropic은 끝까지 서명하지 않았다.</p>
+
+  <p>8월 3일, 서명자가 270개를 넘었다. 같은 날 팔란티어가 Q2 2026 실적을 발표했다. 전체 매출은 전년 동기 대비 93% 성장, 19억 3,500만 달러(팔란티어 공식 발표 기준, SEC 8-K). 미국 상업 매출은 같은 기간 149% 성장했다(7억 6,400만 달러). 팔란티어는 이제 "국방 계약 기업"이 아니었다.</p>
+<p>그리고 다음날인 8월 4일, 두 가지 사건이 동시에 일어났다. 앞서 말한 그 하루다.</p>
+
+  <p>이 11일의 흐름 속에서 팔란티어의 궤적을 다시 짚어보면 비로소 8월 4일의 의미가 보인다. 팔란티어는 7월 24일 서한의 최초 서명자 25개사 중 하나였다. 그 서한이 로비 문서에서 실제 정책으로 전환되기까지 꼭 11일이 걸렸고, 팔란티어는 그 정책이 확인된 바로 그날 중국 모델 세 종을 플랫폼에 올렸다. 이 흐름을 알고 나면 8월 4일의 타이밍은 우연이 아니라는 것이, 그리고 이것을 단순한 "비즈니스 결정"으로 읽는 것이 얼마나 표면적인 해석인지가 드러난다.</p>
+
+  <hr>
+
+  <div class="part">Part III — 계보</div>
+  <h3 class="head">이 싸움은 처음이 아니다</h3>
+
+  <p>여기서 잠깐 멈출 필요가 있다.</p>
+
+  <p>11일의 타임라인만 놓고 보면, 이것은 로비 성공 이야기처럼 보인다. 기업들이 정부에 압력을 넣었고, 정책이 바뀌었고, 팔란티어가 그 결과를 이용했다. 하나의 사이클, 하나의 해프닝. 그리고 다음 뉴스로 넘어가면 된다.</p>
+
+  <p>그런데 그렇게 읽으면 가장 중요한 것을 놓친다. 이 싸움이 왜 이 방식으로 진행됐는지, 팔란티어가 왜 이 시점에 이 베팅을 했는지, 그리고 젠슨 황이 왜 이 이슈로 처음 목소리를 냈는지 — 그것을 이해하려면 40년의 흐름을 봐야 한다.</p>
+
+  <p>역사는 결말의 단서를 준다. "닫혀야 안전하다"는 논리와 "누가 통제하느냐가 기준이다"는 논리가 충돌한 것은 2026년이 처음이 아니다. 이 싸움은 정확히 같은 구조로 두 번 벌어졌고, 두 번 모두 같은 쪽이 졌다. 그 패턴을 알면, 팔란티어의 행동이 무모한 도박인지 계산된 베팅인지가 다르게 보인다. 이번 싸움은 세 번째 라운드였다.</p>
+
+  <p><span class="lead-in">1라운드 — 소프트웨어 (1980년대).</span></p>
+
+  <p>리처드 스톨먼이 GNU 프로젝트를 시작한 1983년, 소프트웨어 업계의 지배적 논리는 "닫혀 있어야 발전한다"였다. 소스코드를 공개하면 누구나 복사하고, 개발 인센티브가 사라지며, 취약점이 공개돼 보안이 무너진다는 것이었다. AT&T는 Unix를 처음엔 공짜로 배포했다가 1983년 상업 제품으로 전환했다. 소프트웨어에 저작권이 적용되기 시작한 것도 이 시기였다.</p>
+
+  <p>스톨먼의 반론은 단순했다. <em>"소스코드가 공개돼야 더 많은 사람이 취약점을 찾고 고칠 수 있다. 닫혀 있을수록 내부 문제가 보이지 않는다."</em> 그는 이것을 도덕의 언어로 포장하지 않고, 기술의 논리로 제시했다.</p>
+
+  <p>1991년 리누스 토발즈가 Linux 커널을 공개했다. 처음엔 장난감 취급이었다. 기업들은 "진지한 서버에 쓸 수 없다"고 했다. 그런데 수천 명의 개발자가 자발적으로 버그를 찾고, 기능을 추가하고, 코드를 개선하기 시작했다. 1990년대 말이 되자 논쟁은 끝났다. Linux는 인터넷 서버의 표준이 됐고, Apache 웹서버·MySQL 데이터베이스·Python·Perl 언어 등 인터넷의 기반 인프라가 오픈소스 위에 세워졌다. 2026년 현재, 미 국방부 핵심 시스템의 상당 부분이 Linux 기반이다. "닫혀야 안전하다"는 논리가 진 것이다. 이긴 것은 "공개할수록 더 많은 눈이 문제를 발견한다"는 역방향의 논리였다.</p>
+
+  <p>그런데 그로부터 15년 뒤, 같은 싸움이 다른 무대에서 다시 시작됐다.</p>
+
+  <p><span class="lead-in">2라운드 — 클라우드 (2000년대).</span></p>
+
+  <p>2006년 아마존이 AWS(아마존 웹 서비스)를 출시했을 때, 기업들의 반응은 회의적이었다. "우리 고객 데이터를 아마존 서버에 올린다고? 그 데이터가 경쟁자에게 보이면 어떻게 되나? 아마존 서버가 해킹당하면 우리 책임인가?" 금융회사들은 "규제상 불가능하다"고 했고, 정부기관들은 "국가안보 관련 데이터는 절대 외부 서버에 올릴 수 없다"고 했다.</p>
+
+  <p>아마존의 반론도 단순했다. <em>"당신의 서버실보다 우리 데이터센터가 더 안전합니다. 당신은 서버실 물리 보안을 24시간 관리할 수 있습니까? 우리는 합니다."</em> 자원의 문제가 아니라 역량의 문제라는 논리였다.</p>
+
+  <p>논쟁은 약 7년 만에 끝났다. 2013년, CIA가 AWS와 계약을 맺었다. 미국 정보기관의 극비 데이터를 민간 클라우드에 올리는, 당시로선 혁명적인 결정이었다. 그 결정의 논리는 이랬다. <em>"제어권이 우리 건물 안에 있어야 안전한 게 아니다. 제어 역량이 있는 곳에 있어야 안전하다."</em></p>
+
+  <p><span class="lead-in">두 라운드에서 공통된 패턴.</span></p>
+
+  <p>두 싸움에서 "닫혀야 안전하다"는 진영이 졌다. 그리고 이긴 진영의 논리는 일관되게 같았다. "통제 방식이 중요한 게 아니라, 통제 역량이 중요하다." 오픈소스가 이긴 건 소스코드가 공개되어 있어서가 아니라, 더 많은 사람이 더 잘 관리할 수 있어서였다. 클라우드가 이긴 건 데이터가 외부에 있어서가 아니라, 더 나은 역량을 가진 곳에 있어서였다. 매번 이 싸움의 끝에 남은 질문은 결국 하나였다 — 누가 통제하는가.</p>
+
+  <p>그리고 2026년, 이 질문이 세 번째로 제기됐다.</p>
+
+  <p><span class="lead-in">3라운드 — AI 모델 (2026년).</span></p>
+
+  <p>이번 싸움이 던지는 질문도 같은 뿌리를 가진다. "중국에서 만든 AI 모델은 국가안보 위협인가?" 한쪽의 논리는 "만든 곳이 어디냐"가 기준이다. Anthropic은 오픈웨이트 모델을 "발사된 총알처럼 누구도 회수할 수 없다"고 표현했다. OpenAI는 비공개 로비를 통해 중국 오픈웨이트 규제를 요청했다.</p>
+
+  <p>다른 쪽의 논리는 "누가 통제하느냐"가 기준이다. NVIDIA·Microsoft·Meta·팔란티어가 서한을 통해 주장한 것이 이것이다. <em>"오픈웨이트 모델을 막는 것은 불가능하다. 그 에너지를 막는 데 쓰는 것보다, 안전하게 통제하는 방법을 개발하는 데 쓰는 것이 낫다."</em></p>
+
+  <p>그런데 이번 라운드에는 앞선 두 번과 결정적으로 다른 변수가 끼어들었다. 1980년대의 오픈소스 싸움에서 "소스코드의 국적"은 문제가 아니었다. 핀란드인 리누스 토발즈가 만든 Linux를 두고 미국의 안보 위협이라고 부른 사람은 없었다. 2006년의 클라우드 싸움에서도 "서버의 국적"을 따지는 사람은 없었다.</p>
+
+  <p>2026년에는 다르다. DeepSeek는 중국 회사가 만들었다. GLM 5의 제작사 Z.ai는 중국 칭화대 출신 연구자들이 세운 회사다. Kimi 2.5를 만든 Moonshot AI는 알리바바의 투자를 받았고, 백악관 과학기술정책실(OSTP) 국장 마이클 크라체이오스(Michael Kratsios)가 "Anthropic의 Fable 모델(Claude Fable 5)을 불법 증류해 Kimi K3를 만들었다"고 X에 공개 의혹을 제기한 바로 그 회사다. 이 모델들이 공개된 오픈웨이트라는 사실과, 그것을 만든 곳이 미국의 지정학적 경쟁국이라는 사실이 이번엔 동시에 성립한다.</p>
+
+  <p>역사의 패턴이 세 번째 승자를 가리키는 것처럼 보인다. 그러나 지정학이 변수로 들어온 이번 라운드에서, 그 패턴이 그대로 반복될지는 아직 아무도 모른다. 팔란티어의 베팅이 단순히 "오픈웨이트 진영에 선 것"으로 읽히지 않는 이유가 바로 여기에 있다.</p>
+
+  <p>팔란티어는 이 싸움에서 오픈웨이트 진영의 논리를 자신이 20년 동안 구축해온 사업 모델과 결합하는 방식으로 베팅했다. 그것이 무엇을 의미하는지, 그리고 젠슨 황이 왜 이 순간에 처음으로, 그것도 두 번만 목소리를 냈는지 — 이 이야기는 2편에서 이어진다.</p>
+
+  <div class="nextep">
+    <div class="h">2편 — 통제라는 무기</div>
+    <p>팔란티어가 "안보의 정의"를 재구성하는 방식, 그리고 그 베팅의 기술적 토대와 한계. 젠슨 황이 처음이자 두 번째 X 게시물에서 말한 것의 의미. 7월 27일, 황이 Hugging Face 해킹 사건을 직접 인용하며 "폐쇄형 AI가 포렌식을 막았다"고 말했을 때 — 그것이 왜 AI 역사에서 가장 중요한 트윗 중 하나인지. 그리고 이 싸움이 어디로 가는지.</p>
+    <p style="margin-top:14px;"><a href="deep-03-part2.html" style="color:#fff;font-weight:700;text-decoration:underline;">2편 읽기 →</a></p>
+  </div>
+
+  <div class="sources">
+    <div class="h">1편 출처 목록</div>
+    <ol>
+      <li><span class="tier t1">1차 출처</span>팔란티어 Foundry Announcements, 2026-08-04 — <a href="https://www.palantir.com/docs/foundry/announcements/2026-08/">palantir.com/docs/foundry/announcements/2026-08</a></li>
+      <li><span class="tier t1">1차 출처</span>NVIDIA PDF, "Open Weights and American AI Leadership", 2026-07-24 — <a href="https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf">images.nvidia.com/pdf</a></li>
+      <li><span class="tier t1">1차 출처</span>X @JensenHuang, 2026-07-24 게시물 · 프로필 "Joined June 2026" — <a href="https://x.com/JensenHuang">x.com/JensenHuang</a></li>
+      <li><span class="tier t1">1차 출처</span>Reuters (US News 경유), 팔란티어 Q2 2026 실적 — <a href="https://money.usnews.com/investing/news/articles/2026-08-03/palantir-raises-annual-revenue-forecast-on-strong-demand-from-us-government-commercial-customers">usnews.com</a></li>
+      <li><span class="tier">2차 출처</span>Axios, 백악관 AI 프레임워크 오픈웨이트 제외, 2026-08-04 — <a href="https://www.axios.com/2026/08/04/trump-ai-framework-open-models">axios.com</a></li>
+      <li><span class="tier">2차 출처</span>NYT/Techmeme, OpenAI·Anthropic 비공개 로비, 2026-07-25 — <a href="https://www.techmeme.com/260725/p13">techmeme.com</a></li>
+      <li><span class="tier">2차 출처</span>AI Weekly, OpenAI 뒤늦은 서명 — <a href="https://aiweekly.co/alerts/openai-anthropic-skip-25-firm-open-weights-ai-coalition-letter">aiweekly.co</a></li>
+      <li><span class="tier">2차 출처</span>CNBC, David Sacks "규제 포획" X 포스트 인용 — <a href="https://www.cnbc.com/2025/10/19/anthropic-tries-to-keep-pace-with-openai-faces-off-with-david-sacks.html">cnbc.com</a></li>
+      <li><span class="tier">참고</span>GNU 프로젝트 역사 · 리처드 스톨먼 — 공개 역사 기록 다수. Free Software Foundation, gnu.org..</li>
+      <li><span class="tier">참고</span>AWS 클라우드 확산 · CIA 계약 역사 — AWS 공개 자료 및 복수 언론 보도..</li>
+    </ol>
+  </div>
+
+  <div class="disc">
+    <b>면책</b>
+    The Signal은 산업과 자본의 구조를 해석하는 리서치로, 특정 종목의 매수·매도나 목표가·매매 시점을 다루지 않습니다. 본 리포트는 불특정 다수에게 제공되는 정보이며 개별 투자자문이 아닙니다. 언급되는 기업·기관은 구조를 설명하기 위한 예시이며, 특정 금융투자상품의 매수·매도를 권유하지 않습니다.
+  </div>
+
+  <div class="signoff">
+    <div class="ss-brand">The Signal</div>
+    <div class="ss-line">세상의 변화를 먼저 읽는 리서치</div>
+  </div>
+
+</article>
+</div>
+
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="index.html" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="archive.html" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

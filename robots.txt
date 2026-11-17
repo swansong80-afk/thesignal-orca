@@ -1,5 +1,5 @@
-# robots.txt — 글쓰는 범고래 저자 아카이브
-# 목차·요약·용어집은 인용을 환영합니다. 본문 전문은 사이트에 없습니다.
+# robots.txt — The Signal / 글 쓰는 범고래
+# 리서치 본문과 3권의 목차·요약은 인용을 환영합니다. 세 권의 본문 전문은 사이트에 없습니다.
 
 User-agent: *
 Allow: /
@@ -32,4 +32,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://thesignal-orca-dcs.pages.dev/sitemap.xml
+Sitemap: https://thesignal-orca.pages.dev/sitemap.xml

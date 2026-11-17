@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>버핏이 옳았다, 그런데 그가 본 것은 아니다 — The Signal</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --card:#f4f6f8; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee;
+    --main:1180px;
+    --l3:#c0392b; --l3bg:#fdf0ef;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:#f3f4f6; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    line-height:1.9; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--main); margin:0 auto; padding:32px 24px 90px;}
+  .status{background:var(--cap); color:#fff; padding:12px 20px; border-radius:6px; font-size:13px; margin-bottom:20px; letter-spacing:.02em;}
+  .status b{color:#ffd7d2;}
+  .grid{display:block;}
+  article{background:#fff; border:1px solid var(--rule); border-radius:6px; padding:56px 52px 60px; box-shadow:0 1px 3px rgba(0,0,0,.04); max-width:800px; margin:0 auto;}
+
+  .masthead{font-family:"Roboto Slab",serif; font-size:.95rem; letter-spacing:.14em; color:var(--accent); font-weight:700; text-transform:uppercase; padding-bottom:20px; border-bottom:1px solid var(--rule); margin-bottom:30px;}
+  .masthead .tag{color:var(--l3); font-family:-apple-system,sans-serif; letter-spacing:0; font-size:.8rem; margin-left:10px;}
+
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft);}
+  h1{font-size:2.0rem; line-height:1.34; letter-spacing:-.02em; margin:0 0 12px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.6; color:var(--ink-soft); font-weight:500; margin:0 0 36px; letter-spacing:-.01em;}
+  h3{font-size:1.3rem; margin:48px 0 16px; letter-spacing:-.01em; font-weight:800; color:var(--cap); padding-top:18px; border-top:1px solid var(--rule);}
+  p{margin:0 0 19px; font-size:1.04rem;}
+  strong{font-weight:700;}
+  .lead{font-size:1.12rem; color:#000;}
+
+  .f{text-decoration:underline; text-decoration-color:#9aa1a8; text-underline-offset:4px; text-decoration-thickness:1.5px;}
+  .f-id{font-size:.72em; color:var(--accent); font-weight:700; vertical-align:super; margin-left:1px;}
+  .f-l3{text-decoration:underline; text-decoration-color:var(--l3); text-underline-offset:4px; text-decoration-thickness:2px; background:var(--l3bg); padding:0 2px; border-radius:2px;}
+  .f-l3 .f-id{color:var(--l3);}
+
+  blockquote{margin:28px 0; padding:18px 24px; background:var(--box); border-left:4px solid var(--accent); border-radius:4px; font-size:1.08rem; color:var(--cap); font-weight:600;}
+  blockquote p{margin:0; font-size:inherit;}
+  .box{margin:28px 0; padding:20px 24px; background:var(--card); border:1px solid var(--rule); border-radius:5px; font-size:.98rem; line-height:1.85;}
+  .box .h{font-weight:800; margin-bottom:12px; color:var(--cap);}
+  .box .l{margin-bottom:8px;} .box .l:last-child{margin-bottom:0;}
+  .box .l b{color:var(--ink);}
+
+  .weak{margin-top:40px; padding:18px 22px; background:#fafbfe; border:1px dashed var(--accent); border-radius:5px; font-size:.96rem; color:var(--ink-soft); line-height:1.8;}
+  .weak b{color:var(--cap);}
+
+  .sources{margin-top:46px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.75;}
+  .sources .h{font-family:"Roboto Slab",serif; font-weight:700; color:var(--cap); font-size:1.0rem; margin-bottom:14px; letter-spacing:.02em;}
+  .sources ol{margin:0; padding-left:20px;}
+  .sources li{margin-bottom:9px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .sources .tier{font-size:.78rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px; padding:0 5px; margin-right:6px;}
+
+  .disc{margin-top:32px; padding:16px 20px; border:1px solid var(--boxline); border-radius:4px; background:#f0f1f3; font-size:.84rem; color:#555; line-height:1.7;}
+  .disc b{display:block; margin-bottom:5px; color:#333;}
+
+  .signoff{margin-top:44px; padding-top:30px; border-top:2px solid var(--cap); text-align:center;}
+  .signoff .nm{font-family:"Roboto Slab",serif; font-size:1.7rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1;}
+  .signoff .sl{font-size:.98rem; color:var(--accent); font-weight:500; margin-top:10px; letter-spacing:.03em;}
+
+  /* 마진 원장 카드 */
+  .margin{display:flex; flex-direction:column; gap:8px; position:sticky; top:20px;}
+  .card{border:1px solid var(--boxline); border-radius:5px; padding:10px 13px; background:var(--card); font-size:12px; line-height:1.6;}
+  .card .id{font-weight:800; color:var(--accent); font-size:12.5px;}
+  .card.l3{border-color:var(--l3); background:var(--l3bg);}
+  .card.l3 .id{color:var(--l3);}
+  .card .tier{color:var(--muted); font-size:10.5px; margin-bottom:3px;}
+  .card .excerpt{color:#333; font-style:italic; margin:4px 0;}
+  .card .q{color:var(--l3); font-size:11px; margin-top:5px; font-weight:600;}
+  .card a{color:var(--accent); font-size:10.5px; word-break:break-all;}
+
+  @media (max-width:1100px){ .grid{grid-template-columns:1fr;} .margin{position:static;} }
+  @media (max-width:560px){ article{padding:38px 24px;} h1{font-size:1.6rem;} }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+<div class="wrap">
+
+<div class="grid">
+<article>
+
+  <div class="masthead">The Signal · Weekly</div>
+
+  <div class="meta">
+    <b>발행</b> · Weekly No.05 · 2026년 8월 1일<br>
+    <b>도메인</b> · 자본 × 산업<br>
+    <b>신선도</b> · 아마존·애플 실적 2일 이내
+  </div>
+
+  <h1>버핏이 옳았다, 그런데 그가 본 것은 아니다</h1>
+  <h2 class="sub">시장은 capex 논쟁을 아마존 실적으로 덮었다 — 그 아래서 메모리는 이미 되돌릴 수 없이 재배치되고 있다</h2>
+
+  <p class="lead">두 주 전 워런 버핏은 "구글과 그 경쟁사들 모두 수백억을 쏟아붓고 있으며, 그건 실제 돈"이라고 말했다. 얼핏 이상하게 들린다 — 버핏은 원래 <em class="term">'자산경량'</em><span class="gloss">(asset-light — 공장이나 설비 같은 무거운 자산 없이 소프트웨어·플랫폼만으로 돈을 버는 사업 구조)</span> 기업을 즐겨 투자해왔는데, 지금 그가 감탄하는 건 정반대로 데이터센터라는 무거운 설비에 수백억을 쏟아붓는 회사이기 때문이다. 그런데 버핏이 실제로 보는 건 "돈을 쓰는 방식"이 아니라 "그 돈이 나중에 무엇을 벌어들이는가"다. 그는 알파벳을 두고 "월스트리트에서 팔리는 것의 90~95%보다 승자가 될 가능성이 높다"고 평가했다 — 즉 지금의 지출을 낭비가 아니라, 훗날 오래 돈을 벌어줄 자산을 미리 깔아두는 것으로 본 것이다. 철도 회사가 선로를 깔 때 당장은 돈만 나가지만, 그 선로가 수십 년간 통행료를 벌어주는 것과 같은 논리다. <strong>즉 그가 재평가한 건 "얼마나 가볍게 버는가"가 아니라 "이 지출이 장기적으로 갚아지는가"였고, 답이 '그렇다'로 바뀌었다는 뜻이다.</strong> capex 자체를 위험 신호가 아니라 미래 수익의 증거로 받아들인 셈이다. 지난주 아마존이 그 말을 실적으로 증명하는 듯했다.</p>
+
+  <p><em class="term">capex</em><span class="gloss">(capital expenditure, 설비투자 — 서버·데이터센터·부동산처럼 여러 해 동안 쓸 자산을 사는 데 들어가는 돈. 매달 나가는 운영비와 달리 한 번에 크게 지출하고 오래 회수하는 돈이라, 얼마나 늘렸는지가 그 회사가 미래를 얼마나 크게 보는지 보여주는 지표로 읽힌다)</span>가 이번 실적의 핵심 변수였고, 그 무대는 아마존의 클라우드 사업부 <em class="term">AWS</em><span class="gloss">(Amazon Web Services — 아마존이 서버·저장공간·AI 연산력을 다른 기업에 빌려주는 사업. 아마존 전체 영업이익의 상당 부분을 이 부문이 낸다)</span>였다.</p>
+
+  <h3>무슨 일이 있었나</h3>
+
+  <p>아마존은 2026년 현금 capex 전망을 $200B에서 $220B로 상향했다. CEO 앤디 재시는 이 상향의 원인으로 메모리 원가 상승을 직접 지목했다. 뒤이은 질의응답에서는 메모리·하드드라이브 등 부품 가격 인상이 "어느 회사에도 비밀이 아니다"라고 재확인했다.</p>
+
+  <p>같은 실적에서 AWS 매출은 37% 성장해 18분기 만의 최고치를 기록했고, 계약 잔고(RPO)는 한 분기 만에 $132B 늘어 $496B에 도달했다. 주가는 급등했다(매체별 11~15%) — 같은 시기 capex를 올렸다가 주가가 빠진 알파벳과는 정반대 반응이었다.</p>
+
+  <h3>왜 신호인가 — 시장이 넘어간 지점</h3>
+
+  <p>버핏의 발언은 사실 알파벳 투자를 설명한 것이지, 아마존을 콕 집어 지지한 게 아니다. 다만 그가 짚은 프레임과 아마존이 받은 시장 반응의 방향은 같았다. 버크셔는 알파벳 지분 약 $31B를 보유하며, 버핏이 이 투자를 직접 주도했다고 밝혔다 — 그만큼 이 프레임을 실제로 돈을 걸고 뒷받침한 셈이다.</p>
+
+  <p>그런데 이게 논지의 핵심은 아니다. 진짜 신호는 시장이 "AWS가 잘하니 괜찮다"며 넘어간 <strong>바로 그 capex 상향의 원인</strong>에 있다. 아마존의 capex 상향과, 뒤에서 볼 애플의 마진 손실은 사실 <strong>같은 원인에서 갈라진 두 결과</strong>다.</p>
+
+  <h3>신호에서 판세 전환으로</h3>
+
+  <p>버핏이 옳았던 것은 "capex는 이제 다른 게임"이라는 큰 틀이다. 그러나 시장이 놓친 것은, 이 게임의 규칙을 정하는 게 빅테크가 아니라 메모리 3사라는 사실이다. D램은 원래 한 공장에서 만들어 컴퓨터·스마트폰(소비자용)에도, AI 서버용 <em class="term">'HBM'</em><span class="gloss">(고대역폭 메모리 — 여러 층의 D램을 쌓아 AI 연산에 필요한 속도로 데이터를 실어 나르는 특수 메모리. 일반 D램보다 만들기 훨씬 까다롭다)</span>에도 똑같이 공급됐다. 그런데 삼성·SK하이닉스·마이크론은 생산능력의 93%를 소비자용에서 AI서버용(HBM)으로 이미 돌렸다 — 같은 공장, 같은 웨이퍼를 놓고 "누구에게 먼저 줄 것인가"를 정한 것이고, 그 답이 빅테크 쪽으로 기울었다는 뜻이다.</p>
+
+  <p><strong>이게 왜 애플까지 흔드는가.</strong> 메모리 공장의 생산량은 하루아침에 못 늘린다 — 새 라인을 깔고 장비를 들이는 데만 몇 년이 걸린다. 그러니 "AI서버용을 늘린다"는 정확히 "소비자용을 줄인다"는 뜻이 된다. 파이가 커지는 게 아니라 같은 파이를 잘라 옮기는 것이다. 그 결과가 애플의 조정(관세환급 제외 기준) 매출총이익률 하락(49.3%→48.1%)의 100% 이상이 메모리 원가 때문이라는 발표이고, CEO가 이를 "100년 홍수"로 표현하며 가격 인상이 불가피했다고 말한 이유다. <em>(참고로 애플이 실제 공시한 총이익률 자체는 49.3%→50.1%로 오히려 상승했다 — 관세환급 효과를 제거하고 나서야 메모리 원가의 순수한 타격이 드러난다.)</em> 아이폰·맥에 들어가는 메모리를 만드는 공장 자체가, 이제는 아마존·구글의 서버 쪽에 먼저 물량을 배정하고 있는 것이다. 그리고 이 전환은 라인을 되돌리는 데도 같은 시간이 걸리므로, capex 논쟁이 어떻게 끝나든 쉽게 원래대로 돌아가지 않는다.</p>
+
+  <p>마이크론이 이미 지난해 12월 소비자용 메모리 사업(Crucial)에서 아예 철수하겠다고 발표한 것도 같은 흐름이다 — 이유는 "AI 주도 데이터센터 수요 급증". 한 회사가 소비자 시장을 통째로 포기한다는 건, 이 재배치가 일시적 우선순위 조정이 아니라 사업 전략 자체의 전환이라는 뜻이다.</p>
+
+  <p>정작 이 재배치의 대가를 치르는 아마존 쪽 사정은 녹록지 않다. 지난 12개월 잉여현금흐름은 -$7.6B로 적자 전환했고, 장기부채는 반 년 만에 $65.6B에서 $128.9B로 늘었다. 현금이 마르고 빚이 느는 것만 보면 경고등이 켜져야 할 상황인데, RBC 애널리스트는 오히려 "AI가 <em class="term">'ROIC'</em><span class="gloss">(투하자본이익률 — 회사가 사업에 투입한 돈 대비 얼마를 벌어들이는지 보여주는 지표. 이게 낮으면 "돈만 쓰고 못 번다"는 뜻이다)</span>를 갉아먹는 요인이 아닐 수 있다"고 평가했다. 시장이 이 재무 부담까지 눈감아준 것이다. 그러나 capex 논쟁이 이렇게 어느 쪽으로 결론나든, 공장 라인이 이미 넘어간 메모리 재배치 자체는 그 결론을 기다려주지 않는다.</p>
+
+  <div class="box">
+    <div class="h">신호 판정 — 5표식 충족</div>
+    <div class="l"><b>구조변화</b> · 메모리 공급이 소비자용에서 AI서버용으로 재배치되는 흐름은 되돌아가지 않는다.</div>
+    <div class="l"><b>자금·권력 이동</b> · $220B 규모 자금이 메모리 3사로 흘러가는 재배치.</div>
+    <div class="l"><b>선례</b> · 아마존과 알파벳의 상반된 주가 반응이 새로운 판단 기준의 등장을 시사한다.</div>
+    <div class="l"><b>도메인 교차</b> · 자본(capex·주가)·산업(메모리 공급망)·기술(AI 인프라)이 겹친다.</div>
+    <div class="l"><b>논란</b> · capex 급증이 버블인지 구조 전환인지에 대한 시장 내 이견.</div>
+  </div>
+
+  <h3>무엇을 지켜볼 것인가</h3>
+
+  <p><strong>① 2027년 실적발표.</strong> 재시는 capacity 부족이 2027년에도 이어질 것이라 말했다 — capex·메모리 원가 언급이 그때도 반복되는지. <em>확인 지표</em> — 2027년 실적콜에서 같은 인과가 재확인되는지.</p>
+
+  <p><strong>② 메모리 3사의 다음 가이던스.</strong> 삼성·SK하이닉스는 부족이 2027년 이후까지 갈 수 있다고 경고했다. <em>확인 지표</em> — 2027년 초 가이던스가 이 경고와 같은 방향인지.</p>
+
+  <p><strong>③ 애플의 9월 분기 마진.</strong> 가이던스(47~48%)가 실제로 방어되는지, 추가 압박을 받는지. <em>확인 지표</em> — 9월 분기 실적에서 마진 압축 폭이 6월 분기와 비교해 확대되는지 축소되는지.</p>
+
+  <h3>한 줄 요약</h3>
+  <p>시장은 버핏의 프레임에 동의해 아마존의 capex를 용서했지만, 정작 그 capex를 밀어올린 메모리 재배치는 시장의 용서와 무관하게 계속되고 있다.</p>
+
+  <div class="weak">
+    <b>약한 고리를 먼저 밝힙니다</b> — 버핏의 발언은 알파벳에 대한 것이지 아마존을 특정해 지지한 것이 아닙니다. 이 글은 그의 프레임과 시장 반응의 "방향이 같다"는 것만 다루며, 버핏이 아마존의 capex를 승인했다고 주장하지 않습니다. 또한 메모리 생산능력 전환 비율(93%)은 단일 매체 집계로, 각사 1차 공시로 재확인되지 않았습니다.
+  </div>
+
+  <div class="sources">
+    <div class="h">출처</div>
+    <ol>
+      <li><span class="tier">1차</span>Amazon Q2 2026 실적콜 트랜스크립트 — <a href="https://stockanalysis.com/stocks/amzn/transcripts/657334-q2-2026/">stockanalysis.com/stocks/amzn/transcripts/657334-q2-2026</a> (capex·백로그·재시 발언)</li>
+      <li><span class="tier">1차</span>Amazon Q2 2026 실적콜 Q&A — <a href="https://ca.investing.com/news/company-news/amazoncom-inc-amzn-q2-2026-earnings-call-highlights-record-revenue-and-aws-acceleration--4766786">ca.investing.com/.../amazon-q2-2026</a> (부품 가격 인상 언급)</li>
+      <li><span class="tier">1차</span>CNBC, 버핏 인터뷰(2026-07-15) — <a href="https://www.cnbc.com/2026/07/15/warren-buffett-tells-cnbc-he-initiated-berkshire-hathaways-investment-in-alphabet.html">cnbc.com/.../warren-buffett-tells-cnbc</a></li>
+      <li><span class="tier">1차</span>CNBC, 버핏 인터뷰 원문 발췌(Excerpts, 2026-07-15) — <a href="https://www.cnbc.com/2026/07/15/cnbc-exclusive-excerpts-berkshire-hathaway-chairman-warren-buffett-speaks-with-cnbcs-becky-quick-on-cnbcs-squawk-box-today.html">cnbc.com/.../cnbc-exclusive-excerpts</a> (90~95% 승자 발언)</li>
+      <li><span class="tier">1차</span>Apple Q3 2026 실적콜 — <a href="https://finance.biggo.com/quote/AAPL/earnings-call/US_AAPL_2026-07-30">finance.biggo.com/quote/AAPL/earnings-call</a> (Cook·Parekh 발언)</li>
+      <li><span class="tier">1차</span>Micron 공식 보도자료(GlobeNewswire, 2025-12-03) — <a href="https://www.globenewswire.com/news-release/2025/12/03/3199169/14450/en/Micron-Announces-Exit-from-Crucial-Consumer-Business.html">globenewswire.com/.../micron-exit-crucial</a></li>
+      <li><span class="tier">2차</span>TechTimes — <a href="https://www.techtimes.com/articles/322572/20260731/aws-backlog-hits-496b-amazon-raises-ai-spend-220b-capacity-runs-short.htm">techtimes.com/.../aws-backlog-hits-496b</a> (FCF·부채)</li>
+      <li><span class="tier">2차</span>Fortune — <a href="https://fortune.com/2026/07/16/warren-buffett-google-berkshire-ai-race/">fortune.com/.../warren-buffett-google-berkshire</a></li>
+      <li><span class="tier">2차</span>Tom's Hardware — <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/samsung-and-sk-hynix-warn-ai-driven-memory-shortages-could-last-until-2027-and-beyond">tomshardware.com/.../samsung-sk-hynix-warn</a></li>
+      <li><span class="tier">2차</span>GuruFocus(RBC 인용) — <a href="https://www.gurufocus.com/news/8995060/amazon-earnings-reset-ai-spending-debate">gurufocus.com/.../amazon-earnings-reset</a></li>
+      <li><span class="tier">단일출처</span>Tech Insider(93% 수치) — <a href="https://tech-insider.org/memory-chip-shortage-2026-ai-consumer-electronics/">tech-insider.org/.../memory-chip-shortage-2026</a></li>
+    </ol>
+  </div>
+
+  <div class="disc">
+    <b>면책</b>
+    The Signal은 산업과 자본의 구조를 해석하는 리서치로, 특정 종목의 매수·매도나 목표가·매매 시점을 다루지 않습니다. 본 리포트는 불특정 다수에게 제공되는 정보이며 개별 투자자문이 아닙니다. 언급되는 기업·기관은 구조를 설명하기 위한 예시이며, 특정 금융투자상품의 매수·매도를 권유하지 않습니다.
+  </div>
+
+  <div class="signoff">
+    <div class="nm">The Signal</div>
+    <div class="sl">세상의 변화를 먼저 읽는 리서치</div>
+  </div>
+
+</article>
+</div>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="index.html" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="archive.html" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
