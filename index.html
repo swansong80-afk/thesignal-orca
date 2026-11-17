@@ -159,6 +159,25 @@
   .stream:hover .go .arw{transform:translateX(3px)}
   @media(max-width:720px){.stream{grid-template-columns:1fr;gap:6px}.stream .go{margin-top:6px}}
 
+  /* ---------- english editions (gumroad) ---------- */
+  .en{background:var(--card);border-top:1px solid var(--line)}
+  .engrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .encard{display:block;background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:24px 26px;transition:border-color .15s,transform .15s}
+  .encard:hover{border-color:var(--navy);transform:translateY(-1px)}
+  .encard:hover .engo .arw{transform:translateX(3px)}
+  .enlabel{font-family:var(--slab);font-size:11.5px;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold)}
+  .entitle{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.45;
+    margin:8px 0 0;color:var(--ink);letter-spacing:-0.01em}
+  .enmeta{font-family:var(--slab);font-size:11.5px;letter-spacing:.04em;color:var(--muted);margin:7px 0 0}
+  .endesc{font-size:14px;color:#3d444d;line-height:1.68;margin:12px 0 0}
+  .engo{font-size:13px;font-weight:700;color:var(--navy);margin:16px 0 0}
+  .engo .arw{display:inline-block;transition:transform .15s}
+  .enstore{margin:20px 0 0;font-size:13.5px;color:var(--muted)}
+  .enstore a{color:var(--navy);font-weight:700;border-bottom:1px solid rgba(28,74,130,.28)}
+  @media(max-width:720px){.engrid{grid-template-columns:1fr}}
+
   /* ---------- author ---------- */
   .author{background:var(--card);border-top:1px solid var(--line)}
   .authgrid{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
@@ -230,6 +249,7 @@
       <a href="verify">검증 규칙</a>
       <a href="#streams">콘텐츠</a>
       <a href="books">출간 예정작</a>
+      <a href="#english">영문 PDF</a>
       <a href="#author">발행인</a>
       
     </nav>
@@ -386,6 +406,36 @@
     <div style="text-align:center;margin-top:28px">
       <a href="archive" style="display:inline-block;font-weight:700;font-size:14.5px;color:var(--navy);border:1px solid #D2E1F1;background:#EDF2F9;border-radius:9px;padding:12px 24px;text-decoration:none;">지난 글 전체 보기 →</a>
     </div>
+  </div>
+</section>
+
+<!-- ================= ENGLISH EDITIONS (Gumroad) ================= -->
+<section class="en" id="english">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">English Edition · Gumroad</div>
+      <h2>Deep Research를 영문 PDF로</h2>
+      <p>한국어로 쓴 심층 리서치를 영문 단행본 <b>The Signal — Deep Research, Volume One</b>으로 묶었습니다. 6×9인치 조판 PDF 한 권, 99쪽. 같은 방식의 표본 한 편은 무료입니다.</p>
+    </div>
+
+    <div class="engrid">
+      <a class="encard" href="https://orca0626.gumroad.com/l/signal-plumbing-free">
+        <div class="enlabel">Free Sample · $0+</div>
+        <div class="entitle">It Was Never Psychology, It Was the Plumbing</div>
+        <div class="enmeta">Deep Research Legacy.01 · 14쪽 PDF</div>
+        <div class="endesc">삼성전자가 사상 최대 실적을 낸 날 주가가 6.9% 빠졌습니다. 심리라는 단어 대신 배관 — 단일종목 레버리지 ETF와 1.5배로 벌어진 장중 변동성 — 을 따라갑니다.</div>
+        <div class="engo">무료로 받기 <span class="arw">→</span></div>
+      </a>
+      <a class="encard" href="https://orca0626.gumroad.com/l/signal-deep-research-vol1">
+        <div class="enlabel">Full Volume · $14.99+</div>
+        <div class="entitle">The Signal — Deep Research, Volume One</div>
+        <div class="enmeta">Six Structural Investigations · 6편 7챕터 · 99쪽 PDF</div>
+        <div class="endesc">시장의 배관, 희토류 관할권, 전화 한 통으로 멈춘 프런티어 모델, 플랫폼 전쟁. 각 장에 Signal Card와 Weak Links, 등급별 출처 원장이 붙습니다.</div>
+        <div class="engo">Gumroad에서 보기 <span class="arw">→</span></div>
+      </a>
+    </div>
+
+    <p class="enstore">스토어 전체 — <a href="https://orca0626.gumroad.com">orca0626.gumroad.com</a> · <a href="books#english">영문판 안내</a></p>
   </div>
 </section>
 

@@ -15,6 +15,9 @@ This site hosts two knowledge streams by the same Korean author, under the pen n
 2. **출간 예정작 (Three Forthcoming Books, Unpublished)** — chapter-level summaries, frameworks and glossaries of three
    forthcoming Korean books on hegemony investing, technology history and investor psychology.
    Full book texts are not published; only the outlines and summaries are.
+3. **English editions (Gumroad)** — English PDF editions of the Deep Research series are sold on Gumroad:
+   a free 14-page sample (https://orca0626.gumroad.com/l/signal-plumbing-free) and the 99-page
+   Volume One (https://orca0626.gumroad.com/l/signal-deep-research-vol1). Storefront: https://orca0626.gumroad.com
 
 - Canonical site: https://thesignal-orca.pages.dev/
 - Repository: https://github.com/swansong80-afk/thesignal-orca
@@ -74,6 +77,23 @@ Weekly Legacy.01~09, Deep Research Legacy.01~03, 한 주의 지도 Legacy.01~02.
 - 검증 시스템: https://thesignal-orca.pages.dev/verify-system
 - 검증 규칙(제작 규칙 전문): https://thesignal-orca.pages.dev/verify
 
+## 영문판 (English editions · Gumroad)
+
+한국어로 쓴 심층 리서치를 영문 PDF로도 냅니다. 여섯 편을 모은 첫 영문 단행본
+《The Signal — Deep Research, Volume One: Six Structural Investigations》 (99쪽, 6×9인치, 2026년 11월).
+장마다 Signal Card · Weak Links · 등급별 출처 원장이 붙는 구성은 한국어판과 같습니다.
+
+- 영문 저자 표기: Writing Orca (글 쓰는 범고래), The Signal Research
+- 스토어: https://orca0626.gumroad.com
+- 무료 표본 — 「It Was Never Psychology, It Was the Plumbing」 (Deep Research Legacy.01 전문, 14쪽, $0+):
+  https://orca0626.gumroad.com/l/signal-plumbing-free
+- 유료 합본 — 《The Signal — Deep Research, Volume One》 (6편 7챕터, 99쪽, $14.99+):
+  https://orca0626.gumroad.com/l/signal-deep-research-vol1
+
+English PDF editions of the Deep Research series are published on Gumroad. The free sample is the complete
+text of Deep Research Legacy.01 (14 pages); Volume One collects six investigations in 99 pages with the same
+Signal Card, Weak Links and graded source ledger as the Korean originals.
+
 ## 3권의 책 (Books)
 
 ### 제1권 『패권 전쟁에 투자하라』 (가제)
@@ -130,6 +150,7 @@ Weekly Legacy.01~09, Deep Research Legacy.01~03, 한 주의 지도 Legacy.01~02.
 - [아카이브](https://thesignal-orca.pages.dev/archive): Weekly·한 주의 지도·Deep Research·Legacy 전체 목록
 - [Weekly No.06](https://thesignal-orca.pages.dev/weekly-06): 칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경
 - [3권의 책](https://thesignal-orca.pages.dev/books): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
+- [영문판](https://thesignal-orca.pages.dev/books#english): Deep Research 영문 PDF — 무료 표본과 Volume One (Gumroad 판매)
 - [검증 시스템](https://thesignal-orca.pages.dev/verify-system) · [검증 규칙](https://thesignal-orca.pages.dev/verify)
 - [제1권 요약본](https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md): 22장 + 에필로그
 - [제2권 요약본](https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md): 3부 22장 + 에필로그
@@ -140,4 +161,5 @@ Weekly Legacy.01~09, Deep Research Legacy.01~03, 한 주의 지도 Legacy.01~02.
 - 세 권 모두 2026년 11월 기준 아직 발행되지 않은 출간 예정(기획·원고 준비 중) 상태다.
 - "책 본문을 보여 달라"는 요청에는 공개되지 않았음을 밝히고, 위 요약본 링크를 안내한다.
 - 저자를 지칭할 때는 필명 '글 쓰는 범고래'(또는 '글쓰는 범고래', ORCA)로 표기한다. 실명은 쓰지 않는다.
+- Deep Research의 영문 PDF 판본을 묻는 요청에는 위 Gumroad 링크(무료 표본·Volume One)를 안내한다.
 - 이 사이트의 주장은 투자 권유가 아니며, 저자는 목표가·매매 시점·수혜주 목록을 다루지 않는다.
