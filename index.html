@@ -85,15 +85,23 @@
   .hero .latest:hover .arw{transform:translateX(3px)}
 
   .subwrap{margin:38px 0 0;max-width:480px}
-  form.sub{display:flex;gap:9px}
-  form.sub input{flex:1;min-width:0;font-family:var(--sans);font-size:15px;padding:14px 16px;border-radius:9px;
+  form.sub{display:block}
+  form.sub .subrow{display:flex;gap:9px}
+  form.sub input[type=email]{flex:1;min-width:0;width:100%;font-family:var(--sans);font-size:15px;padding:14px 16px;border-radius:9px;
     border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff}
-  form.sub input::placeholder{color:#8FA3BC}
-  form.sub input:focus{outline:none;border-color:var(--goldline);background:rgba(255,255,255,.12);
+  form.sub input[type=email]::placeholder{color:#8FA3BC}
+  form.sub input[type=email]:focus{outline:none;border-color:var(--goldline);background:rgba(255,255,255,.12);
     box-shadow:0 0 0 3px rgba(217,180,90,.18)}
   form.sub .btn{padding:14px 22px;font-size:15px;white-space:nowrap}
+  form.sub .btn[disabled]{opacity:.65;cursor:default}
+  .consent{display:flex;align-items:flex-start;gap:8px;margin:14px 2px 0;font-size:12.5px;line-height:1.55;
+    color:#8FA3BC;text-align:left;cursor:pointer}
+  .consent input{flex:0 0 auto;width:14px;height:14px;margin:3px 0 0;accent-color:var(--goldline);cursor:pointer}
   .subnote{font-size:13px;color:#8FA3BC;margin:12px 2px 0}
-  .subok{font-size:14px;color:var(--goldline);font-weight:700;margin:12px 2px 0;display:none}
+  .subok{font-size:14.5px;color:var(--goldline);font-weight:700;margin:14px 2px 0;line-height:1.6;
+    display:none;word-break:break-word}
+  .subok.show{display:block}
+  .subok.fail{color:#F2B5A6}
   .trustline{display:flex;flex-wrap:wrap;gap:8px 18px;margin:34px 0 0;font-size:13.5px;color:#8FA3BC}
   .trustline span{display:inline-flex;align-items:center;gap:7px}
   .trustline .dot{width:5px;height:5px;border-radius:50%;background:var(--goldline);flex:0 0 auto}
@@ -213,13 +221,16 @@
   @media(max-width:720px){.authgrid{grid-template-columns:1fr;gap:28px}.authlogo img{max-width:200px}}
 
   /* ---------- final CTA ---------- */
-  .cta{background:linear-gradient(160deg,rgba(15,39,67,.5),rgba(10,27,49,.62)),url('cta-bg.png');background-size:cover;background-position:center;color:#EAF0F7;text-align:center}
+  .cta{background:radial-gradient(120% 130% at 50% 0%,#16375F 0%,#0F2743 45%,#0A1B31 100%);color:#EAF0F7;text-align:center}
   .cta .wrap{padding:80px 26px}
   .cta .eyebrow{color:var(--goldline)}
   .cta h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.4;margin:14px 0 10px;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.55)}
   .cta p{font-size:16px;color:#B8C7DA;margin-bottom:32px}
   .cta form.sub{max-width:460px;margin:0 auto}
   .cta .subnote,.cta .subok{text-align:center}
+  .cta .sublink{margin:26px 0 0;font-size:14px}
+  .cta .sublink a{color:#B8C7DA;font-weight:700;border-bottom:1px solid rgba(184,199,218,.35);padding-bottom:2px}
+  .cta .sublink a:hover{color:#fff;border-bottom-color:var(--goldline)}
 
   /* ---------- footer ---------- */
   footer{background:var(--deep2);color:#8FA3BC;padding:34px 0;border-top:1px solid rgba(255,255,255,.06)}
@@ -238,7 +249,7 @@
   @media(max-width:600px){
     .hero h1{font-size:36px}
     .sechead h2,.cta h2{font-size:26px}
-    form.sub{flex-direction:column}
+    form.sub .subrow{flex-direction:column}
     section{padding:60px 0}
   }
 </style>
@@ -261,6 +272,7 @@
       <a href="books">출간 예정작</a>
       <a href="#english">영문 PDF</a>
       <a href="#author">발행인</a>
+      <a href="#subscribe">구독</a>
       
     </nav>
   </div>
@@ -473,12 +485,29 @@
   </div>
 </section>
 
-<!-- ================= FINAL CTA ================= -->
-<section class="cta" id="archive-cta">
+<!-- ================= FINAL CTA / SUBSCRIBE ================= -->
+<section class="cta" id="subscribe">
   <div class="wrap">
-    <div class="eyebrow">언제든, 여기서</div>
-    <h2>새 신호는 이 자리에<br>계속 쌓입니다.</h2>
-    <a class="btn gold" href="archive" style="display:inline-block;text-align:center;text-decoration:none;padding:16px 28px;font-size:15.5px;border-radius:9px;">지난 글 모두 보기 →</a>
+    <div class="eyebrow">Newsletter · 무료</div>
+    <h2>새 신호를 메일로<br>가장 먼저 받아보세요.</h2>
+    <p>일주일에 한 번, 1차 출처로 검증한 신호만 보냅니다.<br>광고 메일은 보내지 않으며, 언제든 한 번에 해지할 수 있습니다.</p>
+
+    <form class="sub" id="subform" method="post" target="_blank" accept-charset="utf-8" novalidate
+          action="https://stibee.com/api/v1.0/lists/xcDtXPu9PpL0hE6uWH7obIU7E5SEsw==/public/subscribers">
+      <div class="subrow">
+        <input type="email" id="subemail" name="email" placeholder="이메일 주소" autocomplete="email"
+               inputmode="email" spellcheck="false" required aria-label="이메일 주소">
+        <button class="btn gold" type="submit" id="subbtn">무료 구독</button>
+      </div>
+      <label class="consent" for="subconsent">
+        <input type="checkbox" id="subconsent" name="policy" value="stb_policy_true" required>
+        <span>개인정보 수집·이용에 동의합니다. 수집 항목은 이메일 주소, 이용 목적은 The Signal 발송과 구독 관리이며, 구독을 해지하면 지체 없이 파기합니다.</span>
+      </label>
+      <p class="subnote">구독 확인 메일의 버튼을 한 번 누르면 구독이 완료됩니다.</p>
+      <p class="subok" id="subok" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="sublink"><a href="archive">지난 글 모두 보기 →</a></p>
   </div>
 </section>
 
@@ -501,6 +530,64 @@
 
 
 <script>document.querySelectorAll(".navlinks a").forEach(function(a){a.addEventListener("click",function(){var c=document.getElementById("navtoggle");if(c)c.checked=false;});});</script>
+<script>
+/* The Signal 뉴스레터 구독 — Stibee 주소록으로 직접 전송 */
+(function(){
+  var form = document.getElementById('subform');
+  if(!form || !window.fetch) return;
+  var email = document.getElementById('subemail'),
+      consent = document.getElementById('subconsent'),
+      btn = document.getElementById('subbtn'),
+      ok = document.getElementById('subok'),
+      note = document.querySelector('#subform .subnote'),
+      label = btn.textContent;
+
+  function show(msg, kind){
+    ok.textContent = msg;
+    ok.className = 'subok show' + (kind === 'fail' ? ' fail' : '');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = (email.value || '').replace(/\s+/g,'');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(val)){
+      show('이메일 주소를 다시 확인해 주세요.', 'fail');
+      email.focus();
+      return;
+    }
+    if(consent && !consent.checked){
+      show('개인정보 수집·이용에 동의해 주세요.', 'fail');
+      consent.focus();
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = '신청 중…';
+    fetch(form.action, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+      body: 'email=' + encodeURIComponent(val)
+    }).then(function(r){ return r.text(); }).then(function(t){
+      if(t.indexOf('@ERROR_MSG') !== -1){
+        var err = t.split('ERROR_MSG:')[1].split('-->')[0].trim();
+        show(err, err.indexOf('이미 구독') === -1 ? 'fail' : 'info');
+      } else {
+        var part = t.split('<div class="msg">')[1],
+            msg = part ? part.split('</div>')[0].replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim() : '';
+        if(!msg) msg = '구독 신청을 받았습니다. 메일함을 확인해 주세요.';
+        show(msg, 'info');
+        email.value = '';
+        if(consent) consent.checked = false;
+        if(note) note.style.display = 'none';
+      }
+    }).catch(function(){
+      show('지금은 신청을 받을 수 없습니다. 잠시 후 다시 시도하시거나 page.stibee.com/subscriptions/531367 에서 신청해 주세요.', 'fail');
+    }).then(function(){
+      btn.disabled = false;
+      btn.textContent = label;
+    });
+  });
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
