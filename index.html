@@ -221,13 +221,15 @@
   @media(max-width:720px){.authgrid{grid-template-columns:1fr;gap:28px}.authlogo img{max-width:200px}}
 
   /* ---------- final CTA ---------- */
+  section.cta{padding:0}
   .cta{background:radial-gradient(120% 130% at 50% 0%,#16375F 0%,#0F2743 45%,#0A1B31 100%);color:#EAF0F7;text-align:center}
   .cta .wrap{padding:80px 26px}
   .cta .eyebrow{color:var(--goldline)}
   .cta h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.4;margin:14px 0 10px;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.55)}
   .cta p{font-size:16px;color:#B8C7DA;margin-bottom:32px}
   .cta form.sub{max-width:460px;margin:0 auto}
-  .cta .subnote,.cta .subok{text-align:center}
+  .cta .subnote,.cta .subok{text-align:center;margin-bottom:0}
+  .cta .subok{margin-top:14px}
   .cta .sublink{margin:26px 0 0;font-size:14px}
   .cta .sublink a{color:#B8C7DA;font-weight:700;border-bottom:1px solid rgba(184,199,218,.35);padding-bottom:2px}
   .cta .sublink a:hover{color:#fff;border-bottom-color:var(--goldline)}
@@ -569,7 +571,7 @@
     }).then(function(r){ return r.text(); }).then(function(t){
       if(t.indexOf('@ERROR_MSG') !== -1){
         var err = t.split('ERROR_MSG:')[1].split('-->')[0].trim();
-        show(err, err.indexOf('이미 구독') === -1 ? 'fail' : 'info');
+        show(err, /이미 (구독|존재)/.test(err) ? 'info' : 'fail');
       } else {
         var part = t.split('<div class="msg">')[1],
             msg = part ? part.split('</div>')[0].replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim() : '';
