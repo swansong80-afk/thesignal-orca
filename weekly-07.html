@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구 — The Signal</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --card:#f4f6f8; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee;
+    --main:1180px;
+    --l3:#c0392b; --l3bg:#fdf0ef;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:#f3f4f6; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    line-height:1.9; -webkit-font-smoothing:antialiased;
+    word-break:keep-all; overflow-wrap:break-word;
+  }
+  .wrap{max-width:var(--main); margin:0 auto; padding:32px 24px 90px;}
+  .status{background:var(--cap); color:#fff; padding:12px 20px; border-radius:6px; font-size:13px; margin-bottom:20px; letter-spacing:.02em;}
+  .status b{color:#ffd7d2;}
+  .grid{display:block;}
+  article{background:#fff; border:1px solid var(--rule); border-radius:6px; padding:56px 52px 60px; box-shadow:0 1px 3px rgba(0,0,0,.04); max-width:800px; margin:0 auto;}
+
+  .masthead{font-family:"Roboto Slab",serif; font-size:.95rem; letter-spacing:.14em; color:var(--accent); font-weight:700; text-transform:uppercase; padding-bottom:20px; border-bottom:1px solid var(--rule); margin-bottom:30px;}
+  .masthead .tag{color:var(--l3); font-family:-apple-system,sans-serif; letter-spacing:0; font-size:.8rem; margin-left:10px;}
+
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft);}
+  h1{font-size:2.0rem; line-height:1.34; letter-spacing:-.02em; margin:0 0 12px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.6; color:var(--ink-soft); font-weight:500; margin:0 0 36px; letter-spacing:-.01em;}
+  h3{font-size:1.3rem; margin:48px 0 16px; letter-spacing:-.01em; font-weight:800; color:var(--cap); padding-top:18px; border-top:1px solid var(--rule);}
+  p{margin:0 0 19px; font-size:1.04rem;}
+  strong{font-weight:700;}
+  .lead{font-size:1.12rem; color:#000;}
+
+  .f{text-decoration:underline; text-decoration-color:#9aa1a8; text-underline-offset:4px; text-decoration-thickness:1.5px;}
+  .f-id{font-size:.72em; color:var(--accent); font-weight:700; vertical-align:super; margin-left:1px;}
+  .f-l3{text-decoration:underline; text-decoration-color:var(--l3); text-underline-offset:4px; text-decoration-thickness:2px; background:var(--l3bg); padding:0 2px; border-radius:2px;}
+  .f-l3 .f-id{color:var(--l3);}
+
+  blockquote{margin:28px 0; padding:18px 24px; background:var(--box); border-left:4px solid var(--accent); border-radius:4px; font-size:1.08rem; color:var(--cap); font-weight:600;}
+  blockquote p{margin:0; font-size:inherit;}
+  .box{margin:28px 0; padding:20px 24px; background:var(--card); border:1px solid var(--rule); border-radius:5px; font-size:.98rem; line-height:1.85;}
+  .box .h{font-weight:800; margin-bottom:12px; color:var(--cap);}
+  .box .l{margin-bottom:8px;} .box .l:last-child{margin-bottom:0;}
+  .box .l b{color:var(--ink);}
+
+  .weak{margin-top:40px; padding:18px 22px; background:#fafbfe; border:1px dashed var(--accent); border-radius:5px; font-size:.96rem; color:var(--ink-soft); line-height:1.8;}
+  .weak b{color:var(--cap);}
+
+  .sources{margin-top:46px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.75;}
+  .sources .h{font-family:"Roboto Slab",serif; font-weight:700; color:var(--cap); font-size:1.0rem; margin-bottom:14px; letter-spacing:.02em;}
+  .sources ol{margin:0; padding-left:20px;}
+  .sources li{margin-bottom:9px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .sources .tier{font-size:.78rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px; padding:0 5px; margin-right:6px;}
+
+  .disc{margin-top:32px; padding:16px 20px; border:1px solid var(--boxline); border-radius:4px; background:#f0f1f3; font-size:.84rem; color:#555; line-height:1.7;}
+  .disc b{display:block; margin-bottom:5px; color:#333;}
+
+  .signoff{margin-top:44px; padding-top:30px; border-top:2px solid var(--cap); text-align:center;}
+  .signoff .nm{font-family:"Roboto Slab",serif; font-size:1.7rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1;}
+  .signoff .sl{font-size:.98rem; color:var(--accent); font-weight:500; margin-top:10px; letter-spacing:.03em;}
+
+  /* 마진 원장 카드 */
+  .margin{display:flex; flex-direction:column; gap:8px; position:sticky; top:20px;}
+  .card{border:1px solid var(--boxline); border-radius:5px; padding:10px 13px; background:var(--card); font-size:12px; line-height:1.6;}
+  .card .id{font-weight:800; color:var(--accent); font-size:12.5px;}
+  .card.l3{border-color:var(--l3); background:var(--l3bg);}
+  .card.l3 .id{color:var(--l3);}
+  .card .tier{color:var(--muted); font-size:10.5px; margin-bottom:3px;}
+  .card .excerpt{color:#333; font-style:italic; margin:4px 0;}
+  .card .q{color:var(--l3); font-size:11px; margin-top:5px; font-weight:600;}
+  .card a{color:var(--accent); font-size:10.5px; word-break:break-all;}
+
+  @media (max-width:1100px){ .grid{grid-template-columns:1fr;} .margin{position:static;} }
+  @media (max-width:560px){ article{padding:38px 24px;} h1{font-size:1.6rem;} }
+
+  .sources .grp{font-weight:700;color:var(--cap);margin:16px 0 8px;font-size:.95rem}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="canonical" href="https://thesignal-orca.pages.dev/weekly-07">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Signal — 세상의 변화를 먼저 읽는 리서치">
+<meta property="og:title" content="만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구">
+<meta property="og:description" content="시장은 단종으로 읽고 중국 AI칩을 두 자릿수 폭락시켰다 — 그런데 규정이 바꾼 것은 금지가 아니라 증명이다. 남은 문은 33개 이름이다.">
+<meta property="og:url" content="https://thesignal-orca.pages.dev/weekly-07">
+</head>
+<body>
+<div class="wrap">
+
+<div class="grid">
+<article>
+
+  <div class="masthead">The Signal · Weekly</div>
+
+  <div class="meta">
+    <b>발행</b> · Weekly No.07 · 2026년 11월 20일<br>
+    <b>도메인</b> · 지정학 × 기술 × 자본<br>
+    <b>신선도</b> · 2026년 11월 19일(현지) 연방관보 게재(91 FR 74970) 및 TSMC·삼성 출하 중단 보도(FT·로이터), 11월 20일 한국·중국 시장 반응 기준
+  </div>
+
+  <h1>만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구</h1>
+  <h2 class="sub">시장은 '단종'으로 읽고 중국 AI칩을 두 자릿수 폭락시켰다 — 그런데 규정이 바꾼 것은 금지가 아니라 증명이다. 설계자의 주소, 트랜지스터 수, 패키징 회사, 선적 경로가 이제 허가의 조건이고, 남은 문은 33개 이름이다</h2>
+  <p class="lead">11월 19일(현지) 연방관보에 실린 91 FR 74970은 게재 당일 효력을 얻었다. 같은 날 파이낸셜타임스는 TSMC와 삼성전자가 중국 고객사에 일부 프로세서 출하를 중단하겠다고 통보했다고 보도했고, 로이터는 TSMC가 16나노 이하 공정 주문을 미국 허가 없이는 받지 않기로 했다고 전했다. TSMC는 논평을 거부했고 삼성전자도 마찬가지였다.</p>
+  <p>숫자 하나가 사라졌다. 4년 동안 중국 팹리스(설계 전문 회사)가 첨단 공정을 계속 쓰던 방법은 칩의 크기를 증명하는 것이었다. 최종 패키지의 트랜지스터 수가 300억 개 미만이면, 패키징 회사가 그 사실을 확인해 주면, 정부 허가 없이도 출하할 수 있었다. 11월 19일 이후 그 경로는 중국에 본사를 둔 설계사에게 존재하지 않는다. 문턱이 올라간 게 아니다. 문턱을 넘는 방법을 세어 주던 사람의 자격이 사라졌다.</p>
+  <p>정확히 말하면 금지가 아니라 심사다. 허가는 계속 나온다. 다만 처리 기간이 공표되어 있지 않다. TSMC 내부 관계자는 중국 반도체 매체에 "예전에 되던 것은 계속 된다. 다만 이제는 칩의 크기와 연산량을 가리지 않고 하나하나 승인을 받아야 한다"고 말했다. 이 문장이 이번 주의 전부다. 벽이 세워진 게 아니라, 시계 없는 톨게이트가 세워졌다.</p>
+  <p>그리고 이것은 세 번째 이동이다. 2022년 이후 미국의 통제 대상은 물건이었다. 11월 16일의 통제 대상은 관계였다. 누가 누구에게 얼마만큼의 연산을 주는가. 11월 19일의 통제 대상은 저자(著者)다. 누가 설계했고, 최상위 모회사가 어디에 있고, 어느 회사가 패키징했고, 어떤 경로로 선적되는가. 규제의 단위가 상자에서 접속으로, 다시 사람으로 들어왔다.</p>
+
+  <h3>무슨 일이 있었나</h3>
+  <p>먼저 날짜를 정확히 잡자. 이것은 새 규정이 아니다. 11월 16일 미 상무부 산업안보국(BIS)이 발표한 잠정최종규칙 「첨단 반도체에 대한 원격 접속 규제」가 11월 19일 연방관보에 게재되며 발효된 것이다. Weekly No.06이 다룬 바로 그 문서다. 다만 No.06이 본 것은 데이터센터 원격 접속이라는 앞단이고, 파운드리 조항은 그 안의 한 절이었다. 이번 주에 그 한 절이 작동을 시작했다. 발효일은 11월 19일, 의견수렴 마감은 2027년 1월 19일이다.</p>
+  <p>규정이 손댄 것은 수출통제목록(CCL) 3A090.a의 주석 1이다. 이 주석은 파운드리(전공정 제조사)와 OSAT(후공정 패키징·테스트 회사)가 첨단 로직 칩을 출하할 때 "이 칩은 데이터센터용 AI 칩이다"라는 추정을 뒤집는 세 가지 방법을 정해 두고 있었다. ① 승인 또는 인증된 설계사의 성능 확인서, ② 파운드리 자체 확인 — 최종 패키지의 트랜지스터 수가 300억 개 미만이거나, HBM이 없고 2027년까지 350억 개·2029년 이후 400억 개 미만, ③ 승인된 OSAT의 같은 확인. 여기서 ②와 ③에 조건이 붙었다. 설계사가 D:1·D:4·D:5 국가에 있거나 최상위 모회사가 그곳에 있으면, 그리고 이번에 새로 지정된 5개국(인도네시아·말레이시아·싱가포르·태국·브라질)에 있으면 두 경로를 쓸 수 없다.</p>
+  <p>남는 것은 ①뿐이다. 승인된 설계사 명단은 연방규정집 15편 740부 보충 6에 있다. <strong>33개 회사</strong>다. AMD, 알파벳, 아마존, 애플, 브로드컴, 인텔, 마이크론, 마이크로소프트, 엔비디아, 퀄컴, 텍사스인스트루먼트, 미디어텍, 리얼텍, 소니, 노키아, 테슬라…. 중국 본토 기업은 한 곳도 없다. 승인 OSAT 명단(보충 7)은 <strong>24개사</strong>다. TSMC, 삼성전자, ASE, 앰코, 글로벌파운드리스, 인텔, IBM, UMC, 파브리넷…. 한국 기업은 삼성전자, 두산테스나, LB세미콘, 네패스, SFA반도체, 스테코 여섯 곳이다.</p>
+  <p>여기에 하나가 더 있다. 이번 규정은 '승인'만이 아니라 '인증'의 정의도 바꿨다. 주석 1 a(2)는 2026년 12월 31일까지는 대만이나 A:1·A:5 국가에 본사를 둔 설계사 전부를 인증 설계사로 본다고 정했다. a(3)은 그 이후를 이렇게 쓴다. 인증 설계사는 승인 신청을 낸 회사에 한하며, 그 지위는 신청일로부터 180일 뒤 사라진다. 즉 <strong>2027년 1월 1일부터는 33개 이름이 사실상 유일한 문</strong>이 된다. 이 조항은 중국만 겨눈 것이 아니다. 한국·일본·유럽의 팹리스와 디자인하우스도 같은 시계를 맞는다. 이번 규정에서 가장 조용하고 가장 큰 변화가 여기 있다.</p>
+  <p>TSMC의 이행 방식은 그 문을 어떻게 통과하는지를 보여준다. 로이터가 본 지침에 따르면 16나노 이하 주문은 허가 전까지 멈춘다. 28나노와 40나노는 계속 받는다. 단, HBM을 쓰지 않고 첨단 패키징이 필요 없는 칩에 한해서다. 확인 항목도 늘었다. 고객의 영업소재지, 모회사, 주요 주주, 패키징 업체, 선적 경로. 대만·미국·유럽·일본·동남아의 자회사나 중개업체를 통한 주문도 같은 심사를 받는다. 반도체 회사의 컴플라이언스 부서가 이제 실질지배자를 추적한다.</p>
+  <p>삼성전자도 같은 주에 같은 조치를 했다. FT는 삼성의 중국 고객에 바이두의 AI 데이터센터 부문 쿤룬과 바이트댄스가 있다고 전했다. 스마트폰 칩도 걸린다. 이번 규정은 "AI가 아닌 용도(스마트폰 등)로 만들었다"는 증명으로 규제를 피하던 예외를 없앴다. TSMC가 샤오미·오포·비보의 모바일 칩을 만든다는 점에서, 대기열은 AI 가속기와 스마트폰 SoC를 같은 줄에 세웠다. 유예는 좁다. 11월 19일 당시 이미 운송 중이던 물량이 실제 주문에 따라 12월 21일까지 도착을 마치면 기존 조건으로 갈 수 있다. 그날 이후로는 허가다.</p>
+  <p>같은 주에 공급은 반대쪽에서도 닫혔다. 엔비디아는 11월 17일 실적 발표에서 "더 이상 중국에 허가된 호퍼 데이터센터 제품을 출하하지 않는다"고 밝혔다. 직전 분기 허가된 호퍼 데이터센터 제품의 중국 매출은 24억 달러였고, 다음 분기 전망에는 중국 데이터센터 매출이 0으로 들어갔다. 미국산 칩은 가지 않고, 외국 파운드는 주문을 받지 않는다. 두 문이 동시에 닫히면 남는 것은 국내 생산뿐이다. 그 국내 생산이 무엇에 걸려 있는지는 뒤에서 본다.</p>
+  <p>규제의 정치적 배경도 같은 주에 드러났다. 11월 19일 미 하원 외교위원회는 상무부가 2026년 5월까지 중국 기업에 약 87만 9천 개의 첨단 AI 칩 수출을 승인했다고 공개했다. 신청은 340만 개였다. 알리바바·텐센트처럼 국방부가 '중국 군사기업'으로 지정한 곳에 대한 승인도 포함됐다. 허가 제도는 금지의 반대말이 아니다. 재량의 다른 이름이고, 그래서 의회가 들여다보는 대상이다.</p>
+
+  <h3>왜 신호인가 — 시장이 넘어간 지점</h3>
+  <p>11월 19일 중국 시장은 이 규정을 '단종'으로 읽었다. 위챗에 돌던 한 장의 캡처가 시작이었다. TSMC와 삼성전자가 16/14나노 이하의 중국 설계사 테이프아웃과 공급을 전면 중단했고, 그 영향이 AI 칩을 넘어 스마트폰·자율주행·통신·고성능 IPC 칩까지 미친다는 내용이었다. 상하이에서 일루바타가 장중 26% 넘게 빠졌고 종가 -17.45%, 엔플레임은 20% 하한가, 메타엑스 -14.72%, 무어스레드 -8.34%, 비런 -4.02%, 하이곤은 장중 -17%에서 종가 -4.81%, 베리실리콘 -8.09%, 센텍 -14.86%였다. 캄브리콘도 장중 7.7% 밀렸다. 반대로 국내 파운드리는 올랐다. SMIC 홍콩 +7.1%, 화홍 +14%. 같은 날 항셍은 439포인트(1.95%) 빠지고 텐센트 -6%대, 알리바바 -6% 안팎이었다.</p>
+  <p>그 캡처는 사실이 아니었다. ASR(翱捷科技)은 투자자 문답에서 "사실이 아니다. BIS의 ECCN 분류를 받아 규제 대상이 아님을 확인한 적법한 칩은 정상적으로 테이프아웃된다. 이 제도는 이번 규정 전에도 있었고 지금도 그대로"라고 답했다. 상하이증권보는 삼성의 '전면 심사' 관련 공식 문서가 없고 14/16나노는 승인 확실성이 높으며 5나노 이하도 사안별 심사이지 일괄 금지는 아니라고 보도했다. TSMC 내부 관계자의 말은 그보다 더 정확하다. 예전에 되던 것은 계속 되지만, 이제는 하나하나 승인을 받아야 한다.</p>
+  <blockquote><p>금지는 수량의 충격이다. 대기열은 시간의 충격이다. 수량 충격은 한 번 가격에 반영되고 끝나지만, 시간 충격은 분기마다 다시 계산된다.</p></blockquote>
+  <p>재고 일수, 신제품 출시 일정, 고객과의 납기 약속, 그리고 그 약속을 지키지 못했을 때 잃는 점유율. 시장은 첫 번째를 팔고 두 번째를 사지 않았다. 폭락한 종목 중 상당수는 이미 미국의 수출통제 명단(Entity List)에 올라 있어 TSMC에서 만들 수 없었던 회사이기도 하다. 하이곤의 DCU는 대부분 국내에서 생산된다는 설명이 나온 뒤 낙폭이 -17%에서 -4.81%로 줄었다. 팔린 것은 노출이 아니라 공포였다.</p>
+  <p>두 번째 오독은 대상을 잘못 잡은 것이다. 3분기 TSMC 매출에서 중국 고객 비중은 5%였다. 1년 전 8%에서 줄어든 숫자다. 46억 7,200만 달러의 5%면 약 2억 3,000만 달러다. TSMC 입장에서 이번 규제는 매출의 반올림 오차다. TSM ADR은 11월 19일 프리마켓에서 1.76% 올랐고, 같은 시각 중국 AI 칩 설계사들은 두 자릿수로 빠졌다. 트렌드포스는 비게 된 첨단 노드 슬롯을 다른 고객이 채우고, AI 첨단 패키징은 여전히 만성적으로 부족하다고 봤다. 공급자의 손실은 회계의 문제고, 고객의 손실은 제품의 문제다.</p>
+  <p>세 번째 오독은 메모리와 장비다. 11월 20일 서울에서 삼성전자 -4.06%, SK하이닉스 -5.49%, 삼성전기 -8.02%, 원익IPS -11.34%, 리노공업 -11.05%, 이오테크닉스 -10.0%가 빠졌다. 미국에서도 필라델피아 반도체지수는 장 초반 4.7% 올랐다가 2.42% 하락으로 돌아섰고, AMD -7.72%, 엔비디아 -3.30%, 마이크론 -2.10%였다. 그런데 이 규정이 다루는 품목은 '3A090 가운데 3A090.c를 제외한 것'이다. 3A090.c가 HBM이다. HBM은 이 규정의 직접 대상이 아니다. 팔린 것은 노출이 아니라 상관이었다.</p>
+  <p>그 상관이 틀렸다고 단정할 수도 없다. 중국의 AI 연산 증설이 늦어지면 HBM 수요 증가율이 먼저 꺾이고, 그다음 계약가가 꺾인다. 내년 HBM 가격이 최대 2.7배 오른다는 전망이 나온 상황에서 성장률의 기울기만 바뀌어도 밸류에이션은 크게 흔들린다. 시장은 메커니즘을 틀리게 읽고 방향을 맞게 읽었을 수 있다. 이 글의 관심은 그 구분에 있다.</p>
+  <p>네 번째 변화가 가장 중요하다. 미국이 알아야 하는 것이 바뀌었다. 예전에는 칩을 보고 트랜지스터를 세면 됐다. 이제는 회사를 보고 소유 사슬을 따라가야 한다. TSMC 지침의 확인 항목 — 영업소재지, 모회사, 주요 주주, 패키징 업체, 선적 경로 — 은 기술 심사가 아니라 실소유자 심사다. 문이 연구소에서 컴플라이언스 부서로 옮겨간 것이다. 규제가 세진 게 아니다. 규제가 요구하는 서류의 종류가 바뀌었다.</p>
+  <p>그래서 이 문서의 두 반쪽은 같은 도구다. 1,200만 aggregate TPP 규정은 연산의 사용을 가격 매기고(No.06), 파운드리 조항은 칩의 제작을 허가한다. 둘 다 "무엇인가"를 "누구의 것인가"로 바꾼다. 11월 16일에 규제가 관계를 통제하기 시작했다면, 11월 19일에 규제는 저자를 통제하기 시작했다.</p>
+
+  <h3>신호에서 판세 전환으로 — 세 병목이 하나의 문이 될 때</h3>
+  <p>AI 가속기는 세 개의 부품이 동시에 있어야 완성된다. 로직 다이, HBM, 첨단 패키징. 이번 규정은 세 개를 하나의 증명으로 묶었다. 중국의 문제는 병목이 하나라는 게 아니라, 세 개가 같은 서류에 걸린다는 것이다.</p>
+  <p><strong>첫째, 로직.</strong> SMIC의 N+2가 사실상 유일한 양산 7나노급 노드다. EUV 없이 DUV 다중 패터닝으로 만든다. 골드만삭스 모델은 SMIC의 첨단 노드 수율을 2026년 23%에서 2030년 50%, 2035년 75%로 가정한다. 그 가정이 다 맞아도 2035년 중국의 7나노 이하 생산능력은 월 41만 장으로 수요 61만 9천 장에 34% 모자란다. FT가 인용한 업계 관계자에 따르면 SMIC의 5·7나노 가격은 TSMC보다 40~50% 비싸고 수율은 3분의 1이 안 된다. 2026년 증설은 월 4만 장으로 전년(5만 장)보다 줄었고, 가동률은 이미 95.7%다. 수율이 오르는 속도보다 수요가 오르는 속도가 빠르다.</p>
+  <p><strong>둘째, HBM.</strong> 2026년 2분기 매출 기준 점유율은 SK하이닉스 50%, 삼성전자 33%, 마이크론 18%다. HBM4가 주력으로 넘어가는 중이다. 중국의 CXMT는 세계 DRAM 매출의 10%까지 왔지만 HBM에서는 아직 소량의 HBM3E를 만드는 단계이고, HBM3 8단 적층의 전체 수율은 25% 안팎으로 추정된다. 상장 증권신고서에도 HBM 전용 투자 항목은 없었다. 에포크AI는 2026년 화웨이가 어센드 150만 개를 만들어 H100 환산 88만 개어치를 확보하는 동안 엔비디아는 590만 개로 2,300만 개어치를 출하한다고 본다. 4%가 안 되는 비율이다. 그 150만 개 가운데 국산 HBM으로 만드는 것은 24만 개뿐이고, 나머지는 2024년 말 통제 전에 쌓아둔 1,000만 개 이상의 재고와 밀수에 기댄다. 그 재고가 올해 소진된다.</p>
+  <p><strong>셋째, 패키징.</strong> TSMC의 CoWoS는 2026년 말 월 13만~14만 장으로 늘지만 수요와의 격차는 20%에서 10%로 좁혀지는 정도다. 가격은 최대 20% 인상이 검토되고, 장비 리드타임은 6~8개월로 길어졌다. 중국의 CoWoS류 총능력은 월 1만 5천~2만 장으로 추정되고 그 95% 이상이 CoWoS-S다. 중국 유일의 2.5D 전문 패키저 SJSemi의 가동률은 2025년 상반기 63.42%였다. 주문은 넘치는데 일이 없는 상태다. HBM은 SK하이닉스·삼성·마이크론에서, 대형 인터포저는 TSMC·삼성·인텔에서 사 와야 하기 때문이다. 소재도 걸린다. ABF 빌드업 필름의 95% 이상을 일본 아지노모토가 공급하는데, 2026년 8월 중국 본토 고객에 대한 공급을 30% 줄였다. 칩온웨이퍼 다이본더의 리드타임은 18개월이다.</p>
+  <p>세 병목은 더해지지 않고 곱해진다. 수율이 올라도 HBM이 없으면 패키지가 안 되고, HBM이 있어도 인터포저가 없으면 붙이지 못하고, 다 붙여도 기판이 없으면 출하하지 못한다. 가장 늦게 풀리는 병목이 전체를 정한다. 에포크AI의 모델에서 화웨이의 생산을 묶는 것이 웨이퍼가 아니라 HBM인 이유다. 화웨이는 SMIC에서 100만 개가 넘는 다이를 받을 수 있지만, 모든 패키지에 메모리가 들어가야 한다.</p>
+  <p>그래서 해외 파운드리 경로의 폐쇄가 생각보다 큰 이유가 여기 있다. 그 경로는 물량의 통로가 아니었다. 최전단의 배출구였다. 중국 설계사들이 TSMC 7나노를 쓴 것은 대량 생산을 위해서가 아니라, 소량·고부가의 플래그십을 이번 분기에 내놓기 위해서였다. 국내 28나노는 물량을 받을 수 있지만 7나노 플래그십을 이번 분기에 내놓을 수는 없다. 배출구를 막는다는 것은 산업을 멈추는 게 아니라, 다음 세대를 배우는 자리를 없애는 것이다.</p>
+  <p>TSMC가 남겨둔 28·40나노도 대체재가 아니다. 조건이 붙어 있다. HBM을 쓰지 않고 첨단 패키징이 필요 없을 때만. 그것은 AI 가속기가 아니라는 정의와 같다. 전력관리, 디스플레이 구동, MCU, 커넥티비티. 이 싸움에서 중요하지 않은 칩은 계속 만들라는 뜻이다. 시장이 '28나노로 후퇴'라고 읽은 것을 규정은 '28나노로 격리'라고 쓴 셈이다.</p>
+  <p>허가 대기열 자체가 도구다. BIS는 이 규정의 정보수집 부담을 연간 약 100건의 허가 신청 증가로 추정했다. 실제 주문 흐름은 그보다 몇 자릿수 크다. 처리 기간은 공표되지 않았고, TSMC와 삼성은 재개 시점을 고객에게 말해줄 수 없다. 금지는 명확한 거절이지만, 재량의 대기열은 철회할 수 있고 부인할 수 있으며, '거절'이라는 헤드라인 없이 고객의 계획을 불가능하게 만든다. 관세가 가격을 올리는 대신 이 대기열은 시간을 올린다.</p>
+  <p>비용은 순서대로 내려간다. 중국 설계사는 시간을 잃고, 중국 스마트폰 제조사는 제품 주기를 잃는다. 한국 OSAT와 디자인하우스는 고객 실사 부담과 동남아 신규 고객을 잃는다. 삼성 파운드리는 고객 심사 비용을 낸다. TSMC와 엔비디아는 거의 잃지 않는다. 규제의 비용은 규제받는 쪽이 아니라, 규제를 집행하는 중간자에게 먼저 떨어진다. No.06에서 데이터센터 사업자가 그랬던 것과 같은 구조다.</p>
+  <p>한국 독자에게 두 가지만. 첫째, 승인 OSAT 24곳 중 6곳이 한국 기업이다. 그 지위는 수주 경쟁력이었는데, 이제는 고객의 소유구조를 확인해야 하는 의무가 됐다. 둘째, 한국은 이번 5개국 명단에 없고 HBM은 이 규정의 품목에서 빠져 있다. 그러나 수요는 빠져 있지 않다. 중국 AI 증설이 늦어지면 HBM 계약가의 기울기가 먼저 바뀌고, 그다음이 한국 메모리의 이익이다. 규제가 품목을 비껴갔는데 수요가 맞는 구조는 No.06에서 HBM을 두고 본 것과 같다.</p>
+
+  <div class="box">
+    <div class="h">신호 판정 — 5표식 충족</div>
+    <div class="l"><b>구조변화</b> · 통제 단위가 물건(2022) → 관계(2026-11-16) → 저자(2026-11-19)로 이동했다. 트랜지스터를 세던 규제가 소유 사슬을 따라가는 규제가 됐다. 물건 단위 규제로 되돌릴 수 없는 종류의 변화다.</div>
+    <div class="l"><b>자금·권력 이동</b> · '증명 권한'이 파운드리 엔지니어에서 BIS와 33개 명단으로 옮겨갔다. TSMC의 중국 매출은 5%라 준수 비용을 감당할 수 있고, 중국 설계사는 들어갈 수 없는 명단에 운명이 걸린다.</div>
+    <div class="l"><b>선례</b> · '승인 설계사' 명단이 한 나라 팹리스 산업 전체의 사실상 유일한 통로가 된 첫 사례다. 16나노에서 패키징 위치와 주주 구성이 허가 조건이 된 것도 처음이다.</div>
+    <div class="l"><b>도메인 교차</b> · 안보(수출통제) × 공급망(파운드리·OSAT·소재) × 외교(11월 19일 선전 3자 회담) × 자본(중국 AI주 폭락·파운드리 랠리·한국 메모리 약세) × 법(의회의 허가 데이터 공개)가 한 주에 겹친다.</div>
+    <div class="l"><b>논란</b> · '일괄 단종' 오보와 실제 허가제의 간극, 동맹국 OSAT의 실사 부담, 처리 기간 미공개, 그리고 11월 27일 갈륨·게르마늄·안티몬 유예 종료를 앞둔 중국의 보복 여지가 동시에 걸려 있다.</div>
+  </div>
+
+  <h3>무엇을 지켜볼 것인가</h3>
+  <p>① 12월 21일과 첫 허가 배치. 11월 19일 운송 중이던 물량의 유예가 12월 21일에 끝난다. 그때까지 허가가 나오지 않으면 라인이 빈다. 확인 지표 — BIS가 처리 기간이나 승인·거부 통계를 공개하는지, 스마트폰 SoC 허가가 12월 안에 실제로 나오는지, 샤오미·오포·비보의 신제품 일정이 밀리는지.</p>
+  <p>② 2027년 1월 1일, 문이 하나가 되는 날. 주석 1 a(3)에 따라 인증 설계사 지위가 신청 후 180일로 제한된다. 확인 지표 — 보충 6 명단이 개정되는지(한국·대만 팹리스가 추가되는지), 승인 신청 건수, 그리고 BIS가 이 전환의 운영 지침을 내는지. 이번 규정에서 가장 조용하고 가장 큰 변화다.</p>
+  <p>③ 중국의 대응과 국산 대체의 진도. 11월 27일 갈륨·게르마늄·안티몬 대미 수출 유예가 끝난다. 중국 상무부는 11월 17일 "미국이 고집하면 반제 조치를 취하겠다"고 밝혔다. 확인 지표 — 12월 중 희토류·소재 조치가 나오는지, CXMT의 HBM3E 양산 개시, SJSemi 2.5D 가동률(63%→?), SMIC N+3 수율, 화웨이 950DT 출하량.</p>
+  <p>④ 숫자가 아니라 물량. HBM 계약가(내년 최대 2.7배 인상 전망), CoWoS 가격(최대 20% 인상 검토), 장비 리드타임(6~8개월). 확인 지표 — 4분기 실적에서 TSMC의 중국 매출 비중(5%→?), 삼성 파운드리 가동률, SK하이닉스 HBM4 계약 조건.</p>
+  <p>⑤ 한국의 자리. 승인 OSAT 6곳의 실사 부담과 삼성 파운드리의 고객 재편. 확인 지표 — 한국 OSAT의 동남아 고객 이탈 여부, 삼성 파운드리 수주잔고, 정부의 5개국 지정 이후 협의 채널.</p>
+
+  <h3>한 줄 요약</h3>
+  <p>미국은 중국이 칩을 못 만들게 한 것이 아니라, 누가 만들었는지를 심사하기 시작했다. 16나노가 사라진 것이 아니라, 16나노로 가는 모든 주문에 미국의 도장이 필요해졌다.</p>
+
+  <div class="weak">
+    <b>약한 고리를 먼저 밝힙니다</b> — 이 글의 결론이 기대는 곳곳에 아직 굳지 않은 부분이 있습니다.
+    <div style="margin-top:10px">① TSMC의 지침은 로이터가 익명 소식통 두 명을 통해 보도한 것이고, TSMC와 삼성전자 모두 공식 확인을 거부했습니다. '16나노 이하 전면 중단'이 아니라 '영향받는 주문의 중단'이며, 대상 고객과 건수는 공개되지 않았습니다.</div>
+    <div style="margin-top:10px">② '일괄 단종' 루머는 중국 매체와 상장사들이 반박했습니다. ECCN 분류를 받은 적법 제품은 계속 흐른다는 회사 발언이 있고, 14/16나노 승인 확실성이 높다는 보도도 있습니다. 기업별 실제 타격은 확인되지 않았습니다.</div>
+    <div style="margin-top:10px">③ 2026년 12월 31일 '인증 설계사' 종료는 주석 1 a(2)·(3)의 문언 해석입니다. BIS는 이 전환의 운영 방식(신청 처리 기간, 180일 이후 지위)을 아직 설명하지 않았고, 일부 한국 보도는 5개국 설계사 기준 시행일을 2027년 1월 1일로 표기했습니다.</div>
+    <div style="margin-top:10px">④ 승인 설계사 33곳·승인 OSAT 24곳은 연방규정집 현행 본문 기준입니다. 이번 규정이 두 명단 자체를 개정하지는 않았고, 향후 별도 개정으로 바뀔 수 있습니다.</div>
+    <div style="margin-top:10px">⑤ 중국 수율·점유율은 모델 추정치입니다(SMIC 23%는 골드만삭스 모델, CXMT HBM3 25%는 SemiAnalysis 추정, 화웨이 150만 개는 에포크AI 중앙값). 실제와 다를 수 있습니다.</div>
+    <div style="margin-top:10px">⑥ 허가 물량과 처리 기간 데이터는 공개되지 않았습니다. 규정의 '연 100건'은 정보수집 부담 추정이지 처리 전망이 아니며, 이 글은 이를 실제 대기열 규모로 단정하지 않았습니다.</div>
+    <div style="margin-top:10px">⑦ 11월 19일 중국 개별 종목의 등락은 중국 매체 집계와 외신 보도를 종합한 값입니다. 주가 움직임은 사실이나, 개별 종목의 하락이 이 규정 하나 때문이라고 단정할 수 없습니다.</div>
+  </div>
+  <div class="sources">
+    <div class="h">출처</div>
+    <div class="grp">1차 출처(직접 확인)</div>
+    <ol>
+      <li><span class="tier">1차</span>연방관보, 「Addressing Remote Access to Advanced Semiconductors」, 91 FR 74970, 2026-11-19, RIN 0694-AK50 — <a href="https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors">federalregister.gov/documents/2026/11/19/2026-23529</a> (주석 1 to 3A090.a 개정, §744.23(a)(3)(i)(C), 5개국, 12월 21일 savings clause, 2026-12-31 인증 설계사 전환, 의견수렴 2027-01-19, 연 100건 허가 부담 추정)</li>
+      <li><span class="tier">1차</span>미 상무부 BIS 보도자료, 「BIS Issues Rule Addressing Remote Access to American Super Intelligence Technology」, 2026-11-16 — <a href="https://bis.gov/press-release/bis-issues-rule-addressing-remote-access-american-super-intelligence-technology">bis.gov/press-release/bis-issues-rule-addressing-remote-access-american-super-intelligence-technology</a> (규정이 재무부·NSC 작성·지시임을 명시)</li>
+      <li><span class="tier">1차</span>연방규정집 15편 740부 보충 6, 「Approved Integrated Circuit Designers」 (33개사, 중국 본토 기업 없음) — <a href="https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-740/appendix-Supplement%20No.%206%20to%20Part%20740">ecfr.gov/…/part-740/appendix-Supplement No. 6 to Part 740</a></li>
+      <li><span class="tier">1차</span>연방규정집 15편 740부 보충 7, 「Approved OSAT Companies」 (24개사, 한국 6개사 포함) — <a href="https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-740/appendix-Supplement%20No.%207%20to%20Part%20740">ecfr.gov/…/part-740/appendix-Supplement No. 7 to Part 740</a></li>
+      <li><span class="tier">1차</span>TSMC, 3Q26 Management Report, 2026-10-15 — <a href="https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-10/f83780000ddc0c3b48e57a87eab6814c4ab35058/3Q26%20ManagementReport.pdf">investor.tsmc.com/…/3Q26 ManagementReport.pdf</a> (매출 467.2억 달러, 중국 5%·2Q26 6%·3Q25 8%, 16/20나노 웨이퍼 매출 6%, 7나노 이하 79%)</li>
+      <li><span class="tier">1차</span>중국 상무부, 「商务部新闻发言人就美商务部发布限制远程获取先进半导体相关措施答记者问」, 2026-11-17 — <a href="https://www.mofcom.gov.cn/syxwfb/art/2026/art_3a69f2058b724dd39cd8ecddcaa4ab87.html">mofcom.gov.cn/syxwfb/art/2026/art_3a69f2058b724dd39cd8ecddcaa4ab87.html</a> (강한 불만·반대, 반제 조치 예고)</li>
+      <li><span class="tier">1차</span>NVIDIA, 「NVIDIA Announces Financial Results for Third Quarter Fiscal 2027」, 2026-11-17 — <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/">investor.nvidia.com/…/third-quarter-fiscal-2027</a> (매출 1,158억 달러, 데이터센터 1,076억 달러, 중국 데이터센터 매출 전망 0)</li>
+      <li><span class="tier">1차</span>백악관, 「U.S.-Russia-China Heads of State Declaration toward Peace」, 2026-11-19 — <a href="https://www.whitehouse.gov/briefings-statements/2026/11/u-s-russia-china-heads-of-state-declaration-toward-peace/">whitehouse.gov/briefings-statements/2026/11/u-s-russia-china-heads-of-state-declaration-toward-peace/</a> (규정 발효일과 같은 날 선전 3자 회담, 반도체·수출통제 문구 없음)</li>
+    </ol>
+    <div class="grp">2차 출처(보도·전문가 분석)</div>
+    <ol>
+      <li><span class="tier">2차</span>Reuters, 「TSMC tightens China AI chip curbs as new US rules close manufacturing loophole, sources say」, 2026-11-19 — <a href="https://www.investing.com/news/stock-market-news/tsmc-tightens-china-ai-chip-curbs-as-new-us-rules-close-manufacturing-loophole-sources-say-5038806">investing.com/news/stock-market-news/…-5038806</a> (16나노 이하 중단, 28·40나노 조건부 허용, KYC 항목, 7나노 잔여 접근)</li>
+      <li><span class="tier">2차</span>Financial Times(StockAnalysis 경유), 「TSMC and Samsung suspend some chip shipments to Chinese customers as a new U.S. rule takes effect」, 2026-11-19 — <a href="https://stockanalysis.com/news/tsmc-samsung-suspend-chip-shipments-china/">stockanalysis.com/news/tsmc-samsung-suspend-chip-shipments-china/</a> (쿤룬·바이트댄스, 샤오미·오포·비보, 중국 매출 5%, 12월 21일)</li>
+      <li><span class="tier">2차</span>Reuters, 「Nvidia stops shipping US-approved AI chips to China」, 2026-11-18 — <a href="https://www.investing.com/news/stock-market-news/nvidia-stops-shipping-usapproved-ai-chips-china-5035204">investing.com/news/stock-market-news/nvidia-stops-shipping-usapproved-ai-chips-china-5035204</a> (중국 매출 24억 달러, 추가 출하 없음, 홍콩 대기 60만 개)</li>
+      <li><span class="tier">2차</span>Reuters, 「License information for AI chips sent to China released by US House committee」, 2026-11-19 — <a href="https://www.investing.com/news/stock-market-news/license-information-for-ai-chips-sent-to-china-released-by-us-house-committee-5039850">investing.com/news/stock-market-news/…-5039850</a> (신청 340만 개·승인 87만 9천 개, 알리바바·텐센트 포함)</li>
+      <li><span class="tier">2차</span>芯智讯(EET-China), 「"断供"传闻引发芯片股大跌！多方辟谣」, 2026-11-19 — <a href="https://www.eet-china.com/mp/a540540.html">eet-china.com/mp/a540540.html</a> (위챗 루머, 종목별 등락, ASR 반박, TSMC 내부 발언, 상하이증권보 보도)</li>
+      <li><span class="tier">2차</span>TipRanks, 「China AI Chip Stocks Plunge up to 17% as Samsung Manufacturing Fears Grow」, 2026-11-19 — <a href="https://www.tipranks.com/news/china-ai-chip-stocks-plunge-up-to-17-as-samsung-manufacturing-fears-grow">tipranks.com/news/china-ai-chip-stocks-plunge-up-to-17-as-samsung-manufacturing-fears-grow</a> (장중 하이곤 -17%·무어스레드 -11%·캄브리콘 -7.7%, SMIC +7.1%·화홍 +14%)</li>
+      <li><span class="tier">2차</span>Caixin Global, 「Analysis: Nvidia CEO's Exit, U.S. Chip Rules Leave China's Tech Giants Reeling」, 2026-11-19 — <a href="https://www.caixinglobal.com/2026-11-19/analysis-nvidia-ceos-exit-us-chip-rules-leave-chinas-tech-giants-reeling-102506744.html">caixinglobal.com/2026-11-19/…-102506744.html</a> (중국 AI 가속기 시장 국산 점유율 41%, 지푸 -13.4%·미니맥스 -18%)</li>
+      <li><span class="tier">2차</span>TrendForce, 「U.S. Tightens AI Chip Export Rules: What the Changes Mean for TSMC, ASE, and Taiwan's AI Supply Chain」, 2026-11-18 — <a href="https://www.trendforce.com/news/2026/11/18/news-u-s-tightens-ai-chip-export-rules-what-the-changes-mean-for-tsmc-ase-and-taiwans-ai-supply-chain/">trendforce.com/news/2026/11/18/…</a> (TSMC "검토 후 준수" 입장, 슬롯 재배치, 첨단 패키징 완전 가동, 추론 중심 전환)</li>
+      <li><span class="tier">2차</span>TrendForce, 「TSMC CoWoS Supply-Demand Gap Reportedly Seen Narrowing from 20% to 10% by End-2026」, 2026-06-15 — <a href="https://www.trendforce.com/news/2026/06/15/news-tsmc-cowos-supply-demand-gap-reportedly-seen-narrowing-from-20-to-10-by-end-2026-as-capacity-expands/">trendforce.com/news/2026/06/15/…</a> (CoWoS 월 12만~14만 장, OSAT 5만~6만 장 추가)</li>
+      <li><span class="tier">2차</span>TrendForce, 「TSMC Reportedly Eyes 20% CoWoS Price Hike…」, 2026-10-27 — <a href="https://www.trendforce.com/news/2026/10/27/news-tsmc-reportedly-eyes-20-cowos-price-hike-skips-equipment-price-renegotiations-amid-ai-demand-surge/">trendforce.com/news/2026/10/27/…</a> (가격 10~20% 인상 검토, 장비 리드타임 6~8개월, 테스트 시간 급증)</li>
+      <li><span class="tier">2차</span>Counterpoint Research, 「Global DRAM and HBM Market Share: Quarterly」, 2026-09 — <a href="https://counterpointresearch.com/en/insights/global-dram-and-hbm-market-share">counterpointresearch.com/en/insights/global-dram-and-hbm-market-share</a> (2Q26 HBM 매출 SK 50%·삼성 33%·마이크론 18%, CXMT DRAM 10%)</li>
+      <li><span class="tier">2차</span>Seoul Economic Daily, 「Latest HBM Prices to Jump Up to 2.7-Fold Next Year」, 2026-11-19 — <a href="https://en.sedaily.com/business/2026/11/19/latest-hbm-prices-to-jump-up-to-27-fold-next-year">en.sedaily.com/business/2026/11/19/…</a> (HBM 가격 전망, CXMT 증설 +20%에 그침)</li>
+      <li><span class="tier">2차</span>Epoch AI, 「Will Huawei catch up to Nvidia by 2030?」, 2026-09-04(09-24 개정) — <a href="https://epoch.ai/publications/huaweis-roadmap-to-2031">epoch.ai/publications/huaweis-roadmap-to-2031</a> (어센드 150만 개=88만 H100e, 엔비디아 2,300만 H100e, 국산 HBM 24만 개, 재고 소진)</li>
+      <li><span class="tier">2차</span>Tom's Hardware, 「SMIC posts record $3B quarter and hikes wafer prices」, 2026-08-20 — <a href="https://www.tomshardware.com/tech-industry/semiconductors/smic-is-raising-wafer-prices-into-a-shortage-as-sanctions-wall-off-chinas-ai-demand">tomshardware.com/tech-industry/semiconductors/smic-is-raising-wafer-prices-into-a-shortage…</a> (5·7나노 가격 40~50% 높음, 수율 3분의 1 미만)</li>
+      <li><span class="tier">2차</span>TechTimes(SCMP 인용), 「Goldman Sees China Chip Gap Narrowing to 34% by 2035」, 2026-08-26 — <a href="https://www.techtimes.com/articles/325589/20260826/goldman-sees-china-chip-gap-narrowing-34-2035-lithography-still-binding-limit.htm">techtimes.com/articles/325589/20260826/…</a> (SMIC 수율 23%→50%→75% 가정, 2035년 41만 장 대 61만 9천 장)</li>
+      <li><span class="tier">2차</span>EEFocus, 「China's Advanced Packaging Capex Tops ¥40B: Capital Ready, but Capacity Constrained」, 2026-11-09 — <a href="https://global.eefocus.com/article/chinas-advanced-packaging-capex-tops-%c2%a540b-capital-ready-but-capacity-constrained-by-equipment-materials-qualification.html">global.eefocus.com/article/chinas-advanced-packaging-capex-tops-¥40b…</a> (아지노모토 ABF 30% 감축, 장비·소재·인증 병목, 포어호프 2.5D 샘플 단계)</li>
+      <li><span class="tier">2차</span>China AI Dispatch, 「China's Only 2.5D Packager Runs at 60 Percent With a Full Order Book」, 2026-09-13 — <a href="https://chinaaidispatch.substack.com/p/chinas-only-25d-packager-runs-at">chinaaidispatch.substack.com/p/chinas-only-25d-packager-runs-at</a> (SJSemi 2.5D 가동률 63.42%, HBM·인터포저 수입)</li>
+      <li><span class="tier">2차</span>Sinolink(동방재부), 「CoWoS 升级下，先进封装市场空间持续扩容」, 2026-05 — <a href="https://pdf.dfcfw.com/pdf/H3_AP202605121822218877_1.pdf">pdf.dfcfw.com/pdf/H3_AP202605121822218877_1.pdf</a> (중국 CoWoS류 월 1.5만~2만 장, CoWoS-S 95% 이상)</li>
+      <li><span class="tier">2차</span>Portrait Research, 「Where Huawei's petaflops are actually landing — the SMIC wafer choke point」, 2026-07-09 — <a href="https://portraitresearch.com/blog/where-huaweis-petaflops-are-actually-landing-the-smic-wafer-choke-point/">portraitresearch.com/blog/where-huaweis-petaflops-are-actually-landing-the-smic-wafer-choke-point/</a> (SMIC 2026년 월 4만 장 증설, 2025년 5만 장, 4Q25 가동률 95.7%)</li>
+      <li><span class="tier">2차</span>아주경제, 「[특징주] 삼성전자, 中고객사에 일부 칩 출하 중단…삼전닉스 4~5%대 하락」, 2026-11-20 — <a href="https://www.ajunews.com/view/20261120093310093">ajunews.com/view/20261120093310093</a> (삼성전자 -4.06%, SK하이닉스 -5.49%, 소부장 두 자릿수 약세, 미 반도체지수 반락)</li>
+      <li><span class="tier">2차</span>연합뉴스, 「FT "삼성전자·TSMC, 중국에 일부 칩 출하 중단"」, 2026-11-20 — <a href="https://www.yna.co.kr/view/AKR20261120012400009">yna.co.kr/view/AKR20261120012400009</a></li>
+      <li><span class="tier">2차</span>Reuters, 「China says it will take countermeasures if US imposes new chip curbs」, 2026-11-17 — <a href="https://www.investing.com/news/world-news/china-says-it-will-take-countermeasures-if-us-imposes-new-chip-curbs-5033368">investing.com/news/world-news/…-5033368</a></li>
+      <li><span class="tier">2차</span>Steptoe, 「BIS Targets Data Center Remote Access and Imposes Steeper Requirements on Foundries and OSATs」, 2026-11-17 — <a href="https://www.steptoe.com/en/news-publications/international-compliance-blog/bis-targets-data-center-remote-access-and-imposes-steeper-requirements-on-foundries-and-osats.html">steptoe.com/en/news-publications/international-compliance-blog/…</a> (파운드리·OSAT 추정 제한, 90일, "for an entity" 해석)</li>
+    </ol>
+    <div class="grp">단일출처·추정치로 취급한 항목</div>
+    <ol>
+      <li><span class="tier">단일출처</span>중국 종목별 종가 등락(일루바타 -17.45%, 엔플레임 -20%, 메타엑스 -14.72% 등)은 芯智讯 집계이며, 다른 매체의 장중 수치와 시점이 다릅니다 — <a href="https://www.eet-china.com/mp/a540540.html">eet-china.com/mp/a540540.html</a></li>
+      <li><span class="tier">단일출처</span>'허가 대기열에 공표된 처리 기간이 없다'는 로이터·FT·법무법인 분석에 공통으로 나타나지만, BIS의 공식 확인은 없습니다. 연 100건은 연방관보의 정보수집 부담 추정치입니다.</li>
+      <li><span class="tier">단일출처</span>화웨이 950DT·950PR 물량과 HBM 공급원 구성은 에포크AI 모델의 중앙값이며 신뢰구간이 넓습니다.</li>
+    </ol>
+  </div>
+  <div class="disc">
+    <b>면책</b>
+    본 글은 공개된 1차 자료와 보도를 바탕으로 한 정보 제공 및 분석 목적의 글입니다. 특정 종목의 매수·매도, 목표가, 매매 시점을 제안하지 않습니다. 인용된 규제 내용은 2026년 11월 19일 연방관보 게재본 기준이며, 2027년 1월 19일까지의 의견수렴과 최종 규칙에서 문턱·예외가 바뀔 수 있습니다. TSMC의 이행 내용은 로이터가 익명 소식통을 통해 보도한 것으로 회사 공식 확인이 아닙니다. 수치와 날짜는 본문에 밝힌 출처에 근거하나, 추정치로 표시된 항목은 모델·계산에 기반한 값으로 실제와 다를 수 있습니다. 투자 판단의 최종 책임은 독자에게 있습니다.
+  </div>
+    <div class="signoff">
+    <div class="nm">The Signal</div>
+    <div class="sl">세상의 변화를 먼저 읽는 리서치</div>
+  </div>
+
+</article>
+
+</div>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="./" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="archive" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

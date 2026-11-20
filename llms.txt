@@ -23,7 +23,7 @@ This site hosts two knowledge streams by the same Korean author, under the pen n
 - Repository: https://github.com/swansong80-afk/thesignal-orca
 - Author: 글 쓰는 범고래 (pen name; alternate spelling 글쓰는 범고래, ORCA)
 - Language: ko
-- Last updated: 2026-11-17
+- Last updated: 2026-11-20
 - Update cadence: The Signal Weekly 주 1회 내외 · 서적 아카이브는 개정 시
 
 ## 저자 (Author)
@@ -46,6 +46,7 @@ https://thesignal-orca.pages.dev/verify 에 있습니다.
 
 ### The Signal : Weekly (주간 신호)
 
+- No.07 (2026-11-20) 「만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구」 — TSMC·삼성의 16나노 이하 중국 고객 주문 중단, 승인 설계사·OSAT 명단 의존, 그리고 로직·HBM·첨단 패키징의 삼중 병목. https://thesignal-orca.pages.dev/weekly-07
 - No.06 (2026-11-17) 「칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경」 — 미 상무부 BIS의 데이터센터 원격 접속 규제(잠정최종규칙)와 AI Diffusion Rule 폐기. https://thesignal-orca.pages.dev/weekly-06
 - No.05 (2026-08-01) 「버핏이 옳았다, 그런데 그가 본 것은 아니다」 — 아마존 capex 상향과 메모리 재배치. https://thesignal-orca.pages.dev/weekly-05
 - No.04 (2026-08-01) 「워시가 말을 멈추자, 표를 던진 건 세 총재였다」 — 9-3 표결과 연준 무게중심. https://thesignal-orca.pages.dev/weekly-04
@@ -148,6 +149,7 @@ Signal Card, Weak Links and graded source ledger as the Korean originals.
 
 - [홈](https://thesignal-orca.pages.dev/): The Signal 소개, 세 갈래 리서치, 검증 시스템, 발행인
 - [아카이브](https://thesignal-orca.pages.dev/archive): Weekly·한 주의 지도·Deep Research·Legacy 전체 목록
+- [Weekly No.07](https://thesignal-orca.pages.dev/weekly-07): 만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구
 - [Weekly No.06](https://thesignal-orca.pages.dev/weekly-06): 칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경
 - [3권의 책](https://thesignal-orca.pages.dev/books): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
 - [영문판](https://thesignal-orca.pages.dev/books#english): Deep Research 영문 PDF — 무료 표본과 Volume One (Gumroad 판매)
