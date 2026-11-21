@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>블라인드 차트 — 익명 시장 시뮬레이터</title>
+<meta name="description" content="실제 역사적 지수의 흐름을 이름 없이 보여주는 5라운드 투자 시뮬레이터.">
+<style>
+  :root{
+    --bg:#060a12;
+    --bg-2:#0a1120;
+    --panel:#0d1626;
+    --panel-2:#111d31;
+    --line:rgba(126,163,214,.15);
+    --line-soft:rgba(126,163,214,.08);
+    --txt:#e9eef8;
+    --txt-2:#b9c6dc;
+    --muted:#7f92b0;
+    --teal:#3ee0c4;
+    --teal-dim:#1f8d7e;
+    --amber:#f2b45a;
+    --red:#ff5f74;
+    --blue:#6ea8ff;
+    --serif:"Noto Serif CJK KR","Nanum Myeongjo","Apple SD Gothic Neo",Georgia,serif;
+    --sans:"Pretendard","Apple SD Gothic Neo","Noto Sans CJK KR",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0;
+    background:
+      radial-gradient(900px 520px at 12% -8%, rgba(62,224,196,.10), transparent 60%),
+      radial-gradient(760px 460px at 92% 4%, rgba(110,168,255,.10), transparent 62%),
+      radial-gradient(700px 500px at 50% 105%, rgba(242,180,90,.05), transparent 65%),
+      linear-gradient(180deg,#060a12 0%,#070c16 40%,#05080f 100%);
+    pointer-events:none;
+  }
+  body::after{
+    content:"";
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:linear-gradient(rgba(126,163,214,.045) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(126,163,214,.045) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(70% 55% at 50% 22%,#000 0%,transparent 100%);
+    -webkit-mask-image:radial-gradient(70% 55% at 50% 22%,#000 0%,transparent 100%);
+  }
+  .wrap{position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 26px 64px;}
+  @media (max-width:560px){ .wrap{padding:0 16px 48px;} }
+
+  .hidden{display:none !important;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:relative; z-index:2;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    max-width:1180px; margin:0 auto; padding:22px 26px 18px;
+  }
+  @media (max-width:560px){ .topbar{padding:16px 16px 12px;} }
+  .brand{display:flex; align-items:center; gap:11px;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:10px;flex:0 0 auto;
+    background:linear-gradient(145deg,#12283a,#0b1626);
+    border:1px solid rgba(62,224,196,.35);
+    display:grid;place-items:center;
+    box-shadow:0 0 22px rgba(62,224,196,.12) inset;
+  }
+  .brand-txt{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-name{font-size:12.5px;letter-spacing:.26em;font-weight:700;color:#dce8f8;}
+  .brand-sub{font-size:10.5px;letter-spacing:.08em;color:var(--muted);}
+  .top-right{display:flex;align-items:center;gap:12px;}
+  .pill{
+    font-size:10px;letter-spacing:.18em;color:#8fa6c6;
+    border:1px solid var(--line); border-radius:999px; padding:6px 11px;
+    background:rgba(13,22,38,.6);
+  }
+  .nav-home{
+    background:none;border:0;color:var(--muted);font-family:inherit;font-size:12px;
+    letter-spacing:.02em;cursor:pointer;padding:6px 2px;
+  }
+  .nav-home:hover{color:var(--teal);}
+
+  /* ---------- shared ---------- */
+  .eyebrow{
+    font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
+    font-weight:600;
+  }
+  .card{
+    background:linear-gradient(180deg,rgba(18,29,48,.92),rgba(10,17,29,.94));
+    border:1px solid var(--line);
+    border-radius:18px;
+    box-shadow:0 24px 60px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,.03) inset;
+  }
+  .btn{
+    font-family:inherit; font-size:14px; font-weight:600; letter-spacing:-.01em;
+    border-radius:12px; padding:14px 20px; cursor:pointer;
+    border:1px solid transparent; transition:transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{
+    background:linear-gradient(180deg,#4ff0d3,#2ec4aa);
+    color:#04231f;
+    box-shadow:0 12px 30px rgba(46,196,170,.20);
+  }
+  .btn.primary:hover{box-shadow:0 16px 38px rgba(46,196,170,.32);}
+  .btn.primary:disabled{background:rgba(255,255,255,.05);color:#63758f;border-color:var(--line);box-shadow:none;cursor:not-allowed;}
+  .btn.ghost{
+    background:rgba(255,255,255,.02); color:var(--txt); border-color:var(--line);
+  }
+  .btn.ghost:hover{border-color:rgba(62,224,196,.45); color:#dffbf5;}
+  .btn.wide{width:100%;}
+  .btn:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+  .num{font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1;}
+
+  /* ---------- start ---------- */
+  #screen-start{padding-top:8px; display:flex; flex-direction:column; justify-content:center; min-height:calc(100vh - 150px);}
+  .start-footer{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:30px; padding-top:16px; border-top:1px solid var(--line-soft); font-size:10px; letter-spacing:.14em; color:#4d5f7a;}
+  @media (max-height:760px){ #screen-start{min-height:auto; justify-content:flex-start;} }
+  .hero{max-width:800px; margin:6px 0 34px;}
+  .hero h1{
+    font-family:var(--serif); font-weight:600;
+    font-size:clamp(30px,4.4vw,50px); line-height:1.24; letter-spacing:-.02em;
+    margin:16px 0 14px; color:#f2f7ff;
+  }
+  .hero h1 em{font-style:normal; color:var(--teal);}
+  .hero p{color:var(--txt-2); font-size:15px; max-width:640px; margin:0;}
+  .hero p + p{margin-top:10px; color:var(--muted); font-size:13.5px;}
+  .start-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:22px; align-items:start;}
+  @media (max-width:900px){ .start-grid{grid-template-columns:1fr;} }
+  .sc-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media (max-width:420px){ .sc-grid{grid-template-columns:1fr;} }
+  .sc-card{
+    position:relative; text-align:left; font-family:inherit; color:var(--txt);
+    background:linear-gradient(160deg,rgba(20,32,53,.85),rgba(10,17,29,.9));
+    border:1px solid var(--line); border-radius:16px; padding:18px 18px 16px;
+    cursor:pointer; transition:border-color .2s ease, transform .2s ease, box-shadow .25s ease;
+    overflow:hidden;
+  }
+  .sc-card:hover{border-color:rgba(126,163,214,.36); transform:translateY(-2px);}
+  .sc-card .sc-no{
+    font-family:var(--serif); font-size:30px; color:#485f80; line-height:1;
+    letter-spacing:-.02em; transition:color .2s;
+  }
+  .sc-card .sc-name{margin-top:10px; font-size:13.5px; font-weight:600; color:#dbe6f7;}
+  .sc-card .sc-lock{margin-top:4px; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:5px;}
+  .sc-card .sc-badge{
+    position:absolute; top:14px; right:14px; font-size:9px; letter-spacing:.16em;
+    color:#6d82a3; border:1px solid var(--line-soft); border-radius:999px; padding:3px 7px;
+  }
+  .sc-card.sel{
+    border-color:rgba(62,224,196,.65);
+    box-shadow:0 0 0 1px rgba(62,224,196,.25), 0 18px 40px rgba(62,224,196,.10);
+    background:linear-gradient(160deg,rgba(24,52,56,.75),rgba(10,20,30,.95));
+  }
+  .sc-card.sel .sc-no{color:var(--teal);}
+  .sc-card.sel .sc-badge{color:var(--teal); border-color:rgba(62,224,196,.4);}
+  .sc-card .sc-qm{position:absolute; right:14px; bottom:2px; font-family:var(--serif); font-size:58px; line-height:1; color:#ffffff; opacity:.045; pointer-events:none;}
+  .start-panel{padding:20px;}
+  .start-panel .sp-title{font-size:12px; letter-spacing:.18em; color:var(--muted); margin-bottom:14px;}
+  .start-panel .btn + .btn{margin-top:10px;}
+  .rules{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:22px;}
+  @media (max-width:720px){ .rules{grid-template-columns:1fr;} }
+  .rule{
+    border:1px solid var(--line-soft); border-radius:12px; padding:12px 14px;
+    background:rgba(255,255,255,.015);
+  }
+  .rule b{display:block; font-size:12.5px; color:#d8e4f5; font-weight:600;}
+  .rule span{font-size:11.5px; color:var(--muted);}
+  .start-note{margin-top:20px; font-size:11.5px; color:#5f718e; line-height:1.7;}
+
+  /* ---------- play ---------- */
+  #screen-play{padding-top:8px;}
+  .play-top{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:16px;}
+  .dots{display:flex; gap:6px; margin-top:9px;}
+  .dot{width:26px;height:3px;border-radius:2px;background:rgba(126,163,214,.18); transition:background .3s;}
+  .dot.done{background:var(--teal);}
+  .dot.active{background:var(--amber); box-shadow:0 0 10px rgba(242,180,90,.5);}
+  .play-money{text-align:right;}
+  .money-val{font-family:var(--serif); font-size:26px; letter-spacing:-.01em; color:#f3f8ff;}
+  .money-sub{font-size:11.5px; color:var(--muted); margin-top:2px;}
+  .play-grid{display:grid; grid-template-columns:minmax(0,1.64fr) minmax(320px,.9fr); gap:20px; align-items:start;}
+  .play-main{display:flex; flex-direction:column; gap:16px; min-width:0;}
+  .play-side{min-width:0;}
+  @media (max-width:980px){ .play-grid{grid-template-columns:1fr;} }
+  .chart-card{overflow:hidden;}
+  .chart-head{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:15px 20px 0;
+  }
+  .chart-head .ch-l{display:flex; align-items:center; gap:10px;}
+  .ch-tag{font-size:10px; letter-spacing:.14em; color:#93a7c6; border:1px solid var(--line-soft); border-radius:5px; padding:3px 7px; white-space:nowrap;}
+  .chip{white-space:nowrap;}
+  @media (max-width:640px){
+    .chart-head{padding:13px 14px 0; gap:8px;}
+    .chart-head .ch-l .eyebrow{display:none;}
+    .ch-tag{font-size:9.5px; padding:2px 6px;}
+    .chart-head .chip{font-size:9.5px; padding:3px 8px;}
+    .chart-foot{padding:0 14px 12px; font-size:9.5px; gap:8px;}
+    .chart-foot .legend{gap:10px;}
+    .money-val{font-size:21px;}
+    .money-sub{font-size:10.5px;}
+    .play-top{gap:10px;}
+    .log-card{padding:14px 14px 8px;}
+    .panel{padding:16px 14px;}
+    .result-panel{padding:18px 14px;}
+  }
+  .chip{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:10.5px; letter-spacing:.08em; padding:4px 9px; border-radius:999px;
+    border:1px solid var(--line); color:#9db0cc; background:rgba(255,255,255,.02);
+  }
+  .chip.locked{color:var(--amber); border-color:rgba(242,180,90,.32); background:rgba(242,180,90,.07);}
+  .chip.live{color:var(--teal); border-color:rgba(62,224,196,.32); background:rgba(62,224,196,.07);}
+  .chart-wrap{padding:2px 8px 0;}
+  .chart-wrap svg{display:block; width:100%; height:auto;}
+  .chart-foot{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:2px 20px 16px; font-size:10.5px; color:#6f83a0; letter-spacing:.02em;
+  }
+  .chart-foot .legend{display:flex; align-items:center; gap:14px;}
+  .lg{display:inline-flex; align-items:center; gap:6px;}
+  .lg i{width:12px;height:2px;border-radius:2px;display:inline-block;}
+
+  .log-card{padding:14px 18px 8px;}
+  .log-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
+  .log-cols{display:grid; grid-template-columns:44px 1fr 74px 78px 108px; gap:8px; padding:0 2px 7px; border-bottom:1px solid var(--line-soft);
+    font-size:9.5px; letter-spacing:.1em; color:#5f718e;}
+  .log-cols span:nth-child(n+3){text-align:right;}
+  .log-row{display:grid; grid-template-columns:44px 1fr 74px 78px 108px; gap:8px; align-items:center;
+    padding:7px 2px; border-bottom:1px solid var(--line-soft); font-size:11.5px;}
+  .log-row:last-child{border-bottom:0;}
+  .log-row .lr-r{font-size:10px; letter-spacing:.12em; color:#7f92b0;}
+  .log-row .lr-choice{color:#dbe6f7;}
+  .log-row .lr-mkt,.log-row .lr-port,.log-row .lr-cap{text-align:right; font-variant-numeric:tabular-nums;}
+  .log-row .lr-cap{color:#c9d6ea;}
+  .log-row.pending{opacity:.42;}
+  .log-row.pending .lr-choice{color:#7f92b0; font-weight:400;}
+  .log-row.now .lr-r{color:var(--amber);}
+  @media (max-width:520px){
+    .log-cols,.log-row{grid-template-columns:38px 1fr 66px 70px;}
+    .log-cols span:last-child,.log-row .lr-cap{display:none;}
+  }
+  .hist{display:grid; grid-template-columns:repeat(5,1fr); gap:8px; padding:0 20px 18px;}
+  .hist-cell{
+    border:1px solid var(--line-soft); border-radius:10px; padding:8px 9px;
+    background:rgba(255,255,255,.012); min-height:52px;
+  }
+  .hist-cell .hc-r{font-size:9.5px; letter-spacing:.14em; color:#6f83a0;}
+  .hist-cell .hc-v{font-size:11.5px; color:#c9d6ea; margin-top:3px;}
+  .hist-cell .hc-p{font-size:10.5px; margin-top:1px;}
+  .hist-cell.now{border-color:rgba(242,180,90,.35); background:rgba(242,180,90,.05);}
+
+  .panel{padding:18px 18px 18px;}
+  .panel-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  .macro{display:grid; gap:8px; padding:12px; border-radius:12px; background:rgba(255,255,255,.02); border:1px solid var(--line-soft);}
+  .mrow{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .mrow .mk{font-size:11.5px; color:#93a6c2;}
+  .mrow .mv{font-size:12px; color:#e2ebf9; font-weight:600;}
+  .mrow .mchip{
+    font-size:9.5px; padding:2px 7px; border-radius:999px; margin-left:7px; letter-spacing:.02em;
+    border:1px solid transparent;
+  }
+  .t-tight{color:#f2b45a;background:rgba(242,180,90,.10);border-color:rgba(242,180,90,.25);}
+  .t-ease{color:#3ee0c4;background:rgba(62,224,196,.10);border-color:rgba(62,224,196,.25);}
+  .t-flat{color:#9db0cc;background:rgba(157,176,204,.08);border-color:rgba(157,176,204,.18);}
+  .t-hot{color:#ff7d8e;background:rgba(255,95,116,.10);border-color:rgba(255,95,116,.25);}
+  .t-cold{color:#7fb0ff;background:rgba(110,168,255,.10);border-color:rgba(110,168,255,.25);}
+
+  .news{
+    position:relative; margin:12px 0 16px; padding:13px 14px 13px 30px;
+    border-left:2px solid rgba(62,224,196,.4);
+    background:linear-gradient(90deg,rgba(62,224,196,.06),rgba(62,224,196,0));
+    border-radius:0 10px 10px 0;
+    font-size:12.5px; color:#cfdcef; line-height:1.62;
+  }
+  .news::before{
+    content:"“"; position:absolute; left:9px; top:6px; font-family:var(--serif);
+    font-size:24px; color:rgba(62,224,196,.55); line-height:1;
+  }
+  .news .news-tag{display:block; font-size:9.5px; letter-spacing:.18em; color:#6f83a0; margin-bottom:6px;}
+
+  .pos-grid{display:grid; gap:8px;}
+  .pos{
+    position:relative; display:grid; grid-template-columns:1fr auto; align-items:center; gap:4px 10px;
+    text-align:left; font-family:inherit; color:var(--txt);
+    background:rgba(255,255,255,.018); border:1px solid var(--line);
+    border-radius:12px; padding:11px 13px 12px; cursor:pointer;
+    transition:border-color .18s, background .18s, transform .12s;
+    overflow:hidden;
+  }
+  .pos:hover{border-color:rgba(126,163,214,.4); background:rgba(255,255,255,.035);}
+  .pos:active{transform:scale(.995);}
+  .pos .p-label{font-size:13px; font-weight:600; color:#dde8f8;}
+  .pos .p-pct{font-size:15px; font-weight:700; color:#8fa6c6;}
+  .pos .p-note{grid-column:1/-1; font-size:10.5px; color:#7589a6;}
+  .pos .p-bar{grid-column:1/-1; height:3px; border-radius:2px; background:rgba(255,255,255,.07); margin-bottom:5px; overflow:hidden;}
+  .pos .p-bar i{display:block; height:100%; border-radius:2px; background:linear-gradient(90deg,#2b6f8f,#3ee0c4); transition:width .35s ease;}
+  .pos.sel{
+    border-color:rgba(62,224,196,.7);
+    background:linear-gradient(90deg,rgba(62,224,196,.12),rgba(62,224,196,.03));
+    box-shadow:0 0 0 1px rgba(62,224,196,.2);
+  }
+  .pos.sel .p-pct{color:var(--teal);}
+  .pos.sel .p-label{color:#f0fffb;}
+  .pos[data-alloc="0"] .p-bar i{background:linear-gradient(90deg,#4a5f80,#93a6c2);}
+  .pos[data-alloc="30"] .p-bar i{background:linear-gradient(90deg,#2b6f8f,#6ea8ff);}
+
+  .result-panel{padding:20px 18px;}
+  .rp-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  .rp-mkt{font-family:var(--serif); font-size:36px; line-height:1.1; letter-spacing:-.02em; margin:4px 0 2px;}
+  .rp-cap{font-size:12px; color:var(--muted);}
+  .rp-rows{margin:16px 0 14px; border-top:1px solid var(--line-soft);}
+  .rp-row{display:flex; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px solid var(--line-soft); font-size:12px;}
+  .rp-row span:first-child{color:#8fa3bf;}
+  .rp-row span:last-child{color:#e2ebf9; font-weight:600;}
+  .rp-insight{font-size:12px; line-height:1.68; color:#b9c9df; background:rgba(255,255,255,.02); border-radius:10px; padding:11px 12px; margin-bottom:14px;}
+
+  .up{color:var(--teal);} .down{color:var(--red);} .flatc{color:#9db0cc;}
+
+  /* ---------- reveal ---------- */
+  #screen-reveal{padding-top:14px;}
+  .rv-head{margin-bottom:22px;}
+  .rv-head h1{
+    font-family:var(--serif); font-size:clamp(26px,3.6vw,42px); line-height:1.2;
+    margin:10px 0 6px; letter-spacing:-.02em; color:#f4f9ff;
+  }
+  .rv-period{font-size:13px; color:#9db0cc; letter-spacing:.02em;}
+  .rv-period b{color:var(--teal); font-weight:600;}
+  .verdict{display:grid; grid-template-columns:1fr 46px 1fr 1fr; gap:10px; margin-bottom:18px;}
+  @media (max-width:860px){ .verdict{grid-template-columns:1fr; } .verdict .verdict-mid{display:none;} }
+  @media (max-width:640px){
+    .verdict{grid-template-columns:1fr 1fr; gap:10px;}
+    .verdict .verdict-mid{display:none;}
+    .v-card{padding:14px;}
+    .v-sub{font-size:10.5px; line-height:1.4;}
+    .v-card.v-alpha{grid-column:1/-1;}
+  }
+  .v-card{padding:18px; border-radius:16px; border:1px solid var(--line); background:linear-gradient(180deg,rgba(18,29,48,.8),rgba(10,17,29,.9));}
+  .v-label{font-size:10.5px; letter-spacing:.16em; color:var(--muted);}
+  .v-value{font-family:var(--serif); font-size:clamp(28px,3.4vw,40px); line-height:1.15; margin:6px 0 4px; letter-spacing:-.02em;}
+  .v-sub{font-size:11.5px; color:#7f92b0;}
+  .v-card.me{border-color:rgba(62,224,196,.35); background:linear-gradient(180deg,rgba(20,45,48,.7),rgba(10,20,28,.92));}
+  .v-card.me .v-value{color:var(--teal);}
+  .v-card.bh .v-value{color:#c9d6ea;}
+  .verdict-mid{display:grid; place-items:center; color:#42536e; font-size:11px; letter-spacing:.16em;}
+  .v-alpha{display:flex; flex-direction:column; justify-content:center;}
+  .v-alpha .v-value{font-size:clamp(24px,3vw,34px);}
+  .v-alpha .v-note{font-size:11.5px; color:#7f92b0; line-height:1.5;}
+
+  .rv-chart{padding:16px 8px 6px; margin-bottom:18px;}
+  .rv-chart svg{display:block;width:100%;height:auto;}
+  .rv-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:18px; margin-bottom:18px;}
+  @media (max-width:900px){ .rv-grid{grid-template-columns:1fr;} }
+  .profile-card{padding:22px;}
+  .p-arche{font-family:var(--serif); font-size:27px; margin:8px 0 2px; letter-spacing:-.02em; color:#f2f8ff;}
+  .p-en{font-size:10px; letter-spacing:.22em; color:var(--teal); margin-bottom:14px;}
+  .p-desc{font-size:12.5px; line-height:1.75; color:#c2d0e4;}
+  .p-tip{margin-top:14px; padding-top:13px; border-top:1px solid var(--line-soft); font-size:11.5px; color:#8fa3bf; line-height:1.65;}
+  .p-tip b{color:#d8e6f7; font-weight:600;}
+  .p-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:16px;}
+  .p-stat{border:1px solid var(--line-soft); border-radius:10px; padding:9px 10px; background:rgba(255,255,255,.015);}
+  .p-stat .ps-v{font-size:15px; font-weight:600; color:#e6eefb; font-variant-numeric:tabular-nums;}
+  .p-stat .ps-k{font-size:9.5px; color:#6f83a0; letter-spacing:.02em; margin-top:1px; line-height:1.35;}
+
+  .table-card{padding:22px 18px;}
+  .tbl-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table.rt{width:100%; border-collapse:collapse; font-size:11.5px; min-width:420px;}
+  table.rt th{
+    font-size:9.5px; letter-spacing:.1em; color:#6f83a0; font-weight:600; text-align:right;
+    padding:0 6px 9px; border-bottom:1px solid var(--line); white-space:nowrap;
+  }
+  table.rt th:first-child{text-align:left;}
+  table.rt td{padding:10px 6px; border-bottom:1px solid var(--line-soft); text-align:right; color:#d3dfef; font-variant-numeric:tabular-nums;}
+  table.rt td:first-child{text-align:left; color:#93a6c2; letter-spacing:.06em;}
+  table.rt tr:last-child td{border-bottom:0;}
+  .choice-chip{display:inline-block; padding:2px 7px; border-radius:5px; font-size:10px; letter-spacing:.02em; border:1px solid var(--line); color:#cfdcef; background:rgba(255,255,255,.03);}
+
+  .lessons{padding:24px 24px 10px;}
+  .lesson{display:grid; grid-template-columns:40px 1fr; gap:12px; padding:13px 0; border-top:1px solid var(--line-soft);}
+  .lesson:first-of-type{border-top:0;}
+  .lesson .ln{font-family:var(--serif); font-size:19px; color:#3f5474;}
+  .lesson p{margin:0; font-size:12.5px; line-height:1.72; color:#c2d0e4;}
+  .rv-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;}
+  .rv-note{margin-top:18px; font-size:11px; color:#5f718e; line-height:1.7;}
+
+  @keyframes draw{from{stroke-dashoffset:1;}to{stroke-dashoffset:0;}}
+  .seg-draw{stroke-dasharray:1; stroke-dashoffset:1; animation:draw 1.05s cubic-bezier(.4,0,.2,1) forwards;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .fade{animation:fadeUp .45s ease both;}
+  @media (prefers-reduced-motion:reduce){
+    .seg-draw{animation:none;stroke-dashoffset:0;}
+    .fade{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg width="17" height="17" viewBox="0 0 20 20" fill="none">
+        <path d="M4 13.6 8 9.2l3.1 2.4L16.2 5" stroke="#3ee0c4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.6 5h3.6v3.4" stroke="#3ee0c4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 16.4h14" stroke="#2b6f8f" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="brand-txt">
+      <span class="brand-name">BLIND CHART</span>
+      <span class="brand-sub">익명 시장 시뮬레이터</span>
+    </div>
+  </div>
+  <div class="top-right">
+    <button class="nav-home hidden" id="navHome" data-act="home">↺ 처음으로</button>
+    <span class="pill">5 ROUNDS</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= START ================= -->
+  <section id="screen-start" class="screen">
+    <div class="hero fade">
+      <div class="eyebrow">SIMULATOR · 실제 역사 데이터</div>
+      <h1>차트의 과거만 보고,<br><em>다섯 번의 결정</em>을 내리세요.</h1>
+      <p>연도도, 지수 이름도, 종목도 알려주지 않습니다. 남겨둔 것은 실제 역사적 지수의 흐름과 그 시절의 단서뿐입니다.</p>
+      <p>5라운드가 끝나면 모든 것이 공개됩니다. 당신의 판단은 어떤 시장에서 통했을까요.</p>
+    </div>
+
+    <div class="start-grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;">시나리오 선택 · 연도 비공개</div>
+        <div class="sc-grid" id="scGrid"></div>
+      </div>
+
+      <div class="card start-panel">
+        <div class="sp-title">START</div>
+        <button class="btn primary wide" id="btnStart" data-act="start" disabled>시나리오를 선택하세요</button>
+        <button class="btn ghost wide" data-act="random">🎲 랜덤 시작</button>
+        <div class="start-note">
+          초기 자본 <b style="color:#cfdcef;">1,000만 원</b> · 5라운드 · 매 라운드 주식 비중을 고릅니다.<br>
+          현금에는 연 0~3% 이자가 붙습니다. 수수료·세금은 반영하지 않습니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="rules">
+      <div class="rule"><b>18개월의 과거</b><span>처음엔 과거 차트만 보입니다. 미래는 잠겨 있습니다.</span></div>
+      <div class="rule"><b>6개월씩 5번</b><span>라운드마다 한 구간이 열리고, 그때의 단서가 주어집니다.</span></div>
+      <div class="rule"><b>결과는 정직하게</b><span>실제 지수 흐름에 내 선택을 그대로 적용합니다.</span></div>
+    </div>
+
+    <div class="start-note" style="max-width:720px;">
+      ※ 실제 월별 지수 종가를 시작값 100으로 정규화한 근사 데이터를 사용합니다. 교육·오락 목적의 프로토타입이며 투자 조언이 아닙니다.
+    </div>
+
+    <div class="start-footer">
+      <span>BLIND CHART · PROTOTYPE 001</span>
+      <span>오프라인 단일 파일 · 외부 연결 없음</span>
+    </div>
+  </section>
+
+  <!-- ================= PLAY ================= -->
+  <section id="screen-play" class="screen hidden">
+    <div class="play-top">
+      <div>
+        <div class="eyebrow">ROUND <span id="roundNo">1</span> / 5 · <span id="phaseLabel">의사결정</span></div>
+        <div class="dots" id="dots"></div>
+      </div>
+      <div class="play-money">
+        <div class="money-val num" id="moneyVal">₩10,000,000</div>
+        <div class="money-sub num" id="moneySub">누적 +0.0%</div>
+      </div>
+    </div>
+
+    <div class="play-grid">
+      <div class="play-main">
+      <div class="card chart-card">
+        <div class="chart-head">
+          <div class="ch-l">
+            <span class="ch-tag">시작 = 100</span>
+            <span class="eyebrow" style="letter-spacing:.16em;">ANONYMous CHART</span>
+          </div>
+          <span class="chip locked" id="lockChip">🔒 미래 5개 구간</span>
+        </div>
+        <div class="chart-wrap" id="chartWrap"></div>
+        <div class="chart-foot">
+          <div class="legend">
+            <span class="lg"><i style="background:#3ee0c4;"></i>공개된 과거</span>
+            <span class="lg"><i style="background:#f2b45a;"></i>방금 열린 구간</span>
+          </div>
+          <span>월별 종가 · 상대 지수</span>
+        </div>
+      </div>
+
+      <div class="card log-card">
+        <div class="log-head">
+          <span class="eyebrow">ROUND LOG</span>
+          <span class="chip">누적 기록</span>
+        </div>
+        <div class="log-cols">
+          <span>라운드</span><span>내 선택</span><span>시장</span><span>내 구간</span><span>자산</span>
+        </div>
+        <div id="roundLog"></div>
+      </div>
+      </div>
+
+      <div class="play-side">
+        <div class="card panel" id="decidePanel">
+          <div class="panel-head">
+            <span class="eyebrow">DECISION</span>
+            <span class="chip" id="roundChip">R1 · 다음 6개월</span>
+          </div>
+          <div class="macro" id="macroBox"></div>
+          <div class="news" id="newsBox"></div>
+          <div class="pos-grid" id="posGrid"></div>
+          <button class="btn primary wide" style="margin-top:14px;" data-act="confirm" id="btnConfirm" disabled>이 구간 결정하기 →</button>
+        </div>
+
+        <div class="card result-panel hidden" id="resultPanel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVEAL ================= -->
+  <section id="screen-reveal" class="screen hidden">
+    <div class="rv-head fade">
+      <div class="eyebrow">REVEAL · 5 ROUNDS COMPLETE</div>
+      <h1 id="rvName">—</h1>
+      <div class="rv-period" id="rvPeriod">—</div>
+    </div>
+
+    <div class="verdict">
+      <div class="v-card me">
+        <div class="v-label">내 최종 수익률</div>
+        <div class="v-value num" id="rvMe">—</div>
+        <div class="v-sub num" id="rvMeSub">—</div>
+      </div>
+      <div class="verdict-mid">VS</div>
+      <div class="v-card bh">
+        <div class="v-label">단순 보유 (BUY &amp; HOLD)</div>
+        <div class="v-value num" id="rvBh">—</div>
+        <div class="v-sub" id="rvBhSub">같은 5구간, 아무것도 하지 않았다면</div>
+      </div>
+      <div class="v-card v-alpha">
+        <div class="v-label">차이</div>
+        <div class="v-value num" id="rvAlpha">—</div>
+        <div class="v-note" id="rvAlphaNote">—</div>
+      </div>
+    </div>
+
+    <div class="card rv-chart" id="rvChartWrap"></div>
+
+    <div class="rv-grid">
+      <div class="card profile-card">
+        <div class="eyebrow">투자 성향 분석</div>
+        <div class="p-arche" id="pArche">—</div>
+        <div class="p-en" id="pEn">—</div>
+        <div class="p-desc" id="pDesc">—</div>
+        <div class="p-stats" id="pStats"></div>
+        <div class="p-tip" id="pTip">—</div>
+      </div>
+
+      <div class="card table-card">
+        <div class="eyebrow" style="margin-bottom:14px;">라운드별 복기</div>
+        <div class="tbl-wrap">
+          <table class="rt">
+            <thead>
+              <tr><th>라운드</th><th>시장</th><th>내 비중</th><th>내 구간</th><th>자산</th></tr>
+            </thead>
+            <tbody id="rtBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card lessons" id="lessonBox"></div>
+
+    <div class="rv-actions">
+      <button class="btn primary" data-act="restart-same">같은 시나리오 다시</button>
+      <button class="btn ghost" data-act="restart-other">다른 시나리오 고르기</button>
+    </div>
+
+    <div class="rv-note" id="rvNote">
+      데이터: 실제 월별 지수 종가를 시작값 100으로 정규화한 근사치. 수수료·세금·환율은 반영하지 않았습니다.
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* =========================================================
+   DATA — monthly closes, approximated from historical indices
+   Normalized at runtime so every chart starts at 100.
+   ========================================================= */
+const N = 48, INITIAL = 18, SEG = 6, ROUNDS = 5, START_CAPITAL = 10000000;
+
+const SCENARIOS = [
+  {
+    id: 1,
+    name: "나스닥 종합지수",
+    sub: "미국 · 기술주 중심",
+    period: "1999.01 – 2002.12",
+    start: { y: 1999, m: 1 },
+    cash: 0.03,
+    raw: [2506,2288,2462,2543,2470,2686,2639,2759,2746,2966,3336,4069,
+          3940,4696,4572,3860,3400,3966,
+          3766,4206,3672,3370,2598,2470,
+          2772,2151,1840,2116,2110,2160,
+          2027,1805,1498,1690,1930,1950,
+          1940,1750,1845,1695,1615,1463,
+          1328,1314,1172,1329,1481,1335],
+    macro: [
+      { rate:["6.5%","긴축 고점","t-tight"], cpi:["3.2%","완만","t-hot"], credit:["확대 조짐","악화","t-tight"],
+        news:"중앙은행이 2년 만에 금리 인상 중단을 시사했지만, 시장은 여전히 ‘고평가’ 논쟁 중이다." },
+      { rate:["5.0%","연속 인하","t-ease"], cpi:["3.0%","안정","t-flat"], credit:["확대","악화","t-tight"],
+        news:"정책금리가 빠르게 내려가기 시작했지만, 기업 실적 전망은 오히려 더 나빠지고 있다." },
+      { rate:["3.5%","빠른 인하","t-ease"], cpi:["2.5%","낮음","t-cold"], credit:["크게 확대","악화","t-tight"],
+        news:"예상치 못한 충격으로 시장은 역사상 가장 나쁜 분기 중 하나를 보냈다. 저가 매수 세력이 조금씩 나타난다." },
+      { rate:["2.5%","동결","t-flat"], cpi:["2.2%","낮음","t-cold"], credit:["확대 지속","악화","t-tight"],
+        news:"회계 부정 스캔들이 잇달아 드러나며, ‘믿을 만한 기업’에 대한 신뢰가 무너지고 있다." },
+      { rate:["2.0%","동결","t-flat"], cpi:["2.0%","낮음","t-cold"], credit:["확대 정점","악화","t-tight"],
+        news:"지수는 3년 전 수준으로 돌아갔다. ‘이제 바닥’이라는 말과 ‘더 갈 곳이 없다’는 말이 동시에 나온다." }
+    ],
+    blurb:"이름 없는 기술주 지수는 2년 만에 5배가 되었다. 그리고 2년 반 만에 그 상승의 4분의 3을 반납했다.",
+    lessons:[
+      "고점까지의 마지막 6개월은 +50%였다. 그러나 그 상승은 이익이 없는 기업들이 만들었다.",
+      "고점 대비 -78%까지 2년 반, 이전 고점 회복까지는 15년이 걸렸다.",
+      "하락장에서 ‘바닥’이라는 말은 적어도 네 번 나왔다. 그때마다 지수는 더 내려갔다."
+    ]
+  },
+  {
+    id: 2,
+    name: "S&P 500",
+    sub: "미국 · 대형주",
+    period: "1993.07 – 1997.06",
+    start: { y: 1993, m: 7 },
+    cash: 0.03,
+    raw: [449,464,459,462,460,466,
+          482,467,445,451,456,444,459,475,462,473,454,459,
+          471,487,496,515,533,545,
+          562,562,585,585,606,615,
+          636,645,647,654,669,670,
+          639,652,687,705,735,740,
+          758,790,758,801,848,885],
+    macro: [
+      { rate:["7.5%","긴축 마무리","t-tight"], cpi:["3.0%","안정","t-flat"], credit:["축소","긴장","t-tight"],
+        news:"지난해 금리 인상으로 눌렸던 시장이 조용히 반등하고 있다. 그러나 대부분의 투자자는 아직 지난해의 하락을 기억한다." },
+      { rate:["6.5%","인하 시작","t-ease"], cpi:["2.8%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"중앙은행이 금리를 내리자, 1년 넘게 미뤄둔 자금이 주식시장으로 돌아오기 시작했다." },
+      { rate:["5.5%","인하 후 동결","t-flat"], cpi:["2.9%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"지수는 사상 최고치 부근에서 숨을 고르고 있다. ‘과열’이라는 단어가 다시 등장한다." },
+      { rate:["5.5%","동결","t-flat"], cpi:["3.0%","완만","t-flat"], credit:["안정","중립","t-flat"],
+        news:"중앙은행 책임자가 ‘비합리적 과열’을 언급했지만, 시장은 하루 만에 그 말을 잊었다." },
+      { rate:["5.75%","소폭 인상","t-tight"], cpi:["2.5%","낮음","t-cold"], credit:["축소","긴장","t-tight"],
+        news:"아시아에서 시작된 금융 불안이 번지고 있다. 전문가들은 ‘우리는 다르다’고 말한다." }
+    ],
+    blurb:"1994년, 금리 인상은 시장을 9% 밀어내는 데 그쳤다. 그 후 3년 동안 지수는 두 배 가까이 올랐다.",
+    lessons:[
+      "1994년 금리 인상기의 조정은 -9%에서 멈췄고, 다음 3년은 +90%였다.",
+      "정책금리가 고점을 찍은 뒤 시장은 금리보다 기업 이익을 보기 시작했다.",
+      "이 구간에서 가장 비쌌던 결정은 첫 6개월의 ‘일단 관망’이었다."
+    ]
+  },
+  {
+    id: 3,
+    name: "S&P 500",
+    sub: "미국 · 대형주",
+    period: "2006.07 – 2010.06",
+    start: { y: 2006, m: 7 },
+    cash: 0.01,
+    raw: [1276,1304,1336,1378,1400,1418,
+          1438,1407,1421,1482,1531,1503,1455,1474,1527,1549,1481,1468,
+          1379,1331,1323,1386,1400,1280,
+          1267,1283,1166,969,896,903,
+          826,735,798,873,919,919,
+          987,1021,1057,1036,1096,1115,
+          1074,1104,1169,1187,1089,1030],
+    macro: [
+      { rate:["3.0%","인하 시작","t-ease"], cpi:["3.9%","높음","t-hot"], credit:["확대 조짐","악화","t-tight"],
+        news:"대형 금융기관의 손실이 처음 드러났다. 당국은 ‘문제는 통제되고 있다’고 밝혔다." },
+      { rate:["1.0%","급격한 인하","t-ease"], cpi:["1.5%","급락","t-cold"], credit:["경색","위기","t-tight"],
+        news:"한 대형 투자은행이 파산하고 신용 시장이 멈췄다. 각국 정부가 동시에 개입했다." },
+      { rate:["0.25%","제로 금리","t-ease"], cpi:["0.0%","마이너스","t-cold"], credit:["경색 지속","위기","t-tight"],
+        news:"지수는 12년 전 수준으로 후퇴했다. 실업률은 매달 최악을 갱신하고 있다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["0.5%","낮음","t-cold"], credit:["서서히 완화","개선","t-ease"],
+        news:"경기가 예상보다 빨리 살아나고 있다. ‘회복’이라는 단어가 2년 만에 처음 나왔다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.5%","낮음","t-cold"], credit:["재확대 우려","악화","t-tight"],
+        news:"유럽 일부 국가의 재정 위기가 터졌다. 1년 반 동안 오른 시장이 첫 시험대에 올랐다." }
+    ],
+    blurb:"신용의 균열은 1년 반 동안 진행됐고, 붕괴는 6개월 만에 끝났다. 바닥을 지나 1년 뒤 지수는 다시 1,100을 넘었다.",
+    lessons:[
+      "신용 스프레드가 벌어지기 시작한 뒤 지수가 정점을 찍기까지 9개월이 걸렸다.",
+      "2008년 하반기 -29%, 그리고 2009년 3월 저점에서 그해 말까지 +65%.",
+      "바닥 이후의 6개월이 전체 회복 수익의 절반을 만들었다."
+    ]
+  },
+  {
+    id: 4,
+    name: "S&P 500",
+    sub: "미국 · 대형주",
+    period: "1972.07 – 1976.06",
+    start: { y: 1972, m: 7 },
+    cash: 0.03,
+    raw: [111,113,110,112,115,118,
+          118,114,113,111,107,105,107,104,109,108,96,97,
+          96,94,99,94,87,86,
+          76,74,70,63,69,68,
+          76,79,83,89,92,95,
+          95,84,83,89,89,90,
+          97,99,100,101,99,102],
+    macro: [
+      { rate:["8.5%","고금리","t-tight"], cpi:["11.0%","두 자리","t-hot"], credit:["축소","긴장","t-tight"],
+        news:"원유 공급이 끊기며 연료 가격이 두 배가 됐다. 물가와 경기가 동시에 나빠지고 있다." },
+      { rate:["9.0%","고금리 유지","t-tight"], cpi:["10.5%","두 자리","t-hot"], credit:["경색","위기","t-tight"],
+        news:"주가는 명목 기준으로도 4년 전 수준이다. 많은 이들이 주식을 떠나 채권으로 갔다." },
+      { rate:["7.0%","인하 시작","t-ease"], cpi:["9.5%","높음","t-hot"], credit:["완화","개선","t-ease"],
+        news:"금리가 내려가기 시작하면서, 가장 먼저 움직인 것은 기관 자금이었다." },
+      { rate:["6.5%","인하 지속","t-ease"], cpi:["8.0%","높음","t-hot"], credit:["완화","개선","t-ease"],
+        news:"지수가 1년 새 40% 넘게 올랐지만, 아직 아무도 이것을 ‘강세장’이라고 부르지 않는다." },
+      { rate:["5.5%","동결","t-flat"], cpi:["6.0%","진정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"물가가 진정되고 있다. 시장은 이제 ‘인플레이션’보다 ‘기업 이익’을 이야기하기 시작했다." }
+    ],
+    blurb:"물가가 두 자리였던 시절, 주식은 명목으로도 2년 동안 반토막 났다. 회복은 빠르지 않았다.",
+    lessons:[
+      "1973–74년의 하락은 -48%였고, 이전 고점 회복은 1980년대까지 걸렸다.",
+      "물가 10%대에서는 예금도 실질 수익이 마이너스였다. ‘현금이 안전하다’는 착각이 만들어진 시대다.",
+      "주식이 현금보다 나쁜 구간은 실제로 존재한다. 이 시나리오가 그 증거다."
+    ]
+  }
+];
+
+/* normalize each series to 100 at start */
+SCENARIOS.forEach(sc=>{
+  const base = sc.raw[0];
+  sc.norm = sc.raw.map(v => +(v / base * 100).toFixed(3));
+});
+
+/* =========================================================
+   utils
+   ========================================================= */
+const $ = s => document.querySelector(s);
+const fmtPct = x => (x >= 0 ? "+" : "−") + Math.abs(x * 100).toFixed(1) + "%";
+const fmtSigned = x => (x >= 0 ? "+" : "−") + Math.abs(x * 100).toFixed(1) + "%";
+const fmtMoney = v => "₩" + Math.round(v).toLocaleString("ko-KR");
+const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+const pctClass = x => x > 0.0005 ? "up" : (x < -0.0005 ? "down" : "flatc");
+const mean = a => a.reduce((s,v)=>s+v,0)/a.length;
+
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+/* =========================================================
+   state
+   ========================================================= */
+const S = {
+  screen: "start",
+  scIndex: null,
+  round: 0,
+  lastVisible: INITIAL - 1,
+  capital: START_CAPITAL,
+  choice: null,
+  history: [],
+  phase: "decide"
+};
+
+function sc(){ return SCENARIOS[S.scIndex]; }
+
+/* =========================================================
+   chart
+   ========================================================= */
+function niceStep(span, count){
+  const raw = span / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const n = raw / mag;
+  let step;
+  if (n <= 1) step = 1;
+  else if (n <= 2.4) step = 2;
+  else if (n <= 7) step = 5;
+  else step = 10;
+  return step * mag;
+}
+
+function buildChart(opts){
+  const scenario = sc();
+  const full = !!opts.full;
+  const last = full ? N - 1 : opts.last;
+  const recent = opts.recent || null;   // [fromIdx, toIdx]
+
+  const hostW = opts.hostW || 900;
+  const W = Math.round(clamp(hostW, 320, 1000));
+  const small = W < 560;
+  const H = 430;
+  const pl = small ? 34 : 54, pr = small ? 12 : 58, pt = small ? 24 : 30, pb = small ? 38 : 42;
+  const plotW = W - pl - pr;
+
+  const shown = scenario.norm.slice(0, last + 1);
+  let mn = Math.min(...shown), mx = Math.max(...shown);
+  if (full) { mn = Math.min(...scenario.norm); mx = Math.max(...scenario.norm); }
+  let span = Math.max(mx - mn, 6);
+  mn -= span * 0.14;
+  mx += span * 0.12;
+
+  /* x scale: the future keeps a reserved share until it is fully revealed */
+  let X;
+  if (full){
+    X = i => pl + (i / (N - 1)) * plotW;
+  } else {
+    const t = (last - (INITIAL - 1)) / ((N - 1) - (INITIAL - 1));
+    const frac = 0.50 + 0.50 * clamp(t, 0, 1);      // past share of the plot width
+    const pivot = pl + plotW * frac;
+    X = i => i <= last
+      ? pl + (i / last) * plotW * frac
+      : pivot + ((i - last) / ((N - 1) - last)) * plotW * (1 - frac);
+  }
+  const Y = v => pt + (1 - (v - mn) / (mx - mn)) * (H - pt - pb);
+
+  const pts = scenario.norm.map((v,i)=>[X(i), Y(v)]);
+  const pathFor = (a,b) => smoothPath(pts.slice(a,b+1));
+
+  let s = "";
+  s += `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="익명 시장 차트">`;
+  s += `<defs>
+    <linearGradient id="areaG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3ee0c4" stop-opacity=".22"/>
+      <stop offset="70%" stop-color="#3ee0c4" stop-opacity=".04"/>
+      <stop offset="100%" stop-color="#3ee0c4" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#243550" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>`;
+
+  /* round bands (reveal only) */
+  if (full) {
+    const bounds = [INITIAL - 1];
+    for (let r=0; r<ROUNDS; r++) bounds.push(INITIAL + (r+1)*SEG - 1);
+    for (let r=0; r<ROUNDS; r++){
+      const a = X(bounds[r]), b = X(bounds[r+1]);
+      if (r % 2 === 1) s += `<rect x="${a}" y="${pt}" width="${b-a}" height="${H-pt-pb}" fill="#ffffff" opacity=".017"/>`;
+      s += `<line x1="${b}" y1="${pt}" x2="${b}" y2="${H-pb}" stroke="#7ea3d6" stroke-opacity=".13" stroke-width="1"/>`;
+      s += `<text x="${(a+b)/2}" y="${pt-14}" fill="#5f7597" font-size="10" letter-spacing="2" text-anchor="middle" font-family="inherit">R${r+1}</text>`;
+    }
+  }
+
+  /* horizontal grid + y labels (nice steps) */
+  const step = niceStep(mx - mn, 6);
+  const first = Math.ceil(mn / step) * step;
+  const dec = step % 1 !== 0 ? 1 : 0;
+  for (let v = first; v <= mx + 1e-9; v += step){
+    const y = Y(v);
+    s += `<line x1="${pl}" y1="${y.toFixed(1)}" x2="${W-pr}" y2="${y.toFixed(1)}" stroke="#7ea3d6" stroke-opacity=".09" stroke-width="1"/>`;
+    s += `<text x="${pl-10}" y="${(y+3.5).toFixed(1)}" fill="#5c7292" font-size="10.5" text-anchor="end" font-family="inherit">${v.toFixed(dec)}</text>`;
+  }
+  /* baseline 100 */
+  if (mn < 100 && mx > 100) {
+    const y100 = Y(100);
+    s += `<line x1="${pl}" y1="${y100.toFixed(1)}" x2="${full ? W-pr : X(last)}" y2="${y100.toFixed(1)}" stroke="#3ee0c4" stroke-opacity=".22" stroke-width="1" stroke-dasharray="2 5"/>`;
+  }
+
+  /* past area + line */
+  s += `<path d="${pathFor(0,last)} L ${X(last).toFixed(1)},${H-pb} L ${X(0).toFixed(1)},${H-pb} Z" fill="url(#areaG)"/>`;
+  s += `<path d="${pathFor(0,last)}" fill="none" stroke="#3ee0c4" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>`;
+
+  /* recently revealed segment */
+  if (recent && recent[0] >= 0) {
+    const d = pathFor(recent[0], recent[1]);
+    s += `<path d="${d}" fill="none" stroke="#f2b45a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" pathLength="1" class="seg-draw"/>`;
+  }
+
+  /* current endpoint + value pill */
+  const cv = scenario.norm[last];
+  s += `<circle cx="${X(last)}" cy="${Y(cv)}" r="4.2" fill="#0a1120" stroke="${recent ? '#f2b45a' : '#3ee0c4'}" stroke-width="2.2"/>`;
+  if (!full) {
+    const px = X(last) - 8, py = Y(cv) - 14;
+    const val = cv.toFixed(1);
+    const w = 16 + val.length * 6.4;
+    s += `<g>
+      <rect x="${px-w}" y="${py-14}" width="${w}" height="19" rx="5" fill="#0c1728" stroke="#2b3f5c" stroke-width="1"/>
+      <text x="${px-w/2}" y="${py-0.5}" fill="#a9bdd8" font-size="10.5" text-anchor="middle" font-family="inherit">${val}</text>
+    </g>`;
+  }
+
+  /* mask */
+  if (!full) {
+    const mxStart = X(last);
+    const mw = W - pr - mxStart;
+    const cx = mxStart + mw / 2;
+    const cy = pt + (H - pt - pb) / 2;
+    s += `<rect x="${mxStart}" y="${pt}" width="${mw}" height="${H-pt-pb}" fill="#0a1220" opacity=".72"/>`;
+    s += `<rect x="${mxStart}" y="${pt}" width="${mw}" height="${H-pt-pb}" fill="url(#hatch)" opacity=".55"/>`;
+    s += `<line x1="${mxStart}" y1="${pt}" x2="${mxStart}" y2="${H-pb}" stroke="#f2b45a" stroke-opacity=".45" stroke-width="1.2" stroke-dasharray="4 6"/>`;
+    s += `<g opacity=".9">
+      <text x="${cx}" y="${cy+28}" fill="#22314a" font-size="78" font-weight="700" text-anchor="middle" font-family="inherit">?</text>
+      <g transform="translate(${cx},${cy-48})" stroke="#5d7699" stroke-width="2.2" fill="none">
+        <rect x="-11" y="-2" width="22" height="16" rx="3"/>
+        <path d="M-6,-2 v-6 a6,6 0 0 1 12,0 v6"/>
+      </g>
+      <text x="${cx}" y="${cy+60}" fill="#7b90ad" font-size="${small?10:11.5}" text-anchor="middle" letter-spacing="${small?0.6:1.4}" font-family="inherit">잠긴 미래 · ${ROUNDS - S.round}개 구간</text>
+    </g>`;
+  }
+
+  /* x labels */
+  if (full) {
+    const sy = H - 17;
+    for (let i=0;i<N;i+=12){
+      const yr = scenario.start.y + Math.floor((scenario.start.m - 1 + i) / 12);
+      const mo = ((scenario.start.m - 1 + i) % 12) + 1;
+      s += `<text x="${X(i)}" y="${sy}" fill="#5c7292" font-size="10.5" text-anchor="middle" font-family="inherit">${yr}.${String(mo).padStart(2,'0')}</text>`;
+    }
+    s += `<text x="${X(N-1)}" y="${sy}" fill="#5c7292" font-size="10.5" text-anchor="end" font-family="inherit">${scenario.period.split('–')[1].trim()}</text>`;
+  } else {
+    const sy = H - 17;
+    const q = Math.max(1, Math.round(last / 3));
+    const marks = [[0, `-${last}M`], [q, `-${last - q}M`], [q*2, `-${last - q*2}M`], [last, "지금"]];
+    marks.forEach(([i,t], k)=>{
+      s += `<text x="${X(i)}" y="${sy}" fill="${t==='지금'?'#93a7c6':'#5c7292'}" font-size="10.5" text-anchor="${k===3?'end':(k===0?'start':'middle')}" font-family="inherit">${t}</text>`;
+    });
+  }
+
+  /* reveal annotations: peak / trough / end */
+  if (full) {
+    const vals = scenario.norm;
+    const peakI = vals.indexOf(Math.max(...vals));
+    const troughI = vals.indexOf(Math.min(...vals));
+    const tags = [];
+    if (peakI < N - 1) tags.push([peakI,"고점","#f2b45a","#f2b45a"]);
+    if (troughI < N - 1) tags.push([troughI,"저점","#ff5f74","#ff7d8e"]);
+    tags.forEach(([i,label,dot,col])=>{
+      const x = X(i), y = Y(vals[i]);
+      const nearEnd = i > N - 7;
+      const tx = nearEnd ? x - 9 : x;
+      const ty = nearEnd ? y + 4 : y - 12;
+      s += `<line x1="${x}" y1="${y}" x2="${x}" y2="${H-pb}" stroke="#7ea3d6" stroke-opacity=".22" stroke-dasharray="2 5"/>`;
+      s += `<circle cx="${x}" cy="${y}" r="3.2" fill="${dot}"/>`;
+      s += `<text x="${tx}" y="${ty}" fill="${col}" font-size="10.5" text-anchor="${nearEnd?'end':'middle'}" font-family="inherit">${label} ${vals[i].toFixed(0)}</text>`;
+    });
+    const xe = X(N-1), ye = Y(vals[N-1]);
+    s += `<circle cx="${xe}" cy="${ye}" r="4" fill="#0a1120" stroke="#3ee0c4" stroke-width="2.2"/>`;
+    s += `<text x="${xe - 6}" y="${ye - 14}" fill="#3ee0c4" font-size="11" text-anchor="end" font-family="inherit">${vals[N-1].toFixed(0)}</text>`;
+  }
+
+  s += `</svg>`;
+  return s;
+}
+
+function smoothPath(pts){
+  if (!pts.length) return "";
+  if (pts.length === 1) return `M ${pts[0][0]},${pts[0][1]}`;
+  let d = `M ${pts[0][0].toFixed(2)},${pts[0][1].toFixed(2)}`;
+  for (let i=0;i<pts.length-1;i++){
+    const p0 = pts[i-1] || pts[i], p1 = pts[i], p2 = pts[i+1], p3 = pts[i+2] || p2;
+    const c1x = p1[0] + (p2[0]-p0[0])/6, c1y = p1[1] + (p2[1]-p0[1])/6;
+    const c2x = p2[0] - (p3[0]-p1[0])/6, c2y = p2[1] - (p3[1]-p1[1])/6;
+    d += ` C ${c1x.toFixed(2)},${c1y.toFixed(2)} ${c2x.toFixed(2)},${c2y.toFixed(2)} ${p2[0].toFixed(2)},${p2[1].toFixed(2)}`;
+  }
+  return d;
+}
+
+/* =========================================================
+   screens
+   ========================================================= */
+function showScreen(name){
+  S.screen = name;
+  ["start","play","reveal"].forEach(n=>{
+    $("#screen-"+n).classList.toggle("hidden", n !== name);
+  });
+  $("#navHome").classList.toggle("hidden", name === "start");
+  window.scrollTo({top:0, behavior:"instant" in window ? "instant" : "auto"});
+}
+
+/* ---------- start ---------- */
+function renderStart(){
+  const grid = $("#scGrid");
+  grid.innerHTML = SCENARIOS.map((s,i)=>`
+    <button class="sc-card" data-act="pick" data-i="${i}" aria-pressed="false">
+      <span class="sc-badge">LOCKED</span>
+      <span class="sc-qm">?</span>
+      <div class="sc-no">0${s.id}</div>
+      <div class="sc-name">시나리오 ${s.id}</div>
+      <div class="sc-lock">
+        <svg width="10" height="10" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <rect x="4" y="9" width="12" height="8" rx="2" stroke="#6d82a3" stroke-width="1.6"/>
+          <path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="#6d82a3" stroke-width="1.6"/>
+        </svg>
+        연도 · 시장명 비공개
+      </div>
+    </button>`).join("");
+  S.scIndex = null;
+  S.round = 0; S.history = []; S.choice = null; S.phase = "decide"; S.lastVisible = INITIAL - 1;
+  S.capital = START_CAPITAL;
+  const b = $("#btnStart");
+  b.disabled = true; b.textContent = "시나리오를 선택하세요";
+  showScreen("start");
+}
+
+/* ---------- play ---------- */
+function renderPlay(){
+  const scenario = sc();
+  const r = S.round;
+  const isResult = S.phase === "result";
+
+  $("#roundNo").textContent = r + 1;
+  $("#phaseLabel").textContent = isResult ? "결과" : "의사결정";
+  $("#moneyVal").textContent = fmtMoney(S.capital);
+  const ret = S.capital / START_CAPITAL - 1;
+  const ms = $("#moneySub");
+  ms.textContent = "누적 " + fmtSigned(ret);
+  ms.className = "money-sub num " + pctClass(ret);
+
+  /* dots */
+  $("#dots").innerHTML = Array.from({length:ROUNDS},(_,i)=>{
+    const cls = i < r || (i === r && isResult) ? "done" : (i === r ? "active" : "");
+    return `<span class="dot ${cls}"></span>`;
+  }).join("");
+
+  /* chart */
+  const recent = S.lastVisible > (INITIAL - 1) ? [S.lastVisible - SEG, S.lastVisible] : null;
+  $("#chartWrap").innerHTML = buildChart({last:S.lastVisible, recent, hostW: $("#chartWrap").clientWidth || 860});
+
+  const remain = ROUNDS - (isResult ? r + 1 : r);
+  const chip = $("#lockChip");
+  if (remain > 0){
+    chip.className = "chip locked";
+    chip.textContent = `🔒 미래 ${remain}개 구간`;
+  } else {
+    chip.className = "chip live";
+    chip.textContent = "✓ 모든 구간 열림";
+  }
+
+  /* round log */
+  $("#roundLog").innerHTML = Array.from({length:ROUNDS},(_,i)=>{
+    const h = S.history[i];
+    if (h){
+      return `<div class="log-row">
+        <span class="lr-r">R${i+1}</span>
+        <span class="lr-choice">${posLabel(h.choice)}</span>
+        <span class="lr-mkt ${pctClass(h.mkt)}">${fmtSigned(h.mkt)}</span>
+        <span class="lr-port ${pctClass(h.port)}">${fmtSigned(h.port)}</span>
+        <span class="lr-cap">${fmtMoney(h.capital)}</span>
+      </div>`;
+    }
+    const now = i === r && !isResult;
+    return `<div class="log-row ${now?'now':'pending'}">
+      <span class="lr-r">R${i+1}</span>
+      <span class="lr-choice">${now?'비중 선택 중':'—'}</span>
+      <span class="lr-mkt">—</span>
+      <span class="lr-port">—</span>
+      <span class="lr-cap">—</span>
+    </div>`;
+  }).join("");
+
+  /* panel */
+  $("#decidePanel").classList.toggle("hidden", isResult);
+  $("#resultPanel").classList.toggle("hidden", !isResult);
+
+  if (!isResult){
+    const m = scenario.macro[r];
+    $("#macroBox").innerHTML = `
+      ${macroRow("정책금리", m.rate)}
+      ${macroRow("물가", m.cpi)}
+      ${macroRow("신용 스프레드", m.credit)}
+    `;
+    $("#newsBox").innerHTML = `<span class="news-tag">당시의 한 줄</span>${escapeHtml(m.news)}`;
+    $("#roundChip").textContent = `R${r+1} · 다음 6개월`;
+
+    const cashPct = (scenario.cash * 100).toFixed(1);
+    $("#posGrid").innerHTML = POSITIONS.map(p=>`
+      <button class="pos ${S.choice===p.alloc?'sel':''}" data-act="alloc" data-alloc="${p.alloc}" aria-pressed="${S.choice===p.alloc}">
+        <span class="p-label">${p.label}</span>
+        <span class="p-pct num">${p.alloc}%</span>
+        <span class="p-bar"><i style="width:${p.alloc}%"></i></span>
+        <span class="p-note">${p.alloc === 0 ? `전액 현금 · 연 ${cashPct}% 이자` : p.note}</span>
+      </button>`).join("");
+
+    const bc = $("#btnConfirm");
+    bc.disabled = S.choice === null;
+    bc.textContent = S.choice === null ? "비중을 선택하세요" : `주식 ${S.choice}%로 이 구간 결정하기 →`;
+  } else {
+    renderResult();
+  }
+}
+
+function macroRow(key, arr){
+  const [v, tag, tone] = arr;
+  return `<div class="mrow">
+    <span class="mk">${key}</span>
+    <span class="mv num">${v}<span class="mchip ${tone}">${tag}</span></span>
+  </div>`;
+}
+
+function posLabel(v){
+  const p = POSITIONS.find(x=>x.alloc===v);
+  return p ? `${p.label} ${v}%` : `${v}%`;
+}
+
+const POSITIONS = [
+  {alloc:100, label:"공격 투자", note:"전액 주식. 크게 벌고 크게 잃습니다."},
+  {alloc:60,  label:"균형",      note:"주식 60 · 현금 40. 변동성을 절반으로."},
+  {alloc:30,  label:"방어",      note:"주식 30 · 현금 70. 하락을 견디는 쪽."},
+  {alloc:0,   label:"현금 대피", note:"전액 현금. 연 이자만 쌓입니다."}
+];
+
+function renderResult(){
+  const scenario = sc();
+  const h = S.history[S.history.length - 1];
+  const el = $("#resultPanel");
+  const last = S.round === ROUNDS - 1;
+
+  let insight = "";
+  if (h.choice === 0){
+    insight = `현금 100% — 시장이 ${fmtSigned(h.mkt)} 움직이는 동안 자산은 이자만큼만 변했습니다. 나쁜 구간을 완전히 비켜갔습니다.`;
+  } else if (h.mkt < 0 && h.choice <= 30){
+    insight = `현금 ${100-h.choice}%가 하락을 막아냈습니다. 시장 ${fmtSigned(h.mkt)} → 내 자산 ${fmtSigned(h.port)}.`;
+  } else if (h.mkt > 0 && h.choice <= 30){
+    insight = `현금 ${100-h.choice}%가 상승을 놓쳤습니다. 시장 ${fmtSigned(h.mkt)} → 내 자산 ${fmtSigned(h.port)}.`;
+  } else if (h.choice === 100){
+    insight = `주식 100% — 시장과 정확히 같이 움직였습니다. ${fmtSigned(h.mkt)}.`;
+  } else {
+    insight = `주식 ${h.choice}%만 실었습니다. 시장 ${fmtSigned(h.mkt)}의 ${h.choice}% 수준인 ${fmtSigned(h.port)}에 그쳤습니다.`;
+  }
+
+  el.innerHTML = `
+    <div class="rp-top">
+      <span class="eyebrow">ROUND ${S.round+1} 결과</span>
+      <span class="chip">${h.choice === 0 ? '현금 100%' : '주식 '+h.choice+'%'}</span>
+    </div>
+    <div class="rp-mkt num ${pctClass(h.mkt)}">${fmtSigned(h.mkt)}</div>
+    <div class="rp-cap">이 구간 시장 움직임</div>
+    <div class="rp-rows">
+      <div class="rp-row"><span>내 구간 수익률</span><span class="num ${pctClass(h.port)}">${fmtSigned(h.port)}</span></div>
+      <div class="rp-row"><span>보유 자산</span><span class="num">${fmtMoney(h.capital)}</span></div>
+      <div class="rp-row"><span>누적 수익률</span><span class="num ${pctClass(h.capital/START_CAPITAL-1)}">${fmtSigned(h.capital/START_CAPITAL-1)}</span></div>
+    </div>
+    <div class="rp-insight">${insight}</div>
+    <button class="btn primary wide" data-act="${last?'reveal':'next'}">${last ? '전체 차트 공개 →' : '다음 라운드 →'}</button>
+  `;
+}
+
+/* ---------- reveal ---------- */
+function renderReveal(){
+  const scenario = sc();
+  showScreen("reveal");
+
+  $("#rvName").textContent = scenario.name;
+  $("#rvPeriod").innerHTML = `<b>${scenario.period}</b> · ${scenario.sub} · 시작값 100 기준`;
+
+  const me = S.capital / START_CAPITAL - 1;
+  const bh = scenario.norm[N-1] / scenario.norm[INITIAL-1] - 1;
+  const alpha = me - bh;
+
+  $("#rvMe").textContent = fmtSigned(me);
+  $("#rvMe").className = "v-value num " + pctClass(me);
+  $("#rvMeSub").textContent = `${fmtMoney(START_CAPITAL)} → ${fmtMoney(S.capital)}`;
+
+  $("#rvBh").textContent = fmtSigned(bh);
+  $("#rvBh").className = "v-value num " + pctClass(bh);
+  $("#rvBhSub").textContent = `같은 5구간, 아무것도 하지 않았다면`;
+
+  const aEl = $("#rvAlpha");
+  aEl.textContent = fmtSigned(alpha);
+  aEl.className = "v-value num " + pctClass(alpha);
+  $("#rvAlphaNote").textContent = alpha >= 0
+    ? `단순 보유보다 ${Math.abs(alpha*100).toFixed(1)}%p 앞섰습니다.`
+    : `단순 보유보다 ${Math.abs(alpha*100).toFixed(1)}%p 뒤졌습니다.`;
+
+  $("#rvChartWrap").innerHTML = buildChart({full:true, last:N-1, hostW: $("#rvChartWrap").clientWidth || 1000});
+
+  /* table */
+  $("#rtBody").innerHTML = S.history.map((h,i)=>`
+    <tr>
+      <td>R${i+1}</td>
+      <td class="num ${pctClass(h.mkt)}">${fmtSigned(h.mkt)}</td>
+      <td><span class="choice-chip num">${h.choice}%</span></td>
+      <td class="num ${pctClass(h.port)}">${fmtSigned(h.port)}</td>
+      <td class="num">${fmtMoney(h.capital)}</td>
+    </tr>`).join("");
+
+  /* personality */
+  const p = analyze();
+  $("#pArche").textContent = p.name;
+  $("#pEn").textContent = p.en;
+  $("#pDesc").textContent = p.desc;
+  $("#pTip").innerHTML = `<b>다음 시도에서.</b> ${p.tip}`;
+
+  const allocs = S.history.map(h=>h.choice);
+  const mkts = S.history.map(h=>h.mkt);
+  const worstI = mkts.indexOf(Math.min(...mkts));
+  const bestI = mkts.indexOf(Math.max(...mkts));
+  const eq = [START_CAPITAL, ...S.history.map(h=>h.capital)];
+  let peak = -Infinity, mdd = 0;
+  eq.forEach(v=>{ peak = Math.max(peak, v); mdd = Math.max(mdd, 1 - v/peak); });
+
+  $("#pStats").innerHTML = `
+    <div class="p-stat"><div class="ps-v num">${Math.round(mean(allocs))}%</div><div class="ps-k">평균 주식 비중</div></div>
+    <div class="p-stat"><div class="ps-v num">${allocs[worstI]}%</div><div class="ps-k">최악 구간(R${worstI+1}) 비중</div></div>
+    <div class="p-stat"><div class="ps-v num">${mdd*100 < 0.05 ? "0.0" : (mdd*100).toFixed(1)}%</div><div class="ps-k">최대 낙폭</div></div>
+  `;
+
+  /* lessons */
+  $("#lessonBox").innerHTML = `
+    <div class="eyebrow" style="margin-bottom:6px;">역사가 남긴 3가지</div>
+    ${scenario.lessons.map((t,i)=>`
+      <div class="lesson"><div class="ln">0${i+1}</div><p>${escapeHtml(t)}</p></div>`).join("")}
+    <div class="start-note" style="padding-bottom:14px;">${escapeHtml(scenario.blurb)}</div>
+  `;
+
+  $("#rvNote").textContent = "데이터: 실제 월별 지수 종가를 시작값 100으로 정규화한 근사치 · 수수료·세금·환율·배당은 반영하지 않았습니다 · 교육·오락 목적, 투자 조언 아님";
+}
+
+/* =========================================================
+   personality analysis
+   ========================================================= */
+function analyze(){
+  const H = S.history;
+  const allocs = H.map(h=>h.choice);
+  const mkts = H.map(h=>h.mkt);
+  const avg = mean(allocs);
+  const worstI = mkts.indexOf(Math.min(...mkts));
+  const bestI = mkts.indexOf(Math.max(...mkts));
+  const panic = H.filter(h=>h.choice <= 30).length;
+  const cash = H.filter(h=>h.choice === 0).length;
+  const chase = H.filter((h,i)=> i > 0 && H[i-1].mkt > 0.05 && h.choice === 100).length;
+  const dips = H.filter((h,i)=> i > 0 && H[i-1].mkt < -0.08 && h.choice >= 60).length;
+  const missed = H.map((h,i)=>({i, mkt:h.mkt, choice:h.choice, loss:h.mkt*(1-h.choice/100)}))
+                  .filter(x=> x.loss > 0.04).sort((a,b)=> b.loss - a.loss)[0];
+  const defAtWorst = allocs[worstI] <= 30;
+  const attAtBest = allocs[bestI] >= 60;
+  const me = S.capital / START_CAPITAL - 1;
+  const bh = sc().norm[N-1] / sc().norm[INITIAL-1] - 1;
+  const alpha = me - bh;
+
+  if (allocs.every(a => a === 100)){
+    return {
+      name:"풀 베팅형", en:"ALL IN",
+      desc:`다섯 번 모두 주식 100%를 선택했습니다. 결과적으로 단순 보유와 정확히 같은 성적(${fmtSigned(me)})입니다. 시장을 이기려 한 것이 아니라, 시장과 함께 간 것입니다.`,
+      tip:"풀 베팅은 ‘타이밍을 포기하는’ 가장 단순한 전략입니다. 다만 하락장에서 버틸 수 있는 기간과 자금 성격을 먼저 확인해야 유효합니다."
+    };
+  }
+  if (allocs.every(a => a === 0)){
+    return {
+      name:"현금 성벽형", en:"CASH FORTRESS",
+      desc:`다섯 번 모두 전액 현금이었습니다. 시장이 ${fmtSigned(bh)} 움직이는 동안 자산은 이자만큼만 변해 ${fmtSigned(me)}를 기록했습니다. 이번에는 시장이 나빴기 때문에 이 선택이 이겼습니다.`,
+      tip:"현금은 손실을 막지만 회복도 막습니다. 강세장 시나리오에서는 같은 선택이 기회비용이 됩니다. 다시 들어갈 조건을 미리 적어두세요."
+    };
+  }
+  if (cash >= 3){
+    return {
+      name:"현금 성벽형", en:"CASH FORTRESS",
+      desc:`다섯 번 중 ${cash}번을 전액 현금으로 보냈습니다. 이 시나리오에서는 시장이 크게 흔들렸기 때문에 ${fmtSigned(alpha)}의 성과가 나왔지만, 현금은 변동성이 아니라 기회비용을 지불하는 자산입니다.`,
+      tip:"현금은 ‘안전한 선택’이 아니라 ‘가격이 정해지지 않은 옵션’입니다. 다시 들어갈 조건(지수 레벨, 금리, 기간)을 미리 적어두면 방어가 전략이 됩니다."
+    };
+  }
+  if (defAtWorst && attAtBest){
+    return {
+      name:"유동성 감각파", en:"LIQUIDITY INSTINCT",
+      desc:`${mkts[worstI] < 0 ? "가장 크게 빠진" : "가장 약했던"} R${worstI+1}(${fmtSigned(mkts[worstI])})에서 비중을 ${allocs[worstI]}%로 줄였고, ${mkts[bestI] > 0 ? `가장 많이 오른 R${bestI+1}` : `가장 덜 빠진 R${bestI+1}`}(${fmtSigned(mkts[bestI])})에서는 ${allocs[bestI]}%까지 올렸습니다. 위험은 줄이고 기회는 키운, 이 게임에서 가장 드문 리듬입니다.${missed ? ` 다만 R${missed.i+1}(${fmtSigned(missed.mkt)})에서는 주식 비중이 ${missed.choice}%뿐이라 상승분을 놓쳤습니다.` : ""}`,
+      tip:"이 리듬이 반복되려면 판단의 근거가 필요합니다. ‘무엇을 보고 줄였는지’를 한 줄로 적어두면 다음에는 감이 아니라 규칙이 됩니다."
+    };
+  }
+  if (chase >= 2 && avg >= 75){
+    return {
+      name:"FOMO 추격형", en:"MOMENTUM CHASER",
+      desc:`상승이 확인된 직후에 비중을 100%로 올린 횟수가 ${chase}번, 평균 주식 비중은 ${Math.round(avg)}%였습니다. ${mkts[worstI] < -0.1 ? `가장 크게 빠진 R${worstI+1}(${fmtSigned(mkts[worstI])})에서는 비중이 ${allocs[worstI]}%였습니다.` : "이번 구간은 모두 상승해서 추격이 통했지만, 상승 직후의 진입은 되돌림에서 가장 크게 다칩니다."}`,
+      tip:"추격은 틀린 전략이 아닙니다. 다만 ‘상승 후 진입’에는 반드시 손절 기준과 재진입 기준을 함께 정해야 합니다. 기준 없는 추격만이 문제입니다."
+    };
+  }
+  if (panic >= 3){
+    return {
+      name:"조기 공포형", en:"EARLY PANIC",
+      desc:`다섯 번 중 ${panic}번 주식 비중을 30% 이하로 낮췄습니다. 하락이 시작되면 빠르게 몸을 피하는 편인데, ${mkts[bestI] > 0 ? `가장 많이 오른 R${bestI+1}` : `가장 덜 빠진 R${bestI+1}`}(${fmtSigned(mkts[bestI])})에서도 비중은 ${allocs[bestI]}%였습니다.`,
+      tip:"공포는 손실을 줄여주지만 회복도 함께 막습니다. ‘위험을 줄인다’와 ‘시장을 떠난다’를 구분하고, 재진입 시점을 결정 전에 정해두는 것이 좋습니다."
+    };
+  }
+  if (dips >= 2){
+    return {
+      name:"역추세 매수형", en:"DIP BUYER",
+      desc:`직전 구간이 -8% 이상 빠진 뒤에도 주식 비중을 60% 이상으로 택한 결정이 ${dips}번 있었습니다. 하락을 기회로 보는 쪽이고, 이번 결과는 단순 보유 대비 ${fmtSigned(alpha)}였습니다.`,
+      tip:"역추세 매수는 ‘얼마나 더 빠질 수 있는지’를 먼저 정하는 게임입니다. 분할 매수 폭과 총 한도를 미리 정하면 견딜 수 있습니다."
+    };
+  }
+  if (Math.abs(avg - 60) <= 12){
+    return {
+      name:"균형 추종자", en:"BALANCED",
+      desc:`평균 주식 비중 ${Math.round(avg)}%. 어느 한쪽으로 치우치지 않고 시장의 움직임을 절반 정도만 받아냈습니다. 이번 결과는 단순 보유 대비 ${fmtSigned(alpha)}였습니다.${missed ? ` 가장 아쉬웠던 구간은 R${missed.i+1}(${fmtSigned(missed.mkt)})로, 비중 ${missed.choice}%에 그쳤습니다.` : ""}`,
+      tip:"균형은 판단을 미루는 것과 다릅니다. 큰 사건이 보일 때만 비중을 조절하고, 나머지는 그대로 두는 ‘규칙 있는 균형’이 장기 성과를 만듭니다."
+    };
+  }
+  return {
+    name:"계산된 관망파", en:"CALCULATED OBSERVER",
+    desc:`평균 주식 비중 ${Math.round(avg)}%, 결정마다 방향이 달랐습니다. 확신이 있을 때만 움직인 결과, 단순 보유 대비 ${fmtSigned(alpha)}의 성과가 나왔습니다.`,
+    tip:"선택을 바꾼 이유를 한 줄씩 남겨보면, 다음에는 ‘그때의 확신’이 실제로 맞았는지 검증할 수 있습니다."
+  };
+}
+
+/* =========================================================
+   flow
+   ========================================================= */
+function startGame(i){
+  S.scIndex = i;
+  S.round = 0;
+  S.lastVisible = INITIAL - 1;
+  S.capital = START_CAPITAL;
+  S.choice = null;
+  S.history = [];
+  S.phase = "decide";
+  showScreen("play");
+  renderPlay();
+}
+
+function pickScenario(i){
+  S.scIndex = i;
+  document.querySelectorAll(".sc-card").forEach((el,k)=>{
+    el.classList.toggle("sel", k === i);
+    el.setAttribute("aria-pressed", k === i ? "true" : "false");
+  });
+  const b = $("#btnStart");
+  b.disabled = false;
+  b.textContent = `시나리오 ${SCENARIOS[i].id} 시작하기 →`;
+}
+
+function confirmChoice(){
+  if (S.choice === null) return;
+  const scenario = sc();
+  const startIdx = INITIAL - 1 + S.round * SEG;
+  const endIdx = startIdx + SEG;
+  const mkt = scenario.norm[endIdx] / scenario.norm[startIdx] - 1;
+  const cashGrow = Math.pow(1 + scenario.cash, SEG/12) - 1;
+  const growth = (S.choice/100) * (1 + mkt) + (1 - S.choice/100) * (1 + cashGrow);
+  const port = growth - 1;
+
+  S.capital = S.capital * growth;
+  S.lastVisible = endIdx;
+  S.phase = "result";
+  S.history.push({choice:S.choice, mkt, port, capital:S.capital});
+  renderPlay();
+}
+
+function nextRound(){
+  S.round += 1;
+  S.choice = null;
+  S.phase = "decide";
+  renderPlay();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* events */
+document.addEventListener("click", (e)=>{
+  const el = e.target.closest("[data-act]");
+  if (!el) return;
+  const act = el.dataset.act;
+
+  if (act === "pick"){ pickScenario(+el.dataset.i); }
+  else if (act === "start"){ if (S.scIndex !== null) startGame(S.scIndex); }
+  else if (act === "random"){
+    const i = Math.floor(Math.random() * SCENARIOS.length);
+    pickScenario(i);
+    setTimeout(()=>startGame(i), 180);
+  }
+  else if (act === "alloc"){ S.choice = +el.dataset.alloc; renderPlay(); }
+  else if (act === "confirm"){ confirmChoice(); }
+  else if (act === "next"){ nextRound(); }
+  else if (act === "reveal"){ renderReveal(); }
+  else if (act === "home"){ renderStart(); }
+  else if (act === "restart-same"){ startGame(S.scIndex); }
+  else if (act === "restart-other"){ renderStart(); }
+});
+
+/* responsive re-render */
+let rzTimer = null;
+window.addEventListener("resize", ()=>{
+  clearTimeout(rzTimer);
+  rzTimer = setTimeout(()=>{
+    if (S.screen !== "play" && S.screen !== "reveal") return;
+    const y = window.scrollY;
+    if (S.screen === "play") renderPlay(); else renderReveal();
+    window.scrollTo(0, y);
+  }, 250);
+});
+
+/* init */
+renderStart();
+</script>
+</body>
+</html>
