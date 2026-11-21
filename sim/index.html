@@ -185,7 +185,9 @@
   .play-top{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:16px;}
   .round-hint{margin-top:9px; font-size:10px; letter-spacing:.14em; color:#5f718e;}
   .log-body{max-height:264px; overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; padding-right:4px;}
-  .log-cols{position:sticky; top:0; z-index:2; background:linear-gradient(180deg,#101c2f,#0c1524); font-size:10px; color:#7f92b0; padding-bottom:8px;}
+  .log-wrap{position:relative;}
+  .log-wrap::before{content:""; position:absolute; left:0; right:5px; top:0; height:12px; z-index:1; pointer-events:none;
+    background:linear-gradient(180deg,rgba(11,17,29,.96),rgba(11,17,29,0));}
   .log-body::-webkit-scrollbar{width:5px;}
   .log-body::-webkit-scrollbar-thumb{background:rgba(126,163,214,.22); border-radius:3px;}
   .log-body::-webkit-scrollbar-track{background:transparent;}
@@ -523,7 +525,10 @@
           <span class="eyebrow">ROUND LOG</span>
           <span class="chip">누적 기록</span>
         </div>
-        <div class="log-body" id="roundLog"></div>
+        <div class="log-cols">
+          <span>라운드</span><span>내 선택</span><span>시장</span><span>내 구간</span><span>자산</span>
+        </div>
+        <div class="log-wrap"><div class="log-body" id="roundLog"></div></div>
       </div>
       </div>
 
@@ -1197,8 +1202,6 @@ function renderStart(){
 }
 
 /* ---------- play ---------- */
-const LOG_COLS = `<div class="log-cols"><span>라운드</span><span>내 선택</span><span>시장</span><span>내 구간</span><span>자산</span></div>`;
-
 function renderPlay(){
   const scenario = sc();
   const r = S.round;
@@ -1243,20 +1246,8 @@ function renderPlay(){
         <span class="lr-cap">—</span>
       </div>`;
   const logEl = $("#roundLog");
-  logEl.innerHTML = LOG_COLS + rows + nowRow;
-  /* align the scroll so the latest rows are whole — no half-clipped row under the sticky header */
-  const rowEls = [...logEl.querySelectorAll(".log-row")];
-  const headEl = logEl.querySelector(".log-cols");
-  if (rowEls.length && logEl.scrollHeight > logEl.clientHeight + 1){
-    const headH = headEl.offsetHeight;
-    const rowH = rowEls[0].offsetHeight || 33;
-    const visible = Math.max(1, Math.floor((logEl.clientHeight - headH) / rowH));
-    const startIdx = Math.max(0, rowEls.length - visible);
-    const delta = rowEls[startIdx].getBoundingClientRect().top - logEl.getBoundingClientRect().top - headH + 1;
-    logEl.scrollTop = Math.max(0, logEl.scrollTop + delta);
-  } else {
-    logEl.scrollTop = 0;
-  }
+  logEl.innerHTML = rows + nowRow;
+  logEl.scrollTop = logEl.scrollHeight;
 
   /* panel */
   $("#decidePanel").classList.toggle("hidden", isResult);
