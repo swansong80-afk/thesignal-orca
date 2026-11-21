@@ -67,13 +67,14 @@
   .scorecard .k{font-family:var(--slab); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:#9a7b2e; margin:0 0 12px; font-weight:700;}
   .scorecard p{font-size:15px; margin:0 0 12px;}
   .scorecard p:last-child{margin-bottom:0;}
-  table{width:100%; border-collapse:collapse; margin:0 0 24px; font-size:14px; line-height:1.65;}
+  table{width:100%; border-collapse:collapse; margin:0; font-size:14px; line-height:1.65;}
   caption{caption-side:top; text-align:left; font-size:12.5px; color:var(--muted); padding-bottom:8px;}
   th,td{border-bottom:1px solid var(--rule); padding:9px 8px; vertical-align:top; text-align:left;}
   th{font-family:var(--slab); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--cap); border-bottom:1.5px solid var(--cap);}
   td.r,th.r{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap;}
   tr.total td{font-weight:700; border-top:1.5px solid var(--cap); border-bottom:0;}
   .tiny{font-size:12px; color:var(--muted);}
+  .tblscroll{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 24px;}
   .sources{margin-top:48px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.7;}
   .sources .h{font-family:var(--slab); font-weight:700; color:var(--cap); font-size:1.02rem; margin-bottom:14px;}
   .sources ol{margin:0; padding-left:22px;} .sources li{margin-bottom:10px;}
@@ -86,7 +87,7 @@
   .ss-brand{font-family:var(--slab); font-size:2.3rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1; margin-bottom:10px;}
   .ss-line{font-size:1.05rem; color:var(--accent); font-weight:500; letter-spacing:.04em;}
   @media(max-width:600px){ .wrap{padding:40px 20px 64px;} body{font-size:16px;} .sigrow{flex-direction:column; gap:2px; align-items:flex-start;} .sigrow .v{text-align:left;}
-    table{font-size:12.5px;} th,td{padding:7px 5px;} td.r,th.r{white-space:normal;} }
+    table{font-size:12.5px; min-width:460px;} th,td{padding:7px 5px;} td.r,th.r{white-space:normal;} }
   @media print{
     body{background:#fff;}
     .wrap{box-shadow:none; max-width:100%; padding:28px 34px;}
@@ -143,7 +144,7 @@
   <h3 class="head">201,923 대 175,498</h3>
   <p>먼저 규모를 회사 공시로 확인하자. 2026년 9월 분기(마이크로소프트는 회계연도 1분기, 네 회사 모두 9월 30일 종료) 네 하이퍼스케일러가 설비에 쓴 돈과, 같은 분기 영업으로 벌어들인 현금을 나란히 놓으면 이렇다. <span style="color:var(--muted);font-size:.92em;">(출처 ①~③)</span></p>
 
-  <table>
+  <div class="tblscroll"><table>
     <caption>2026년 9월 분기, 각사 공시 기준(백만 달러). 설비 지출은 각사 현금흐름표의 ‘유형자산 취득’(마이크로소프트는 ‘유형자산 증가’).</caption>
     <thead>
       <tr><th>회사</th><th class="r">설비 지출</th><th class="r">영업현금흐름</th><th class="r">설비/영업현금</th><th class="r">잉여현금흐름</th></tr>
@@ -155,7 +156,7 @@
       <tr><td>마이크로소프트</td><td class="r">39,367</td><td class="r">58,000</td><td class="r">67.9%</td><td class="r">+18,630</td></tr>
       <tr class="total"><td>네 회사 합계</td><td class="r">201,923</td><td class="r">175,498</td><td class="r">115.1%</td><td class="r">−26,425</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>네 회사를 단순 합산하면, 이 분기에 설비로 나간 돈이 <b>영업으로 벌어들인 현금보다 264억 달러 많다</b>. 1년 전 같은 분기에는 설비 지출이 973억 달러로 영업현금흐름에 한참 못 미쳤다. 1년 만에 <b>지출이 두 배가 되고, 부호가 뒤집혔다.</b> (합계와 비율은 각사 공시 수치를 우리가 더한 값이며, 회사가 공시한 합계가 아니다.)</p>
   <p>마지막 줄이 이 지도의 핵심이다. 네 회사 중 <b>잉여현금흐름이 플러스인 곳은 마이크로소프트 하나</b>뿐이고, 그마저 전년 대비 27% 줄었다. 그리고 그 마이크로소프트가 10월 29일, <b>2017년 이후 처음으로 미국에서 회사채를 찍었다.</b> 250억 달러, 열 개 트랜치, 그중 <b>20억 달러가 6.35%의 2066년 만기</b>다. <span style="color:var(--muted);font-size:.92em;">(출처 ④)</span></p>
@@ -166,7 +167,7 @@
   <p>그 돈의 값이 얼마인지 보여주는 사건이 11월 20일 터졌다. 스페이스X가 엔비디아의 차세대 칩(베라 루빈)을 사들이기 위해 조달한 <b>320억 달러 규모의 채권</b>이다. 아폴로와 골드만삭스가 주관했고, 아폴로의 발표 기준으로 <b>선순위·후순위 채권을 합쳐 약 440억 달러</b>가 가격에 들어갔다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑤⑫)</span></p>
   <p>가장 큰 트랜치의 값이 <b>8.259%</b>였다. 같은 날 미국 우량 회사채 평균 수익률 <b>5.95%</b>보다 <b>2.3%포인트</b> 높고, 미국 국채 대비 <b>345bp</b>다. 그런데 이 채권의 신용등급은 <b>KBRA ‘A−’(잠정)</b>다. 즉 <b>투자등급이라는 이름을 달고 하이일드의 값을 받았다.</b> A− 등급 지수의 스프레드가 통상 100bp 안팎인 것과 비교하면, 이 딜은 등급이 말하는 위험의 <b>세 배 남짓</b>을 값으로 요구한 셈이다.</p>
 
-  <table>
+  <div class="tblscroll"><table>
     <caption>스페이스X·아폴로 GPU 금융(‘프로젝트 새턴’)의 공개 채권 트랜치. 금리는 보도(블룸버그·IFR·CNA) 기준, 잔액은 발표 기준.</caption>
     <thead>
       <tr><th>트랜치</th><th class="r">금액</th><th class="r">만기</th><th class="r">수익률</th></tr>
@@ -177,7 +178,7 @@
       <tr><td>후순위 보장 B</td><td class="r">25억 6,400만 달러</td><td class="r">2033년 4월</td><td class="r">8.36%</td></tr>
       <tr class="total"><td>공개 채권 합계</td><td class="r">약 321억 달러</td><td class="r">—</td><td class="r">—</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>구조가 이자보다 더 중요하다. 이 돈은 스페이스X의 재무제표에 <b>부채로 들어가지 않는다</b>. 아폴로가 소유한 특수목적법인 <b>새턴 펀딩 트러스트</b>가 약 <b>473억 달러어치 GPU</b>를 사서, 스페이스X에 <b>5년간 리스</b>한다. 채권은 그 칩을 담보로 발행되고, 스페이스X가 부도가 나면 아폴로의 별도 법인이 칩의 소유권을 가져간다. 스페이스X는 <b>리스료 71억 달러를 미리 내기로 했고</b>, 남은 리스료는 <b>장비가 고장 나거나 천재지변이 나도 계속 내야 한다.</b> 칩 인도는 2027년 1월부터, 리스 개시는 <b>2027년 상반기</b>다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑤⑫)</span></p>
   <p>여기서 지난 지도와 정확히 같은 개념이 반복된다. <b>“선불”</b>이다. 다만 지난번의 선불은 자기 돈이었고, 이번의 선불은 <b>남의 돈으로 낸 선불</b>이다. 스페이스X가 미리 낸 71억 달러의 리스료가 채권 투자자에게는 <b>선순위 현금흐름</b>이 되고, 나머지 5년치 리스료가 <b>스페이스X의 부외 의무</b>가 된다. 비용은 여전히 미래로 미뤄져 있다. 다만 그 미래를 보장하는 서명이 회사 장부가 아니라 <b>특수목적법인의 계약서</b>에 들어갔을 뿐이다.</p>
