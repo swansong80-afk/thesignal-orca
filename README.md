@@ -36,6 +36,7 @@ books.html                 3권의 책 (목차·요약·용어집·인용 가이
 books.css                  books.html 전용 스타일
 archive/book1…,book2…,book3….md   AI 크롤러용 요약본
 llms.txt / robots.txt / sitemap.xml
+signals.json               구조화 피드 — 발행 글 전체의 제목·요약·핵심 수치·출처 (AI·기계 판독용)
 favicon-32.png / apple-touch-icon.png
 ```
 
@@ -55,3 +56,5 @@ favicon-32.png / apple-touch-icon.png
 1. 직전 호(`weekly-0N.html`)를 복사해 본문·메타·출처만 교체합니다.
 2. `index.html`의 Weekly 카드(`최근 호`)와 `archive.html`의 Weekly 목록 최상단을 새 호로 바꿉니다.
 3. `sitemap.xml`·`llms.txt`의 Weekly 목록에 새 호를 추가합니다.
+4. `signals.json`에 새 항목을 넣습니다 — 요약·핵심 수치·출처를 기사 본문에서 확인한 값으로만 적고,
+   최신순 정렬과 `updated_at`·`counts`를 함께 갱신합니다(생성기: `deliverables/build/signals/make-signals.py`).

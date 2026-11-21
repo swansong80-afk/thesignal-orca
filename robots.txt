@@ -33,3 +33,5 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://thesignal-orca.pages.dev/sitemap.xml
+
+# 구조화 피드 (AI·기계 판독용 JSON): https://thesignal-orca.pages.dev/signals.json

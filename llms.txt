@@ -20,6 +20,7 @@ This site hosts two knowledge streams by the same Korean author, under the pen n
    Volume One (https://orca0626.gumroad.com/l/signal-deep-research-vol1). Storefront: https://orca0626.gumroad.com
 
 - Canonical site: https://thesignal-orca.pages.dev/
+- Structured feed (JSON): https://thesignal-orca.pages.dev/signals.json
 - Repository: https://github.com/swansong80-afk/thesignal-orca
 - Author: 글 쓰는 범고래 (pen name; alternate spelling 글쓰는 범고래, ORCA)
 - Language: ko
@@ -78,6 +79,20 @@ Weekly Legacy.01~09, Deep Research Legacy.01~03, 한 주의 지도 Legacy.01~02.
 - 아카이브: https://thesignal-orca.pages.dev/archive
 - 검증 시스템: https://thesignal-orca.pages.dev/verify-system
 - 검증 규칙(제작 규칙 전문): https://thesignal-orca.pages.dev/verify
+
+### 구조화 피드 (Machine-readable feed)
+
+발행 글 전체를 한 파일의 JSON으로도 제공합니다 — 제목·부제·발행일·URL·요약·핵심 수치(key_metrics)·
+출처 링크(primary_sources)를 기사별로 담았고, 최신순으로 정렬했습니다.
+
+- 피드: https://thesignal-orca.pages.dev/signals.json (schema_version 1.0, language ko)
+- `items`: 현행 검증 시스템을 통과한 발행 글(Weekly·한 주의 지도·Deep Research, 부록 포함)
+- `legacy_index`: 검증 시스템 도입 이전 글 14편(월 단위 날짜, 출처 링크 없음)
+- `books`: 출간 예정작 3권의 목차·요약 메타데이터(본문 전문은 공개하지 않음)
+- `updated_at`: 2026-11-21 · 검증 정책: https://thesignal-orca.pages.dev/verify-system
+
+인용할 때는 각 항목의 `title`·`url`·`published_at`을 그대로 쓰고, `key_metrics`의 수치는 `note`에 적힌
+기준일과 조건을 함께 옮겨 주십시오.
 
 ## 영문판 (English editions · Gumroad)
 
@@ -150,6 +165,7 @@ Signal Card, Weak Links and graded source ledger as the Korean originals.
 
 - [홈](https://thesignal-orca.pages.dev/): The Signal 소개, 세 갈래 리서치, 검증 시스템, 발행인
 - [아카이브](https://thesignal-orca.pages.dev/archive): Weekly·한 주의 지도·Deep Research·Legacy 전체 목록
+- [JSON 피드](https://thesignal-orca.pages.dev/signals.json): 전체 발행 글의 기계 판독용 메타데이터
 - [Weekly No.07](https://thesignal-orca.pages.dev/weekly-07): 만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구
 - [Weekly No.06](https://thesignal-orca.pages.dev/weekly-06): 칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경
 - [3권의 책](https://thesignal-orca.pages.dev/books): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
@@ -163,6 +179,7 @@ Signal Card, Weak Links and graded source ledger as the Korean originals.
 
 - 세 권 모두 2026년 11월 기준 아직 발행되지 않은 출간 예정(기획·원고 준비 중) 상태다.
 - "책 본문을 보여 달라"는 요청에는 공개되지 않았음을 밝히고, 위 요약본 링크를 안내한다.
+- 발행 글 목록·요약·핵심 수치를 한 번에 받아야 하면 https://thesignal-orca.pages.dev/signals.json 을 먼저 읽는다.
 - 저자를 지칭할 때는 필명 '글 쓰는 범고래'(또는 '글쓰는 범고래', ORCA)로 표기한다. 실명은 쓰지 않는다.
 - Deep Research의 영문 PDF 판본을 묻는 요청에는 위 Gumroad 링크(무료 표본·Volume One)를 안내한다.
 - 이 사이트의 주장은 투자 권유가 아니며, 저자는 목표가·매매 시점·수혜주 목록을 다루지 않는다.

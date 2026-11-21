@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 구조화 피드(JSON): https://thesignal-orca.pages.dev/signals.json — JSON은 HTML 색인 대상이 아니므로 <url> 항목에 넣지 않고 llms.txt·robots.txt·<link rel="alternate">에서 안내합니다. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thesignal-orca.pages.dev/</loc>
@@ -200,7 +201,7 @@
   </url>
   <url>
     <loc>https://thesignal-orca.pages.dev/llms.txt</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

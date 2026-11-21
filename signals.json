@@ -1,0 +1,1307 @@
+{
+  "schema_version": "1.0",
+  "publication": "The Signal",
+  "author": "글 쓰는 범고래 (ORCA)",
+  "canonical_site": "https://thesignal-orca.pages.dev",
+  "feed_url": "https://thesignal-orca.pages.dev/signals.json",
+  "updated_at": "2026-11-21",
+  "language": "ko",
+  "verification_policy_url": "https://thesignal-orca.pages.dev/verify-system",
+  "archive_url": "https://thesignal-orca.pages.dev/archive",
+  "llms_txt_url": "https://thesignal-orca.pages.dev/llms.txt",
+  "citation_format": "글 쓰는 범고래, 「글 제목」, The Signal, {url} (2026)",
+  "intro": "세상의 변화를 먼저 읽는 리서치. 지정학·자본·산업·기술·AI 다섯 영역에서 1차 출처로 검증한 사실만으로 신호를 읽는 한국어 리서치 사이트. 모든 검증 가능한 주장은 1차 출처 원문·URL과 함께 원장에 봉인되고, 확인하지 못한 것은 확인하지 못했다고 표기한다. 이 피드는 발행 글의 제목·요약·핵심 수치·출처를 기계가 읽을 수 있는 형태로 제공한다. 종목 매수·매도 권유나 투자 자문이 아니다.",
+  "counts": {
+    "items": 14,
+    "legacy_items": 14,
+    "books": 3,
+    "by_series": {
+      "weekly": 8,
+      "weekly-map": 1,
+      "deep-research": 5
+    }
+  },
+  "field_notes": {
+    "items": "현행 검증 시스템(1차 출처 원장)을 통과한 발행 글. published_at 내림차순.",
+    "series": "deep-research | weekly | weekly-map",
+    "key_metrics": "기사 본문에서 확인한 수치. value는 게재된 표기 그대로의 문자열.",
+    "primary_sources": "기사가 실제로 링크한 출처. tier: primary(1차) | secondary(2차) | single-source(단일출처). 항목당 최대 12건으로 자르고 전체 건수는 source_count에 둔다.",
+    "legacy_index": "검증 시스템 도입 이전 글 14편. primary_sources는 비어 있고 published_at은 월 단위(date_precision=month).",
+    "books": "출간 예정작 3권의 목차·요약 메타데이터. 본문 전문은 공개되지 않는다."
+  },
+  "items": [
+    {
+      "id": "deep-04",
+      "series": "deep-research",
+      "number": 4,
+      "title": "조정은 확인되었고, 바닥은 확인되지 않았다",
+      "subtitle": "지수가 −3.70% 빠진 것이 아니라, 시장을 지탱하던 마지막 두 개의 완충 장치가 같은 날 사라졌다. 이 글은 그 하루를 일곱 개의 촉매로 분해하고, 남은 레벨과 세 개의 시나리오, 그리고 ‘무엇을 하지 않을 것인가’를 정리한다.",
+      "published_at": "2026-11-21",
+      "url": "https://thesignal-orca.pages.dev/deep-04",
+      "summary": "11월 20일 미국 정규장 종가 기준 Special Report(2판). S&P 500은 −3.70%로 마감하며 10월 6일 고점 대비 −11.6%의 정규 조정을 확인했고, OPEX 감마 소멸과 앤트로픽 상장 둘째 날 −8.5%, 엔비디아 SEC 회계 조사 보도(미확인)가 겹쳤다. 세 시나리오(정책 안도 랠리 25%·소화 국면 40%·신용·유가 동시 충격 35%)의 확률가중 기대값은 6,791로 종가 대비 −1.7%, 바닥 확인 신호는 5개 중 0개다.",
+      "key_metrics": [
+        {
+          "name": "S&P 500 종가",
+          "value": "6,910.39",
+          "unit": "pt",
+          "as_of": "2026-11-20",
+          "note": "당일 −3.70%, 10월 6일 고점 대비 −11.6% (정규 조정 확인)"
+        },
+        {
+          "name": "나스닥 종가",
+          "value": "22,617.73",
+          "unit": "pt",
+          "as_of": "2026-11-20",
+          "note": "당일 −5.28%, 고점 대비 −18.1%"
+        },
+        {
+          "name": "필라델피아 반도체지수(SOX)",
+          "value": "8,408.59",
+          "unit": "pt",
+          "as_of": "2026-11-20",
+          "note": "당일 −10.73%, 6월 고점 대비 −42.5%"
+        },
+        {
+          "name": "VIX 종가",
+          "value": "35.89",
+          "unit": "pt",
+          "as_of": "2026-11-20",
+          "note": "당일 +26.2%, 1년여 만의 최고 종가"
+        },
+        {
+          "name": "시나리오 확률 (A/B/C)",
+          "value": "25% / 40% / 35%",
+          "unit": "%",
+          "as_of": "2026-11-20",
+          "note": "향후 3개월, 2027년 2월까지"
+        },
+        {
+          "name": "확률가중 기대값",
+          "value": "6,791",
+          "unit": "pt",
+          "as_of": "2026-11-20",
+          "note": "종가 대비 −1.7%, 상방 +8.2%(7,475) / 하방 −11.0%(6,150)"
+        },
+        {
+          "name": "바닥 확인 신호",
+          "value": "0/5",
+          "unit": "개",
+          "as_of": "2026-11-20",
+          "note": "다섯 개 신호 중 켜진 것 없음"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "연방관보, 「Addressing Remote Access to Advanced Semiconductors」, 91 FR 74970 (2026-11-19)",
+          "url": "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors"
+        }
+      ],
+      "source_count": 1,
+      "domains": [
+        "시장",
+        "자본",
+        "지정학"
+      ],
+      "verification": "ledger-verified",
+      "sources_note": "부록 C가 매체·보도일(10/1~11/21)로 출처를 열거하고 본문에 개별 URL을 링크하지 않아, 본문에 인용된 연방관보 91 FR 74970(2026-11-19) 원문만 확인해 실었다. 나머지 출처는 기사 부록 C 참조."
+    },
+    {
+      "id": "weekly-07",
+      "series": "weekly",
+      "number": 7,
+      "title": "만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구",
+      "subtitle": "시장은 '단종'으로 읽고 중국 AI칩을 두 자릿수 폭락시켰다 — 그런데 규정이 바꾼 것은 금지가 아니라 증명이다. 설계자의 주소, 트랜지스터 수, 패키징 회사, 선적 경로가 이제 허가의 조건이고, 남은 문은 33개 이름이다",
+      "published_at": "2026-11-20",
+      "url": "https://thesignal-orca.pages.dev/weekly-07",
+      "summary": "11월 19일 연방관보에 실린 91 FR 74970과 TSMC·삼성의 16나노 이하 중국 고객 주문 중단 보도(FT·로이터, 회사 미확인)가 겹친 한 주. 규정이 바꾼 것은 금지가 아니라 '증명'으로, 중국에 본사를 둔 설계사는 트랜지스터 수로 허가를 면제받던 경로를 잃고 승인 설계사 33개사·승인 OSAT 24개사 명단이 사실상 유일한 문이 된다. 통제 단위가 물건(2022)→관계(11/16)→저자(11/19)로 이동한 세 번째 전환이라는 판단.",
+      "key_metrics": [
+        {
+          "name": "승인 설계사(Supplement No.6)",
+          "value": "33개사",
+          "unit": "개사",
+          "as_of": "2026-11-19",
+          "note": "중국 본토 기업 없음, 2027-01-01 전환"
+        },
+        {
+          "name": "승인 OSAT(Supplement No.7)",
+          "value": "24개사",
+          "unit": "개사",
+          "as_of": "2026-11-19",
+          "note": "한국 6개사 포함"
+        },
+        {
+          "name": "TSMC의 중국 고객 매출 비중",
+          "value": "5%",
+          "unit": "%",
+          "as_of": "2026-3Q",
+          "note": "2Q26 6%, 3Q25 8%에서 축소"
+        },
+        {
+          "name": "TSMC 16/20나노 웨이퍼 매출 비중",
+          "value": "6%",
+          "unit": "%",
+          "as_of": "2026-3Q",
+          "note": "7나노 이하 79%"
+        },
+        {
+          "name": "HBM 가격 전망(2027)",
+          "value": "최대 2.7배",
+          "unit": "배",
+          "as_of": "2026-11-19",
+          "note": "서울경제 보도 인용 전망치"
+        },
+        {
+          "name": "연방관보 문서번호",
+          "value": "91 FR 74970",
+          "unit": "FR",
+          "as_of": "2026-11-19",
+          "note": "게재 당일 효력, 의견수렴 2027-01-19까지"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "연방관보, 「Addressing Remote Access to Advanced Semiconductors」, 91 FR 74970, 2026-11-19, RIN 0694-AK50",
+          "url": "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors"
+        },
+        {
+          "tier": "primary",
+          "source": "미 상무부 BIS 보도자료, 「BIS Issues Rule Addressing Remote Access to American Super Intelligence Technology」, 2026-11-16",
+          "url": "https://bis.gov/press-release/bis-issues-rule-addressing-remote-access-american-super-intelligence-technology"
+        },
+        {
+          "tier": "primary",
+          "source": "연방규정집 15편 740부 보충 6, 「Approved Integrated Circuit Designers」 (33개사, 중국 본토 기업 없음)",
+          "url": "https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-740/appendix-Supplement%20No.%206%20to%20Part%20740"
+        },
+        {
+          "tier": "primary",
+          "source": "연방규정집 15편 740부 보충 7, 「Approved OSAT Companies」 (24개사, 한국 6개사 포함)",
+          "url": "https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-740/appendix-Supplement%20No.%207%20to%20Part%20740"
+        },
+        {
+          "tier": "primary",
+          "source": "TSMC, 3Q26 Management Report, 2026-10-15",
+          "url": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-10/f83780000ddc0c3b48e57a87eab6814c4ab35058/3Q26%20ManagementReport.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "중국 상무부, 「商务部新闻发言人就美商务部发布限制远程获取先进半导体相关措施答记者问」, 2026-11-17",
+          "url": "https://www.mofcom.gov.cn/syxwfb/art/2026/art_3a69f2058b724dd39cd8ecddcaa4ab87.html"
+        },
+        {
+          "tier": "primary",
+          "source": "NVIDIA, 「NVIDIA Announces Financial Results for Third Quarter Fiscal 2027」, 2026-11-17",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/"
+        },
+        {
+          "tier": "primary",
+          "source": "백악관, 「U.S.-Russia-China Heads of State Declaration toward Peace」, 2026-11-19",
+          "url": "https://www.whitehouse.gov/briefings-statements/2026/11/u-s-russia-china-heads-of-state-declaration-toward-peace/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Reuters, 「TSMC tightens China AI chip curbs as new US rules close manufacturing loophole, sources say」, 2026-11-19",
+          "url": "https://www.investing.com/news/stock-market-news/tsmc-tightens-china-ai-chip-curbs-as-new-us-rules-close-manufacturing-loophole-sources-say-5038806"
+        },
+        {
+          "tier": "secondary",
+          "source": "Financial Times(StockAnalysis 경유), 「TSMC and Samsung suspend some chip shipments to Chinese customers as a new U.S. rule takes effect」, 2026-11-19",
+          "url": "https://stockanalysis.com/news/tsmc-samsung-suspend-chip-shipments-china/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Reuters, 「Nvidia stops shipping US-approved AI chips to China」, 2026-11-18",
+          "url": "https://www.investing.com/news/stock-market-news/nvidia-stops-shipping-usapproved-ai-chips-china-5035204"
+        },
+        {
+          "tier": "secondary",
+          "source": "Reuters, 「License information for AI chips sent to China released by US House committee」, 2026-11-19",
+          "url": "https://www.investing.com/news/stock-market-news/license-information-for-ai-chips-sent-to-china-released-by-us-house-committee-5039850"
+        }
+      ],
+      "source_count": 32,
+      "domains": [
+        "지정학",
+        "기술",
+        "자본"
+      ],
+      "verification": "ledger-verified"
+    },
+    {
+      "id": "weekly-06",
+      "series": "weekly",
+      "number": 6,
+      "title": "칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경",
+      "subtitle": "시장은 하루 9,600억 달러 증발로 읽었다 — 그 아래에서 미국은 '물건'을 막던 규제를 '접속'을 허가하는 규제로 바꾸고, 바이든의 전면규제를 폐기하고, 신뢰국 명단을 새로 짜고 있다",
+      "published_at": "2026-11-17",
+      "url": "https://thesignal-orca.pages.dev/weekly-06",
+      "summary": "2026년 11월 16일 미 상무부 BIS가 데이터센터 원격 접속 규제(잠정최종규칙)를 발표하고 AI Diffusion Rule을 폐기했다. 중국·마카오·D:5 기업에 문턱(H100 약 758장 상당)을 넘는 연산을 제공하는 데이터센터에 들어가는 첨단 칩·서버의 수출·재수출·국내이전이 허가 대상이 되면서, 통제 대상이 '물건'에서 '접속'으로 옮겨갔다.",
+      "key_metrics": [
+        {
+          "name": "미국 기술주 시가총액 증발(보도)",
+          "value": "9,600억 달러",
+          "unit": "USD",
+          "as_of": "2026-11-16",
+          "note": "Benzinga 단일 보도 — 다른 매체와 교차 확인되지 않음"
+        },
+        {
+          "name": "규제 문턱 연산량",
+          "value": "약 758장",
+          "unit": "H100 상당",
+          "as_of": "2026-11-16",
+          "note": "TPP 1,200만 환산 — 단일출처(Tokenstrom 등) 계산"
+        },
+        {
+          "name": "규제 발표일",
+          "value": "2026-11-16",
+          "unit": "—",
+          "as_of": "2026-11-16",
+          "note": "잠정최종규칙(Interim Final Rule), 발효 즉시 시행"
+        },
+        {
+          "name": "동남아 '전용 위험 정상 초과' 지정",
+          "value": "5개국",
+          "unit": "개국",
+          "as_of": "2026-11-16",
+          "note": "국가별 맞춤 문턱 방식"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "미 상무부 BIS 보도자료, 「BIS Issues Rule Addressing Remote Access to American Super Intelligence Technology」, 2026-11-16",
+          "url": "https://bis.gov/press-release/bis-issues-rule-addressing-remote-access-american-super-intelligence-technology"
+        },
+        {
+          "tier": "primary",
+          "source": "BIS 잠정최종규칙 원문, 「Addressing Remote Access to Advanced Semiconductors」, RIN 0694-AK50",
+          "url": "https://bis.gov/media/documents/rin-0694-ak50.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "연방관보, 「Revision to License Review Policy for Advanced Computing Commodities」, 91 FR 1684, 2026-01-15, RIN 0694-AK43",
+          "url": "https://federalregister.gov/documents/2026/01/15/2026-00789"
+        },
+        {
+          "tier": "primary",
+          "source": "연방관보, 「Enhanced Favorable Treatment for the United Arab Emirates Under the Export Administration Regulations」, 91 FR 43034, 2026-07-14",
+          "url": "https://federalregister.gov/documents/2026/07/14/2026-14132"
+        },
+        {
+          "tier": "primary",
+          "source": "백악관, Executive Order 14434 「Inaugurating the Era of Super Intelligence」, 2026-09-29",
+          "url": "https://whitehouse.gov/presidential-actions/2026/09/inaugurating-the-era-of-super-intelligence/"
+        },
+        {
+          "tier": "primary",
+          "source": "싱가포르 내무부(MHA), 「Singapore's Investigations into Alice Huang (Huang Le) and Megaspeed International Pte Ltd」, 2026-11-12",
+          "url": "https://mha.gov.sg/media-room/newsroom/singapore-investigations-into-alice-huang-huang-le-and-megaspeed-international-pte-ltd/"
+        },
+        {
+          "tier": "primary",
+          "source": "미 하원 사무처, Roll Call 13, H.R.2683 Remote Access Security Act, 2026-01-12 (찬성 369·반대 22)",
+          "url": "https://clerk.house.gov/Votes/202613/"
+        },
+        {
+          "tier": "primary",
+          "source": "중국 상무부·해관총서, Announcement No. 72 of 2025(2025-11-09) 관련 보도",
+          "url": "https://english.news.cn/20251109/5edd761a05be48a0b369f12cdea0e78c/c.html"
+        },
+        {
+          "tier": "primary",
+          "source": "중국 외교부, 「Xi Jinping to Attend the 33rd APEC Economic Leaders' Meeting」, 2026-11-13",
+          "url": "https://fmprc.gov.cn/mfa_eng./xw/wsrc/202611/t20261113_12058556.html"
+        },
+        {
+          "tier": "primary",
+          "source": "Institute for Progress, 「How to Increase America's AI Lead Over China」, 2026-10-19",
+          "url": "https://ifp.org/wp-content/uploads/How-to-Increase-Americas-AI-Lead-Over-China_IFP2026.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "Epoch AI, 「Huawei's roadmap to 2031」, 2026-09-04",
+          "url": "https://epoch.ai/publications/huaweis-roadmap-to-2031"
+        },
+        {
+          "tier": "secondary",
+          "source": "Reuters, 「US releases details of Megaspeed probe, says investigation began in 2024」, 2026-11-16",
+          "url": "https://investing.com/news/stock-market-news/us-releases-details-ofmegaspeed-probe-says-investigation-began-in-2024-5031663"
+        }
+      ],
+      "source_count": 33,
+      "domains": [
+        "지정학",
+        "기술",
+        "자본"
+      ],
+      "verification": "ledger-verified"
+    },
+    {
+      "id": "deep-03-part2",
+      "series": "deep-research",
+      "number": 3,
+      "title": "팔란티어와 젠슨 황이 서 있는 안보의 재정의",
+      "subtitle": "폐쇄형 진영은 과거의 패배를 극복할 것인가, 또 다시 패배할 것인가?",
+      "published_at": "2026-08-08",
+      "url": "https://thesignal-orca.pages.dev/deep-03-part2",
+      "summary": "2부작 완결 2편. 1편에서 본 8월 4일의 '11일 내전'이 무엇을 의미하는지를 다룬다 — 팔란티어의 논리와 젠슨 황의 두 번째 선언이 '안보의 재정의'를 어디로 끌고 가는지, 폐쇄형 진영이 과거의 패배를 다시 극복할 수 있는지를 묻는다.",
+      "key_metrics": [],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "출처팔란티어 AIP Security and Privacy 공식 문서",
+          "url": "https://www.palantir.com/docs/foundry/aip/aip-security"
+        },
+        {
+          "tier": "primary",
+          "source": "출처팔란티어 Supported LLMs 공식 문서",
+          "url": "https://www.palantir.com/docs/foundry/aip/supported-llms"
+        },
+        {
+          "tier": "primary",
+          "source": "출처AWS re:Post, DeepSeek Bedrock 격리 아키텍처",
+          "url": "https://repost.aws/articles/AROjoxvT7dR-aPBCuLBpVclg/implementing-deepseek-ai-model-restrictions-across-your-aws-organization"
+        },
+        {
+          "tier": "primary",
+          "source": "출처X @JensenHuang, 2026-07-27 두 번째 게시물",
+          "url": "https://x.com/JensenHuang"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처Bloomberg, Palantir CTO Sankar 발언, 2026-07-15",
+          "url": "https://www.bloomberg.com/news/articles/2026-07-15/palantir-s-cto-sees-chinese-ai-models-posing-economic-risk-to-us"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처Reuters (Yahoo Finance 경유), Palantir CRO Taylor 발언, 2025-02-03",
+          "url": "https://finance.yahoo.com/news/palantir-forecasts-2025-revenue-above-210636709.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처France24, 팔란티어 창립 배경",
+          "url": "https://www.france24.com/en/live-news/20260618-palantir-wants-to-defend-the-west-but-the-west-is-wary"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처Business Insider (CNBC 브리핑), Altman 오픈웨이트 발언, 2025-08-05 전후",
+          "url": "https://www.aol.com/sam-altman-says-big-reason-043217528.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처The Defense News, Maven Smart System 이란 작전 보도",
+          "url": "https://www.thedefensenews.com/news-details/Pentagon-Used-Anthropics-Claude-AI-and-Palantir-Maven-to-Identify-1000-Targets-in-Iran-Strikes/"
+        }
+      ],
+      "source_count": 9,
+      "domains": [
+        "AI",
+        "지정학",
+        "산업"
+      ],
+      "verification": "ledger-verified",
+      "related_ids": [
+        "deep-03"
+      ]
+    },
+    {
+      "id": "deep-03",
+      "series": "deep-research",
+      "number": 3,
+      "title": "팔란티어가 중국 모델을 올린 날, 오픈소스 40년 전쟁의 세 번째 라운드가 시작되었다",
+      "subtitle": "팔란티어가 중국 모델을 올린 날, 오픈소스 40년 전쟁의 세 번째 라운드가 열렸다",
+      "published_at": "2026-08-08",
+      "url": "https://thesignal-orca.pages.dev/deep-03",
+      "summary": "2026년 8월 4일, 백악관이 오픈웨이트 모델을 연방 AI 안전검증 프레임워크의 심사 대상에서 제외한다고 발표한 같은 날 팔란티어가 AIP에 중국 오픈웨이트 모델(DeepSeek V3.2·GLM 5·Kimi 2.5)을 등록했다. 1983년 스톨먼의 프린터에서 시작한 오픈소스 40년 전쟁의 세 번째 라운드가 열렸다는 판단. 2부작 1편.",
+      "key_metrics": [
+        {
+          "name": "팔란티어 AIP 등록 중국 모델",
+          "value": "3종",
+          "unit": "모델",
+          "as_of": "2026-08-04",
+          "note": "DeepSeek V3.2 · GLM 5(Z.ai) · Kimi 2.5(Moonshot AI), AWS Bedrock 경유"
+        },
+        {
+          "name": "7월 24일 서한 최초 서명 기업",
+          "value": "25개사",
+          "unit": "개사",
+          "as_of": "2026-07-24",
+          "note": "팔란티어 포함, 서한에서 정책 전환까지 11일"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "출처팔란티어 Foundry Announcements, 2026-08-04",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-08/"
+        },
+        {
+          "tier": "primary",
+          "source": "출처NVIDIA PDF, \"Open Weights and American AI Leadership\", 2026-07-24",
+          "url": "https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "출처X @JensenHuang, 2026-07-24 게시물 · 프로필 \"Joined June 2026\"",
+          "url": "https://x.com/JensenHuang"
+        },
+        {
+          "tier": "primary",
+          "source": "출처Reuters (US News 경유), 팔란티어 Q2 2026 실적",
+          "url": "https://money.usnews.com/investing/news/articles/2026-08-03/palantir-raises-annual-revenue-forecast-on-strong-demand-from-us-government-commercial-customers"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처Axios, 백악관 AI 프레임워크 오픈웨이트 제외, 2026-08-04",
+          "url": "https://www.axios.com/2026/08/04/trump-ai-framework-open-models"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처NYT/Techmeme, OpenAI·Anthropic 비공개 로비, 2026-07-25",
+          "url": "https://www.techmeme.com/260725/p13"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처AI Weekly, OpenAI 뒤늦은 서명",
+          "url": "https://aiweekly.co/alerts/openai-anthropic-skip-25-firm-open-weights-ai-coalition-letter"
+        },
+        {
+          "tier": "secondary",
+          "source": "출처CNBC, David Sacks \"규제 포획\" X 포스트 인용",
+          "url": "https://www.cnbc.com/2025/10/19/anthropic-tries-to-keep-pace-with-openai-faces-off-with-david-sacks.html"
+        }
+      ],
+      "source_count": 8,
+      "domains": [
+        "AI",
+        "지정학",
+        "산업"
+      ],
+      "verification": "ledger-verified",
+      "related_ids": [
+        "deep-03-part2"
+      ]
+    },
+    {
+      "id": "deep-02",
+      "series": "deep-research",
+      "number": 2,
+      "title": "\"LOL, 아직 접속되네\"",
+      "subtitle": "애플이 오픈AI를 영업비밀 절도로 고소했다. 41쪽 소장에는 웃자고 보낸 메시지, 몰래 들고 나온 부품, 퇴사 절차를 빠져나가는 요령이 빼곡하다. 그런데 이 소송은 이기려고 낸 것이 아닐 수 있다.",
+      "published_at": "2026-08-02",
+      "url": "https://thesignal-orca.pages.dev/deep-02",
+      "summary": "애플이 2026년 7월 10일 북부 캘리포니아 연방지방법원에 오픈AI·io Products와 전직 임원·엔지니어 2명을 영업비밀 절도로 고소했다. 41쪽 소장의 주장은 아직 법원이 인정한 사실이 아니며, 이 소송이 이기기 위한 것이 아닐 수 있다는 독법으로 소장의 설계를 읽는다. 2부작 1편.",
+      "key_metrics": [
+        {
+          "name": "소장 분량",
+          "value": "41쪽",
+          "unit": "쪽",
+          "as_of": "2026-07-10",
+          "note": "Case 5:26-cv-07078, 웨일 갓셜 작성"
+        },
+        {
+          "name": "오픈AI로 옮긴 애플 출신 인력(소장 주장)",
+          "value": "400명 이상",
+          "unit": "명",
+          "as_of": "2026-07-10",
+          "note": "소장 주장이며 법원 인정 사실 아님"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "소장 원문(¶5 각주·¶57-58)",
+          "url": "https://9to5mac.com/wp-content/uploads/sites/6/2026/07/Apple-Inc.-v.-Liu-et-al.pdf"
+        },
+        {
+          "tier": "secondary",
+          "source": "Bloomberg(Mark Gurman)",
+          "url": "https://www.bloomberg.com/news/articles/2026-07-10/apple-sues-openai-for-trade-secret-theft-in-blockbuster-case"
+        },
+        {
+          "tier": "secondary",
+          "source": "iClarified(Bloomberg 인용)",
+          "url": "https://www.iclarified.com/101440/apple-lawsuit-reveals-how-former-engineer-exploited-authentication-bug-to-access-secret-files"
+        },
+        {
+          "tier": "secondary",
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/tech/tech-news/apple-sues-openai-two-former-employees-trade-secrets-theft-rcna385916"
+        },
+        {
+          "tier": "secondary",
+          "source": "Bloomberg(Ed Ludlow 인용, TechCrunch 재인용)",
+          "url": "https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/"
+        },
+        {
+          "tier": "secondary",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/"
+        },
+        {
+          "tier": "secondary",
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/tech/apple/apple-openai-lawsuit-suit-trade-product-hardware-email-sam-altman-rcna587376"
+        },
+        {
+          "tier": "secondary",
+          "source": "9to5Mac(NBC News 인용)",
+          "url": "https://9to5mac.com/2026/07/15/report-how-an-email-mistake-derailed-talks-between-apple-and-openai-ahead-of-the-lawsuit/"
+        },
+        {
+          "tier": "secondary",
+          "source": "9to5Mac(Bloomberg 인용)",
+          "url": "https://9to5mac.com/2026/05/14/openai-preparing-legal-action-against-apple-over-siri-partnership-report/"
+        },
+        {
+          "tier": "secondary",
+          "source": "MacRumors(Bloomberg 인용)",
+          "url": "https://www.macrumors.com/2026/05/14/openai-considering-legal-action-against-apple/"
+        },
+        {
+          "tier": "secondary",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/07/10/apple-openai-lawsuit-trade-secrets.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "Courthouse News Service",
+          "url": "https://www.courthousenews.com/judge-tosses-xai-claims-that-openai-stole-trade-secrets/"
+        }
+      ],
+      "source_count": 26,
+      "domains": [
+        "자본",
+        "기술",
+        "산업"
+      ],
+      "verification": "ledger-verified",
+      "related_ids": [
+        "deep-03"
+      ]
+    },
+    {
+      "id": "weekly-05",
+      "series": "weekly",
+      "number": 5,
+      "title": "버핏이 옳았다, 그런데 그가 본 것은 아니다",
+      "subtitle": "시장은 capex 논쟁을 아마존 실적으로 덮었다 — 그 아래서 메모리는 이미 되돌릴 수 없이 재배치되고 있다",
+      "published_at": "2026-08-01",
+      "url": "https://thesignal-orca.pages.dev/weekly-05",
+      "summary": "아마존이 2026년 현금 capex 전망을 $200B에서 $220B로 상향하고 그 원인으로 메모리 원가 상승을 직접 지목했다. 시장이 capex 논쟁에 집중하는 사이 메모리는 되돌릴 수 없이 재배치되고 있다는 것이 이 글의 신호다.",
+      "key_metrics": [
+        {
+          "name": "아마존 2026년 현금 capex 전망",
+          "value": "220B",
+          "unit": "USD",
+          "as_of": "2026-07-31",
+          "note": "$200B에서 상향, 원인으로 메모리 원가 지목"
+        },
+        {
+          "name": "아마존 계약 잔고(RPO)",
+          "value": "496B",
+          "unit": "USD",
+          "as_of": "2026-2Q",
+          "note": "한 분기에 $132B 늘어 496B 도달, AWS 매출 +37%"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "Amazon Q2 2026 실적콜 트랜스크립트",
+          "url": "https://stockanalysis.com/stocks/amzn/transcripts/657334-q2-2026/"
+        },
+        {
+          "tier": "primary",
+          "source": "Amazon Q2 2026 실적콜 Q&A",
+          "url": "https://ca.investing.com/news/company-news/amazoncom-inc-amzn-q2-2026-earnings-call-highlights-record-revenue-and-aws-acceleration--4766786"
+        },
+        {
+          "tier": "primary",
+          "source": "CNBC, 버핏 인터뷰(2026-07-15)",
+          "url": "https://www.cnbc.com/2026/07/15/warren-buffett-tells-cnbc-he-initiated-berkshire-hathaways-investment-in-alphabet.html"
+        },
+        {
+          "tier": "primary",
+          "source": "CNBC, 버핏 인터뷰 원문 발췌(Excerpts, 2026-07-15)",
+          "url": "https://www.cnbc.com/2026/07/15/cnbc-exclusive-excerpts-berkshire-hathaway-chairman-warren-buffett-speaks-with-cnbcs-becky-quick-on-cnbcs-squawk-box-today.html"
+        },
+        {
+          "tier": "primary",
+          "source": "Apple Q3 2026 실적콜",
+          "url": "https://finance.biggo.com/quote/AAPL/earnings-call/US_AAPL_2026-07-30"
+        },
+        {
+          "tier": "primary",
+          "source": "Micron 공식 보도자료(GlobeNewswire, 2025-12-03)",
+          "url": "https://www.globenewswire.com/news-release/2025/12/03/3199169/14450/en/Micron-Announces-Exit-from-Crucial-Consumer-Business.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "TechTimes",
+          "url": "https://www.techtimes.com/articles/322572/20260731/aws-backlog-hits-496b-amazon-raises-ai-spend-220b-capacity-runs-short.htm"
+        },
+        {
+          "tier": "secondary",
+          "source": "Fortune",
+          "url": "https://fortune.com/2026/07/16/warren-buffett-google-berkshire-ai-race/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/samsung-and-sk-hynix-warn-ai-driven-memory-shortages-could-last-until-2027-and-beyond"
+        },
+        {
+          "tier": "secondary",
+          "source": "GuruFocus(RBC 인용)",
+          "url": "https://www.gurufocus.com/news/8995060/amazon-earnings-reset-ai-spending-debate"
+        },
+        {
+          "tier": "single-source",
+          "source": "Tech Insider(93% 수치)",
+          "url": "https://tech-insider.org/memory-chip-shortage-2026-ai-consumer-electronics/"
+        }
+      ],
+      "source_count": 11,
+      "domains": [
+        "자본",
+        "산업"
+      ],
+      "verification": "ledger-verified"
+    },
+    {
+      "id": "weekly-04",
+      "series": "weekly",
+      "number": 4,
+      "title": "워시가 말을 멈추자, 표를 던진 건 세 총재였다",
+      "subtitle": "9-3 표결 — 무게중심은 매파 쪽으로 쏠렸지만, 시장은 아직 확신을 주지 않았다",
+      "published_at": "2026-08-01",
+      "url": "https://thesignal-orca.pages.dev/weekly-04",
+      "summary": "7월 29일 FOMC이 9-3 표결로 기준금리를 3.50~3.75%로 동결했다. 인상 쪽 반대 3인(해맥·카시카리·로건)이 같은 방향으로 뭉친 것은 2016년 9월 이후 처음이며, 이 글은 금리 수준보다 연준의 커뮤니케이션 방식 변화를 신호로 읽는다.",
+      "key_metrics": [
+        {
+          "name": "FOMC 표결",
+          "value": "9-3",
+          "unit": "표",
+          "as_of": "2026-07-29",
+          "note": "인상 반대 3인, 2016년 9월 이후 첫 동일방향 3인 반대"
+        },
+        {
+          "name": "기준금리",
+          "value": "3.50~3.75%",
+          "unit": "%",
+          "as_of": "2026-07-29",
+          "note": "5회 연속 동결"
+        }
+      ],
+      "primary_sources": [],
+      "source_count": 0,
+      "domains": [
+        "자본"
+      ],
+      "verification": "ledger-verified",
+      "sources_note": "출처 목록이 매체·문서명·일자로만 열거되어 있고 본문에 개별 URL 링크가 없어 primary_sources를 비웠다. 모두발언 전문·번역·주석은 부록(weekly-04-appendix)에 있다."
+    },
+    {
+      "id": "weekly-04-appendix",
+      "series": "weekly",
+      "number": 4,
+      "title": "워시의 말, 전문 — 그리고 그 사이사이",
+      "subtitle": "7월 29일 기자회견 모두발언 전문을 문단 순서 그대로, 생략 없이 원문·번역으로 나란히 놓았다.",
+      "published_at": "2026-08-01",
+      "url": "https://thesignal-orca.pages.dev/weekly-04-appendix",
+      "summary": "Weekly No.04가 인용한 워시 의장 기자회견 모두발언의 전문(원문·번역·주석). 원문은 미 연방정부 저작물이라 전문 인용이 가능하며, 문단 순서를 그대로 두고 저자가 덧붙일 문단에만 회색 주석 박스를 달았다.",
+      "key_metrics": [],
+      "primary_sources": [],
+      "source_count": 0,
+      "domains": [
+        "자본"
+      ],
+      "verification": "ledger-verified",
+      "kind": "appendix",
+      "parent_id": "weekly-04"
+    },
+    {
+      "id": "weekly-03",
+      "series": "weekly",
+      "number": 3,
+      "title": "확신이 담보로 바뀌는 순간",
+      "subtitle": "아셴브레너의 439% 헤지펀드가 시타델에 넘어간 하루 — 레버리지는 테제를 묻지 않는다",
+      "published_at": "2026-07-31",
+      "url": "https://thesignal-orca.pages.dev/weekly-03",
+      "summary": "2026년 상반기 439% 수익을 낸 아셴브레너의 AI 헤지펀드 시추에이셔널 어웨어니스가 7월 30일 공개주식 포트폴리오 대부분을 시타델에 넘겼다. 매각 사유는 매체마다 엇갈리며(마진콜 여부 미확인), 레버리지는 테제가 맞았는지를 묻지 않고 얼마나 많은 빚을 얹었는지만 묻는다는 것이 이 글의 논지다.",
+      "key_metrics": [
+        {
+          "name": "시추에이셔널 어웨어니스 상반기 수익률",
+          "value": "439%",
+          "unit": "%",
+          "as_of": "2026-06-30",
+          "note": "2026년 상반기"
+        },
+        {
+          "name": "레버리지",
+          "value": "4배",
+          "unit": "배",
+          "as_of": "2026-07-30",
+          "note": "Tech Times 보도 인용"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "secondary",
+          "source": "Reuters (Anirban Sen, Manya Saini), \"Citadel buys most of Situational's stock holdings after AI share rout, sources say\"",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/citadel-buys-most-situationals-stock-180422112.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "Tech Times (Ryan Cook), \"Citadel Buys Situational Awareness Portfolio as 4x Leverage Ends AI Fund's 1,000% Run\"",
+          "url": "https://www.techtimes.com/articles/322285/20260730/citadel-buys-situational-awareness-portfolio-4x-leverage-ends-ai-funds-1000-run.htm"
+        },
+        {
+          "tier": "secondary",
+          "source": "BeInCrypto, \"Up 439%, Then Margin-Called: Did Leopold Aschenbrenner's Situational Awareness Actually Blow Up?\"",
+          "url": "https://beincrypto.com/situational-awareness-citadel-bitcoin-miners-explained/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Disruption Banking, \"Did Citadel Buy the Dip in Situational Awareness's Leveraged AI Unwind?\"",
+          "url": "https://www.disruptionbanking.com/2026/07/30/did-citadel-buy-the-dip-in-situational-awarenesss-leveraged-ai-unwind/"
+        },
+        {
+          "tier": "secondary",
+          "source": "TheNextWeb, \"Aschenbrenner's Situational Awareness fund sells out to Citadel\"",
+          "url": "https://thenextweb.com/news/situational-awareness-aschenbrenner-citadel-ai-losses"
+        },
+        {
+          "tier": "secondary",
+          "source": "Benzinga, \"Citadel Deal For AI Fund Situational Awareness Draws Focus To Surprise Rate Hike Call\"",
+          "url": "https://www.benzinga.com/markets/hedge-funds/26/07/60828689/citadel-deal-for-ai-fund-situational-awareness-draws-focus-to-surprise-rate-hike-call"
+        },
+        {
+          "tier": "secondary",
+          "source": "Tech Times, \"Iran Ends Ceasefire and Three Fed Hawks Dissent, Driving Dow to Worst Session Since April\"",
+          "url": "https://www.techtimes.com/articles/322147/20260729/iran-ends-ceasefire-three-fed-hawks-dissent-driving-dow-worst-session-since-april.htm"
+        },
+        {
+          "tier": "secondary",
+          "source": "Tech Times, \"Three Fed Dissenters Signal September Hike Is Live After Most Hawkish FOMC Vote in Nearly Ten Years\"",
+          "url": "https://www.techtimes.com/articles/322145/20260729/three-fed-dissenters-signal-september-hike-live-after-most-hawkish-fomc-vote-nearly-ten-years.htm"
+        },
+        {
+          "tier": "secondary",
+          "source": "CNBC, \"Leopold Aschenbrenner's hedge fund is facing steep AI losses\"",
+          "url": "https://www.cnbc.com/2026/07/30/leopold-aschenbrenners-hedge-fund-is-facing-steep-ai-losses.html"
+        }
+      ],
+      "source_count": 9,
+      "domains": [
+        "자본",
+        "AI"
+      ],
+      "verification": "ledger-verified"
+    },
+    {
+      "id": "map-01",
+      "series": "weekly-map",
+      "number": 1,
+      "title": "빚을 낸 게 아니라, 도착할 비용을 선불한 것이다",
+      "subtitle": "하이퍼스케일러 감가상각 벽 — 지은 것과 비용으로 인식한 것 사이의 갭이 손익계산서로 오는 시점",
+      "published_at": "2026-07-27",
+      "url": "https://thesignal-orca.pages.dev/map-01",
+      "summary": "알파벳이 한 분기에 설비로 449억 달러를 썼는데 같은 분기 현금흐름표에 감가상각으로 잡힌 금액은 71억 달러였다. 지은 것과 비용으로 인식한 것 사이의 갭이 언제, 어떤 모습으로 손익계산서에 도착하는지를 다룬 하이퍼스케일러 감가상각 벽. Weekly No.02의 후속 종합.",
+      "key_metrics": [
+        {
+          "name": "알파벳 분기 자본지출",
+          "value": "449억 달러",
+          "unit": "USD",
+          "as_of": "2026-2Q",
+          "note": "설비 취득"
+        },
+        {
+          "name": "알파벳 분기 유형자산 감가상각(현금흐름표 조정치)",
+          "value": "71억 달러",
+          "unit": "USD",
+          "as_of": "2026-2Q",
+          "note": "본문 표기 '지은 것이 비용으로 잡힌 것의 6배가 넘는다'(449억/71억)"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "Alphabet Inc. Form 8-K, Exhibit 99.1 (2026년 2분기 실적)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm"
+        }
+      ],
+      "source_count": 1,
+      "domains": [
+        "자본",
+        "기술"
+      ],
+      "verification": "ledger-verified",
+      "related_ids": [
+        "weekly-02"
+      ]
+    },
+    {
+      "id": "weekly-02",
+      "series": "weekly",
+      "number": 2,
+      "title": "적자가 아니라, 빚으로 갈아탄 것이다",
+      "subtitle": "시장은 무엇을 걱정하는가 — 알파벳 첫 현금 적자가 드러낸 조달 구조의 전환",
+      "published_at": "2026-07-23",
+      "url": "https://thesignal-orca.pages.dev/weekly-02",
+      "summary": "알파벳 2분기 매출은 1,198억 달러(+24%), 영업이익은 408억 달러(+30%)였지만 잉여현금흐름은 −59억 달러로 상장 이래 처음 마이너스가 됐다. 벌어서 짓던 회사가 빌려서 짓는 회사로 바뀌는 조달 구조의 전환을 다룬다.",
+      "key_metrics": [
+        {
+          "name": "알파벳 2분기 매출",
+          "value": "1,198억 달러",
+          "unit": "USD",
+          "as_of": "2026-2Q",
+          "note": "+24% YoY"
+        },
+        {
+          "name": "알파벳 2분기 영업이익",
+          "value": "408억 달러",
+          "unit": "USD",
+          "as_of": "2026-2Q",
+          "note": "+30% YoY"
+        },
+        {
+          "name": "알파벳 잉여현금흐름",
+          "value": "-59억 달러",
+          "unit": "USD",
+          "as_of": "2026-2Q",
+          "note": "상장 이래 첫 마이너스"
+        },
+        {
+          "name": "알파벳 2분기 자본지출",
+          "value": "449억 달러",
+          "unit": "USD",
+          "as_of": "2026-2Q",
+          "note": "영업현금흐름 391억 달러 초과"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "Alphabet Q2 2026 Earnings",
+          "url": "https://mlq.ai/news/alphabet-beats-q2-revenue-estimates-but-stock-drops-5-on-205b-capex-outlook/"
+        },
+        {
+          "tier": "primary",
+          "source": "소재지Alphabet Q2 2026 실적 콜",
+          "url": "https://quartr.com/events/alphabet-inc-goog-q2-2026_3ebmqZlg"
+        },
+        {
+          "tier": "primary",
+          "source": "(SEC)Tesla Form 8-K, Exhibit 99.1",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001318605/000162828026049213/exhibit991.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "소재지Tesla Q2 2026 Update",
+          "url": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q2-2026-Update.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "美 상원 은행위, FSOC 조사 촉구 서한(2026-01-22)",
+          "url": "https://www.banking.senate.gov/newsroom/minority/warren-colleagues-press-fsoc-to-launch-probe-into-financial-stability-risks-of-ai-debt-bubble"
+        },
+        {
+          "tier": "secondary",
+          "source": "AI debt bigger risk than valuations, IMF says",
+          "url": "https://finance.yahoo.com/technology/ai/articles/ai-debt-bigger-risk-stability-154000944.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "Morgan Stanley: AI debt nearing $570B in 2026",
+          "url": "https://www.techtimes.com/articles/318171/20260610/morgan-stanley-sees-ai-debt-nearly-doubling-570-billion-2026-bonds-now-fund-buildout.htm"
+        },
+        {
+          "tier": "secondary",
+          "source": "Bond Investors Push Back As AI Debt Heads Toward $570 Billion",
+          "url": "https://www.forbes.com/sites/robertszczerba/2026/07/17/bond-investors-push-back-as-ai-debt-heads-toward-570-billion/"
+        },
+        {
+          "tier": "secondary",
+          "source": "JPMorgan 데이터센터 착공 지연 분석(60%·7%)",
+          "url": "https://x.com/GlobalMktObserv/status/2063627541538124095"
+        }
+      ],
+      "source_count": 9,
+      "domains": [
+        "자본",
+        "기술",
+        "산업"
+      ],
+      "verification": "ledger-verified"
+    },
+    {
+      "id": "deep-01",
+      "series": "deep-research",
+      "number": 1,
+      "title": "관할권이라는 초크포인트",
+      "subtitle": "2026년, 희토류 통제는 물질에서 '누구의 법이 국경 밖까지 미치는가'로 옮겨갔다 — 그리고 그 무기는, 미국이 먼저 벼린 것이었다.",
+      "published_at": "2026-07-20",
+      "url": "https://thesignal-orca.pages.dev/deep-01",
+      "summary": "2026년 희토류 통제가 '물질'에서 '관할권'으로 옮겨갔다. 중국의 가치 기준 0.1% 함량·기술 계보 기준과 미국의 해외직접생산품규칙(FDPR)·Entity List·계열사 규칙을 나란히 놓고, 미국이 먼저 벼린 무기를 중국이 거울처럼 되비췄다는 구조를 1차 출처 원장 전체와 함께 공개한다.",
+      "key_metrics": [
+        {
+          "name": "중국 역외 수출통제 기준",
+          "value": "가치 기준 0.1%",
+          "unit": "%",
+          "as_of": "2025",
+          "note": "중국 상무부 공고 2025년 제61호 — 함량 또는 중국 공정 기술 사용 시 라이선스 요구"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "중국 국무원, 「산업·공급망 안보 규정(국무원령 제834호)」 관보",
+          "url": "https://www.gov.cn/zhengce/content/202604/content_7064837.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "중국 상무부, 「공고 2025년 제61호」(희토류 역외 수출통제)",
+          "url": "https://www.mofcom.gov.cn/zwgk/zcfb/art/2025/art_7fc9bff0fb4546ecb02f66ee77d0e5f6.html"
+        },
+        {
+          "tier": "primary",
+          "source": "MP Materials, 「국방부 공공·민간 파트너십」 보도자료",
+          "url": "https://mpmaterials.com/news/mp-materials-announces-transformational-public-private-partnership-with-the-department-of-defense-to-accelerate-u-s-rare-earth-magnet-independence/"
+        },
+        {
+          "tier": "primary",
+          "source": "美 하원 자연자원위(민주당), 「광물 지분 딜 오버사이트 서한」",
+          "url": "https://democrats-naturalresources.house.gov/imo/media/doc/2026-02-02_moc_to_defense_commerce_energy_interior_re_mineral_equity_deals_oversight.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "美 연방관보, 「Entity List 관련 수출통제 규정」",
+          "url": "https://www.federalregister.gov/documents/2022/10/13/2022-21658/implementation-of-additional-export-controls-certain-advanced-computing-and-semiconductor"
+        },
+        {
+          "tier": "primary",
+          "source": "美 연방관보, 「해외직접생산품규칙(FDPR, EAR §734.9)」",
+          "url": "https://www.federalregister.gov/documents/2022/02/03/2022-02302/foreign-direct-product-rules-organization-clarification-and-correction"
+        },
+        {
+          "tier": "primary",
+          "source": "美 연방관보, 「Affiliates 규칙」(90 FR 47201)",
+          "url": "https://www.federalregister.gov/documents/2025/09/30/2025-19001/expansion-of-end-user-controls-to-cover-affiliates-of-certain-listed-entities"
+        },
+        {
+          "tier": "primary",
+          "source": "WTO, 「분쟁 DS431 중국—희토류·텅스텐·몰리브덴 수출조치」",
+          "url": "https://www.wto.org/english/tratop_e/dispu_e/cases_e/ds431_e.htm"
+        },
+        {
+          "tier": "secondary",
+          "source": "Andersen Institute, 「China's Export-Control Architecture」",
+          "url": "https://anderseninstitute.org/chinas-export-control-architecture-and-its-use-of-critical-minerals-as-strategic-pressure-points/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Rhodium Group, 「Critical Mineral Chokepoints」",
+          "url": "https://rhg.com/research/critical-mineral-chokepoints-extend-far-beyond-mining-and-refining/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Rare Earth Exchanges, 「China's Next Chokepoint: the Chemicals」",
+          "url": "https://rareearthexchanges.com/news/chinas-next-rare-earth-chokepoint-the-chemicals-nobody-talked-about/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Rare Earth Mining, 「Noveon Magnetics」",
+          "url": "https://rare-earth-mining.com/noveon-magnetics/"
+        }
+      ],
+      "source_count": 15,
+      "domains": [
+        "지정학",
+        "산업",
+        "자본"
+      ],
+      "verification": "ledger-verified"
+    },
+    {
+      "id": "weekly-01",
+      "series": "weekly",
+      "number": 1,
+      "title": "아직 다운로드도 안 되는 모델이 실리콘밸리를 흔들었다",
+      "subtitle": "중국 Kimi K3는 성능으로 이긴 게 아니다 — \"열겠다\"는 약속 하나로 폐쇄 AI의 해자를 흔들었다",
+      "published_at": "2026-07-18",
+      "url": "https://thesignal-orca.pages.dev/weekly-01",
+      "summary": "7월 16일 Moonshot AI가 2.8조 파라미터 Kimi K3를 내고 7월 27일까지 전체 가중치를 공개하겠다고 밝혔다. 아직 아무도 내려받을 수 없는 모델이 화제가 된 이유는 성능이 아니라 '열겠다'는 약속 하나가 폐쇄 AI의 해자를 흔들었기 때문이다.",
+      "key_metrics": [
+        {
+          "name": "Kimi K3 파라미터",
+          "value": "2.8조",
+          "unit": "개",
+          "as_of": "2026-07-16",
+          "note": "Moonshot AI 자체 표기 '세계 최초의 오픈 3조급'"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "Moonshot AI, \"Kimi K3: Open Frontier Intelligence\" 공식 블로그",
+          "url": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "tier": "primary",
+          "source": "Artificial Analysis, Kimi K3 모델 페이지",
+          "url": "https://artificialanalysis.ai/models/kimi-k3"
+        },
+        {
+          "tier": "secondary",
+          "source": "\"Kimi K3 Open Weights: When They Drop and How to Run It\", aireiter.com",
+          "url": "https://aireiter.com/blog/kimi-k3-open-weights"
+        },
+        {
+          "tier": "secondary",
+          "source": "\"Kimi K3: Architecture, Benchmarks, Pricing, and Open Weights\", Graphify",
+          "url": "https://graphify.net/ai-coding/llms/kimi-k3/"
+        },
+        {
+          "tier": "secondary",
+          "source": "\"Kimi K3 launches with 2.8 trillion parameters, open weights dropping July 27\", Crypto Briefing",
+          "url": "https://cryptobriefing.com/kimi-k3-open-weights-july-27/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Simon Willison 블로그 · Digital Applied (DeepSeek V4 직전 최대 오픈 모델 확인)",
+          "url": "https://simonwillison.net/2026/Jul/16/kimi-k3/"
+        }
+      ],
+      "source_count": 6,
+      "domains": [
+        "기술",
+        "AI",
+        "지정학"
+      ],
+      "verification": "ledger-verified"
+    }
+  ],
+  "legacy_index": [
+    {
+      "id": "legacy-w09",
+      "series": "legacy-weekly",
+      "number": 9,
+      "title": "모든 진실을 합치면 진실이 아니다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w09",
+      "summary": "TSMC는 순이익 77% 급증으로 사상 최대 분기를 냈고 주가는 4% 빠졌다 — 자본지출 640억 달러와 애리조나 1,000억 달러 앞에서 웨이 회장이 던진 한 문장 안에 시장이 무서워한 것이 전부 들어 있다",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-w08",
+      "series": "legacy-weekly",
+      "number": 8,
+      "title": "통행세는 하루를 못 넘겼다 — 철회가 아니라, 낼 사람이 바뀐 것이다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w08",
+      "summary": "트럼프의 호르무즈 20% 통행세를 하루도 안 돼 접게 만든 것은 IMO의 위법 판정이 아니라 이란 외무장관 아락치의 한 문장이었다 — 그 자리는 걸프 국가들의 '투자 약속'이 채웠다",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-w07",
+      "series": "legacy-weekly",
+      "number": 7,
+      "title": "애플이 오픈AI를 고소했다 — 협업이 아니라 산업 스파이 소송이었다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w07",
+      "summary": "2024년 아이폰에 챗GPT를 심었던 두 회사가 2026년엔 41쪽짜리 소장으로 마주 섰다 — 애플 출신 400명 이상이 오픈AI로 옮겨간 결과다",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-w06",
+      "series": "legacy-weekly",
+      "number": 6,
+      "title": "봉쇄가 아니라 압력테스트였다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w06",
+      "summary": "이란은 '봉쇄'를, 미국은 '20% 통행세'를 선언했다 — 같은 충격에 코스피는 무너졌고 S&P500은 버텼다, 그 차이가 진짜 신호다",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-w05",
+      "series": "legacy-weekly",
+      "number": 5,
+      "title": "희토류가 아니라 자석이었다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w05",
+      "summary": "중국의 수출통제 '제도화'가 드러낸 진짜 병목, 그리고 돈이 향하는 곳",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-w04",
+      "series": "legacy-weekly",
+      "number": 4,
+      "title": "발표에서 배송으로 — 유럽이 무기를 실제로 만들기 시작했다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w04",
+      "summary": "나토 앙카라 정상회담이 드러낸 방위산업의 진짜 승부처",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-w03",
+      "series": "legacy-weekly",
+      "number": 3,
+      "title": "한국이 1.3조 달러를 메모리에 걸었다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w03",
+      "summary": "AI의 병목이 연산에서 메모리로 옮겨간 순간, 그 돈은 어디로 흐르는가",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-w02",
+      "series": "legacy-weekly",
+      "number": 2,
+      "title": "엔비디아 없이, 중국이 AI를 훈련했다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w02",
+      "summary": "수출통제의 벽에 생긴 금, 그리고 돈이 다시 고이는 길목",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-w01",
+      "series": "legacy-weekly",
+      "number": 1,
+      "title": "미국이 오픈AI의 '주주'가 되려 한다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-w01",
+      "summary": "정부가 AI 지분을 갖는다는 신호, 그 돈은 어디로 흐르는가",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-dr03",
+      "series": "legacy-deep-research",
+      "number": 3,
+      "title": "이건 소송이 아니라, 5년 늦게 도착한 청구서였다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-dr03",
+      "summary": "2021년 메타, 2026년 오픈AI — 플랫폼에 세 들어 살던 두 회사가 똑같은 방식으로 대가를 치르고, 똑같은 방식으로 반격했다",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-dr02",
+      "series": "legacy-deep-research",
+      "number": 2,
+      "title": "국가안보가 아니라, 전화 한 통이었다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-dr02",
+      "summary": "1996년 PGP, 2015년 바세나르, 그리고 2026년 Fable 5·Mythos 5 — 90분 만에 걸린 빗장이 19일 만에 풀린 이유",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-dr01",
+      "series": "legacy-deep-research",
+      "number": 1,
+      "title": "심리가 아니라 배관이었다",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-dr01",
+      "summary": "1987년, 2018년, 2020년, 그리고 삼전닉스 — 실적 서프라이즈에도 주가가 무너지는 현상의 진짜 정체",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-m02",
+      "series": "legacy-weekly-map",
+      "number": 2,
+      "title": "무기와 자석이 부딪힌 한 주",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-m02",
+      "summary": "나토는 재무장을 배송 일정으로 증명했고, 중국은 같은 시기 그 무기의 심장을 만드는 공정을 제도로 잠갔다",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    },
+    {
+      "id": "legacy-m01",
+      "series": "legacy-weekly-map",
+      "number": 1,
+      "title": "중심이 흔들린 한 주",
+      "published_at": "2026-07",
+      "date_precision": "month",
+      "url": "https://thesignal-orca.pages.dev/legacy-m01",
+      "summary": "세 개의 신호가 같은 길목을 가리켰다 — No.01~03을 하나로 잇다",
+      "primary_sources": [],
+      "verification": "legacy-unverified",
+      "note": "검증 시스템(원장 기반 사전 검증) 도입 이전 글. 원고에 개별 출처 링크 없음."
+    }
+  ],
+  "books": [
+    {
+      "id": "book-1",
+      "title": "패권 전쟁에 투자하라",
+      "subtitle": "기업·자본편 — 상장 패권 기업에서 비상장 차세대 방산까지",
+      "status": "forthcoming",
+      "working_title": true,
+      "url": "https://thesignal-orca.pages.dev/archive/book1-hegemony-investing.md",
+      "outline_spec": "부 1부 10장 · 2부 12장 · 에필로그 / 본문 102,768자(공백 제외)",
+      "full_text_published": false,
+      "note": "제목은 가제. 본문 전문은 공개하지 않고 목차·장별 요약·프레임워크·용어집만 공개한다."
+    },
+    {
+      "id": "book-2",
+      "title": "세계는 연결되어 있지 않다",
+      "subtitle": "미래는 선포되지 않는다",
+      "status": "forthcoming",
+      "working_title": true,
+      "url": "https://thesignal-orca.pages.dev/archive/book2-unconnected-world.md",
+      "outline_spec": "서문 · 3부 22장 · 에필로그 / 본문 약 74,837자",
+      "full_text_published": false,
+      "note": "제목은 가제. 본문 전문은 공개하지 않고 목차·장별 요약·프레임워크·용어집만 공개한다."
+    },
+    {
+      "id": "book-3",
+      "title": "보유하는 마음",
+      "subtitle": "오래 투자하는 사람이 마주하는 감정과 생각",
+      "status": "forthcoming",
+      "working_title": true,
+      "url": "https://thesignal-orca.pages.dev/archive/book3-mind-of-holding.md",
+      "outline_spec": "서문 · 12장 · 에필로그 / 본문 40,461자 · 참고자료 16건",
+      "full_text_published": false,
+      "note": "제목은 가제. 본문 전문은 공개하지 않고 목차·장별 요약·프레임워크·용어집만 공개한다."
+    }
+  ]
+}
