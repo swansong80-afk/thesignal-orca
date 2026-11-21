@@ -23,7 +23,7 @@ This site hosts two knowledge streams by the same Korean author, under the pen n
 - Repository: https://github.com/swansong80-afk/thesignal-orca
 - Author: 글 쓰는 범고래 (pen name; alternate spelling 글쓰는 범고래, ORCA)
 - Language: ko
-- Last updated: 2026-11-20
+- Last updated: 2026-11-21
 - Update cadence: The Signal Weekly 2주에 1회 · 서적 아카이브는 개정 시
 
 ## 저자 (Author)
@@ -61,6 +61,7 @@ https://thesignal-orca.pages.dev/verify 에 있습니다.
 
 ### The Signal : Deep Research (심층)
 
+- No.04 (2026-11-21) 「조정은 확인되었고, 바닥은 확인되지 않았다」 — 11월 20일 미국 증시 종가 기준 Special Report. 정규 조정 확인(−11.6%), OPEX 감마 소멸, 엔비디아 SEC 회계 조사 보도(미확인), 앤트로픽 상장 이후 유동성, 세 시나리오와 기대값 6,791, 바닥 확인 신호 0/5. https://thesignal-orca.pages.dev/deep-04
 - No.03 (2026-08-08) 「팔란티어와 젠슨 황이 서 있는 안보의 재정의」 2부작 완결 2편 https://thesignal-orca.pages.dev/deep-03-part2
   - 1편 「팔란티어가 중국 모델을 올린 날, 오픈소스 40년 전쟁의 세 번째 라운드가 시작되었다」 https://thesignal-orca.pages.dev/deep-03
 - No.02 (2026-08-02) 「"LOL, 아직 접속되네"」 — 애플의 오픈AI 영업비밀 소송. https://thesignal-orca.pages.dev/deep-02
