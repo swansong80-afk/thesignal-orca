@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>블라인드 차트 — 익명 시장 시뮬레이터</title>
-<meta name="description" content="실제 역사적 지수의 흐름을 이름 없이 보여주는 5라운드 투자 시뮬레이터.">
+<meta name="description" content="실제 역사적 지수의 흐름을 이름 없이, 2개월 단위로 보여주는 익명 투자 시뮬레이터.">
 <style>
   :root{
     --bg:#060a12;
@@ -183,10 +183,11 @@
   /* ---------- play ---------- */
   #screen-play{padding-top:8px;}
   .play-top{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:16px;}
-  .dots{display:flex; gap:6px; margin-top:9px;}
-  .dot{width:26px;height:3px;border-radius:2px;background:rgba(126,163,214,.18); transition:background .3s;}
-  .dot.done{background:var(--teal);}
-  .dot.active{background:var(--amber); box-shadow:0 0 10px rgba(242,180,90,.5);}
+  .round-hint{margin-top:9px; font-size:10px; letter-spacing:.14em; color:#5f718e;}
+  .log-body{max-height:242px; overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; padding-right:4px;}
+  .log-body::-webkit-scrollbar{width:5px;}
+  .log-body::-webkit-scrollbar-thumb{background:rgba(126,163,214,.22); border-radius:3px;}
+  .log-body::-webkit-scrollbar-track{background:transparent;}
   .play-money{text-align:right;}
   .money-val{font-family:var(--serif); font-size:26px; letter-spacing:-.01em; color:#f3f8ff;}
   .money-sub{font-size:11.5px; color:var(--muted); margin-top:2px;}
@@ -251,6 +252,7 @@
   @media (max-width:520px){
     .log-cols,.log-row{grid-template-columns:38px 1fr 66px 70px;}
     .log-cols span:last-child,.log-row .lr-cap{display:none;}
+    .log-body{max-height:208px;}
   }
   .hist{display:grid; grid-template-columns:repeat(5,1fr); gap:8px; padding:0 20px 18px;}
   .hist-cell{
@@ -394,6 +396,15 @@
   .lesson p{margin:0; font-size:12.5px; line-height:1.72; color:#c2d0e4;}
   .rv-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;}
   .rv-note{margin-top:18px; font-size:11px; color:#5f718e; line-height:1.7;}
+  .rv-signal{
+    margin-top:16px; padding:16px 18px; border-radius:14px;
+    border:1px solid rgba(62,224,196,.22);
+    background:linear-gradient(90deg,rgba(62,224,196,.07),rgba(62,224,196,.015));
+    display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  }
+  .rv-signal .rs-txt{font-size:12.5px; line-height:1.6; color:#c2d0e4;}
+  .rv-signal .rs-txt b{color:#eafff9; font-weight:600;}
+  .rv-signal a.btn{font-size:12.5px; padding:11px 17px; text-decoration:none; white-space:nowrap;}
 
   @keyframes draw{from{stroke-dashoffset:1;}to{stroke-dashoffset:0;}}
   .seg-draw{stroke-dasharray:1; stroke-dashoffset:1; animation:draw 1.05s cubic-bezier(.4,0,.2,1) forwards;}
@@ -423,7 +434,7 @@
   </div>
   <div class="top-right">
     <button class="nav-home hidden" id="navHome" data-act="home">↺ 처음으로</button>
-    <span class="pill">5 ROUNDS</span>
+    <span class="pill">2M ROUNDS</span>
   </div>
 </header>
 
@@ -433,9 +444,9 @@
   <section id="screen-start" class="screen">
     <div class="hero fade">
       <div class="eyebrow">SIMULATOR · 실제 역사 데이터</div>
-      <h1>차트의 과거만 보고,<br><em>다섯 번의 결정</em>을 내리세요.</h1>
+      <h1>차트의 과거만 보고,<br><em>2개월씩</em> 결정을 내리세요.</h1>
       <p>연도도, 지수 이름도, 종목도 알려주지 않습니다. 남겨둔 것은 실제 역사적 지수의 흐름과 그 시절의 단서뿐입니다.</p>
-      <p>5라운드가 끝나면 모든 것이 공개됩니다. 당신의 판단은 어떤 시장에서 통했을까요.</p>
+      <p>모든 시나리오가 2개월 단위로 진행되고, 길이는 시나리오마다 다릅니다. 끝나는 순간 모든 것이 공개됩니다.</p>
     </div>
 
     <div class="start-grid">
@@ -449,15 +460,16 @@
         <button class="btn primary wide" id="btnStart" data-act="start" disabled>시나리오를 선택하세요</button>
         <button class="btn ghost wide" data-act="random">🎲 랜덤 시작</button>
         <div class="start-note">
-          초기 자본 <b style="color:#cfdcef;">1,000만 원</b> · 5라운드 · 매 라운드 주식 비중을 고릅니다.<br>
+          초기 자본 <b style="color:#cfdcef;">1,000만 원</b> · 2개월 단위 라운드 · 매 라운드 주식 비중을 고릅니다.<br>
+          라운드 수는 시나리오마다 다르며, 시작 전에는 알 수 없습니다.<br>
           현금에는 연 0~3% 이자가 붙습니다. 수수료·세금은 반영하지 않습니다.
         </div>
       </div>
     </div>
 
     <div class="rules">
-      <div class="rule"><b>18개월의 과거</b><span>처음엔 과거 차트만 보입니다. 미래는 잠겨 있습니다.</span></div>
-      <div class="rule"><b>6개월씩 5번</b><span>라운드마다 한 구간이 열리고, 그때의 단서가 주어집니다.</span></div>
+      <div class="rule"><b>과거 차트만</b><span>1~1년 반의 과거만 보입니다. 그 뒤는 잠겨 있습니다.</span></div>
+      <div class="rule"><b>2개월씩, 끝은 비공개</b><span>라운드마다 2개월이 열립니다. 총 길이는 시나리오마다 다릅니다.</span></div>
       <div class="rule"><b>결과는 정직하게</b><span>실제 지수 흐름에 내 선택을 그대로 적용합니다.</span></div>
     </div>
 
@@ -475,8 +487,8 @@
   <section id="screen-play" class="screen hidden">
     <div class="play-top">
       <div>
-        <div class="eyebrow">ROUND <span id="roundNo">1</span> / 5 · <span id="phaseLabel">의사결정</span></div>
-        <div class="dots" id="dots"></div>
+        <div class="eyebrow">ROUND <span id="roundNo">1</span> · <span id="phaseLabel">의사결정</span></div>
+        <div class="round-hint">2개월 단위 진행 · 전체 길이 비공개</div>
       </div>
       <div class="play-money">
         <div class="money-val num" id="moneyVal">₩10,000,000</div>
@@ -499,6 +511,7 @@
           <div class="legend">
             <span class="lg"><i style="background:#3ee0c4;"></i>공개된 과거</span>
             <span class="lg"><i style="background:#f2b45a;"></i>방금 열린 구간</span>
+            <span class="lg"><i style="background:#243550;"></i>잠긴 미래</span>
           </div>
           <span>월별 종가 · 상대 지수</span>
         </div>
@@ -512,7 +525,7 @@
         <div class="log-cols">
           <span>라운드</span><span>내 선택</span><span>시장</span><span>내 구간</span><span>자산</span>
         </div>
-        <div id="roundLog"></div>
+        <div class="log-body" id="roundLog"></div>
       </div>
       </div>
 
@@ -520,7 +533,7 @@
         <div class="card panel" id="decidePanel">
           <div class="panel-head">
             <span class="eyebrow">DECISION</span>
-            <span class="chip" id="roundChip">R1 · 다음 6개월</span>
+            <span class="chip" id="roundChip">R1 · 다음 2개월</span>
           </div>
           <div class="macro" id="macroBox"></div>
           <div class="news" id="newsBox"></div>
@@ -536,7 +549,7 @@
   <!-- ================= REVEAL ================= -->
   <section id="screen-reveal" class="screen hidden">
     <div class="rv-head fade">
-      <div class="eyebrow">REVEAL · 5 ROUNDS COMPLETE</div>
+      <div class="eyebrow" id="rvEyebrow">REVEAL · ROUNDS COMPLETE</div>
       <h1 id="rvName">—</h1>
       <div class="rv-period" id="rvPeriod">—</div>
     </div>
@@ -595,6 +608,11 @@
     <div class="rv-note" id="rvNote">
       데이터: 실제 월별 지수 종가를 시작값 100으로 정규화한 근사치. 수수료·세금·환율은 반영하지 않았습니다.
     </div>
+
+    <div class="rv-signal">
+      <div class="rs-txt"><b>여기까지가 한 사이클입니다.</b><br>실시간 유동성·신용 배관 지표는 《The Signal》에서 확인하세요.</div>
+      <a class="btn ghost" href="https://thesignal-orca.pages.dev/" target="_blank" rel="noopener">The Signal →</a>
+    </div>
   </section>
 
 </main>
@@ -604,7 +622,13 @@
    DATA — monthly closes, approximated from historical indices
    Normalized at runtime so every chart starts at 100.
    ========================================================= */
-const N = 48, INITIAL = 18, SEG = 6, ROUNDS = 5, START_CAPITAL = 10000000;
+/* =========================================================
+   DATA — monthly closes, approximated from historical indices
+   Normalized at runtime so every chart starts at 100.
+   Every round advances 2 months. The number of rounds differs
+   by scenario, so the total length is never shown in advance.
+   ========================================================= */
+const SEG = 2, START_CAPITAL = 10000000;
 
 const SCENARIOS = [
   {
@@ -613,6 +637,7 @@ const SCENARIOS = [
     sub: "미국 · 기술주 중심",
     period: "1999.01 – 2002.12",
     start: { y: 1999, m: 1 },
+    init: 18,
     cash: 0.03,
     raw: [2506,2288,2462,2543,2470,2686,2639,2759,2746,2966,3336,4069,
           3940,4696,4572,3860,3400,3966,
@@ -621,21 +646,41 @@ const SCENARIOS = [
           2027,1805,1498,1690,1930,1950,
           1940,1750,1845,1695,1615,1463,
           1328,1314,1172,1329,1481,1335],
-    macro: [
-      { rate:["6.5%","긴축 고점","t-tight"], cpi:["3.2%","완만","t-hot"], credit:["확대 조짐","악화","t-tight"],
-        news:"중앙은행이 2년 만에 금리 인상 중단을 시사했지만, 시장은 여전히 ‘고평가’ 논쟁 중이다." },
-      { rate:["5.0%","연속 인하","t-ease"], cpi:["3.0%","안정","t-flat"], credit:["확대","악화","t-tight"],
-        news:"정책금리가 빠르게 내려가기 시작했지만, 기업 실적 전망은 오히려 더 나빠지고 있다." },
-      { rate:["3.5%","빠른 인하","t-ease"], cpi:["2.5%","낮음","t-cold"], credit:["크게 확대","악화","t-tight"],
-        news:"예상치 못한 충격으로 시장은 역사상 가장 나쁜 분기 중 하나를 보냈다. 저가 매수 세력이 조금씩 나타난다." },
-      { rate:["2.5%","동결","t-flat"], cpi:["2.2%","낮음","t-cold"], credit:["확대 지속","악화","t-tight"],
-        news:"회계 부정 스캔들이 잇달아 드러나며, ‘믿을 만한 기업’에 대한 신뢰가 무너지고 있다." },
-      { rate:["2.0%","동결","t-flat"], cpi:["2.0%","낮음","t-cold"], credit:["확대 정점","악화","t-tight"],
-        news:"지수는 3년 전 수준으로 돌아갔다. ‘이제 바닥’이라는 말과 ‘더 갈 곳이 없다’는 말이 동시에 나온다." }
+    rounds: [
+      { rate:["6.5%","긴축 고점","t-tight"], cpi:["3.7%","완만","t-hot"], credit:["확대 조짐","악화","t-tight"],
+        news:"정책금리가 6.5%에서 멈췄다. 1년 넘게 오르던 지수가 사상 최고치 부근에서 흔들리고, 고평가 논쟁이 다시 뜨거워졌다." },
+      { rate:["6.5%","동결","t-flat"], cpi:["3.6%","완만","t-hot"], credit:["확대","악화","t-tight"],
+        news:"원유 가격이 다시 뛰고 기업 실적 전망이 한 단계씩 낮아지고 있다. 시장은 ‘조정’이라는 단어를 쓰기 시작했다." },
+      { rate:["6.5%","동결","t-flat"], cpi:["3.4%","완만","t-flat"], credit:["확대 지속","악화","t-tight"],
+        news:"대형 장비·통신 업체들이 잇달아 실적 경고를 냈다. 1년 전에는 아무도 팔지 않았던 종목들이 매물로 나온다." },
+      { rate:["5.5%","깜짝 인하","t-ease"], cpi:["3.7%","완만","t-hot"], credit:["경색 조짐","위기","t-tight"],
+        news:"중앙은행이 예고 없이 금리를 0.5%p 내렸다. 시장은 하루 크게 반등했지만, 2주 만에 그 상승을 모두 반납했다." },
+      { rate:["4.5%","연속 인하","t-ease"], cpi:["3.5%","완만","t-flat"], credit:["경색","위기","t-tight"],
+        news:"기술주 지수는 1년 만에 -60%를 넘었다. ‘이제 바닥’이라는 말과 ‘아직 절반’이라는 말이 동시에 나온다." },
+      { rate:["4.0%","인하 지속","t-ease"], cpi:["3.2%","완만","t-flat"], credit:["경색 지속","위기","t-tight"],
+        news:"금리 인하가 이어지는데도 지수는 반등하지 못한다. 실적 시즌마다 예상치가 다시 낮아진다." },
+      { rate:["3.75%","인하","t-ease"], cpi:["2.8%","안정","t-flat"], credit:["경색 지속","위기","t-tight"],
+        news:"경기가 공식적으로 침체에 들어섰다는 발표가 나왔다. 지수는 3년 전 수준이다." },
+      { rate:["2.5%","급격한 인하","t-ease"], cpi:["2.5%","낮음","t-cold"], credit:["경색 지속","위기","t-tight"],
+        news:"도시의 상징이 무너지는 사건으로 시장이 일주일 문을 닫았다. 재개장 첫날 지수는 -7%였다." },
+      { rate:["1.75%","인하","t-ease"], cpi:["2.0%","낮음","t-cold"], credit:["완화 조짐","개선","t-ease"],
+        news:"금리가 1%대까지 내려왔고 저가 매수 세력이 조금씩 모습을 드러냈다. 지수는 3개월 만에 반등했다." },
+      { rate:["1.75%","동결","t-flat"], cpi:["1.5%","낮음","t-cold"], credit:["안정","중립","t-flat"],
+        news:"회계 부정 스캔들이 처음 드러났다. 시장은 이것을 ‘한 회사의 문제’로 여겼다." },
+      { rate:["1.75%","동결","t-flat"], cpi:["1.4%","낮음","t-cold"], credit:["확대","악화","t-tight"],
+        news:"두 번째 대형 회사의 회계 문제가 드러나며 신용 시장이 다시 조여들고 있다." },
+      { rate:["1.75%","동결","t-flat"], cpi:["1.2%","낮음","t-cold"], credit:["확대","악화","t-tight"],
+        news:"한때 가장 신뢰받던 기업이 파산 보호를 신청했다. ‘믿을 만한 기업’이라는 개념 자체가 흔들린다." },
+      { rate:["1.75%","동결","t-flat"], cpi:["1.5%","낮음","t-cold"], credit:["크게 확대","악화","t-tight"],
+        news:"지수는 5년 전 수준으로 돌아갔다. 그동안 숨겨온 손실을 인정하는 기업이 늘고 있다." },
+      { rate:["1.75%","동결","t-flat"], cpi:["1.6%","낮음","t-cold"], credit:["확대 정점","악화","t-tight"],
+        news:"국제 정세 불안이 겹치며 지수가 연중 최저치를 다시 썼다. 주식형 자금이 예금으로 빠져나가고 있다." },
+      { rate:["1.25%","인하","t-ease"], cpi:["1.8%","낮음","t-cold"], credit:["완화 조짐","개선","t-ease"],
+        news:"금리가 다시 내려갔고 지수는 2년 만에 처음으로 2개월 연속 올랐다. 아직 아무도 ‘바닥’이라고 확신하지 않는다." }
     ],
     blurb:"이름 없는 기술주 지수는 2년 만에 5배가 되었다. 그리고 2년 반 만에 그 상승의 4분의 3을 반납했다.",
     lessons:[
-      "고점까지의 마지막 6개월은 +50%였다. 그러나 그 상승은 이익이 없는 기업들이 만들었다.",
+      "한 해에 +86%가 오른 뒤, 고점까지의 마지막 상승은 이익이 없는 기업들이 만들었다.",
       "고점 대비 -78%까지 2년 반, 이전 고점 회복까지는 15년이 걸렸다.",
       "하락장에서 ‘바닥’이라는 말은 적어도 네 번 나왔다. 그때마다 지수는 더 내려갔다."
     ]
@@ -646,6 +691,7 @@ const SCENARIOS = [
     sub: "미국 · 대형주",
     period: "1993.07 – 1997.06",
     start: { y: 1993, m: 7 },
+    init: 18,
     cash: 0.03,
     raw: [449,464,459,462,460,466,
           482,467,445,451,456,444,459,475,462,473,454,459,
@@ -654,23 +700,43 @@ const SCENARIOS = [
           636,645,647,654,669,670,
           639,652,687,705,735,740,
           758,790,758,801,848,885],
-    macro: [
-      { rate:["7.5%","긴축 마무리","t-tight"], cpi:["3.0%","안정","t-flat"], credit:["축소","긴장","t-tight"],
-        news:"지난해 금리 인상으로 눌렸던 시장이 조용히 반등하고 있다. 그러나 대부분의 투자자는 아직 지난해의 하락을 기억한다." },
-      { rate:["6.5%","인하 시작","t-ease"], cpi:["2.8%","안정","t-flat"], credit:["안정","중립","t-flat"],
-        news:"중앙은행이 금리를 내리자, 1년 넘게 미뤄둔 자금이 주식시장으로 돌아오기 시작했다." },
-      { rate:["5.5%","인하 후 동결","t-flat"], cpi:["2.9%","안정","t-flat"], credit:["안정","중립","t-flat"],
-        news:"지수는 사상 최고치 부근에서 숨을 고르고 있다. ‘과열’이라는 단어가 다시 등장한다." },
-      { rate:["5.5%","동결","t-flat"], cpi:["3.0%","완만","t-flat"], credit:["안정","중립","t-flat"],
-        news:"중앙은행 책임자가 ‘비합리적 과열’을 언급했지만, 시장은 하루 만에 그 말을 잊었다." },
-      { rate:["5.75%","소폭 인상","t-tight"], cpi:["2.5%","낮음","t-cold"], credit:["축소","긴장","t-tight"],
+    rounds: [
+      { rate:["6.0%","인하 시작","t-ease"], cpi:["2.9%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"지난해 일곱 차례 인상으로 멈춰 있던 자금이 움직이기 시작했다. 지수는 1년 만에 최고치를 넘어섰다." },
+      { rate:["6.0%","동결","t-flat"], cpi:["3.0%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"금리 인상이 끝났다는 확신이 퍼지자, 1년 넘게 미뤄둔 연기금 자금이 주식으로 들어오고 있다." },
+      { rate:["5.75%","소폭 인하","t-ease"], cpi:["3.2%","완만","t-flat"], credit:["안정","중립","t-flat"],
+        news:"지수가 사상 최고치를 경신했다. 그러나 ‘너무 빠르다’는 경고도 함께 나온다." },
+      { rate:["5.75%","동결","t-flat"], cpi:["2.8%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"여름철 거래량이 줄었는데도 지수는 조용히 고점을 높여갔다. 시장의 관심이 금리에서 기업 이익으로 옮겨간다." },
+      { rate:["5.75%","동결","t-flat"], cpi:["2.5%","낮음","t-cold"], credit:["안정","중립","t-flat"],
+        news:"물가가 2%대 중반으로 안정되며 ‘연착륙’이라는 말이 힘을 얻고 있다." },
+      { rate:["5.5%","인하","t-ease"], cpi:["2.6%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"한 해 동안 지수가 30% 넘게 올랐다. 그런데 대부분의 투자자는 아직 이것을 강세장이라고 부르지 않는다." },
+      { rate:["5.25%","인하","t-ease"], cpi:["2.7%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"새해에도 자금 유입이 이어지고 있다. 일부에서는 ‘과열’을 걱정하기 시작했다." },
+      { rate:["5.25%","동결","t-flat"], cpi:["2.9%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"고용 지표가 예상보다 강하게 나오며 금리 인상 우려가 다시 고개를 들었다. 지수는 하루 만에 2% 빠졌다." },
+      { rate:["5.25%","동결","t-flat"], cpi:["2.9%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"중앙은행 책임자가 ‘비합리적 과열’ 가능성을 언급했다. 시장은 이를 하루 만에 잊은 듯 다시 올랐다." },
+      { rate:["5.25%","동결","t-flat"], cpi:["3.0%","완만","t-flat"], credit:["안정","중립","t-flat"],
+        news:"실적이 예상치를 웃돌면서 조정은 2주 만에 끝났다. 고평가 논쟁은 계속되지만 지수는 다시 신고가다." },
+      { rate:["5.25%","동결","t-flat"], cpi:["3.0%","완만","t-flat"], credit:["안정","중립","t-flat"],
+        news:"지수가 상승 폭을 줄이며 옆으로 기고 있다. ‘선거 이후를 보자’는 분위기가 역력하다." },
+      { rate:["5.25%","동결","t-flat"], cpi:["2.9%","안정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"전문가들의 과열 경고에도 불구하고 한 해가 다시 두 자리 수 상승으로 끝났다." },
+      { rate:["5.25%","소폭 인상","t-tight"], cpi:["2.9%","안정","t-flat"], credit:["축소","긴장","t-tight"],
+        news:"중앙은행이 3년 만에 금리를 올렸다. 시장은 하루 만에 상승으로 되돌렸지만, 신용 시장은 조용히 조여들고 있다." },
+      { rate:["5.5%","동결","t-flat"], cpi:["2.5%","낮음","t-cold"], credit:["안정","중립","t-flat"],
+        news:"금리 인상에도 지수의 상승 속도가 오히려 빨라졌다. 개인 투자자의 신규 계좌가 급증하고 있다." },
+      { rate:["5.5%","동결","t-flat"], cpi:["2.2%","낮음","t-cold"], credit:["축소","긴장","t-tight"],
         news:"아시아에서 시작된 금융 불안이 번지고 있다. 전문가들은 ‘우리는 다르다’고 말한다." }
     ],
     blurb:"1994년, 금리 인상은 시장을 9% 밀어내는 데 그쳤다. 그 후 3년 동안 지수는 두 배 가까이 올랐다.",
     lessons:[
       "1994년 금리 인상기의 조정은 -9%에서 멈췄고, 다음 3년은 +90%였다.",
       "정책금리가 고점을 찍은 뒤 시장은 금리보다 기업 이익을 보기 시작했다.",
-      "이 구간에서 가장 비쌌던 결정은 첫 6개월의 ‘일단 관망’이었다."
+      "이 구간에서 가장 비쌌던 결정은 첫 라운드의 ‘일단 관망’이었다."
     ]
   },
   {
@@ -679,6 +745,7 @@ const SCENARIOS = [
     sub: "미국 · 대형주",
     period: "2006.07 – 2010.06",
     start: { y: 2006, m: 7 },
+    init: 18,
     cash: 0.01,
     raw: [1276,1304,1336,1378,1400,1418,
           1438,1407,1421,1482,1531,1503,1455,1474,1527,1549,1481,1468,
@@ -687,23 +754,43 @@ const SCENARIOS = [
           826,735,798,873,919,919,
           987,1021,1057,1036,1096,1115,
           1074,1104,1169,1187,1089,1030],
-    macro: [
-      { rate:["3.0%","인하 시작","t-ease"], cpi:["3.9%","높음","t-hot"], credit:["확대 조짐","악화","t-tight"],
+    rounds: [
+      { rate:["3.0%","인하 시작","t-ease"], cpi:["4.1%","높음","t-hot"], credit:["확대 조짐","악화","t-tight"],
         news:"대형 금융기관의 손실이 처음 드러났다. 당국은 ‘문제는 통제되고 있다’고 밝혔다." },
-      { rate:["1.0%","급격한 인하","t-ease"], cpi:["1.5%","급락","t-cold"], credit:["경색","위기","t-tight"],
+      { rate:["2.0%","급격한 인하","t-ease"], cpi:["4.0%","높음","t-hot"], credit:["확대","악화","t-tight"],
+        news:"한 대형 증권사가 하룻밤 사이 무너졌고, 중앙은행이 처음으로 직접 중개에 나섰다." },
+      { rate:["2.0%","동결","t-flat"], cpi:["4.2%","높음","t-hot"], credit:["경색","위기","t-tight"],
+        news:"원유 가격이 사상 최고치를 새로 썼다. 물가를 잡아야 하는지, 경기를 살려야 하는지 논쟁이 시작됐다." },
+      { rate:["2.0%","동결","t-flat"], cpi:["5.6%","높음","t-hot"], credit:["경색","위기","t-tight"],
+        news:"대형 보증기관이 사실상 국유화됐다. 신용 스프레드가 20년 만에 최고로 벌어졌다." },
+      { rate:["1.0%","급격한 인하","t-ease"], cpi:["4.5%","높음","t-hot"], credit:["경색","위기","t-tight"],
         news:"한 대형 투자은행이 파산하고 신용 시장이 멈췄다. 각국 정부가 동시에 개입했다." },
-      { rate:["0.25%","제로 금리","t-ease"], cpi:["0.0%","마이너스","t-cold"], credit:["경색 지속","위기","t-tight"],
-        news:"지수는 12년 전 수준으로 후퇴했다. 실업률은 매달 최악을 갱신하고 있다." },
-      { rate:["0.25%","제로 유지","t-flat"], cpi:["0.5%","낮음","t-cold"], credit:["서서히 완화","개선","t-ease"],
+      { rate:["0.25%","제로 금리","t-ease"], cpi:["0.1%","급락","t-cold"], credit:["경색 지속","위기","t-tight"],
+        news:"지수는 11년 전 수준으로 후퇴했다. 실업률은 매달 최악을 갱신하고 있다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["0.0%","마이너스","t-cold"], credit:["경색 지속","위기","t-tight"],
+        news:"은행 추가 부실 우려로 지수가 다시 연중 최저치를 썼다. ‘국유화’라는 단어가 공식적으로 등장했다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["-0.4%","마이너스","t-cold"], credit:["서서히 완화","개선","t-ease"],
+        news:"정부의 부실자산 매입 계획이 발표되자 금융주가 먼저 반등했다. 지수는 6주 만에 20% 넘게 올랐다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["-1.3%","마이너스","t-cold"], credit:["완화","개선","t-ease"],
         news:"경기가 예상보다 빨리 살아나고 있다. ‘회복’이라는 단어가 2년 만에 처음 나왔다." },
-      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.5%","낮음","t-cold"], credit:["재확대 우려","악화","t-tight"],
-        news:"유럽 일부 국가의 재정 위기가 터졌다. 1년 반 동안 오른 시장이 첫 시험대에 올랐다." }
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["-1.5%","마이너스","t-cold"], credit:["완화","개선","t-ease"],
+        news:"실적이 예상치를 웃돌며 지수는 저점 대비 50% 가까이 올랐다. ‘너무 빨랐다’는 회의론도 함께 커진다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["-0.2%","마이너스","t-cold"], credit:["안정","개선","t-ease"],
+        news:"지수가 1,000선을 회복했다. 일부에서는 출구 전략을 먼저 걱정하기 시작했다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.5%","낮음","t-cold"], credit:["안정","중립","t-flat"],
+        news:"한 해가 저점 대비 +60%로 끝났다. 3월에 팔았던 사람들은 다시 들어올 시점을 찾고 있다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.8%","낮음","t-cold"], credit:["재확대 우려","악화","t-tight"],
+        news:"유럽 일부 국가의 재정 위기가 터졌다. 1년 반 동안 오른 시장이 첫 시험대에 올랐다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["2.2%","완만","t-flat"], credit:["확대","악화","t-tight"],
+        news:"남유럽 국가의 국채 금리가 급등하고 있다. 지수는 2주 만에 8% 넘게 빠졌다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.8%","낮음","t-cold"], credit:["확대","악화","t-tight"],
+        news:"장중 한때 지수가 10분 만에 9%까지 밀리는 사고가 있었다. 원인은 아직 밝혀지지 않았다." }
     ],
     blurb:"신용의 균열은 1년 반 동안 진행됐고, 붕괴는 6개월 만에 끝났다. 바닥을 지나 1년 뒤 지수는 다시 1,100을 넘었다.",
     lessons:[
       "신용 스프레드가 벌어지기 시작한 뒤 지수가 정점을 찍기까지 9개월이 걸렸다.",
       "2008년 하반기 -29%, 그리고 2009년 3월 저점에서 그해 말까지 +65%.",
-      "바닥 이후의 6개월이 전체 회복 수익의 절반을 만들었다."
+      "바닥 이후 첫 6개월이 전체 회복 수익의 절반을 만들었다."
     ]
   },
   {
@@ -712,6 +799,7 @@ const SCENARIOS = [
     sub: "미국 · 대형주",
     period: "1972.07 – 1976.06",
     start: { y: 1972, m: 7 },
+    init: 18,
     cash: 0.03,
     raw: [111,113,110,112,115,118,
           118,114,113,111,107,105,107,104,109,108,96,97,
@@ -720,17 +808,37 @@ const SCENARIOS = [
           76,79,83,89,92,95,
           95,84,83,89,89,90,
           97,99,100,101,99,102],
-    macro: [
-      { rate:["8.5%","고금리","t-tight"], cpi:["11.0%","두 자리","t-hot"], credit:["축소","긴장","t-tight"],
+    rounds: [
+      { rate:["8.5%","인상","t-tight"], cpi:["10.0%","두 자리","t-hot"], credit:["축소","긴장","t-tight"],
         news:"원유 공급이 끊기며 연료 가격이 두 배가 됐다. 물가와 경기가 동시에 나빠지고 있다." },
-      { rate:["9.0%","고금리 유지","t-tight"], cpi:["10.5%","두 자리","t-hot"], credit:["경색","위기","t-tight"],
-        news:"주가는 명목 기준으로도 4년 전 수준이다. 많은 이들이 주식을 떠나 채권으로 갔다." },
-      { rate:["7.0%","인하 시작","t-ease"], cpi:["9.5%","높음","t-hot"], credit:["완화","개선","t-ease"],
+      { rate:["9.0%","추가 인상","t-tight"], cpi:["10.5%","두 자리","t-hot"], credit:["경색","위기","t-tight"],
+        news:"중앙은행이 물가를 잡기 위해 금리를 더 올렸다. 주가는 명목 기준으로도 3년 전 수준이다." },
+      { rate:["10.0%","고금리","t-tight"], cpi:["11.0%","두 자리","t-hot"], credit:["경색","위기","t-tight"],
+        news:"한 대형 은행의 부실이 드러나며 금융 시스템 불안이 커졌다. 시장은 ‘아직 끝나지 않았다’고 말한다." },
+      { rate:["11.0%","고금리 유지","t-tight"], cpi:["11.5%","두 자리","t-hot"], credit:["경색","위기","t-tight"],
+        news:"정치적 위기가 겹치며 지수가 연중 최저치를 다시 썼다. 많은 이들이 주식을 떠나 채권으로 갔다." },
+      { rate:["11.0%","동결","t-flat"], cpi:["12.0%","두 자리","t-hot"], credit:["경색","위기","t-tight"],
+        news:"물가 상승률이 12%를 넘었다. 예금도 실질 수익이 마이너스인 시대에 ‘주식은 위험하다’가 상식이 됐다." },
+      { rate:["9.0%","인하 시작","t-ease"], cpi:["11.5%","두 자리","t-hot"], credit:["완화","개선","t-ease"],
         news:"금리가 내려가기 시작하면서, 가장 먼저 움직인 것은 기관 자금이었다." },
-      { rate:["6.5%","인하 지속","t-ease"], cpi:["8.0%","높음","t-hot"], credit:["완화","개선","t-ease"],
-        news:"지수가 1년 새 40% 넘게 올랐지만, 아직 아무도 이것을 ‘강세장’이라고 부르지 않는다." },
-      { rate:["5.5%","동결","t-flat"], cpi:["6.0%","진정","t-flat"], credit:["안정","중립","t-flat"],
-        news:"물가가 진정되고 있다. 시장은 이제 ‘인플레이션’보다 ‘기업 이익’을 이야기하기 시작했다." }
+      { rate:["7.5%","인하","t-ease"], cpi:["10.5%","두 자리","t-hot"], credit:["완화","개선","t-ease"],
+        news:"지수가 3개월 만에 20% 넘게 올랐다. 그러나 대부분은 이것이 반등이 아니라 되돌림이라고 생각했다." },
+      { rate:["6.5%","인하","t-ease"], cpi:["9.5%","높음","t-hot"], credit:["완화","개선","t-ease"],
+        news:"한 해 넘게 미뤄둔 매수가 이어지고 있다. 거래량이 2년 만에 최고다." },
+      { rate:["6.0%","인하","t-ease"], cpi:["9.0%","높음","t-hot"], credit:["안정","중립","t-flat"],
+        news:"지수가 저점 대비 40% 넘게 올랐지만, 아직 아무도 이것을 ‘강세장’이라고 부르지 않는다." },
+      { rate:["6.0%","동결","t-flat"], cpi:["8.5%","높음","t-hot"], credit:["안정","중립","t-flat"],
+        news:"한 도시의 재정 파산 신청으로 지방채 시장이 얼어붙었다. 주식시장도 2개월 만에 조정을 받았다." },
+      { rate:["6.0%","동결","t-flat"], cpi:["8.0%","높음","t-hot"], credit:["안정","중립","t-flat"],
+        news:"물가가 진정되고 있다. 시장은 이제 ‘인플레이션’보다 ‘기업 이익’을 이야기하기 시작했다." },
+      { rate:["5.5%","인하","t-ease"], cpi:["7.0%","진정","t-flat"], credit:["완화","개선","t-ease"],
+        news:"한 해가 +30%로 끝났다. 1년 전에 팔았던 사람들이 다시 시장에 들어오고 있다." },
+      { rate:["5.5%","동결","t-flat"], cpi:["6.5%","진정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"지수가 3년 전 고점 부근에 도달했다. 그때 이후로 한 번도 넘지 못한 수준이다." },
+      { rate:["5.25%","인하","t-ease"], cpi:["6.0%","진정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"경기가 회복되고 실적이 좋아지는데도 지수는 3년 전 고점에서 번번이 밀린다." },
+      { rate:["5.25%","동결","t-flat"], cpi:["6.0%","진정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"지수는 고점을 조금 넘어섰지만 상승 폭은 1%에 그쳤다. ‘이제 다 왔다’는 확신이 사라진다." }
     ],
     blurb:"물가가 두 자리였던 시절, 주식은 명목으로도 2년 동안 반토막 났다. 회복은 빠르지 않았다.",
     lessons:[
@@ -738,13 +846,85 @@ const SCENARIOS = [
       "물가 10%대에서는 예금도 실질 수익이 마이너스였다. ‘현금이 안전하다’는 착각이 만들어진 시대다.",
       "주식이 현금보다 나쁜 구간은 실제로 존재한다. 이 시나리오가 그 증거다."
     ]
+  },
+  {
+    id: 5,
+    name: "S&P 500",
+    sub: "미국 · 대형주",
+    period: "2019.01 – 2023.12",
+    start: { y: 2019, m: 1 },
+    init: 12,
+    cash: 0.01,
+    raw: [2704,2784,2834,2946,2752,2942,2980,2926,2977,3038,3141,3231,
+          3226,2954,2585,2912,3044,3089,3271,3500,3363,3270,3622,3756,
+          3714,3811,3973,4181,4204,4298,4395,4523,4308,4605,4567,4766,
+          4516,4374,4530,4132,4132,3785,4130,3955,3586,3872,4080,3839,
+          4077,3970,4109,4169,4180,4450,4589,4508,4288,4194,4568,4770],
+    rounds: [
+      { rate:["1.75%","동결","t-flat"], cpi:["2.3%","완만","t-flat"], credit:["안정","중립","t-flat"],
+        news:"지수가 사상 최고치를 다시 썼다. 물가도 금리도 안정적이라 ‘나쁜 뉴스가 없다’는 말까지 나온다." },
+      { rate:["0.25%","긴급 인하","t-ease"], cpi:["1.5%","급락","t-cold"], credit:["급격히 확대","위기","t-tight"],
+        news:"전염병이 국경을 넘으며 도시가 봉쇄됐다. 몇 주 만에 지수가 30% 넘게 빠지고, 각국이 사상 최대 규모의 지원을 발표했다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["0.6%","급락","t-cold"], credit:["확대","위기","t-tight"],
+        news:"실업 신청이 역사상 가장 빠른 속도로 늘었다. 그런데도 지수는 저점에서 30% 넘게 반등했다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.0%","낮음","t-cold"], credit:["확대","완화","t-tight"],
+        news:"중앙은행이 무제한 자산 매입을 이어가겠다고 밝혔다. 유동성이 향하는 곳마다 가격이 오른다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.2%","낮음","t-cold"], credit:["확대 지속","악화","t-tight"],
+        news:"지수가 2개월 만에 조정을 받았다. 치료제 개발 시점과 규제 강화 가능성이 동시에 거론된다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.3%","낮음","t-cold"], credit:["확대","개선","t-ease"],
+        news:"추가 지원책이 통과되며 지수가 다시 사상 최고치를 썼다. 한 해가 두 자리 수 상승으로 끝났다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["1.5%","낮음","t-cold"], credit:["안정","중립","t-flat"],
+        news:"개인 투자자 자금이 사상 최대로 몰리고, 일부 종목이 하루에 두 배씩 오르는 일이 벌어졌다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["2.6%","완만","t-flat"], credit:["안정","중립","t-flat"],
+        news:"물가가 예상을 웃돌기 시작했다. 중앙은행은 ‘일시적’이라고 말하지만 채권 금리는 오르고 있다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["5.0%","높음","t-hot"], credit:["안정","중립","t-flat"],
+        news:"물가 상승률이 13년 만에 최고를 기록했다. 그런데 지수는 신고가를 이어갔다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["5.4%","높음","t-hot"], credit:["안정","중립","t-flat"],
+        news:"지수가 2개월 만에 여섯 번째 사상 최고치를 썼다. ‘실적이 좋으니 괜찮다’는 논리가 힘을 얻고 있다." },
+      { rate:["0.25%","제로 유지","t-flat"], cpi:["5.4%","높음","t-hot"], credit:["확대 조짐","악화","t-tight"],
+        news:"자산 매입 축소가 예고됐다. 이달 지수는 한 달 만에 가장 많이 빠졌다." },
+      { rate:["0.25%","동결","t-flat"], cpi:["6.8%","높음","t-hot"], credit:["완화","개선","t-ease"],
+        news:"물가 상승률이 수십 년 만에 최고로 올랐고, 중앙은행이 금리 인상 시점을 앞당기겠다고 밝혔다. 그런데도 지수는 한 해 +27%로 끝났다." },
+      { rate:["0.25%","긴축 예고","t-tight"], cpi:["7.5%","높음","t-hot"], credit:["축소","긴장","t-tight"],
+        news:"첫 금리 인상이 예고되자 지수가 한 달에만 5% 빠졌다. 가장 먼저 무너진 것은 고평가 성장주였다." },
+      { rate:["0.5%","인상 시작","t-tight"], cpi:["8.5%","높음","t-hot"], credit:["축소","긴장","t-tight"],
+        news:"물가가 수십 년 만에 가장 높은 수준으로 올랐고, 중앙은행이 한 번에 0.5%p 인상을 예고했다." },
+      { rate:["1.25%","빠른 인상","t-tight"], cpi:["8.6%","높음","t-hot"], credit:["경색 조짐","위기","t-tight"],
+        news:"지수가 상반기에만 -20%를 넘게 빠졌다. 신용 스프레드가 2년 만에 가장 크게 벌어졌다." },
+      { rate:["2.25%","인상","t-tight"], cpi:["8.5%","높음","t-hot"], credit:["확대","악화","t-tight"],
+        news:"지수가 2개월 연속 반등했다. ‘물가 정점’이라는 기대가 먼저 움직였다." },
+      { rate:["3.25%","인상","t-tight"], cpi:["8.2%","높음","t-hot"], credit:["확대","악화","t-tight"],
+        news:"물가가 쉽게 꺾이지 않자 지수가 연중 최저치를 다시 썼다. 이번 하락은 ‘어디서 멈출지’를 아무도 말하지 않는다." },
+      { rate:["4.25%","인상","t-tight"], cpi:["7.1%","높음","t-hot"], credit:["확대","악화","t-tight"],
+        news:"인상 속도 조절 신호에 지수가 반등했지만, 한 해는 15년 만에 최악으로 끝났다." },
+      { rate:["4.75%","인상","t-tight"], cpi:["6.0%","진정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"물가가 6%까지 내려왔고, 시장은 ‘금리 고점’을 반영하기 시작했다." },
+      { rate:["5.0%","인상","t-tight"], cpi:["5.0%","진정","t-flat"], credit:["축소","긴장","t-tight"],
+        news:"한 중형 은행이 일주일 만에 무너지고 다른 은행으로 예금이 몰렸다. 지수는 3주 만에 8% 빠졌다." },
+      { rate:["5.25%","동결","t-flat"], cpi:["3.8%","진정","t-flat"], credit:["완화","개선","t-ease"],
+        news:"실적이 예상보다 견조했고, 고평가 기업들이 지수를 이끌며 반등이 이어졌다." },
+      { rate:["5.5%","인상","t-tight"], cpi:["3.2%","진정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"지수가 연고점을 기록했다. ‘연착륙’이라는 단어가 1년 만에 다시 등장했다." },
+      { rate:["5.5%","동결","t-flat"], cpi:["3.7%","완만","t-flat"], credit:["확대","악화","t-tight"],
+        news:"장기 국채 금리가 급등하며 지수가 3개월 만에 조정을 받았다. ‘금리 고점’ 기대가 흔들렸다." },
+      { rate:["5.5%","동결","t-flat"], cpi:["3.1%","진정","t-flat"], credit:["안정","중립","t-flat"],
+        news:"인하 기대가 되살아나며 지수가 마지막 두 달에 14% 넘게 올랐다. 1년 전과 같은 자리에서 사람들은 다른 이야기를 하고 있다." }
+    ],
+    blurb:"4년 동안 지수는 +48%였다. 그 사이 -34%의 붕괴와 회복이 있었고, 다음 해에는 다시 -25%가 왔다. 같은 기간에 지표는 세 번 완전히 뒤집혔다.",
+    lessons:[
+      "급락은 5주 만에 -34%였고 회복은 그보다 빨랐다. 그 구간에 손을 뗀 결정이 가장 비쌌다.",
+      "하락장에서 정책금리는 2년 만에 0%에서 5%대로 올랐다. 유동성이 사라지면 회복도 느려진다.",
+      "4년을 통째로 보면 +48%지만, 중간의 -34%를 견디지 못하면 그 수익은 아무 의미가 없다."
+    ]
   }
 ];
 
 /* normalize each series to 100 at start */
-SCENARIOS.forEach(sc=>{
-  const base = sc.raw[0];
-  sc.norm = sc.raw.map(v => +(v / base * 100).toFixed(3));
+SCENARIOS.forEach(s => {
+  const base = s.raw[0];
+  s.norm = s.raw.map(v => +(v / base * 100).toFixed(3));
+  s.total = s.raw.length;                        /* months in the whole series */
+  s.rounds.forEach((r,i)=>{ r.idx = i; });        /* 1 round = 2 months */
 });
 
 /* =========================================================
@@ -767,7 +947,7 @@ const S = {
   screen: "start",
   scIndex: null,
   round: 0,
-  lastVisible: INITIAL - 1,
+  lastVisible: 0,
   capital: START_CAPITAL,
   choice: null,
   history: [],
@@ -775,6 +955,12 @@ const S = {
 };
 
 function sc(){ return SCENARIOS[S.scIndex]; }
+
+/* rounds still locked after the one on screen — never printed before the reveal */
+function lockedRounds(){
+  const R = sc().rounds.length;
+  return R - S.round - (S.phase === "result" ? 1 : 0);
+}
 
 /* =========================================================
    chart
@@ -793,6 +979,7 @@ function niceStep(span, count){
 
 function buildChart(opts){
   const scenario = sc();
+  const N = scenario.total, INITIAL = scenario.init, ROUNDS = scenario.rounds.length;
   const full = !!opts.full;
   const last = full ? N - 1 : opts.last;
   const recent = opts.recent || null;   // [fromIdx, toIdx]
@@ -848,12 +1035,14 @@ function buildChart(opts){
   /* round bands (reveal only) */
   if (full) {
     const bounds = [INITIAL - 1];
-    for (let r=0; r<ROUNDS; r++) bounds.push(INITIAL + (r+1)*SEG - 1);
+    for (let r=0; r<ROUNDS; r++) bounds.push(INITIAL - 1 + (r+1)*SEG);
+    const labelStep = ROUNDS > 8 ? Math.ceil(ROUNDS / 6) : 1;
     for (let r=0; r<ROUNDS; r++){
       const a = X(bounds[r]), b = X(bounds[r+1]);
       if (r % 2 === 1) s += `<rect x="${a}" y="${pt}" width="${b-a}" height="${H-pt-pb}" fill="#ffffff" opacity=".017"/>`;
       s += `<line x1="${b}" y1="${pt}" x2="${b}" y2="${H-pb}" stroke="#7ea3d6" stroke-opacity=".13" stroke-width="1"/>`;
-      s += `<text x="${(a+b)/2}" y="${pt-14}" fill="#5f7597" font-size="10" letter-spacing="2" text-anchor="middle" font-family="inherit">R${r+1}</text>`;
+      if (r % labelStep === 0 || r === ROUNDS - 1)
+        s += `<text x="${(a+b)/2}" y="${pt-14}" fill="#5f7597" font-size="10" letter-spacing="2" text-anchor="middle" font-family="inherit">R${r+1}</text>`;
     }
   }
 
@@ -910,7 +1099,7 @@ function buildChart(opts){
         <rect x="-11" y="-2" width="22" height="16" rx="3"/>
         <path d="M-6,-2 v-6 a6,6 0 0 1 12,0 v6"/>
       </g>
-      <text x="${cx}" y="${cy+60}" fill="#7b90ad" font-size="${small?10:11.5}" text-anchor="middle" letter-spacing="${small?0.6:1.4}" font-family="inherit">잠긴 미래 · ${ROUNDS - S.round}개 구간</text>
+      <text x="${cx}" y="${cy+60}" fill="#7b90ad" font-size="${small?10:11.5}" text-anchor="middle" letter-spacing="${small?0.6:1.4}" font-family="inherit">잠긴 미래 구간</text>
     </g>`;
   }
 
@@ -1001,7 +1190,7 @@ function renderStart(){
       </div>
     </button>`).join("");
   S.scIndex = null;
-  S.round = 0; S.history = []; S.choice = null; S.phase = "decide"; S.lastVisible = INITIAL - 1;
+  S.round = 0; S.history = []; S.choice = null; S.phase = "decide"; S.lastVisible = 0;
   S.capital = START_CAPITAL;
   const b = $("#btnStart");
   b.disabled = true; b.textContent = "시나리오를 선택하세요";
@@ -1022,61 +1211,53 @@ function renderPlay(){
   ms.textContent = "누적 " + fmtSigned(ret);
   ms.className = "money-sub num " + pctClass(ret);
 
-  /* dots */
-  $("#dots").innerHTML = Array.from({length:ROUNDS},(_,i)=>{
-    const cls = i < r || (i === r && isResult) ? "done" : (i === r ? "active" : "");
-    return `<span class="dot ${cls}"></span>`;
-  }).join("");
-
   /* chart */
-  const recent = S.lastVisible > (INITIAL - 1) ? [S.lastVisible - SEG, S.lastVisible] : null;
+  const recent = S.lastVisible > (scenario.init - 1) ? [S.lastVisible - SEG, S.lastVisible] : null;
   $("#chartWrap").innerHTML = buildChart({last:S.lastVisible, recent, hostW: $("#chartWrap").clientWidth || 860});
 
-  const remain = ROUNDS - (isResult ? r + 1 : r);
   const chip = $("#lockChip");
-  if (remain > 0){
+  if (lockedRounds() > 0){
     chip.className = "chip locked";
-    chip.textContent = `🔒 미래 ${remain}개 구간`;
+    chip.textContent = "🔒 미래 잠김";
   } else {
     chip.className = "chip live";
     chip.textContent = "✓ 모든 구간 열림";
   }
 
-  /* round log */
-  $("#roundLog").innerHTML = Array.from({length:ROUNDS},(_,i)=>{
-    const h = S.history[i];
-    if (h){
-      return `<div class="log-row">
+  /* round log — only what has happened (+ the live round), scrolls past ~8 rows */
+  const rows = S.history.map((h,i)=>`
+      <div class="log-row">
         <span class="lr-r">R${i+1}</span>
         <span class="lr-choice">${posLabel(h.choice)}</span>
         <span class="lr-mkt ${pctClass(h.mkt)}">${fmtSigned(h.mkt)}</span>
         <span class="lr-port ${pctClass(h.port)}">${fmtSigned(h.port)}</span>
         <span class="lr-cap">${fmtMoney(h.capital)}</span>
+      </div>`).join("");
+  const nowRow = isResult ? "" : `
+      <div class="log-row now">
+        <span class="lr-r">R${r+1}</span>
+        <span class="lr-choice">비중 선택 중</span>
+        <span class="lr-mkt">—</span>
+        <span class="lr-port">—</span>
+        <span class="lr-cap">—</span>
       </div>`;
-    }
-    const now = i === r && !isResult;
-    return `<div class="log-row ${now?'now':'pending'}">
-      <span class="lr-r">R${i+1}</span>
-      <span class="lr-choice">${now?'비중 선택 중':'—'}</span>
-      <span class="lr-mkt">—</span>
-      <span class="lr-port">—</span>
-      <span class="lr-cap">—</span>
-    </div>`;
-  }).join("");
+  const logEl = $("#roundLog");
+  logEl.innerHTML = rows + nowRow;
+  logEl.scrollTop = logEl.scrollHeight;
 
   /* panel */
   $("#decidePanel").classList.toggle("hidden", isResult);
   $("#resultPanel").classList.toggle("hidden", !isResult);
 
   if (!isResult){
-    const m = scenario.macro[r];
+    const m = scenario.rounds[r];
     $("#macroBox").innerHTML = `
       ${macroRow("정책금리", m.rate)}
       ${macroRow("물가", m.cpi)}
       ${macroRow("신용 스프레드", m.credit)}
     `;
     $("#newsBox").innerHTML = `<span class="news-tag">당시의 한 줄</span>${escapeHtml(m.news)}`;
-    $("#roundChip").textContent = `R${r+1} · 다음 6개월`;
+    $("#roundChip").textContent = `R${r+1} · 다음 2개월`;
 
     const cashPct = (scenario.cash * 100).toFixed(1);
     $("#posGrid").innerHTML = POSITIONS.map(p=>`
@@ -1119,7 +1300,7 @@ function renderResult(){
   const scenario = sc();
   const h = S.history[S.history.length - 1];
   const el = $("#resultPanel");
-  const last = S.round === ROUNDS - 1;
+  const last = S.round === sc().rounds.length - 1;
 
   let insight = "";
   if (h.choice === 0){
@@ -1154,13 +1335,15 @@ function renderResult(){
 /* ---------- reveal ---------- */
 function renderReveal(){
   const scenario = sc();
+  const R = scenario.rounds.length;
   showScreen("reveal");
 
+  $("#rvEyebrow").textContent = `REVEAL · ${R} ROUNDS COMPLETE`;
   $("#rvName").textContent = scenario.name;
   $("#rvPeriod").innerHTML = `<b>${scenario.period}</b> · ${scenario.sub} · 시작값 100 기준`;
 
   const me = S.capital / START_CAPITAL - 1;
-  const bh = scenario.norm[N-1] / scenario.norm[INITIAL-1] - 1;
+  const bh = scenario.norm[scenario.total-1] / scenario.norm[scenario.init-1] - 1;
   const alpha = me - bh;
 
   $("#rvMe").textContent = fmtSigned(me);
@@ -1169,7 +1352,7 @@ function renderReveal(){
 
   $("#rvBh").textContent = fmtSigned(bh);
   $("#rvBh").className = "v-value num " + pctClass(bh);
-  $("#rvBhSub").textContent = `같은 5구간, 아무것도 하지 않았다면`;
+  $("#rvBhSub").textContent = `같은 ${R}구간(${Math.round(R*SEG/12*10)/10}년), 아무것도 하지 않았다면`;
 
   const aEl = $("#rvAlpha");
   aEl.textContent = fmtSigned(alpha);
@@ -1178,7 +1361,7 @@ function renderReveal(){
     ? `단순 보유보다 ${Math.abs(alpha*100).toFixed(1)}%p 앞섰습니다.`
     : `단순 보유보다 ${Math.abs(alpha*100).toFixed(1)}%p 뒤졌습니다.`;
 
-  $("#rvChartWrap").innerHTML = buildChart({full:true, last:N-1, hostW: $("#rvChartWrap").clientWidth || 1000});
+  $("#rvChartWrap").innerHTML = buildChart({full:true, last:scenario.total-1, hostW: $("#rvChartWrap").clientWidth || 1000});
 
   /* table */
   $("#rtBody").innerHTML = S.history.map((h,i)=>`
@@ -1241,27 +1424,27 @@ function analyze(){
   const defAtWorst = allocs[worstI] <= 30;
   const attAtBest = allocs[bestI] >= 60;
   const me = S.capital / START_CAPITAL - 1;
-  const bh = sc().norm[N-1] / sc().norm[INITIAL-1] - 1;
+  const bh = sc().norm[sc().total-1] / sc().norm[sc().init-1] - 1;
   const alpha = me - bh;
 
   if (allocs.every(a => a === 100)){
     return {
       name:"풀 베팅형", en:"ALL IN",
-      desc:`다섯 번 모두 주식 100%를 선택했습니다. 결과적으로 단순 보유와 정확히 같은 성적(${fmtSigned(me)})입니다. 시장을 이기려 한 것이 아니라, 시장과 함께 간 것입니다.`,
+      desc:`${H.length}번 모두 주식 100%를 선택했습니다. 결과적으로 단순 보유와 정확히 같은 성적(${fmtSigned(me)})입니다. 시장을 이기려 한 것이 아니라, 시장과 함께 간 것입니다.`,
       tip:"풀 베팅은 ‘타이밍을 포기하는’ 가장 단순한 전략입니다. 다만 하락장에서 버틸 수 있는 기간과 자금 성격을 먼저 확인해야 유효합니다."
     };
   }
   if (allocs.every(a => a === 0)){
     return {
       name:"현금 성벽형", en:"CASH FORTRESS",
-      desc:`다섯 번 모두 전액 현금이었습니다. 시장이 ${fmtSigned(bh)} 움직이는 동안 자산은 이자만큼만 변해 ${fmtSigned(me)}를 기록했습니다. 이번에는 시장이 나빴기 때문에 이 선택이 이겼습니다.`,
+      desc:`${H.length}번 모두 전액 현금이었습니다. 시장이 ${fmtSigned(bh)} 움직이는 동안 자산은 이자만큼만 변해 ${fmtSigned(me)}를 기록했습니다. 이번에는 시장이 나빴기 때문에 이 선택이 이겼습니다.`,
       tip:"현금은 손실을 막지만 회복도 막습니다. 강세장 시나리오에서는 같은 선택이 기회비용이 됩니다. 다시 들어갈 조건을 미리 적어두세요."
     };
   }
   if (cash >= 3){
     return {
       name:"현금 성벽형", en:"CASH FORTRESS",
-      desc:`다섯 번 중 ${cash}번을 전액 현금으로 보냈습니다. 이 시나리오에서는 시장이 크게 흔들렸기 때문에 ${fmtSigned(alpha)}의 성과가 나왔지만, 현금은 변동성이 아니라 기회비용을 지불하는 자산입니다.`,
+      desc:`${H.length}번 중 ${cash}번을 전액 현금으로 보냈습니다. 이 시나리오에서는 시장이 크게 흔들렸기 때문에 ${fmtSigned(alpha)}의 성과가 나왔지만, 현금은 변동성이 아니라 기회비용을 지불하는 자산입니다.`,
       tip:"현금은 ‘안전한 선택’이 아니라 ‘가격이 정해지지 않은 옵션’입니다. 다시 들어갈 조건(지수 레벨, 금리, 기간)을 미리 적어두면 방어가 전략이 됩니다."
     };
   }
@@ -1282,7 +1465,7 @@ function analyze(){
   if (panic >= 3){
     return {
       name:"조기 공포형", en:"EARLY PANIC",
-      desc:`다섯 번 중 ${panic}번 주식 비중을 30% 이하로 낮췄습니다. 하락이 시작되면 빠르게 몸을 피하는 편인데, ${mkts[bestI] > 0 ? `가장 많이 오른 R${bestI+1}` : `가장 덜 빠진 R${bestI+1}`}(${fmtSigned(mkts[bestI])})에서도 비중은 ${allocs[bestI]}%였습니다.`,
+      desc:`${H.length}번 중 ${panic}번 주식 비중을 30% 이하로 낮췄습니다. 하락이 시작되면 빠르게 몸을 피하는 편인데, ${mkts[bestI] > 0 ? `가장 많이 오른 R${bestI+1}` : `가장 덜 빠진 R${bestI+1}`}(${fmtSigned(mkts[bestI])})에서도 비중은 ${allocs[bestI]}%였습니다.`,
       tip:"공포는 손실을 줄여주지만 회복도 함께 막습니다. ‘위험을 줄인다’와 ‘시장을 떠난다’를 구분하고, 재진입 시점을 결정 전에 정해두는 것이 좋습니다."
     };
   }
@@ -1313,7 +1496,7 @@ function analyze(){
 function startGame(i){
   S.scIndex = i;
   S.round = 0;
-  S.lastVisible = INITIAL - 1;
+  S.lastVisible = SCENARIOS[i].init - 1;
   S.capital = START_CAPITAL;
   S.choice = null;
   S.history = [];
@@ -1336,7 +1519,7 @@ function pickScenario(i){
 function confirmChoice(){
   if (S.choice === null) return;
   const scenario = sc();
-  const startIdx = INITIAL - 1 + S.round * SEG;
+  const startIdx = scenario.init - 1 + S.round * SEG;
   const endIdx = startIdx + SEG;
   const mkt = scenario.norm[endIdx] / scenario.norm[startIdx] - 1;
   const cashGrow = Math.pow(1 + scenario.cash, SEG/12) - 1;
