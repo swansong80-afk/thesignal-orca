@@ -58,6 +58,7 @@ https://thesignal-orca.pages.dev/verify 에 있습니다.
 
 ### The Signal : 한 주의 지도 (Weekly Map)
 
+- No.02 (2026-11-21) 「선불에서 고금리 부채로 — AI 인프라 자금 지도가 바뀌었다」 — 알파벳 3분기 513억 대 84억(6.1배), 네 하이퍼스케일러 분기 설비 지출 2,019억 달러 > 영업현금흐름 1,755억 달러, 스페이스X GPU 채권 A3 8.259%(미 IG 평균 5.95%), 알파벳 C$ 2066년물 6.000%, 연준 금융안정보고서 부외 약정 3조 달러+. https://thesignal-orca.pages.dev/map-02
 - No.01 (2026-07-27) 「빚을 낸 게 아니라, 도착할 비용을 선불한 것이다」 — 하이퍼스케일러 감가상각 벽. https://thesignal-orca.pages.dev/map-01
 
 ### The Signal : Deep Research (심층)

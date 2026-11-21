@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>선불에서 고금리 부채로 — AI 인프라 자금 지도가 바뀌었다 — The Signal</title>
+<meta name="description" content="7월의 449 대 71은 그대로다. 달라진 것은 그 6배를 메우는 돈의 주인이다 — 8.259% 채권, 2066년 만기, 3조 달러 부외 약정. 한 주의 지도 No.02.">
+<link rel="canonical" href="https://thesignal-orca.pages.dev/map-02">
+<meta property="og:type" content="article">
+<meta property="og:title" content="선불에서 고금리 부채로 — AI 인프라 자금 지도가 바뀌었다">
+<meta property="og:description" content="하이퍼스케일러 감가상각 벽의 속편 — 같은 6배의 갭을, 이제 다른 사람의 돈으로 메운다.">
+<meta property="og:url" content="https://thesignal-orca.pages.dev/map-02">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff; --page:#f3f4f6; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee; --main:720px;
+    --dom:#101c30; --dom-line:rgba(255,255,255,.10); --dom-label:#b9c2d6; --gold:#d9a842;
+    --slab:"Roboto Slab",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--page); color:var(--ink); font-family:var(--sans);
+       font-size:17px; line-height:1.85; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--main); margin:0 auto; background:var(--paper);
+        padding:60px 40px 80px; box-shadow:0 1px 40px -18px rgba(20,24,28,.18);}
+  .masthead{font-family:var(--slab); font-size:1.02rem; letter-spacing:.14em; text-transform:uppercase;
+            color:var(--accent); font-weight:700; margin:0;}
+  .mhrule{border:0; border-top:1px solid var(--rule); margin:15px 0 28px;}
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft); font-weight:600;}
+  h1{font-size:2.05rem; line-height:1.32; letter-spacing:-.02em; margin:0 0 14px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.62; color:var(--ink-soft); font-weight:500; margin:0 0 26px;}
+  .lead{font-size:1.06rem; margin:0 0 4px;}
+  hr{border:0; border-top:1px solid var(--rule); margin:34px 0;}
+  .sigcard{background:var(--dom); border-radius:10px; padding:24px 24px 20px; margin:30px 0 40px;
+           color:#fff; box-shadow:0 22px 46px -28px rgba(16,28,48,.6);}
+  .sigcard .t{font-family:var(--slab); font-size:.8rem; letter-spacing:.26em; text-transform:uppercase;
+              color:var(--gold); margin:0 0 16px; display:flex; justify-content:space-between;}
+  .sigcard .t .rt{color:var(--dom-label); letter-spacing:.18em; font-weight:600;}
+  .sigrow{display:flex; justify-content:space-between; align-items:baseline; gap:18px;
+          padding:10px 0; border-bottom:1px solid var(--dom-line);}
+  .sigrow .k{font-size:13px; color:var(--dom-label); white-space:nowrap;}
+  .sigrow .v{font-size:14.5px; color:#fff; font-weight:500; text-align:right;}
+  .sigrow .star{color:var(--gold); letter-spacing:3px;}
+  .sigweak{margin-top:16px; padding-top:15px; border-top:1px solid var(--dom-line);}
+  .sigweak .k{font-family:var(--slab); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 7px;}
+  .sigweak p{font-size:13.5px; line-height:1.7; color:#e2e6ee; margin:0;}
+  .cap-note{font-size:12px; color:var(--dom-label); margin:14px 0 0; padding-top:12px; border-top:1px solid var(--dom-line); line-height:1.65;}
+  .part{font-family:var(--slab); font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
+        color:var(--accent); font-weight:700; margin:46px 0 4px;}
+  h3.head{font-size:1.42rem; line-height:1.4; letter-spacing:-.01em; font-weight:700; margin:0 0 20px; color:var(--ink);}
+  h4{font-size:1.05rem; font-weight:700; color:var(--cap); margin:22px 0 10px;}
+  p{margin:0 0 20px;}
+  .lead-in{font-weight:700; color:var(--cap);}
+  strong,b{font-weight:700;}
+  ul{margin:0 0 20px; padding-left:0; list-style:none;}
+  ul li{position:relative; padding-left:20px; margin-bottom:12px;}
+  ul li::before{content:""; position:absolute; left:1px; top:.75em; width:7px; height:2px; background:var(--accent);}
+  .box{background:var(--box); border:1px solid var(--boxline); border-radius:10px; padding:18px 20px; margin:0 0 26px;}
+  .box .k{font-family:var(--slab); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; font-weight:700;}
+  .box div{margin:5px 0; font-size:14.5px;}
+  .scorecard{background:#fbf9f4; border:1px solid #e8dcc0; border-left:3px solid var(--gold); border-radius:8px; padding:20px 22px; margin:0 0 30px;}
+  .scorecard .k{font-family:var(--slab); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:#9a7b2e; margin:0 0 12px; font-weight:700;}
+  .scorecard p{font-size:15px; margin:0 0 12px;}
+  .scorecard p:last-child{margin-bottom:0;}
+  table{width:100%; border-collapse:collapse; margin:0 0 24px; font-size:14px; line-height:1.65;}
+  caption{caption-side:top; text-align:left; font-size:12.5px; color:var(--muted); padding-bottom:8px;}
+  th,td{border-bottom:1px solid var(--rule); padding:9px 8px; vertical-align:top; text-align:left;}
+  th{font-family:var(--slab); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--cap); border-bottom:1.5px solid var(--cap);}
+  td.r,th.r{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap;}
+  tr.total td{font-weight:700; border-top:1.5px solid var(--cap); border-bottom:0;}
+  .tiny{font-size:12px; color:var(--muted);}
+  .sources{margin-top:48px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.7;}
+  .sources .h{font-family:var(--slab); font-weight:700; color:var(--cap); font-size:1.02rem; margin-bottom:14px;}
+  .sources ol{margin:0; padding-left:22px;} .sources li{margin-bottom:10px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .tier{font-size:.72rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px; padding:0 5px; margin-right:7px; vertical-align:1px;}
+  .tier.t1{color:#2f4f7a; border-color:#c6d3e8;}
+  .disc{margin-top:38px; padding:16px 20px; border:1px solid var(--boxline); border-radius:6px; background:#f0f1f3; font-size:13px; color:#555; line-height:1.75;}
+  .disc b{display:block; margin-bottom:6px; color:var(--ink-soft);}
+  .signoff{margin-top:44px; padding-top:38px; border-top:2.5px solid var(--cap); text-align:center;}
+  .ss-brand{font-family:var(--slab); font-size:2.3rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1; margin-bottom:10px;}
+  .ss-line{font-size:1.05rem; color:var(--accent); font-weight:500; letter-spacing:.04em;}
+  @media(max-width:600px){ .wrap{padding:40px 20px 64px;} body{font-size:16px;} .sigrow{flex-direction:column; gap:2px; align-items:flex-start;} .sigrow .v{text-align:left;}
+    table{font-size:12.5px;} th,td{padding:7px 5px;} td.r,th.r{white-space:normal;} }
+  @media print{
+    body{background:#fff;}
+    .wrap{box-shadow:none; max-width:100%; padding:28px 34px;}
+    .sigcard, .box, .scorecard, .sources, .disc, .signoff, table{ break-inside:avoid; page-break-inside:avoid; }
+    h1, h2, h3, h4{ break-after:avoid; page-break-after:avoid; }
+    p, li{ orphans:3; widows:3; }
+    a{ color:inherit !important; text-decoration:underline; }
+  }
+</style>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+</head>
+<body>
+<div class="wrap">
+<article>
+
+  <div class="masthead">THE SIGNAL · 한 주의 지도</div>
+  <hr class="mhrule">
+  <div class="meta">
+    <b>발행</b> · 한 주의 지도 No.02 · 2026년 11월 21일<br>
+    <b>도메인</b> · 자본 × 기술<br>
+    <b>신선도</b> · 11월 20일 미국 정규장 · 10월 FOMC 의사록(11/18 공개) · 연준 금융안정보고서(11/13) · 알파벳 3분기 공시(10/28) 기준<br>
+    <b>종합</b> · 한 주의 지도 No.01 「빚을 낸 게 아니라, 도착할 비용을 선불한 것이다」 후속
+  </div>
+
+  <h1>선불에서 고금리 부채로 — AI 인프라 자금 지도가 바뀌었다</h1>
+  <h2 class="sub">7월의 449 대 71은 그대로다. 달라진 것은 그 6배를 메우는 돈의 주인이다 — 8.259% 채권, 2066년 만기, 3조 달러 부외 약정</h2>
+  <p class="lead">지난 지도에서 우리는 알파벳의 한 분기에서 두 숫자를 나란히 놓았다. 설비로 쓴 <b>449억 달러</b>, 같은 분기 비용으로 인식한 유형자산 감가상각 <b>71억 달러</b>. 그 사이의 6배를 우리는 <b>“도착할 비용의 선불”</b>이라고 불렀다. 네 달이 지났다. 간격은 그대로다. 3분기에는 설비로 <b>513억 5,500만 달러</b>를 쓰고 감가상각으로 <b>83억 6,900만 달러</b>를 인식했다. 여전히 <b>6.1배</b>다.</p>
+  <p>그런데 그 6배를 메우는 <b>돈의 출처</b>가 바뀌었다. 7월에는 회사가 번 돈과 회사 이름으로 빌린 회사채였다. 11월에는 <b>8.259%를 주고 판 특수목적법인의 채권</b>, <b>2066년에 갚는 40년 만기 채권</b>, 그리고 재무제표 밖에 쌓인 <b>3조~4조 달러의 약정</b>이다. 비용은 사라지지 않았다. 그 비용을 사는 사람이 회사에서 <b>연기금·보험사·하이일드 펀드·사모신용</b>으로 옮겨갔을 뿐이다. 이 글은 그 이동을 추적한다.</p>
+
+  <hr>
+
+  <section class="sigcard" aria-label="시그널 카드">
+    <div class="t"><span>Signal Card</span><span class="rt">자본 × 기술</span></div>
+    <div class="sigrow"><span class="k">신호 강도</span><span class="v"><span class="star">★★★★</span>☆</span></div>
+    <div class="sigrow"><span class="k">신호 유형</span><span class="v">조달 구조 전환 · 위험의 이동</span></div>
+    <div class="sigrow"><span class="k">신호 영역</span><span class="v">자본 (교차: 기술)</span></div>
+    <div class="sigrow"><span class="k">확신도</span><span class="v">중간~높음 (사실은 1차 확인, 해석은 판단)</span></div>
+    <div class="sigrow"><span class="k">전개 시계</span><span class="v">2027년 상반기 리스 개시 → 2027~2028 비용·만기 도착</span></div>
+    <div class="sigrow"><span class="k">핵심 작동 원리</span><span class="v">같은 갭을 다른 사람의 돈으로 — 자기 현금 → SPV·장기채·부외 약정</span></div>
+    <div class="sigweak">
+      <div class="k">논리적 약한 고리</div>
+      <p>8.259%는 스페이스X 한 건의 <b>보장부(Saturn Funding Trust) 채권</b> 금리다. 같은 회사의 무보증 회사채도, 투자등급 지수 평균도 아니다. 담보·특수목적법인 구조 때문에 금리의 일부는 신용이 아니라 구조가 만든 값이다. 또 “부외 약정 3조~4조 달러”는 할인하지 않은 <b>최대 계약액</b>이지 예상 손실이 아니다. “선불이 부채로 바뀌었다”는 이동 자체는 우리의 해석이며, 회사들은 그것을 성장을 위한 자금 조달이라고 부른다.</p>
+    </div>
+    <p class="cap-note">이 등급은 신호의 구조적 명확성과 근거 강도를 평가한 것이며, 특정 투자 판단이나 종목의 매력도를 의미하지 않습니다.</p>
+  </section>
+
+  <p class="part">지도가 잇는 두 신호</p>
+  <h3 class="head">6배는 그대로다. 달라진 것은 그 6배를 메우는 돈이다</h3>
+  <p>지난 지도(<b><a href="map-01" style="color:var(--accent);">「빚을 낸 게 아니라, 도착할 비용을 선불한 것이다」</a></b>)의 발견은 이랬다. 알파벳은 한 분기에 설비로 449억을 쓰면서 장부에는 71억만 비용으로 적었다. 지출은 지금 나가고 비용은 몇 해에 걸쳐 도착하니, 지금의 이익은 실제보다 가벼워 보인다. 그리고 그 이익이 무너지기 전에, 즉 회사 사정이 나빠 보이기 전에 미리 자금을 확보해 두는 것이 합리적이라는 읽기였다.</p>
+  <p>이번 지도가 확인한 것은 두 가지다. 첫째, <b>그 갭은 좁혀지지 않았다.</b> 알파벳의 3분기 설비 지출은 513억 5,500만 달러, 유형자산 감가상각은 83억 6,900만 달러다. 6.1배로, 2분기의 6.3배와 사실상 같다. 둘째, <b>선불의 재원이 바뀌었다.</b> 2분기 알파벳의 잉여현금흐름은 −59억 달러였고, 3분기에는 −91억 달러로 더 깊어졌다. 회사가 번 돈으로 선불을 하던 단계는 끝났다. 이제 선불은 <b>빌린 돈으로, 그것도 값이 매겨진 돈으로</b> 이루어진다.</p>
+  <p>그래서 이번 지도의 질문은 지난번과 정확히 대칭이다. 지난번은 “왜 지금 미리 빌리는가”였다. 이번은 <b>“그 빌린 돈의 값은 누가, 어떻게 매기고 있는가”</b>다.</p>
+
+  <p class="part">표면</p>
+  <h3 class="head">201,923 대 175,498</h3>
+  <p>먼저 규모를 회사 공시로 확인하자. 2026년 9월 분기(마이크로소프트는 회계연도 1분기, 네 회사 모두 9월 30일 종료) 네 하이퍼스케일러가 설비에 쓴 돈과, 같은 분기 영업으로 벌어들인 현금을 나란히 놓으면 이렇다. <span style="color:var(--muted);font-size:.92em;">(출처 ①~③)</span></p>
+
+  <table>
+    <caption>2026년 9월 분기, 각사 공시 기준(백만 달러). 설비 지출은 각사 현금흐름표의 ‘유형자산 취득’(마이크로소프트는 ‘유형자산 증가’).</caption>
+    <thead>
+      <tr><th>회사</th><th class="r">설비 지출</th><th class="r">영업현금흐름</th><th class="r">설비/영업현금</th><th class="r">잉여현금흐름</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>아마존</td><td class="r">77,259</td><td class="r">42,422</td><td class="r">182.1%</td><td class="r">−33,456 (분기)</td></tr>
+      <tr><td>알파벳</td><td class="r">51,355</td><td class="r">42,290</td><td class="r">121.4%</td><td class="r">−9,065</td></tr>
+      <tr><td>메타</td><td class="r">33,942</td><td class="r">32,786</td><td class="r">103.5%</td><td class="r">−2,120</td></tr>
+      <tr><td>마이크로소프트</td><td class="r">39,367</td><td class="r">58,000</td><td class="r">67.9%</td><td class="r">+18,630</td></tr>
+      <tr class="total"><td>네 회사 합계</td><td class="r">201,923</td><td class="r">175,498</td><td class="r">115.1%</td><td class="r">−26,425</td></tr>
+    </tbody>
+  </table>
+
+  <p>네 회사를 단순 합산하면, 이 분기에 설비로 나간 돈이 <b>영업으로 벌어들인 현금보다 264억 달러 많다</b>. 1년 전 같은 분기에는 설비 지출이 973억 달러로 영업현금흐름에 한참 못 미쳤다. 1년 만에 <b>지출이 두 배가 되고, 부호가 뒤집혔다.</b> (합계와 비율은 각사 공시 수치를 우리가 더한 값이며, 회사가 공시한 합계가 아니다.)</p>
+  <p>마지막 줄이 이 지도의 핵심이다. 네 회사 중 <b>잉여현금흐름이 플러스인 곳은 마이크로소프트 하나</b>뿐이고, 그마저 전년 대비 27% 줄었다. 그리고 그 마이크로소프트가 10월 29일, <b>2017년 이후 처음으로 미국에서 회사채를 찍었다.</b> 250억 달러, 열 개 트랜치, 그중 <b>20억 달러가 6.35%의 2066년 만기</b>다. <span style="color:var(--muted);font-size:.92em;">(출처 ④)</span></p>
+  <p>이 사실이 중요한 이유는 마이크로소프트가 이 군단의 <b>마지막 현금 부자</b>였기 때문이다. 알파벳·아마존·메타는 이미 적자 현금흐름으로 채권 시장에 나와 있었다. AAA 등급에 현금이 남아 있던 회사까지 “지금이 싸니까” 문을 두드렸다는 것은, <b>업계 전체가 자기 현금으로 이 속도를 감당할 수 없다</b>고 스스로 말한 것과 같다.</p>
+
+  <p class="part">원가</p>
+  <h3 class="head">8.259% — 이름은 투자등급, 값은 하이일드</h3>
+  <p>그 돈의 값이 얼마인지 보여주는 사건이 11월 20일 터졌다. 스페이스X가 엔비디아의 차세대 칩(베라 루빈)을 사들이기 위해 조달한 <b>320억 달러 규모의 채권</b>이다. 아폴로와 골드만삭스가 주관했고, 아폴로의 발표 기준으로 <b>선순위·후순위 채권을 합쳐 약 440억 달러</b>가 가격에 들어갔다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑤⑫)</span></p>
+  <p>가장 큰 트랜치의 값이 <b>8.259%</b>였다. 같은 날 미국 우량 회사채 평균 수익률 <b>5.95%</b>보다 <b>2.3%포인트</b> 높고, 미국 국채 대비 <b>345bp</b>다. 그런데 이 채권의 신용등급은 <b>KBRA ‘A−’(잠정)</b>다. 즉 <b>투자등급이라는 이름을 달고 하이일드의 값을 받았다.</b> A− 등급 지수의 스프레드가 통상 100bp 안팎인 것과 비교하면, 이 딜은 등급이 말하는 위험의 <b>세 배 남짓</b>을 값으로 요구한 셈이다.</p>
+
+  <table>
+    <caption>스페이스X·아폴로 GPU 금융(‘프로젝트 새턴’)의 공개 채권 트랜치. 금리는 보도(블룸버그·IFR·CNA) 기준, 잔액은 발표 기준.</caption>
+    <thead>
+      <tr><th>트랜치</th><th class="r">금액</th><th class="r">만기</th><th class="r">수익률</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>선순위 보장 A3</td><td class="r">251억 6,800만 달러</td><td class="r">2033년 4월</td><td class="r">8.259%</td></tr>
+      <tr><td>선순위 보장 A2</td><td class="r">43억 6,600만 달러</td><td class="r">2031년 4월</td><td class="r">7.66%</td></tr>
+      <tr><td>후순위 보장 B</td><td class="r">25억 6,400만 달러</td><td class="r">2033년 4월</td><td class="r">8.36%</td></tr>
+      <tr class="total"><td>공개 채권 합계</td><td class="r">약 321억 달러</td><td class="r">—</td><td class="r">—</td></tr>
+    </tbody>
+  </table>
+
+  <p>구조가 이자보다 더 중요하다. 이 돈은 스페이스X의 재무제표에 <b>부채로 들어가지 않는다</b>. 아폴로가 소유한 특수목적법인 <b>새턴 펀딩 트러스트</b>가 약 <b>473억 달러어치 GPU</b>를 사서, 스페이스X에 <b>5년간 리스</b>한다. 채권은 그 칩을 담보로 발행되고, 스페이스X가 부도가 나면 아폴로의 별도 법인이 칩의 소유권을 가져간다. 스페이스X는 <b>리스료 71억 달러를 미리 내기로 했고</b>, 남은 리스료는 <b>장비가 고장 나거나 천재지변이 나도 계속 내야 한다.</b> 칩 인도는 2027년 1월부터, 리스 개시는 <b>2027년 상반기</b>다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑤⑫)</span></p>
+  <p>여기서 지난 지도와 정확히 같은 개념이 반복된다. <b>“선불”</b>이다. 다만 지난번의 선불은 자기 돈이었고, 이번의 선불은 <b>남의 돈으로 낸 선불</b>이다. 스페이스X가 미리 낸 71억 달러의 리스료가 채권 투자자에게는 <b>선순위 현금흐름</b>이 되고, 나머지 5년치 리스료가 <b>스페이스X의 부외 의무</b>가 된다. 비용은 여전히 미래로 미뤄져 있다. 다만 그 미래를 보장하는 서명이 회사 장부가 아니라 <b>특수목적법인의 계약서</b>에 들어갔을 뿐이다.</p>
+  <p>그리고 이 8%대 금리는 <b>AI 인프라의 한계 조달 비용</b>을 처음으로 공개적으로 보여줬다. 이 딜이 성립하려면, 이 칩으로 만들어 파는 연산의 수익률이 <b>최소 8%대 중반의 자금 비용을 넘어야</b> 한다. 지난 지도에서 우리가 “2027~2028에 도착할 비용”이라고 부른 것이, 이제 <b>오늘의 할인율</b>로 앞당겨져 나타난 것이다.</p>
+
+  <p class="part">만기</p>
+  <h3 class="head">6년짜리 설비, 40년짜리 채권</h3>
+  <p>같은 주에 알파벳은 캐나다달러로 <b>60억 달러(약 41억 9,000만 달러)</b>를 빌렸다. 네 트랜치인데, 그중 하나가 <b>2066년 만기 6.000%</b>다. 40년짜리다. 이자율만 보면 알파벳의 8월 미국 달러 40년물이 6.50%였으니, 캐나다 시장에서 <b>0.5%포인트 싸게</b> 40년을 빌린 것이다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑥⑬)</span></p>
+  <p>이 만기가 이상한 이유는 자산의 수명과 나란히 놓으면 드러난다. 알파벳은 3분기 실적 발표에서 설비 지출의 <b>65%가 서버·네트워크 장비</b>이고 그 내용연수가 <b>6년</b>, 나머지 35%가 데이터센터이고 내용연수가 7~40년이라고 밝혔다. <span style="color:var(--muted);font-size:.92em;">(출처 ②)</span> 즉 이 회사의 자금 수요 대부분은 <b>6년 만에 감가상각으로 사라지는 자산</b>에서 나온다. 그 자산을 40년 만기로 조달한다는 것은, 만기 불일치를 없애는 대신 <b>기술 노후화 위험을 채권자에게 넘기는</b> 거래다.</p>
+  <p>경영진의 의도는 아마 반대쪽에 있을 것이다. 6년짜리 자산을 3년짜리 돈으로 조달하면 2029년에 차환해야 하고, 그때 금리가 얼마일지 모른다. 40년 돈으로 조달하면 <b>차환 위험은 사라진다.</b> 문제는 그 안전을 사기 위해 채권자에게 지불한 값이다 — 그리고 그 값이 <b>지금의 6%대</b>라는 것. 1990년대 광통신 사이클에서 통신사들이 했던 것과 같은 선택이지만, 그때와 다른 점은 이번에는 <b>감가상각이 6년인 장비</b>가 담보의 대부분이라는 사실이다.</p>
+  <p>이 두 딜을 나란히 놓으면 이번 주의 지도가 보인다. <b>스페이스X는 5년 리스에 8.259%를, 알파벳은 40년 만기에 6.000%를 붙였다.</b> 같은 AI 인프라인데, 한쪽은 짧고 비싼 돈으로, 다른 쪽은 길고 싼 돈으로 조달했다. 차이는 신용도(알파벳 Aa2/AA+ 대 스페이스X A− 보장부)와 자산의 성격(특정 칩 대 범용 데이터센터)이다. <b>자금 지도는 이제 회사별로 다른 금리로 갈라져 있다.</b></p>
+
+  <p class="part">공식 기록</p>
+  <h3 class="head">연준이 우리 지도를 그렸다</h3>
+  <p>지난 지도에서 우리가 “외부 추정”으로만 다뤘던 것들을, 이번 주에 중앙은행들이 직접 숫자로 내놨다. 이 변화 자체가 신호다. 우리가 7월에 회사 장부 하나에서 읽어낸 구조를, 11월에 <b>규제기관이 공식 문서에 옮겨 적었다.</b></p>
+  <p><b>10월 FOMC 의사록(11월 18일 공개)</b>은 금리보다 AI 자금 구조를 더 길게 다뤘다. 직원 보고는 “AI 구축과 관련된 부채의 빠른 증가”를 지적하며, <b>“부외 리스 약정과 AI 관련 기업 간 순환 금융 약정이 AI 투자 수익이 기대에 못 미칠 경우 손실을 증폭시킬 수 있다”</b>고 적었다. 위원 다수는 “AI 관련 부채가 빠르게 늘었고 그 상당 부분이 <b>복잡하고 불투명한 금융 구조</b>를 통해 이루어졌다”고 했고, 일부는 “AI 관련 노출이 <b>소수 기업에 집중</b>되고 있다”고 했다. 시장 상황 서술에서는 <b>“데이터센터 건설을 조달하기 위해 발행된 하이일드 채권의 스프레드가 특히 두드러지게 확대됐다”</b>고 명시했다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑦)</span></p>
+  <p><b>연준 금융안정보고서(11월 13일)</b>는 ‘데이터센터 구축의 레버리지’라는 상자를 따로 두고 숫자를 셌다. 2026년 10월까지 <b>첨단 연산 관련 부채 발행이 6,800억 달러를 넘어</b> 2023년 전체(1,300억 달러)의 다섯 배가 됐고, 비금융 투자등급 회사채 발행에서 차지하는 비중은 2023년 <b>6% 미만에서 31%</b>로 뛰었다. 공개 채권 잔액만 <b>1조 1,000억 달러</b>가 넘는다. 그런데 이 보고서의 핵심은 부채가 아니다. <b>아직 개시되지 않은 리스의 할인 전 가치가 1조 달러를 넘고, 인수보증(take-or-pay) 계약과 잔존가치 보증의 할인 전 가치가 2조 달러를 넘는다.</b> 합치면 <b>3조 달러</b>가 넘는 의무가 장부 밖에 있다. 보고서는 또 “대형 은행지주회사들이 대형 기술기업·데이터센터 개발사·첨단 연산 관련 특수목적법인·사모신용에 <b>거의 1조 달러</b>의 익스포저를 갖고 있다”고 적었다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑧)</span></p>
+  <p>같은 날짜의 <b>연준 이사 연설(11월 16일, 바 Barr)</b>은 이 숫자를 한 문장으로 요약했다. “이 일곱 기업의 대차대조표상 부채는 연말까지 <b>8,000억 달러</b>를 넘을 것으로 예상된다. 그러나 장부 밖 의무, 즉 장기 계약·리스 약정·잔존가치 보증의 잠재 최대 명목 가치는 <b>3조 달러</b>를 넘는다.” 그리고 “하이퍼스케일러와 GPU 제조사는 대형 언어모델 연구소와 클라우드 스타트업에 <b>1,000억 달러가 넘는 누적 지분 투자</b>를 갖고 있으며, 이것이 순환 금융의 한 형태”라고 덧붙였다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑨)</span></p>
+  <p>유럽중앙은행(11월 18일)은 더 크게 잡는다. 미국 빅테크의 <b>부외 약정이 2026년 2분기 기준 4조 달러를 넘어</b>, 장부상 부채를 크게 웃돈다는 것이다. 국제결제은행(10월 27일)은 하이퍼스케일러 다섯 곳의 설비 지출이 2026년 말 <b>8,000억 달러</b>(미국 GDP의 약 2.5%)에 이르고, 부외 구조를 통한 채권·자산유동화가 올해 <b>750억~1,000억 달러</b> 발행됐다고 집계했다. 무디스는 데이터센터 리스 약정을 <b>1조 2,000억 달러</b>, 그중 <b>8,200억 달러가 아직 개시되지 않은 리스</b>로 본다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑩⑪)</span></p>
+
+  <div class="box">
+    <div class="k">세 겹의 지도 — 같은 의무, 다른 서랍</div>
+    <div><b>1층 · 장부 위 부채</b> — 하이퍼스케일러 회사채. 2026년 10월까지 첨단 연산 관련 6,800억 달러, 잔액 1조 1,000억 달러.</div>
+    <div><b>2층 · 특수목적법인·자산유동화</b> — 새턴 펀딩 트러스트 같은 칩 SPV, 데이터센터 프로젝트 파이낸스. 올해 750억~1,000억 달러 발행(BIS). 회사 장부에는 리스료로만 보인다.</div>
+    <div><b>3층 · 부외 약정</b> — 아직 시작 안 한 리스 1조 달러+, 인수보증·잔존가치 보증 2조 달러+(연준), 유럽 기준 4조 달러+(ECB). 할인 전 최대치이며 손실 예상치가 아니다.</div>
+  </div>
+
+  <p>이 숫자들을 읽는 방식에 주의해야 한다. 3조 달러는 <b>빚이 아니다.</b> 할인하지 않은 계약상 최대 금액이고, 그중 상당 부분은 실행되지 않을 수 있다. 회사들도 그렇게 설명한다. 그러나 이 숫자가 중요한 이유는 따로 있다. <b>시장이 회사의 위험을 재는 기준(대차대조표)과, 회사가 실제로 짊어진 의무(계약서)가 서로 다른 서랍에 들어 있다</b>는 사실이다. 연준이 이 상자를 만든 이유도 그것이다 — “이 기업들의 경기 하강에 대한 경제적 노출은 장부상 부채가 시사하는 것보다 <b>상당히 클 수 있다.</b>”</p>
+
+  <p class="part">가격</p>
+  <h3 class="head">재평가인가, 균열인가 — 지금은 ‘재분류’다</h3>
+  <p>그 위험이 시장에서 어떻게 값 매겨지고 있는지 보자. 결론부터 말하면, <b>아직 균열은 아니지만 이미 재분류다.</b> 위험이 사라진 게 아니라 <b>다른 서랍으로 옮겨간 것</b>이 가격에 반영되고 있다.</p>
+  <p><b>지수는 아직 버틴다.</b> 미국 하이일드 스프레드는 11월 19일 <b>352bp</b>로 1년래 최고를 찍었지만, 위기 판단의 기준선인 400bp는 넘지 않았다. 투자등급 스프레드는 11월 초 <b>93bp</b>로 거의 움직이지 않았다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑮⑯)</span></p>
+  <p><b>그런데 그 안쪽에서 갈라졌다.</b> AI 데이터센터·GPU 대출자들로 구성된 J.P.모건 ‘HPC 지수’의 스프레드는 <b>578bp</b>로 6월 이후 두 배가 됐고, 전체 하이일드 지수를 크게 웃돈다. AI 관련 발행은 올해 하이일드 공급의 <b>17%</b>, 시장의 3.4%를 차지한다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑯)</span></p>
+  <p><b>가장 약한 고리에서는 이미 신용경색의 언어가 나온다.</b> 코어위브의 2031년 만기 무보증 채권은 11월 19일 <b>80.40센트, 수익률 15.64%, 스프레드 1,078bp</b>다. 5년 CDS는 1,100~1,200bp로, 통상 1,000bp 이상을 ‘부도 위험’으로 부르는 구간에 들어섰다. 같은 회사의 <b>GPU·고객계약 담보 대출</b>은 여전히 액면 근처에서 거래된다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑯⑰)</span> 즉 시장은 <b>AI를 버린 것이 아니라, ‘무보증 AI’를 버린 것</b>이다. 담보가 붙은 계약은 값이 유지되고, 회사의 지속적 자금 조달 능력에 기대는 종이는 값을 잃는다.</p>
+  <p>이 구분이 중요한 이유는, 그것이 이번 주 스페이스X 딜의 설계와 정확히 일치하기 때문이다. 8.259%를 주고 판 채권은 <b>칩을 담보로 잡은 보장부</b>다. 발행사는 담보와 리스 계약을 팔았고, 투자자는 그 대가로 하이일드 금리를 받았다. <b>AI 인프라는 이제 ‘회사의 신용’이 아니라 ‘자산의 신용’으로 자금을 조달한다.</b> 그리고 자산의 신용은 감가상각표에 묶여 있다.</p>
+
+  <p class="part">순환</p>
+  <h3 class="head">돈이 도는 지도</h3>
+  <p>이번 주에 중앙은행들이 가장 조심스럽게 다룬 단어는 ‘순환 금융(circular financing)’이다. 정의는 단순하다. 한 회사가 다른 회사에 투자하고, 그 투자받은 회사가 다시 투자자의 제품을 사는 구조다. 이 구조에서는 <b>수요의 일부가 스스로 만든 것</b>이 된다.</p>
+  <p>숫자는 이렇다. IMF는 순환 금융 규모를 <b>1조 달러 조금 넘게</b>, 그중 <b>3분의 2가 부채</b>로 조달됐다고 추정했다(11월 16일). 2023년 이후 공개된 14건의 순환 거래를 분석하면 <b>지분 투자 3,000억 달러 + 부채 6,500억 달러</b>가 <b>1조 4,000억 달러의 미래 매출 약정</b>과 연결돼 있다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑱)</span></p>
+  <p>구체적인 고리도 공개돼 있다. 엔비디아는 오픈AI에 <b>1,000억 달러 지분 투자</b>를 약속했고, 오하이오 데이터센터의 임대료에 대해 <b>최대 1,050억 달러 보증</b>을 섰다. 오픈AI는 엔비디아가 보증으로 지급한 금액을 <b>되돌려주기로</b> 했다. 앤트로픽 상장 때는 구글·엔비디아·AMD·마이크로소프트·브로드컴·마이크론·TSMC가 <b>공모가로 260억 달러</b>를 사모로 넣었다. 아마존은 앤트로픽에 <b>50억 달러(최대 200억 달러)</b>를 투자했고, 앤트로픽은 아마존 클라우드에 <b>10년간 1,000억 달러</b>를 쓰기로 했다. 오픈AI는 오라클에 <b>3,170억 달러</b>의 연산을 약속했다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑲)</span></p>
+  <p>오라클은 11월 20일 “오픈AI와의 계약을 이행할 자금을 모두 확보했고, 이번 투자 사이클에서 완전히 자금이 조달된 첫 하이퍼스케일러가 됐다”는 성명을 냈다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑳)</span> 이 고리에서 가장 큰 약정을 진 회사가 스스로 ‘자금은 문제없다’고 밝혀야 하는 상황 자체가, 시장이 무엇을 의심하고 있는지를 보여준다.</p>
+  <p>이 고리가 이번 주 지도와 만나는 지점은 <b>스페이스X</b>다. 앤트로픽은 스페이스X의 주요 고객이면서, 이번에 조달한 칩의 <b>유력한 최종 수요자</b>로 지목된다. 즉 <b>자산운용사가 칩을 사서 → 스페이스X에 리스하고 → 스페이스X가 그 연산을 앤트로픽에 임대하고 → 앤트로픽은 방금 상장으로 조달한 돈으로 그 임대료를 낸다.</b> 자금의 출발점(아폴로·블랙록·KKR·골드만)과 최종 지불자(앤트로픽의 투자자)가 서로 다른 얼굴이지만, 경제적으로는 <b>같은 순환의 한 바퀴</b>다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑫⑲)</span></p>
+  <p>순환 금융이 위험한 이유는 크기가 아니라 <b>상관관계</b>다. ECB는 “상호 금융 약정이 양쪽의 기대 매출을 부풀린다. 한쪽의 수요가 그쪽 자신의 자금 조달 결정에 의해 부분적으로 만들어진다”고 적었다. 연준 바 이사는 “지분 투자·장비 판매·보증이 <b>하나의 실망에 함께 타격을 받을 수 있다</b>”고 했다. 그리고 알파벳의 3분기 실적이 그 명제를 회계로 보여줬다. 알파벳은 3분기 순이익 262억 달러를 냈는데, 그중 기타손익이 <b>−82억 달러</b>였다. 이유는 <b>스페이스X 지분의 주가 하락에 따른 평가손</b>이다. <span style="color:var(--muted);font-size:.92em;">(출처 ②)</span></p>
+  <p>한 걸음 더 들어가면 이렇다. 알파벳은 올해 9개월 동안 <b>순이익 2,012억 달러</b>를 기록했는데, 같은 기간 영업현금흐름은 <b>1,271억 달러</b>였다. 차이의 상당 부분은 현금흐름표에서 조정된 <b>지분증권 평가이익 1,268억 달러</b>다. <span style="color:var(--muted);font-size:.92em;">(출처 ①)</span> 즉 <b>AI 생태계에 대한 지분 투자가, 그 생태계를 파는 회사의 순이익을 키우고 있다.</b> ECB가 “AI 연구소 등 사모 지분의 평가이익이 하이퍼스케일러 이익 성장에 기여하는 비중이 커지고 있다”고 지적한 그 구조다.</p>
+
+  <p class="part">논쟁</p>
+  <h3 class="head">심화인가, 연장인가</h3>
+  <p>같은 사실을 두고 해석이 갈린다. 양쪽 다 짚어둔다.</p>
+  <p><b>심화 쪽</b>: 이건 금융시장이 AI 인프라를 <b>하나의 자산군으로 편입</b>하는 과정이다. 미국 투자등급 발행은 올해 <b>1조 8,800억 달러</b>로 사상 최대를 넘어섰고, 그중 하이퍼스케일러가 <b>3,707억 달러</b>로 5분의 1을 차지했다. 알파벳의 8월 250억 달러 딜은 <b>1,150억 달러</b>의 주문을 받았고, 스페이스X 딜은 <b>초과 청약으로 증액</b>됐다. 40년·30년 장기물에 연기금의 수요가 붙는다는 것은, 이 자산이 <b>단기 투기에서 장기 부채로 성숙</b>했다는 뜻이다. 1990년대 광통신 붐에서도 통신사들은 채권으로 철도를 깔았고, 그 철도 위에서 인터넷이 자랐다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑬⑭)</span></p>
+  <p><b>연장 쪽</b>: 그 ‘성숙’의 대가가 이번 주 숫자에 있다. 알파벳의 8월 40년물 스프레드는 2월 같은 구간보다 <b>35bp 넓어진 T+130bp</b>였고, 업계 평가는 “AA 등급이 BBB 수준으로 거래되기 시작했다”는 것이다. <span style="color:var(--muted);font-size:.92em;">(출처 ⑬)</span> 스페이스X의 A− 보장부가 8.259%를 받은 것도, 코어위브의 무보증 채권이 15%대를 받는 것도 같은 방향이다. 즉 시장은 <b>등급을 믿지 않고 구조를 가격에 넣기 시작했다.</b> 그것이 ‘재분류’의 실체다. 등급은 아직 투자등급인데, 값은 이미 하이일드다.</p>
+  <p><b>이 사례에 한정한 판단</b>: 어느 쪽이 옳은지는 2027년의 리스 개시와 매출이 정한다. 다만 <b>이번 주에 확인된 것</b>은 분명하다. 자금 조달 비용이 오르면 <b>가장 먼저 손대는 것은 아직 짓지 않은 것</b>이고, 지금 가장 많이 쌓인 것이 바로 <b>아직 시작하지 않은 리스</b>다. 연준 금융안정보고서는 이렇게 적었다. “많은 위원은 AI 관련 주식 가치 하락이 <b>기대 수익과 자금 조달 위험에 대한 재평가</b>를 반영한 것으로 보며, <b>고레버리지 프로젝트에 대한 시장의 규율 강화가 투자 수요를 완화할 수 있다</b>고 판단했다.” <span style="color:var(--muted);font-size:.92em;">(출처 ⑦)</span> 중앙은행이 ‘투자 수요가 줄어드는 것’을 <b>바람직한 조정</b>으로 서술한 것이다.</p>
+
+  <p class="part">종합</p>
+  <h3 class="head">선불은 부채가 되었고, 부채는 부외가 되었다</h3>
+  <p>이제 처음의 질문으로 돌아가자. 7월에 우리는 “빌린 돈은 도착할 비용의 선불”이라고 읽었다. 그 읽기는 유지된다. 다만 <b>선불의 재원과 선불을 받는 사람</b>이 바뀌었다.</p>
+  <p>7월의 구조는 이랬다. 회사가 자기 현금과 자기 이름의 채권으로 설비를 사고, 그 비용을 미래로 미뤘다. 위험은 회사 주주와 채권자가 나눠 가졌다. 11월의 구조는 이렇다. 자산운용사가 특수목적법인을 만들어 칩을 사고, 회사는 그것을 빌려 쓰며, 투자자는 그 리스료를 받는다. 회사의 장부에는 <b>부채가 아니라 리스료</b>가 남고, 투자자의 장부에는 <b>회사채가 아니라 자산유동화증권</b>이 남는다. 위험은 사라지지 않았다. <b>회계의 서랍을 옮겼을 뿐이다.</b></p>
+  <p>그 이동이 시스템에 주는 효과는 양면이다. 한쪽으로는 <b>분산</b>이다. 위험이 한 회사의 대차대조표에 몰리지 않고 연기금·보험사·하이일드 펀드·사모신용으로 흩어진다. 연준이 “은행과 가계의 건전한 대차대조표가 완충”이라고 말할 수 있는 이유이기도 하다. 다른 쪽으로는 <b>상관</b>이다. 흩어진 위험이 모두 <b>같은 기초자산(AI 연산의 수익성)</b>에 걸려 있고, 그 자산의 가치는 <b>같은 감가상각표(6년)</b>를 따른다. 흩어져 있어도 함께 움직인다.</p>
+  <p>지난 지도에서 우리는 세 개의 시계를 말했다. <b>돈이 나가는 시점(오늘)</b>, <b>비용이 인식되는 시점(2027~2028)</b>, <b>수익이 나는 시점(불확실)</b>. 이번 주에 <b>네 번째 시계</b>가 추가됐다. <b>자금의 만기</b>다. 스페이스X의 리스는 2027년 상반기에 시작해 5년 뒤 끝나고, 알파벳과 마이크로소프트의 2066년 채권은 40년 뒤에 끝난다. 이 네 시계가 <b>같은 해에 울리지 않도록</b> 설계된 것이 지금의 자금 지도다. 문제는 그 설계가 <b>서로 다른 계약서</b>에 나뉘어 있어, 전체를 한 장으로 보는 사람이 거의 없다는 것이다.</p>
+
+  <p class="part">지도</p>
+  <h3 class="head">네 번째 시계가 울리는 해 — 2027</h3>
+  <p>정리하면, 이번 주의 신호는 “AI가 비싸졌다”가 아니다. <b>AI 인프라의 자금 조달이 ‘회사의 신용’에서 ‘자산의 신용 + 계약의 신용’으로 옮겨갔고, 그 값이 하이일드 수준으로 매겨지기 시작했다</b>는 것이다. 이 이동은 2027년에 첫 시험을 받는다. 리스가 개시되고, 감가상각이 본격화되고, 2027년 설비 지출 가이던스가 나오고, 그 자금을 또 빌려야 하기 때문이다.</p>
+
+  <h4>시나리오 A — 흡수</h4>
+  <p>AI 매출이 충분히 커져 리스료와 감가상각을 함께 삼킨다. 하이일드 스프레드가 350bp 아래로 되돌아오고, HPC 지수가 578bp에서 축소되며, 스페이스X·코어위브의 담보부와 무보증 격차도 좁혀진다. 이 경우 이번 주의 8.259%는 “비싸게 산 보험료”로 기록되고, 40년 만기 채권은 “때를 잘 만난 선제 조달”이 된다. 연준이 서술한 ‘시장의 규율’은 과도하지 않았던 것으로 판명된다.</p>
+  <p><b>확인 지표</b>: 2027년 1분기 하이퍼스케일러 실적에서 <b>감가상각이 늘어난 만큼 영업이익률이 눌리지 않는가</b>. 데이터센터·GPU 관련 스프레드(HPC 지수)가 500bp 아래로 내려오는가. 스페이스X의 A3 채권이 발행 수익률 아래로(가격 상승) 거래되는가.</p>
+
+  <h4>시나리오 B — 압박</h4>
+  <p>2027년 상반기 리스 개시와 설비 지출 정점이 겹치는데 매출은 못 따라간다. 회사들은 <b>아직 시작하지 않은 리스</b>부터 미루고, 그 지연이 데이터센터 발주→GPU 주문→HBM 주문으로 순차적으로 내려온다. 하이일드 스프레드가 400bp를 넘고, AI 관련 발행이 멈추면, 특수목적법인 구조의 재조달이 막히면서 <b>부외 의무가 장부 안으로 들어오는</b> 국면이 온다. 이때 등급 하향이 한꺼번에 몰린다.</p>
+  <p><b>확인 지표</b>: 미국 하이일드 OAS 400bp 돌파. AI 관련 신규 발행의 중단(2주 이상). 미개시 리스 잔액이 줄어드는가(늘면 계획대로, 줄면 취소). 스페이스X A3의 2차 시장 수익률이 9%를 넘는가. 코어위브의 <b>담보부</b> 대출까지 90센트 아래로 밀리는가 — 이것이 마지막 방어선이다.</p>
+
+  <p class="part">우리가 짚은 것과 빗나간 것</p>
+  <div class="scorecard">
+    <div class="k">한 주의 지도 No.01 「선불」 답안지</div>
+    <p><b>체크포인트 ① — 7월 말 메타·아마존 실적(자본지출 상향 반복·채권 언급):</b> <b>켜졌다.</b> 아마존은 2026년 현금 설비 지출 전망을 2,000억 달러에서 <b>2,200억 달러</b>로 올렸고, 메타는 1,350억~1,450억 달러로 <b>하단을 50억 달러 올렸다</b>. 알파벳은 1,950억~2,050억 달러를 유지하며 “2027년에는 크게 늘 것”이라고 밝혔다. 마이크로소프트는 10월 29일 <b>250억 달러 회사채</b>를 찍었다. 세 회사는 가이던스를 올리거나 유지했고, 현금이 남아 있던 마이크로소프트까지 <b>채권 시장에 나왔다.</b></p>
+    <p><b>체크포인트 ② — 채권 청약 배수:</b> <b>부분적으로 켜졌고, 방향이 갈렸다.</b> 2월 약 5배 → 7월 2배 미만으로 떨어졌던 배수는 알파벳 8월 딜에서 <b>4.6배</b>로 회복했고, 스페이스X 딜은 초과 청약으로 증액됐다. 그러나 같은 기간 하이퍼스케일러 평균 배수는 여전히 낮고, 7월 메타·블랙록 데이터센터 공동투자(125억 달러)는 <b>2배 미만</b>이었다. 즉 <b>‘좋은 이름’과 ‘복잡한 구조’의 격차</b>가 벌어졌다.</p>
+    <p><b>체크포인트 ③ — 데이터센터 착공률(미착공 60%):</b> <b>켜졌고, 오히려 나빠졌다.</b> 무디스 집계로 데이터센터 리스 약정 1조 2,000억 달러 중 <b>약 8,200억 달러(약 68%)가 아직 개시되지 않은 리스</b>다. 연준도 미개시 리스가 1조 달러를 넘는다고 확인했다. 7월의 60%는 줄지 않고 늘었다.</p>
+    <p style="color:#9a7b2e;font-size:13.5px;margin-top:4px;">세 체크포인트 중 둘은 예상대로, 하나는 예상보다 나쁘게 켜졌다. 지난 지도의 결론(선불)은 유지되지만, 그 선불의 재원이 자기 현금에서 빌린 돈으로 바뀌었다는 점은 우리가 7월에 충분히 강조하지 못한 부분이다.</p>
+  </div>
+
+  <p class="part">그리고 이것도 한국의 이야기다</p>
+  <h3 class="head">메모리 주문서의 조달 금리가 바뀌면</h3>
+  <p>연결 고리는 지난 호와 같다. 빅테크가 데이터센터를 짓는다 → 그 안에 AI 반도체가 들어간다 → 거기 고대역폭 메모리(HBM)가 붙는다 → 그 메모리를 만드는 회사 둘이 한국에 있다. 지난 지도는 이 사슬의 <b>비용 시점</b>을 봤다. 이번 지도는 <b>자금 비용</b>을 본다.</p>
+  <p>한국 메모리 회사의 주문서는 이제 <b>고객의 조달 금리</b>에 매달려 있다. 스페이스X의 칩 한 대가 8.259%의 돈으로 조달됐다면, 그 칩에 들어가는 HBM의 가격에는 그 8%가 <b>비용 구조의 일부</b>로 들어가 있다. 2027년에 그 리스가 개시되고, 2028년에 재조달이 필요해지고, 그때 금리가 더 높다면, 다음 세대 칩의 발주는 <b>가격이 아니라 자금 조달 가능성</b>에서 먼저 결정된다.</p>
+  <p>두 번째 연결은 더 직접적이다. 지난 지도에서 우리는 “빅테크가 가장 먼저 손대는 것은 아직 삽도 뜨지 않은 투자”라고 했다. 이번 주에 그 ‘아직 삽도 뜨지 않은 투자’의 크기가 <b>숫자로 확인됐다</b> — 미개시 리스 1조 달러, 인수보증·잔존가치 보장 2조 달러. 이 3조 달러 중 <b>한국의 메모리가 들어가는 부분</b>은 아직 계약서에 칩 단위로 적혀 있지 않다. 그것이 <b>기대 주문서</b>의 정체다.</p>
+  <p>세 번째는 방향이 반대다. AI 인프라 자금이 <b>장기 연기금</b>으로 흘러 들어가고 있다는 것은, 그 자금의 <b>만기가 40년</b>이라는 뜻이다. 40년짜리 돈은 6년짜리 자산을 사고, 6년 뒤 그 자산이 감가상각으로 사라지면 <b>다음 자산</b>을 사야 한다. 즉 장기 자금의 유입은 <b>AI 인프라 투자가 일회성 사이클이 아니라 상시 설비 투자</b>가 된다는 베팅이다. 그것이 맞다면 한국 메모리의 수요는 <b>구조적</b>이고, 틀리면 <b>2028년의 감가상각 벽</b>이 그 베팅의 청구서가 된다.</p>
+  <p>지난 지도가 “호황의 지속 여부를 판가름할 시계는 2027~2028에 있다”고 했다면, 이번 지도는 그 시계에 <b>하나를 더한다</b>. 그 시계가 울릴 때, <b>누가 그 청구서를 들고 있는가</b>다. 7월에는 회사가 들고 있었다. 11월에는 연기금과 하이일드 펀드가 들고 있다. 그리고 그 청구서의 액면가는 <b>3조 달러</b>다.</p>
+
+  <p class="part">한계와 불확실성</p>
+  <ul>
+    <li><b>핵심 사실은 소수 회사·소수 분기다.</b> 이 지도에서 회사 공시로 직접 확인한 것은 알파벳 3분기(513억 대 84억), 네 회사의 분기 설비 지출·영업현금흐름, 마이크로소프트의 250억 달러 채권, 알파벳의 C$60억 채권 조건이다. “업계 전체의 자금 지도 전환”은 이 표본과 중앙은행 집계에 기댄 해석이다.</li>
+    <li><b>8.259%는 비교 가능한 금리가 아니다.</b> 보장부·특수목적법인·선순위 담보가 붙은 구조의 수익률이며, 같은 회사의 무보증 채권이나 투자등급 지수와 직접 비교할 수 없다. 금리의 상당 부분은 <b>구조 프리미엄</b>이다. 다만 그 구조 프리미엄 자체가 “AI 인프라를 담보로 돈을 빌릴 때 드는 값”이라는 점은 유효하다.</li>
+    <li><b>부외 약정은 손실이 아니다.</b> 3조~4조 달러는 할인하지 않은 <b>최대 계약액</b>이며, 실행되지 않을 수 있고, 회수 가능한 담보가 붙어 있다. 이 글은 그 숫자를 <b>위험의 크기</b>가 아니라 <b>위험의 불투명성</b> 근거로 쓴다.</li>
+    <li><b>40년 만기의 해석은 추정이다.</b> 알파벳의 C$2066 채권 자금 사용처는 공시상 “일반적 기업 목적, 미상환 부채 상환 포함”이다. AI 설비 지출에 쓰인다는 것은 우리의 추정이며, 회사가 그렇게 밝힌 바 없다.</li>
+    <li><b>‘자산의 신용으로 이동’은 반증 가능하다.</b> 회사들이 단지 낮은 금리와 긴 만기를 기회로 본 것일 수 있고, 그렇다면 이 이동은 구조 전환이 아니라 <b>금리 차익</b>에 불과하다. 그 경우 시나리오 A가 맞는다.</li>
+    <li><b>순환 금융의 규모는 추정이다.</b> IMF의 1조 달러, 14건 분석의 3,000억+6,500억 달러는 공개된 거래만 센 값이다. 비공개 사모 거래가 빠져 있어 <b>실제보다 작을 가능성</b>이 크다.</li>
+    <li><b>알파벳의 평가이익은 회계상 이익이다.</b> 1,268억 달러는 현금이 아니라 지분 가치의 변동이며, 같은 폭으로 되돌아갈 수 있다. 3분기에 스페이스X 지분 평가손 82억 달러가 그 예를 보여줬다.</li>
+  </ul>
+
+  <p class="part">한 줄 요약</p>
+  <p style="font-size:1.08rem;font-weight:600;color:var(--cap);">7월의 선불은 사라지지 않았다. 그것은 8.259%의 채권, 2066년에 갚는 종이, 그리고 재무제표 밖 3조 달러의 약정으로 이름을 바꿔 같은 자리에 서 있다 — 비용을 미룬 것이 아니라, 비용을 사는 사람을 바꾼 것이다.</p>
+
+  <section class="sources">
+    <div class="h">출처</div>
+    <ol>
+      <li><span class="tier t1">1차</span> Alphabet Inc. Form 10-Q(2026년 3분기) — 연결 현금흐름표(영업현금흐름 $42,290M·유형자산 취득 $51,355M·유형자산 감가상각 $8,369M·지분증권 평가이익 $126,755M) — <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm">sec.gov</a></li>
+      <li><span class="tier t1">1차</span> Alphabet Inc. 2026년 3분기 실적 발표(Exhibit 99.1) 및 실적콜 — 매출 $127,577M·영업이익 $40,576M·잉여현금흐름 −$9,065M·2026 설비 지출 가이던스 $195~205B·미래 구매 약정 $924B·개시 전 리스 $152B·서버 내용연수 6년 — <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm">sec.gov</a> · <a href="https://abc.xyz/investor/events/event-details/2026/2026-Q3-Earnings-Call-2026-Ujou16CTw9/default.aspx">abc.xyz 실적콜</a></li>
+      <li><span class="tier t1">1차</span> Meta Platforms 2026년 3분기 실적(유형자산 취득 $33,942M·영업현금흐름 $32,786M·잉여현금흐름 −$2.12B), Amazon.com 2026년 3분기 실적(유형자산 취득 $77,259M·영업현금흐름 $42,422M·TTM 잉여현금흐름 −$42.4B), Microsoft Form 10-Q(유형자산 증가 $39,367M·영업현금흐름 $58,000M) — <a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx">atmeta.com</a> · <a href="https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx">aboutamazon.com</a> · <a href="https://fortune.com/company-assets/1861/quartr/quarterly-report-10-q-b83fadbee72a3cff0f585b9443c0657c-2026-10-28-20-08-50.pdf">Microsoft 10-Q</a></li>
+      <li><span class="tier t1">1차</span> Microsoft, 회사채 발행 공시(2026-10-29, $25B·10개 트랜치·2066년 만기 6.35% $2B) — <a href="https://news.microsoft.com/source/2026/10/29/microsoft-announces-debt-offerings-7/">news.microsoft.com</a></li>
+      <li><span class="tier t1">1차</span> Apollo Global Management·Goldman Sachs, SpaceX GPU 금융 가격 결정 보도자료(2026-11-20, 약 $44B 선순위·후순위 채권, 2027년 상반기 리스 개시) — <a href="https://ir.apollo.com/news-events/press-releases/detail/662/apollo-and-goldman-sachs-announce-pricing-of-44-billion">ir.apollo.com</a></li>
+      <li><span class="tier t1">1차</span> Alphabet Inc. FWP(2026-11-19) — C$60억 4개 트랜치(2029 4.100%·2034 4.800%·2038 5.325%·2066 6.000%), 2066년물 벤치마크 대비 +185bp, 자금 용도 — <a href="https://www.sec.gov/Archives/edgar/data/1652044/000119312526469213/d21316dfwp.htm">sec.gov</a></li>
+      <li><span class="tier t1">1차</span> 미 연준, FOMC 의사록(2026년 10월 27~28일 회의, 11-18 공개) — 부외 리스 약정·순환 금융·복잡하고 불투명한 조달 구조·데이터센터 하이일드 스프레드 확대 — <a href="https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm">federalreserve.gov</a></li>
+      <li><span class="tier t1">1차</span> 미 연준, 금융안정보고서(2026년 11월) Box 2.2 「데이터센터 구축의 레버리지」 — 첨단 연산 부채 $680B·IG 발행의 31%·잔액 $1.1T·미개시 리스 $1T+·인수보증·잔존가치 보증 $2T+·은행 익스포저 약 $1T — <a href="https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf">federalreserve.gov (PDF)</a></li>
+      <li><span class="tier t1">1차</span> 미 연준 이사 Barr 연설(2026-11-16) — 7개 기업 장부상 부채 연말 $800B 초과 전망·부외 의무 $3T+·LLM 연구소 지분 투자 $100B+ — <a href="https://www.federalreserve.gov/newsevents/speech/barr20261116a.htm">federalreserve.gov</a></li>
+      <li><span class="tier t1">1차</span> ECB 금융안정보고서 박스(2026-11-18) — 빅테크 부외 약정 2026년 2분기 $4T 초과·순환 연결 — <a href="https://www.ecb.europa.eu/press/financial-stability-publications/fsr/focus/2026/html/ecb.fsrbox202611_03~4fd1449eaa.en.html">ecb.europa.eu</a></li>
+      <li><span class="tier t1">1차</span> BIS Bulletin No.140(2026-10-27) — 하이퍼스케일러 5사 설비 지출 연말 $800B(미 GDP 2.5%)·9월까지 채권 발행 $222B·부외 구조 채권·ABS $75~100B·무디스 리스 약정 $1.2T(미개시 $820B) — <a href="https://www.bis.org/publications/bulletin-140-building-ai-credit-structures-and-spillovers.pdf">bis.org (PDF)</a></li>
+      <li><span class="tier">2차</span> Bloomberg·IFR·CNA(2026-11-20) — 스페이스X 공개 채권 $32.1B 트랜치별 수익률(A3 8.259%/A2 7.66%/B 8.36%)·$47.3B GPU·5년 리스·리스료 $7.1B 선납·장비 고장에도 리스료 지급·KBRA 잠정 A− — <a href="https://www.ifre.com/bonds/2516476/yield-trumps-tech-jitters-as-apollo-prices-divisive-spacex-chip-financing">ifre.com</a> · <a href="https://www.channelnewsasia.com/business/apollo-goldman-lead-44-billion-spacex-gpu-debt-financing-6570241">channelnewsasia.com</a> · <a href="https://news.bloomberglaw.com/mergers-and-acquisitions/spacex-wraps-up-32-billion-of-ai-chip-debt-at-yields-topping-8">bloomberglaw.com</a></li>
+      <li><span class="tier">2차</span> 알파벳 8월 $25B 채권(10개 트랜치·주문 $115B·40년물 T+130bp, 2월 T+95bp 대비 35bp 확대) — IFR·TwentyFour — <a href="https://www.ifre.com/topic-codes/2466934/alphabet-joins-us25bn-club-with-latest-bond-foray">ifre.com</a> · <a href="https://www.twentyfouram.com/insights/record-supply-meets-disciplined-buyers">twentyfouram.com</a></li>
+      <li><span class="tier">2차</span> 미국 IG 발행 사상 최대 $1.88T·하이퍼스케일러 $370.7B(LSEG, 11-06) / 6대 하이퍼스케일러 2026년 $250B+(Bessemer) / 하이퍼스케일러 IG 발행 $218B(10월 초, LSEG FTSE Russell) — <a href="https://www.investing.com/news/stock-market-news/big-tech-drives-us-corporate-bond-sales-to-annual-record-high-data-shows-5008664">investing.com</a> · <a href="https://www.bessemertrust.com/insights/financing-the-ai-buildout-what-it-means-for-corporate-bond-markets">bessemertrust.com</a> · <a href="https://www.lseg.com/en/insights/ftse-russell/ais-borrowing-boom-what-it-means-for-bond-indices">lseg.com</a></li>
+      <li><span class="tier">2차</span> ICE BofA 미국 하이일드 OAS 3.52%(2026-11-19, 52주 최고) — FRED <a href="https://fred.stlouisfed.org/data/BAMLH0A0HYM2">BAMLH0A0HYM2</a></li>
+      <li><span class="tier">2차</span> 코어위브 채권·CDS(MarketAxess·MarketWatch 인용 1,062bp, 11-19 / CDS 1,100~1,200bp, 11-18), J.P.모건 HPC 지수 578bp·AI 관련 하이일드 공급 17%(AAM, 11-17), Galaxy Helios 데이터센터 채권(89.25센트·13%, 11-05) — <a href="https://www.cnbc.com/2026/11/18/ai-credit-default-swaps-coreweave-debt.html">cnbc.com</a> · <a href="https://aamcompany.com/insights/high-yield/high-yield-update-carry-holds-as-volatility-tests-the-sector/">aamcompany.com</a> · <a href="https://www.investing.com/news/stock-market-news/analysisai-debt-faces-pressure-as-democrats-prepare-to-take-over-congress-5014734">Reuters</a></li>
+      <li><span class="tier">2차</span> 코어위브 담보부·무보증 격차와 CDS 곡선 분석 — MacKay Shields(2026-11-17) <a href="https://www.nylim.com/mackay-shields/insights/stress-at-the-edge">nylim.com</a></li>
+      <li><span class="tier">2차</span> IMF 총재 Georgieva(2026-11-16) — 순환 금융 $1조 초과, 3분의 2가 부채 / IMF 10월 분석 14건: 지분 $300B·부채 $650B·미래 매출 약정 $1.4T — <a href="https://www.cnbc.com/2026/11/16/imf-georgieva-warning-ai-circular-financing.html">cnbc.com</a></li>
+      <li><span class="tier">2차</span> 엔비디아·오픈AI($100B 투자·$105B 보증·보증금 상환 합의), 앤트로픽 상장 사모 $26B(구글·엔비디아·AMD·MS·브로드컴·마이크론·TSMC), 아마존·앤트로픽($5B/$100B), 오픈AI·오라클($317B) — <a href="https://techcrunch.com/2026/11/19/anthropics-ipo-puts-ais-circular-financing-boom-to-the-test/">techcrunch.com</a> · 미 의회조사국(CRS) 보고서(2026-11-16)</li>
+      <li><span class="tier">2차</span> 오라클 성명(2026-11-20) “오픈AI 계약 이행에 필요한 자금을 모두 확보” — <a href="https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/">oracle.com</a></li>
+      <li><span class="tier">배경</span> 자매편 ① 한 주의 지도 No.01 「<a href="map-01">빚을 낸 게 아니라, 도착할 비용을 선불한 것이다</a>」 — 알파벳 2분기 449 대 71·PP&amp;E 순액 $246.6B→$321.2B</li>
+      <li><span class="tier">배경</span> 자매편 ② Weekly No.02 「<a href="weekly-02">적자가 아니라, 빚으로 갈아탄 것이다</a>」 — 조달 구조 전환·IMF 만기 불일치의 원편</li>
+      <li><span class="tier">배경(추정)</span> “AA 등급이 BBB 수준으로 거래된다”, 하이퍼스케일러 청약 배수 2월 약 5배→7월 2배 미만, 메타·블랙록 데이터센터 공동투자(125억 달러) 2배 미만 — 채권 시장 참여자·리서치하우스 평가로, 1차 확인이 아님.</li>
+    </ol>
+  </section>
+
+  <div class="disc">
+    <b>The Signal 고지</b>
+    The Signal은 산업과 자본의 구조를 해석하는 리서치로, 특정 종목의 매수·매도나 목표가·매매 시점을 다루지 않습니다. 본 리포트는 개별 투자자문이 아니며, 어떠한 금융투자상품의 매수·매도 권유도 아닙니다. 언급되는 기업·기관·수치는 구조를 설명하기 위한 예시이자 해석의 근거이며, 그 자체로 투자 판단의 기준이 될 수 없습니다. 본문의 판단(전개 시나리오·확인 지표)은 반증 가능한 해석이며, 독자 각자의 판단과 책임을 대신하지 않습니다. 회계·금융 용어의 괄호 설명은 이해를 돕기 위한 것으로, 정식 회계 정의와 차이가 있을 수 있습니다.
+  </div>
+
+  <div class="signoff">
+    <div class="ss-brand">The Signal</div>
+    <div class="ss-line">세상의 변화를 먼저 읽는 리서치</div>
+  </div>
+
+</article>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="./" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="archive" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

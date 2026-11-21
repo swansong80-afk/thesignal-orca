@@ -12,12 +12,12 @@
   "citation_format": "글 쓰는 범고래, 「글 제목」, The Signal, {url} (2026)",
   "intro": "세상의 변화를 먼저 읽는 리서치. 지정학·자본·산업·기술·AI 다섯 영역에서 1차 출처로 검증한 사실만으로 신호를 읽는 한국어 리서치 사이트. 모든 검증 가능한 주장은 1차 출처 원문·URL과 함께 원장에 봉인되고, 확인하지 못한 것은 확인하지 못했다고 표기한다. 이 피드는 발행 글의 제목·요약·핵심 수치·출처를 기계가 읽을 수 있는 형태로 제공한다. 종목 매수·매도 권유나 투자 자문이 아니다.",
   "counts": {
-    "items": 14,
+    "items": 15,
     "legacy_items": 14,
     "books": 3,
     "by_series": {
       "weekly": 8,
-      "weekly-map": 1,
+      "weekly-map": 2,
       "deep-research": 5
     }
   },
@@ -105,6 +105,167 @@
       ],
       "verification": "ledger-verified",
       "sources_note": "부록 C가 매체·보도일(10/1~11/21)로 출처를 열거하고 본문에 개별 URL을 링크하지 않아, 본문에 인용된 연방관보 91 FR 74970(2026-11-19) 원문만 확인해 실었다. 나머지 출처는 기사 부록 C 참조."
+    },
+    {
+      "id": "map-02",
+      "series": "weekly-map",
+      "number": 2,
+      "title": "선불에서 고금리 부채로 — AI 인프라 자금 지도가 바뀌었다",
+      "subtitle": "7월의 449 대 71은 그대로다. 달라진 것은 그 6배를 메우는 돈의 주인이다 — 8.259% 채권, 2066년 만기, 3조 달러 부외 약정",
+      "published_at": "2026-11-21",
+      "url": "https://thesignal-orca.pages.dev/map-02",
+      "summary": "한 주의 지도 No.01(선불)의 4개월 뒤 검증. 알파벳 3분기 설비 지출 513억 5,500만 달러 대 유형자산 감가상각 83억 6,900만 달러로 6.1배 갭이 유지됐고, 네 하이퍼스케일러의 분기 설비 지출 합계(2,019억 달러)가 영업현금흐름(1,755억 달러)을 앞질러 잉여현금흐름 합계가 −264억 달러가 됐다. 11월 20일 스페이스X의 GPU 금융은 A− 보장부 채권에 8.259%(미 IG 평균 5.95%)를 매겼고, 같은 주 알파벳은 캐나다달러 2066년 만기 채권을 6.000%로 발행했으며, 마이크로소프트는 2017년 이후 처음 미국 회사채 250억 달러를 찍었다. 연준 금융안정보고서는 미개시 리스 1조 달러+, 인수보증·잔존가치 보장 2조 달러+를 집계했다.",
+      "key_metrics": [
+        {
+          "name": "알파벳 분기 설비 지출",
+          "value": "513억 5,500만 달러",
+          "unit": "USD",
+          "as_of": "2026-3Q",
+          "note": "유형자산 취득 $51,355M"
+        },
+        {
+          "name": "알파벳 분기 유형자산 감가상각",
+          "value": "83억 6,900만 달러",
+          "unit": "USD",
+          "as_of": "2026-3Q",
+          "note": "$8,369M, 설비 지출의 6.1배"
+        },
+        {
+          "name": "알파벳 분기 잉여현금흐름",
+          "value": "-91억 달러",
+          "unit": "USD",
+          "as_of": "2026-3Q",
+          "note": "-$9,065M, 2분기 -$5,855M에서 확대"
+        },
+        {
+          "name": "네 하이퍼스케일러 설비 지출/영업현금흐름",
+          "value": "2,019억 / 1,755억 달러",
+          "unit": "USD",
+          "as_of": "2026-3Q",
+          "note": "각사 공시 수치의 단순 합계(115.1%), 잉여현금흐름 합계 -264억 달러"
+        },
+        {
+          "name": "스페이스X GPU 채권 최대 트랜치 수익률",
+          "value": "8.259%",
+          "unit": "%",
+          "as_of": "2026-11-20",
+          "note": "A3 $25.168B, 2033년 만기, 국채 대비 +345bp"
+        },
+        {
+          "name": "미국 투자등급 회사채 평균 수익률",
+          "value": "5.95%",
+          "unit": "%",
+          "as_of": "2026-11-20",
+          "note": "블룸버그 지수 기준, 스페이스X 딜과 +2.3%p"
+        },
+        {
+          "name": "스페이스X GPU 금융 총액",
+          "value": "약 440억 달러",
+          "unit": "USD",
+          "as_of": "2026-11-20",
+          "note": "아폴로 발표(선순위·후순위 노트), 공개 채권 약 321억 달러, 리스 대상 GPU 약 473억 달러"
+        },
+        {
+          "name": "알파벳 C$ 2066년 만기 채권",
+          "value": "6.000%",
+          "unit": "%",
+          "as_of": "2026-11-24",
+          "note": "C$12.5억, 벤치마크 대비 +185bp, 8월 미국 달러 40년물 6.50% 대비 낮음"
+        },
+        {
+          "name": "미국 하이일드 OAS",
+          "value": "352bp",
+          "unit": "bp",
+          "as_of": "2026-11-19",
+          "note": "ICE BofA, 52주 최고(위기 기준선 400bp 미만)"
+        },
+        {
+          "name": "첨단 연산 관련 부채 발행",
+          "value": "6,800억 달러+",
+          "unit": "USD",
+          "as_of": "2026-10",
+          "note": "연준 금융안정보고서, IG 발행의 약 31%(2023년 6% 미만)"
+        },
+        {
+          "name": "부외 약정(미개시 리스·보증)",
+          "value": "3조 달러+",
+          "unit": "USD",
+          "as_of": "2026-Q2",
+          "note": "연준: 미개시 리스 1조+, 인수보증·잔존가치 보장 2조+ (할인 전 최대치)"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "Alphabet Inc. Form 10-Q(2026년 3분기)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "Alphabet Inc. 2026년 3분기 실적 발표(Exhibit 99.1) 및 실적콜",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "Meta Platforms 2026년 3분기 실적(유형자산 취득 $33,942M·영업현금흐름 $32,786M·잉여현금흐름 −$2.12B), Amazon.com 2026년 3분기 실적(유형자산 취득 $77,259M·영업현금흐름 $42,422M·TTM 잉여현금흐름 −$42.4B), Microsoft Form 10-Q(유형자산 증가 $39,367M·영업현금흐름 $58,000M)",
+          "url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx"
+        },
+        {
+          "tier": "primary",
+          "source": "Microsoft, 회사채 발행 공시(2026-10-29, $25B·10개 트랜치·2066년 만기 6.35% $2B)",
+          "url": "https://news.microsoft.com/source/2026/10/29/microsoft-announces-debt-offerings-7/"
+        },
+        {
+          "tier": "primary",
+          "source": "Apollo Global Management·Goldman Sachs, SpaceX GPU 금융 가격 결정 보도자료(2026-11-20, 약 $44B 선순위·후순위 채권, 2027년 상반기 리스 개시)",
+          "url": "https://ir.apollo.com/news-events/press-releases/detail/662/apollo-and-goldman-sachs-announce-pricing-of-44-billion"
+        },
+        {
+          "tier": "primary",
+          "source": "Alphabet Inc. FWP(2026-11-19)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526469213/d21316dfwp.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "미 연준, FOMC 의사록(2026년 10월 27~28일 회의, 11-18 공개)",
+          "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "미 연준, 금융안정보고서(2026년 11월) Box 2.2 「데이터센터 구축의 레버리지」",
+          "url": "https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "미 연준 이사 Barr 연설(2026-11-16)",
+          "url": "https://www.federalreserve.gov/newsevents/speech/barr20261116a.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "ECB 금융안정보고서 박스(2026-11-18)",
+          "url": "https://www.ecb.europa.eu/press/financial-stability-publications/fsr/focus/2026/html/ecb.fsrbox202611_03~4fd1449eaa.en.html"
+        },
+        {
+          "tier": "primary",
+          "source": "BIS Bulletin No.140(2026-10-27)",
+          "url": "https://www.bis.org/publications/bulletin-140-building-ai-credit-structures-and-spillovers.pdf"
+        },
+        {
+          "tier": "secondary",
+          "source": "Bloomberg·IFR·CNA(2026-11-20)",
+          "url": "https://www.ifre.com/bonds/2516476/yield-trumps-tech-jitters-as-apollo-prices-divisive-spacex-chip-financing"
+        }
+      ],
+      "source_count": 20,
+      "domains": [
+        "자본",
+        "기술"
+      ],
+      "verification": "ledger-verified",
+      "related_ids": [
+        "map-01",
+        "weekly-02"
+      ]
     },
     {
       "id": "weekly-07",
