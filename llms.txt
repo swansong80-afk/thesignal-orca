@@ -81,6 +81,16 @@ Weekly Legacy.01~09, Deep Research Legacy.01~03, 한 주의 지도 Legacy.01~02.
 - 검증 시스템: https://thesignal-orca.pages.dev/verify-system
 - 검증 규칙(제작 규칙 전문): https://thesignal-orca.pages.dev/verify
 
+## 블라인드 차트 시뮬레이터 (Interactive Simulator)
+
+연도와 지수명을 지운 실제 역사 차트를 2개월 단위로 넘기며 비중을 결정하는 무료 인터랙티브 도구입니다.
+1972~1976 오일쇼크, 1993~1997, 1999~2002 닷컴, 2006~2010 금융위기, 2019~2023 코로나·금리 쇼크의
+다섯 사이클을 다루며, 라운드마다 금리·물가·신용 지표와 짧은 상황 설명만 주어집니다. 미래 구간과 연도·지수명은 끝까지
+공개되지 않고, 마지막에 실제 연도와 성과를 복기합니다. 로그인 없이 바로 시작할 수 있습니다.
+
+- 시뮬레이터: https://thesignal-orca.pages.dev/sim
+- 홈 소개 섹션: https://thesignal-orca.pages.dev/#simulator
+
 ### 구조화 피드 (Machine-readable feed)
 
 발행 글 전체를 한 파일의 JSON으로도 제공합니다 — 제목·부제·발행일·URL·요약·핵심 수치(key_metrics)·
@@ -166,6 +176,7 @@ Signal Card, Weak Links and graded source ledger as the Korean originals.
 
 - [홈](https://thesignal-orca.pages.dev/): The Signal 소개, 세 갈래 리서치, 검증 시스템, 발행인
 - [아카이브](https://thesignal-orca.pages.dev/archive): Weekly·한 주의 지도·Deep Research·Legacy 전체 목록
+- [블라인드 차트 시뮬레이터](https://thesignal-orca.pages.dev/sim): 연도를 지운 실제 역사 차트로 2개월 단위 비중 판단을 연습하는 인터랙티브 도구
 - [JSON 피드](https://thesignal-orca.pages.dev/signals.json): 전체 발행 글의 기계 판독용 메타데이터
 - [Weekly No.07](https://thesignal-orca.pages.dev/weekly-07): 만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구
 - [Weekly No.06](https://thesignal-orca.pages.dev/weekly-06): 칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경

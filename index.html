@@ -159,6 +159,41 @@
     .step:nth-child(2n){border-right:none}}
   @media(max-width:480px){.steps{grid-template-columns:1fr}.step{border-right:none}}
 
+  /* ---------- interactive simulator ---------- */
+  section.sim{scroll-margin-top:64px;position:relative;overflow:hidden;color:#EAF0F7;
+    background:radial-gradient(120% 100% at 88% 0%,rgba(62,224,196,.11) 0%,rgba(62,224,196,0) 54%),
+      linear-gradient(160deg,var(--deep) 0%,var(--deep2) 100%)}
+  .sim .wrap{position:relative}
+  .simgrid{display:grid;grid-template-columns:1.06fr .94fr;gap:46px;align-items:center}
+  .sim .eyebrow{color:#3EE0C4}
+  .sim h2{font-family:var(--serif);font-weight:700;font-size:33px;line-height:1.42;letter-spacing:-0.02em;
+    margin:14px 0 0;color:#fff}
+  .sim .sdek{font-size:15.5px;line-height:1.8;color:#B8C7DA;margin:16px 0 0;max-width:47ch}
+  .sim .sdek b{color:#EAF0F7;font-weight:600}
+  .simchips{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0}
+  .simchips span{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;
+    color:#CFEEE7;background:rgba(62,224,196,.08);border:1px solid rgba(62,224,196,.26);
+    border-radius:999px;padding:6px 13px}
+  .simchips span::before{content:"";width:5px;height:5px;border-radius:50%;background:#3EE0C4;flex:0 0 auto}
+  .simprev{background:linear-gradient(160deg,#0d1626,#0a1120);border:1px solid rgba(126,163,214,.22);
+    border-radius:16px;padding:18px 18px 20px;box-shadow:0 24px 48px -28px rgba(0,0,0,.8)}
+  .simprev .ph{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    font-family:var(--slab);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:#7F92B0;margin:0 2px 10px}
+  .simprev .ph b{color:#3EE0C4;font-weight:700;letter-spacing:.14em}
+  .simchart{display:block;width:100%;height:auto}
+  .simcta{display:block;text-align:center;margin:16px 0 0;padding:13px 18px;border-radius:11px;
+    background:linear-gradient(180deg,#4FF0D3,#2EC4AA);color:#04231F;font-weight:800;font-size:14.5px;
+    box-shadow:0 12px 26px -12px rgba(46,196,170,.6);transition:transform .15s,box-shadow .2s}
+  .simcta:hover{transform:translateY(-1px);box-shadow:0 16px 32px -12px rgba(46,196,170,.75)}
+  .simcta .arw{display:inline-block;transition:transform .15s}
+  .simcta:hover .arw{transform:translateX(3px)}
+  .simprev .pfoot{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;margin:11px 0 0;
+    font-size:11.5px;color:#6F84A3}
+  .simprev .pfoot span{display:inline-flex;align-items:center;gap:14px}
+  .simprev .pfoot span + span::before{content:"";width:3px;height:3px;border-radius:50%;background:#3A4B66}
+  @media(max-width:860px){.simgrid{grid-template-columns:1fr;gap:30px}.sim h2{font-size:27px}}
+
   /* ---------- three streams (pyramid) ---------- */
   .streams{display:flex;flex-direction:column;gap:14px}
   .stream{display:grid;grid-template-columns:150px 1fr auto;gap:22px;align-items:center;
@@ -271,6 +306,7 @@
       <a href="#frame">프레임</a>
       <a href="verify-system">검증 시스템</a>
       <a href="verify">검증 규칙</a>
+      <a href="#simulator">시뮬레이터</a>
       <a href="#streams">콘텐츠</a>
       <a href="books">출간 예정작</a>
       <a href="#english">영문 PDF</a>
@@ -389,6 +425,70 @@
       </div>
     </div>
     <p class="vtag"><b>신뢰도를 올릴 뿐, 완벽은 없다.</b> — 그래서 우리는 확신이 아니라 정직을 팝니다.</p>
+  </div>
+</section>
+
+<!-- ================= SIMULATOR ================= -->
+<section class="sim" id="simulator" aria-labelledby="simtitle">
+  <div class="wrap">
+    <div class="simgrid">
+      <div>
+        <div class="eyebrow">Interactive Simulator · 백 마디 말보다 한 번의 판단</div>
+        <h2 id="simtitle">연도를 가린 역사 앞에서,<br>당신의 판단은 살아남을까요.</h2>
+        <p class="sdek">1970년대 오일쇼크부터 2020~2023 코로나·금리 쇼크까지, 연도와 지수명을 지운 실제 차트를 2개월씩 넘기며 비중을 결정해 보세요. 미래가 잠긴 상태에서 감이 아니라 구조(금리·물가·신용)를 읽는 힘을 3분 만에 시험할 수 있습니다.</p>
+        <div class="simchips">
+          <span>5개 실제 역사 사이클</span>
+          <span>2개월 단위 가변 라운드</span>
+          <span>연도·종목 완전 비공개</span>
+        </div>
+      </div>
+      <div class="simprev">
+        <div class="ph"><span>Anonymous Chart</span><span><b>연도 비공개</b></span></div>
+        <svg class="simchart" viewBox="0 0 400 200" role="img" aria-label="앞부분은 공개되고 오른쪽 미래 구간이 잠긴 익명 차트 미리보기">
+          <defs>
+            <linearGradient id="simfill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3EE0C4" stop-opacity=".26"/>
+              <stop offset="1" stop-color="#3EE0C4" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="simline" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#1F8D7E"/>
+              <stop offset="1" stop-color="#3EE0C4"/>
+            </linearGradient>
+            <pattern id="simhatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="7" stroke="#7EA3D6" stroke-opacity=".16" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <g stroke="#7EA3D6" stroke-opacity=".12" stroke-width="1">
+            <line x1="8" y1="34" x2="392" y2="34"/>
+            <line x1="8" y1="68" x2="392" y2="68"/>
+            <line x1="8" y1="102" x2="392" y2="102"/>
+            <line x1="8" y1="136" x2="392" y2="136"/>
+            <line x1="8" y1="174" x2="392" y2="174"/>
+          </g>
+          <rect x="251" y="26" width="141" height="148" fill="url(#simhatch)"/>
+          <path d="M8,148 L26,152 L44,140 L62,146 L80,132 L98,138 L116,120 L134,126 L150,110 L168,118 L184,96 L202,104 L218,88 L234,96 L250,84 L250,174 L8,174 Z" fill="url(#simfill)"/>
+          <path d="M8,148 L26,152 L44,140 L62,146 L80,132 L98,138 L116,120 L134,126 L150,110 L168,118 L184,96 L202,104 L218,88 L234,96 L250,84"
+                fill="none" stroke="url(#simline)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="8" cy="148" r="2.4" fill="#3EE0C4"/>
+          <line x1="250" y1="24" x2="250" y2="174" stroke="#D9B45A" stroke-opacity=".6" stroke-width="1" stroke-dasharray="3 4"/>
+          <text x="244" y="19" text-anchor="end" font-family="'Roboto Slab',serif" font-size="10" letter-spacing="1.4" fill="#D9B45A">지금</text>
+          <text x="322" y="118" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="44" fill="#3EE0C4" fill-opacity=".45">?</text>
+          <text x="322" y="152" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.6" fill="#6F84A3">미래 · 잠김</text>
+          <g stroke="#7EA3D6" stroke-opacity=".28" stroke-width="1">
+            <line x1="8" y1="174" x2="8" y2="179"/>
+            <line x1="44" y1="174" x2="44" y2="179"/>
+            <line x1="80" y1="174" x2="80" y2="179"/>
+            <line x1="116" y1="174" x2="116" y2="179"/>
+            <line x1="152" y1="174" x2="152" y2="179"/>
+            <line x1="188" y1="174" x2="188" y2="179"/>
+            <line x1="224" y1="174" x2="224" y2="179"/>
+            <line x1="250" y1="174" x2="250" y2="179"/>
+          </g>
+        </svg>
+        <a class="simcta" href="sim">시뮬레이터 시작하기 <span class="arw">→</span></a>
+        <div class="pfoot"><span>3분</span><span>5개 시나리오</span><span>로그인 없이 바로 시작</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
