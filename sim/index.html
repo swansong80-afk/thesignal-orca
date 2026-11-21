@@ -147,6 +147,7 @@
   .start-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:22px; align-items:start;}
   @media (max-width:900px){ .start-grid{grid-template-columns:1fr;} }
   .sc-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media (min-width:760px){ .sc-grid{grid-template-columns:repeat(3,1fr);} }
   @media (max-width:420px){ .sc-grid{grid-template-columns:1fr;} }
   .sc-card{
     position:relative; text-align:left; font-family:inherit; color:var(--txt);
