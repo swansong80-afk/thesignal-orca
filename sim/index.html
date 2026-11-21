@@ -68,6 +68,13 @@
     max-width:1180px; margin:0 auto; padding:22px 26px 18px;
   }
   @media (max-width:560px){ .topbar{padding:16px 16px 12px;} }
+  @media (max-width:430px){
+    .brand-name{font-size:11px; letter-spacing:.16em; white-space:nowrap;}
+    .brand-sub{font-size:9.5px; letter-spacing:.04em; white-space:nowrap;}
+    .top-right{gap:8px;}
+    .pill{font-size:9px; letter-spacing:.1em; padding:5px 8px; white-space:nowrap;}
+    .nav-home{font-size:11px; white-space:nowrap;}
+  }
   .brand{display:flex; align-items:center; gap:11px;}
   .brand-mark{
     width:34px;height:34px;border-radius:10px;flex:0 0 auto;
@@ -1045,7 +1052,7 @@ function buildChart(opts){
       if (r % 2 === 1) s += `<rect x="${a}" y="${pt}" width="${b-a}" height="${H-pt-pb}" fill="#ffffff" opacity=".017"/>`;
       s += `<line x1="${b}" y1="${pt}" x2="${b}" y2="${H-pb}" stroke="#7ea3d6" stroke-opacity=".13" stroke-width="1"/>`;
       if (r % labelStep === 0 || r === ROUNDS - 1)
-        s += `<text x="${(a+b)/2}" y="${pt-14}" fill="#5f7597" font-size="10" letter-spacing="2" text-anchor="middle" font-family="inherit">R${r+1}</text>`;
+        s += `<text x="${(a+b)/2}" y="${pt-14}" fill="#5f7597" font-size="${small?9:10}" letter-spacing="${small?1:2}" text-anchor="middle" font-family="inherit">R${r+1}</text>`;
     }
   }
 
