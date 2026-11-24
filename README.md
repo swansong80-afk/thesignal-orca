@@ -26,7 +26,7 @@ archive.html               지난 글 전체 (Weekly / 한 주의 지도 / Deep 
 weekly-01 … weekly-06.html Weekly (No.06 = 2026-11-17 「칩은 팔고, 연산은 허가한다」)
 weekly-04-appendix.html    No.04 부록
 map-01.html                한 주의 지도 No.01
-deep-01 … deep-03(-part2)  Deep Research No.01~03
+deep-01 … deep-05.html      Deep Research No.01~05
 legacy-w01~w09             Weekly Legacy
 legacy-dr01~dr03           Deep Research Legacy
 legacy-m01~m02             한 주의 지도 Legacy
