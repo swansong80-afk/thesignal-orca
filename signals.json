@@ -4,7 +4,7 @@
   "author": "글 쓰는 범고래 (ORCA)",
   "canonical_site": "https://thesignal-orca.pages.dev",
   "feed_url": "https://thesignal-orca.pages.dev/signals.json",
-  "updated_at": "2026-11-21",
+  "updated_at": "2026-11-24",
   "language": "ko",
   "verification_policy_url": "https://thesignal-orca.pages.dev/verify-system",
   "archive_url": "https://thesignal-orca.pages.dev/archive",
@@ -12,13 +12,13 @@
   "citation_format": "글 쓰는 범고래, 「글 제목」, The Signal, {url} (2026)",
   "intro": "세상의 변화를 먼저 읽는 리서치. 지정학·자본·산업·기술·AI 다섯 영역에서 1차 출처로 검증한 사실만으로 신호를 읽는 한국어 리서치 사이트. 모든 검증 가능한 주장은 1차 출처 원문·URL과 함께 원장에 봉인되고, 확인하지 못한 것은 확인하지 못했다고 표기한다. 이 피드는 발행 글의 제목·요약·핵심 수치·출처를 기계가 읽을 수 있는 형태로 제공한다. 종목 매수·매도 권유나 투자 자문이 아니다.",
   "counts": {
-    "items": 15,
+    "items": 16,
     "legacy_items": 14,
     "books": 3,
     "by_series": {
       "weekly": 8,
       "weekly-map": 2,
-      "deep-research": 5
+      "deep-research": 6
     }
   },
   "field_notes": {
@@ -30,6 +30,97 @@
     "books": "출간 예정작 3권의 목차·요약 메타데이터. 본문 전문은 공개되지 않는다."
   },
   "items": [
+    {
+      "id": "deep-05",
+      "series": "deep-research",
+      "number": 5,
+      "title": "돌아온 사람, 쓰이지 않은 서류",
+      "subtitle": "2026년 11월 23일 미국 시장은 무엇에 환호했고, 무엇을 12월로 미뤘나 — 젠슨 황 복귀 8-K와 미제출 10-Q의 온도차, 주식은 +4.73% 올랐지만 신용은 +0.25%에 그친 하루.",
+      "published_at": "2026-11-24",
+      "url": "https://thesignal-orca.pages.dev/deep-05",
+      "summary": "11월 23일 미국 정규장 종가 기준 Special Report. 엔비디아 +31.48%($165.05), S&P 500 +4.73%(7,237.17), 나스닥 +6.51%, SOX +14.03%로 2025년 4월 이후 최대 일간 상승이 나왔지만, 그 상승은 8-K가 복원한 리더십에 대한 반응이었고 3분기 10-Q는 아직 제출되지 않았다(법정 기한 12월 4일). 같은 날 하이일드 OAS 3.76%·CCC 14.02%·투자등급 0.98%가 모두 1년 최고였고 HYG는 +0.25%에 그쳤다. 세 시나리오(강세 25%·박스권 45%·재조정 30%)의 확률가중 기대값은 7,104로 종가 대비 −1.8%, 결론은 '추세 전환의 조건은 주가가 아니라 12월 4일의 서류'다.",
+      "key_metrics": [
+        {
+          "name": "S&P 500 종가",
+          "value": "7,237.17",
+          "unit": "pt",
+          "as_of": "2026-11-23",
+          "note": "당일 +4.73%, 2025년 4월 이후 최대 일간 상승, 10월 6일 고점 대비 −7.44%"
+        },
+        {
+          "name": "엔비디아(NVDA) 종가",
+          "value": "$165.05",
+          "unit": "USD",
+          "as_of": "2026-11-23",
+          "note": "당일 +31.48%, 시가총액 약 1조 달러 증가(로이터), 52주 고점 대비 −32.18%"
+        },
+        {
+          "name": "필라델피아 반도체지수(SOX)",
+          "value": "9,588.05",
+          "unit": "pt",
+          "as_of": "2026-11-23",
+          "note": "당일 +14.03%, 6월 22일 고점 대비 −34.49%"
+        },
+        {
+          "name": "미 하이일드 OAS",
+          "value": "3.76%",
+          "unit": "%",
+          "as_of": "2026-11-20",
+          "note": "1년 최고(1년 백분위 100%), 직전 대비 +24bp. CCC 14.02%, 투자등급 0.98%도 1년 최고"
+        },
+        {
+          "name": "같은 날 HYG 수익률",
+          "value": "+0.25%",
+          "unit": "%",
+          "as_of": "2026-11-23",
+          "note": "주식 +4.73%와의 간격 — 신용시장은 지급능력 변화로 읽지 않음"
+        },
+        {
+          "name": "NVDA 3분기 매출 중 AI 클라우드·산업·엔터프라이즈",
+          "value": "41%",
+          "unit": "%",
+          "as_of": "2026-11-17",
+          "note": "데이터센터 $1,076억 중 $475억(+195% YoY)"
+        },
+        {
+          "name": "2027년 EPS 컨센서스",
+          "value": "$427.08",
+          "unit": "USD",
+          "as_of": "2026-11-12",
+          "note": "Refinitiv. 7,237에서 2027 P/E 16.9배, 4대 하이퍼스케일러 2027 캐펙 컨센서스 $934.5B(+28%) 전제"
+        },
+        {
+          "name": "시나리오 확률 (A/B/C)",
+          "value": "25% / 45% / 30%",
+          "unit": "%",
+          "as_of": "2026-11-23",
+          "note": "강세 전환 / 박스권 소화 / 재조정, 연말까지"
+        },
+        {
+          "name": "확률가중 기대값",
+          "value": "7,104",
+          "unit": "pt",
+          "as_of": "2026-11-23",
+          "note": "종가 대비 −1.8%"
+        },
+        {
+          "name": "NVDA 10-Q 법정 기한",
+          "value": "2026-12-04",
+          "unit": "date",
+          "as_of": "2026-11-24",
+          "note": "분기 종료(10/25) 후 40일. 미제출 상태이며 NT 10-Q도 없음"
+        }
+      ],
+      "primary_sources": [],
+      "source_count": 0,
+      "domains": [
+        "시장",
+        "자본",
+        "거버넌스"
+      ],
+      "verification": "ledger-verified",
+      "sources_note": "본문 부록 10.3이 1차 공시(SEC EDGAR CIK 0001045810, 8-K 0001045810-26-000082·000088·000090), FRED 계열ID, 재무부 DTS, 연준 H.4.1, BLS·BEA 발표일, 보도·연구 매체를 열거하지만 본문에 개별 URL을 링크하지 않아 primary_sources는 비워 두었다. 세부는 기사 부록 10.3 참조."
+    },
     {
       "id": "deep-04",
       "series": "deep-research",

@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>돌아온 사람, 쓰이지 않은 서류 — 2026년 11월 23일 미국 시장 심층 리서치 — The Signal</title>
+<style>
+  :root{
+    --paper:#ffffff; --page:#f3f4f6; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --card:#f4f6f8; --cap:#0B2545; --accent:#26467d; --line:#1B4965;
+    --box:#f4f6fb; --boxline:#d8e0ee; --red:#B3261E; --green:#15693B; --gold:#8a6a12;
+    --main:760px;
+    --slab:"Roboto Slab",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0; background:var(--page); color:var(--ink); font-family:var(--sans);
+       font-size:16.5px; line-height:1.85; -webkit-font-smoothing:antialiased;
+       word-break:keep-all; overflow-wrap:break-word;}
+  .wrap{max-width:calc(var(--main) + 128px); margin:0 auto; padding:30px 24px 76px;}
+  article{background:var(--paper); border:1px solid var(--rule); border-radius:6px;
+          padding:52px 64px 56px; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+
+  /* ---------- masthead ---------- */
+  .masthead{font-family:var(--slab); font-size:.95rem; letter-spacing:.14em; color:var(--accent);
+            font-weight:700; text-transform:uppercase; padding-bottom:18px;
+            border-bottom:1px solid var(--rule); margin-bottom:26px;}
+  .masthead .tag{font-family:var(--sans); letter-spacing:.06em; font-size:.72rem; color:#fff;
+                 background:var(--cap); padding:2px 8px; border-radius:3px; margin-left:10px;
+                 vertical-align:2px;}
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft); font-weight:600;}
+  h1{font-size:2.02rem; line-height:1.34; letter-spacing:-.022em; margin:0 0 14px; font-weight:800; color:#101418;}
+  h2.sub{border-top:0; padding-top:0; margin:2px 0 24px; font-size:1.1rem; line-height:1.62;
+         color:var(--ink-soft); font-weight:500; letter-spacing:-.01em;}
+  .dek{font-size:1.06rem; color:#000; margin:0 0 6px; line-height:1.8;}
+
+  /* ---------- cover stats ---------- */
+  .hero{background:var(--cap); color:#fff; border-radius:8px; padding:26px 28px;
+        display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin:26px 0 34px;}
+  .hero .v{font-size:1.62rem; font-weight:700; letter-spacing:-.02em; line-height:1.2;}
+  .hero .k{font-size:12.5px; color:#93A6BD; margin-top:7px; line-height:1.6;}
+  .hero .d{font-size:12px; color:#C9A227; margin-top:5px; line-height:1.5;}
+
+  /* ---------- toc ---------- */
+  .toc{background:var(--box); border:1px solid var(--boxline); border-radius:6px;
+       padding:20px 24px 16px; margin:0 0 36px;}
+  .toc .toch{font-family:var(--slab); font-size:.74rem; letter-spacing:.2em; text-transform:uppercase;
+             color:var(--accent); font-weight:700; margin-bottom:10px;}
+  .toc ol{margin:0; padding:0; list-style:none; counter-reset:none;}
+  .toc li{border-bottom:1px dotted #c9d2df; font-size:14.5px;}
+  .toc li:last-child{border-bottom:0;}
+  .toc a{display:flex; gap:12px; padding:8px 0; color:var(--ink); text-decoration:none; align-items:baseline;}
+  .toc a:hover{color:var(--accent);}
+  .toc .n{color:var(--accent); font-weight:700; font-size:12.5px; min-width:26px; flex:none;
+          letter-spacing:.02em;}
+  .toc .lb{line-height:1.55;}
+
+  /* ---------- headings ---------- */
+  h2{margin:64px 0 6px; padding-top:26px; border-top:2px solid var(--cap);
+     font-size:1.5rem; line-height:1.38; font-weight:800; letter-spacing:-.015em; color:var(--cap);}
+  h2 .num{display:block; font-family:var(--sans); font-size:11px; letter-spacing:2.6px;
+          color:var(--accent); font-weight:700; margin:0 0 9px;}
+  h3{font-size:1.18rem; line-height:1.5; font-weight:800; color:var(--cap);
+     margin:40px 0 12px; padding-left:12px; border-left:3px solid var(--accent);}
+  h4{font-size:1.02rem; font-weight:700; color:#1B3A5C; margin:26px 0 10px;}
+
+  p{margin:0 0 18px;}
+  strong{font-weight:700; color:#0B1D33;}
+  em{font-style:normal; color:#9A3412;}
+  .lead{font-size:1.04rem; line-height:1.85; color:#1d2635;}
+  .small{font-size:.88rem; color:var(--ink-soft); line-height:1.75;}
+  .tiny{font-size:.78rem; color:var(--muted); line-height:1.6;}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em;}
+  .red{color:var(--red);} .green{color:var(--green);} .navy{color:var(--cap);}
+  .c{text-align:center;}
+
+  /* ---------- tables ---------- */
+  .tblscroll{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:20px 0 26px;
+             border:1px solid var(--rule); border-radius:5px; background:#fff;}
+  table.dt{width:100%; border-collapse:collapse; font-size:14px; line-height:1.55; margin:0;}
+  table.dt thead th{background:var(--cap); color:#fff; font-weight:600; text-align:left;
+                    padding:9px 11px; font-size:12.5px; letter-spacing:.02em; white-space:nowrap;
+                    border-right:1px solid rgba(255,255,255,.12);}
+  table.dt thead th:last-child{border-right:0;}
+  table.dt td{padding:9px 11px; border-bottom:1px solid #e6e9ee; vertical-align:top; text-align:left;}
+  table.dt tbody tr:nth-child(even) td{background:#f7f9fb;}
+  table.dt tbody tr:last-child td{border-bottom:0;}
+  table.dt td.r, table.dt th.r{text-align:right; font-variant-numeric:tabular-nums;}
+  table.dt td.c, table.dt th.c{text-align:center;}
+  table.dt .grp td{background:#e8edf3 !important; font-weight:700; color:var(--cap);}
+  table.dt.compact td{padding:7px 10px;}
+
+  /* ---------- kpi ---------- */
+  table.kpi{width:100%; border-collapse:separate; border-spacing:8px; margin:14px -8px 22px;}
+  table.kpi td{background:#f2f5f9; border-top:3px solid var(--cap); padding:14px 14px 12px;
+               vertical-align:top; width:25%; border-radius:3px;}
+  table.kpi .v{font-size:1.32rem; font-weight:800; color:var(--cap); letter-spacing:-.02em;
+               font-variant-numeric:tabular-nums;}
+  table.kpi .k{font-size:12px; color:#5A6577; margin-top:6px; line-height:1.5;}
+  table.kpi .d{font-size:12px; font-weight:700; margin-top:4px; line-height:1.5;}
+
+  /* ---------- boxes ---------- */
+  .callout,.note,.warn{border-radius:5px; padding:16px 20px; margin:24px 0 26px; font-size:.95rem;
+                       line-height:1.75;}
+  .callout{background:#f9f5ea; border-left:4px solid #C9A227;}
+  .note{background:#eef3f8; border-left:4px solid var(--line);}
+  .warn{background:#fdf0ee; border-left:4px solid var(--red);}
+  .callout .t,.note .t,.warn .t{font-weight:800; font-size:.82rem; letter-spacing:.06em;
+                                margin-bottom:7px; text-transform:none;}
+  .callout .t{color:#7A5B0B;} .note .t{color:#123B52;} .warn .t{color:#8C1D18;}
+
+  blockquote{margin:26px 0; padding:18px 22px; background:#fafaf7;
+             border-top:1px solid #d8d2c0; border-bottom:1px solid #d8d2c0;
+             font-size:1.02rem; line-height:1.8; color:#2b3340;}
+  blockquote p{margin:0 0 8px;}
+  blockquote p:last-child{margin:0;}
+  blockquote .who{display:block; margin-top:8px; font-size:.8rem; color:var(--muted);}
+
+  ul,ol{margin:0 0 22px; padding-left:22px;} li{margin-bottom:8px;} ul.tight li{margin-bottom:5px;}
+
+  .bar-row{width:100%; border-collapse:collapse; margin:16px 0 22px; font-size:13.5px;}
+  .bar-row td{padding:7px 8px; border-bottom:1px solid #e6e9ee; vertical-align:middle;}
+  .bar-row td.lbl{width:27%;} .bar-row td.val{width:14%; text-align:right; font-weight:700;
+                 font-variant-numeric:tabular-nums;}
+  .bar-track{height:9px; background:#edf0f4; border-radius:2px; overflow:hidden;}
+  .bar-fill{height:9px; background:var(--red);}
+  .bar-fill.alt{background:#C8553D;} .bar-fill.blue{background:var(--line);}
+
+  .twocol{width:100%; border-collapse:collapse;}
+  .twocol td{width:50%; vertical-align:top; padding-right:22px;}
+  .twocol td + td{padding-right:0; padding-left:22px; border-left:1px solid #e0e5ec;}
+
+  .tag{display:inline-block; font-size:.72rem; font-weight:700; padding:1px 7px; color:#fff;
+       background:var(--cap); border-radius:3px; letter-spacing:.04em; vertical-align:1px;}
+  .tag.r{background:var(--red);} .tag.g{background:var(--green);}
+  .tag.o{background:#C8553D;} .tag.y{background:#A07C10;}
+
+  /* ---------- footer matter ---------- */
+  .disc{margin-top:38px; padding:16px 20px; border:1px solid var(--boxline); border-radius:5px;
+        background:#f0f1f3; font-size:.84rem; color:#555; line-height:1.75;}
+  .disc b{display:block; margin-bottom:6px; color:#333;}
+  .signoff{margin-top:44px; padding-top:32px; border-top:2px solid var(--cap); text-align:center;}
+  .signoff .nm{font-family:var(--slab); font-size:1.8rem; font-weight:700; color:var(--cap);
+               text-transform:uppercase; letter-spacing:.05em; line-height:1;}
+  .signoff .sl{font-size:.96rem; color:var(--accent); font-weight:500; margin-top:10px; letter-spacing:.03em;}
+
+  @media (max-width:860px){
+    article{padding:44px 34px 48px;}
+    h1{font-size:1.72rem;} h2{font-size:1.32rem;}
+  }
+  @media (max-width:640px){
+    body{font-size:16px; line-height:1.82;}
+    .wrap{padding:16px 12px 60px;}
+    article{padding:34px 22px 40px; border-radius:4px;}
+    h1{font-size:1.5rem;} h2.sub{font-size:1rem;} .dek{font-size:1rem;}
+    .hero{grid-template-columns:1fr; gap:16px; padding:20px 20px;}
+    .hero .v{font-size:1.4rem;}
+    h2{margin-top:52px;} h3{font-size:1.08rem;}
+    table.dt{font-size:13px; min-width:480px;} table.dt thead th{padding:8px 8px; font-size:11.5px;}
+    table.dt td{padding:8px 8px;}
+    table.kpi,table.kpi tbody,table.kpi tr,table.kpi td{display:block; width:100%;}
+    table.kpi td{margin-bottom:8px;}
+    .twocol,.twocol tbody,.twocol tr,.twocol td{display:block; width:100%; padding:0;}
+    .twocol td + td{border-left:0; border-top:1px solid var(--rule); padding-left:0;
+                    margin-top:16px; padding-top:16px;}
+    blockquote{font-size:.98rem; padding:16px 18px;}
+    .toc{padding:16px 18px 12px;} .toc li{font-size:13.8px;}
+  }
+
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em; background:#f2f4f7;
+       padding:1px 5px; border-radius:3px; color:#2a3542;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="canonical" href="https://thesignal-orca.pages.dev/deep-05">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Signal — 세상의 변화를 먼저 읽는 리서치">
+<meta property="og:title" content="돌아온 사람, 쓰이지 않은 서류 — 2026년 11월 23일 미국 시장 심층 리서치">
+<meta property="og:description" content="11월 23일 엔비디아 +31.48%, S&amp;P 500 +4.73%, 나스닥 +6.51%. 그러나 10-Q는 아직 없고, 하이일드 OAS는 1년 최고 3.76%다. 네 개의 검증 축과 세 시나리오, 확률가중 기대값 7,104(−1.8%), 4주 체크포인트 11개.">
+<meta property="og:url" content="https://thesignal-orca.pages.dev/deep-05">
+<meta name="description" content="2026년 11월 23일 미국 증시 종가 기준 Deep Research No.05. 젠슨 황 복귀 8-K와 미제출 10-Q의 온도차, 주식과 신용의 가격 차이, 유동성 천장과 2027년 EPS $427의 조건, 시장 폭과 연말 수급. 세 시나리오와 확률가중 기대값 7,104.">
+</head>
+<body>
+<div class="wrap">
+<article>
+
+<div class="masthead">The Signal : Deep Research<span class="tag">SPECIAL REPORT</span></div>
+
+<div class="meta">
+    <b>발행</b> · Deep Research No.05 · 2026년 11월 24일<br>
+    <b>기준 시점</b> · 2026년 11월 24일 (미국 11월 23일 정규장 종가 기준)<br>
+    <b>도메인</b> · 시장 × 자본 × 거버넌스<br>
+    <b>글</b> · 글 쓰는 범고래 (ORCA)<br>
+    <b>구성</b> · 요약 / 열하루의 타임라인 / 검증 축 네 개 / 세 시나리오 / 4주 체크포인트 / 반증 조건 / 방법론 / 부록
+  </div>
+
+<h1>돌아온 사람, 쓰이지 않은 서류</h1>
+<h2 class="sub">2026년 11월 23일 미국 시장은 무엇에 환호했고, 무엇을 12월로 미뤘나</h2>
+<p class="dek">11월 23일의 +4.73%는 실적이 아니라 <strong>'리더십 부재'의 해소</strong>에 지불한 값이다. 그러나 회계와 소송을 담는 서류(10-Q)는 아직 쓰이지 않았고, 신용시장은 1년 최고 스프레드에서 그 값을 다시 청구하고 있다.</p>
+
+<div class="hero" aria-label="11월 23일 종가 핵심 수치">
+    <div><div class="v">7,237.17</div><div class="k">S&amp;P 500 · 11/23 종가 (+4.73%)</div><div class="d">고점 대비 −7.44% · 2025년 4월 이후 최대</div></div>
+    <div><div class="v">$165.05</div><div class="k">엔비디아 · 11/23 종가 (+31.48%)</div><div class="d">시가총액 약 1조 달러 증가</div></div>
+    <div><div class="v">3.76%</div><div class="k">미 하이일드 OAS · 11/20 (1년 최고)</div><div class="d">같은 날 HYG는 +0.25%</div></div>
+  </div>
+
+<nav class="toc" aria-label="목차">
+  <div class="toch">목차 · 열한 개의 장</div>
+  <ol>
+    <li><a href="#summary"><span class="n">—</span><span class="lb">요약: 열 개의 판단</span></a></li>
+    <li><a href="#ch1"><span class="n">01</span><span class="lb">열하루 — 무슨 일이 있었나</span></a></li>
+    <li><a href="#ch2"><span class="n">02</span><span class="lb">검증 축 ① — 8-K와 10-Q의 온도차</span></a></li>
+    <li><a href="#ch3"><span class="n">03</span><span class="lb">검증 축 ② — 주식은 환호했지만, 신용은 아직 의심한다</span></a></li>
+    <li><a href="#ch4"><span class="n">04</span><span class="lb">검증 축 ③ — 유동성 천장과 2027년 EPS 방어선</span></a></li>
+    <li><a href="#ch5"><span class="n">05</span><span class="lb">검증 축 ④ — 시장 폭과 연말 수급</span></a></li>
+    <li><a href="#ch6"><span class="n">06</span><span class="lb">세 가지 시나리오 — 확률·트리거·체크 지표</span></a></li>
+    <li><a href="#ch7"><span class="n">07</span><span class="lb">앞으로 4주 — 추적해야 할 체크포인트</span></a></li>
+    <li><a href="#ch8"><span class="n">08</span><span class="lb">이 판단을 뒤집는 조건</span></a></li>
+    <li><a href="#ch9"><span class="n">09</span><span class="lb">방법론 — 사실·추정·판단의 구분</span></a></li>
+    <li><a href="#appendix"><span class="n">부록</span><span class="lb">좌표와 출처</span></a></li>
+  </ol>
+</nav>
+
+<h3>이 글의 질문은 하나다</h3>
+<p>11월 23일의 <strong>+4.73%</strong>는 추세 전환의 첫날인가, 아니면 하락 추세 안의 가장 큰 반등인가. 이 질문에 답하려면 주가가 아니라 <strong>네 개의 서류</strong>를 봐야 한다. ① 8-K와 10-Q가 말하는 것의 온도차, ② 주식과 신용의 가격 차이, ③ 유동성과 2027년 이익의 조건, ④ 시장 폭과 연말 수급. 네 축이 모두 같은 방향을 가리킬 때만 '전환'이라고 부를 수 있다.</p>
+
+<div class="note" style="margin-top:6mm">
+  <div class="t">검증 원칙</div>
+  모든 수치는 별도 표기가 없으면 2026년 11월 23일(월) 미국 현물시장 종가이며, 신용 스프레드는 FRED 원계열(ICE BofA)의 직전 확정치(11월 20일)를 씁니다. 사실(Fact)·추정(Estimate)·판단(Judgment)을 문장 단위로 나눠 표기했고, 확인하지 못한 것은 확인하지 못했다고 적었습니다. 실명·개인 계좌·개별 종목 매매 권유는 담지 않습니다.
+</div>
+
+<!-- ================= SUMMARY ================= -->
+<h2 id="summary"><span class="num">EXECUTIVE SUMMARY</span>요약 — 열 개의 판단</h2>
+
+<p class="lead">11월 23일 시장이 산 것은 <strong>한 사람의 복귀</strong>이고, 아직 사지 않은 것은 <strong>한 장의 서류</strong>입니다. 엔비디아는 하루에 +31.48% 올라 시가총액이 약 1조 달러 늘었고, S&amp;P 500은 +4.73%, 나스닥은 +6.51%, 필라델피아 반도체지수는 +14.03% 뛰었습니다. 그러나 같은 날 하이일드 ETF는 +0.25%에 그쳤고, 하이일드·CCC·투자등급 스프레드는 모두 1년 최고에 있습니다.</p>
+
+<table class="kpi">
+  <tr>
+    <td><div class="v">+4.73%</div><div class="k">S&amp;P 500 · 11/23 종가 7,237.17</div><div class="d green">2025년 4월 이후 최대 일간 상승</div></td>
+    <td><div class="v">3.76%</div><div class="k">미 하이일드 OAS (11/20)</div><div class="d red">1년 최고 · IG 0.98%도 1년 최고</div></td>
+    <td><div class="v">41%</div><div class="k">엔비디아 3분기 매출 중 AI 클라우드·산업 층</div><div class="d">해당 층 매출 +195% YoY</div></td>
+    <td><div class="v">7,104</div><div class="k">시나리오 확률가중 기대값 (연말)</div><div class="d red">−1.8% · 강세 25 / 박스 45 / 재조정 30</div></td>
+  </tr>
+</table>
+
+<h3>열 개의 판단</h3>
+<ol>
+  <li><strong>11월 23일의 반등은 '사람'이 만든 것이다.</strong> 엔비디아는 하루에 +31.48%($125.53 → $165.05) 올랐고, 시가총액이 약 1조 달러 늘어 애플에 이어 2위로 복귀했다(로이터). S&amp;P 500 +4.73%(7,237.17), 나스닥 +6.51%(24,089.56), 필라델피아 반도체지수(SOX) +14.03%(9,588.05). 2025년 4월 이후 최대 일간 상승이다.</li>
+  <li><strong>8-K는 리더십을 복원했지만 조사는 끝나지 않았다.</strong> 11월 22일 이사회는 만장일치로 젠슨 황을 사장·CEO·이사로 복귀시켰고(8-K 접수 11월 23일 08:57 ET), 같은 공시에서 "독립이사 전원으로 구성된 위원회의 조사는 결론까지 진행한다"고 밝혔다. <strong>사임의 배경이 된 조사가 끝나기 전에 떠난 사람이 돌아온 것</strong>이다.</li>
+  <li><strong>10-Q는 아직 없다.</strong> 3분기(10월 25일 종료) 실적은 8-K로만 나왔고, CFO 코멘터리는 "수 주 내 제출하겠다"고만 적었다. 2024년 8월 이후 9개 보고서 연속 '실적 당일 제출'이던 관행이 깨졌다. 다만 법정 기한(분기 종료 후 40일)은 <strong>12월 4일</strong>로, 아직 위법은 아니다.</li>
+  <li><strong>시장이 반응한 것은 서류가 아니라 '부재의 해소'다.</strong> 10-Q에 담길 <span class="mono">Legal Proceedings</span>, <span class="mono">Risk Factors</span>, 매출 인식, 고객 집중도, 신주 발행·희석은 여전히 미지다. 주가는 '나쁜 뉴스의 부재'를 '좋은 뉴스'로 읽은 것이 아니라, <strong>'서류가 늦어진 이유'를 아직 모르는 상태로 되돌아간 것</strong>이다.</li>
+  <li><strong>신용은 환호하지 않았다.</strong> 하이일드 OAS는 3.76%(11월 20일)로 <strong>1년 최고</strong>, CCC는 14.02%, 투자등급은 0.98%로 모두 1년 최고다. 같은 날 하이일드 ETF(HYG)는 +0.25%에 그쳤다. 주식 +4.71%와 신용 +0.25%의 간격이 이번 랠리의 성격을 가장 정직하게 말해 준다.</li>
+  <li><strong>네오클라우드는 주가가 먼저 뛰었지만 조달 비용은 그대로다.</strong> 코어위브 +22.32%, 아이렌 +23.86%, 네비우스 +20.28%. 그러나 코어위브 무담보 채권은 15~16%대, 5년 CDS는 1,135bp(11월 10일)로 11월 5일 고점 1,289bp에서 겨우 내려온 수준이다.</li>
+  <li><strong>엔비디아 매출의 41%가 '빌려서 사는 쪽'에서 나온다.</strong> 3분기 데이터센터 매출 $1,076억 중 하이퍼스케일 $601억, <strong>AI 클라우드·산업·엔터프라이즈 $475억(+195% YoY)</strong>. 조달 비용이 오르는 층이 가장 빠르게 크는 매출층이라는 뜻이다.</li>
+  <li><strong>유동성은 '풍부'가 아니라 '여유의 끝'이다.</strong> 역레포 잔액은 3.5억 달러(사실상 고갈), 지준은 2조 9,797억 달러(은행자산의 11.4%), TGA는 8,808억 달러. 연준의 지준관리매입(RMP)은 8월 이후 0이다. 12월 9일 인상은 시장에서 95% 반영됐다.</li>
+  <li><strong>2027년 EPS $427은 '캐펙이 컨센서스대로'라는 조건 위에 서 있다.</strong> 4대 하이퍼스케일러 2027년 캐펙 컨센서스는 $934.5B(+28%). 골드만삭스는 캐펙이 ±$250B 흔들리면 S&amp;P 500 이익 성장률이 ±6%p 움직인다고 본다. 이익의 방어선은 밸류에이션이 아니라 설비투자 가이던스다.</li>
+  <li><strong>확률은 강세 25 / 박스권 45 / 재조정 30, 기대값 7,104(−1.8%).</strong> 최빈 경로는 +7.8%지만 확률가중 평균은 마이너스다. <strong>최빈값과 평균이 갈라지는 것이 왼쪽 꼬리의 정의</strong>다. 2026년 11월 21일 발행한 『두 번째 해의 해부』의 결론(신용 → 정책 → 이익 → 가격)은 이번 사건으로 바뀌지 않았고, 오히려 순서가 한 칸 앞당겨졌다.</li>
+</ol>
+
+<div class="callout">
+  <div class="t">한 문장 결론</div>
+  <strong>추세 전환의 조건은 주가가 아니라 12월 4일의 서류다.</strong> 11월 23일의 +4.73%는 리스크가 사라졌다는 판단이 아니라, <em>리스크를 확인할 서류가 아직 없다</em>는 사실에 대한 반응이다. 서류가 나오는 날, 같은 가격을 다시 지불해야 한다.
+</div>
+
+<h3>핵심 수치 대시보드 — 11월 23일 종가</h3>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>항목</th>
+<th>종가·값</th>
+<th class="r">1일</th>
+<th>기준·비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S&amp;P 500</td>
+<td>7,237.17</td>
+<td class="r"><span class="green">+4.73%</span></td>
+<td>고점(10/6, 7,818.93) 대비 −7.44%</td>
+</tr>
+<tr>
+<td>나스닥 종합</td>
+<td>24,089.56</td>
+<td class="r"><span class="green">+6.51%</span></td>
+<td>고점(10/6, 27,599.79) 대비 −12.72%</td>
+</tr>
+<tr>
+<td>필라델피아 반도체(SOX)</td>
+<td>9,588.05</td>
+<td class="r"><span class="green">+14.03%</span></td>
+<td>6/22 고점 대비 −34.49%</td>
+</tr>
+<tr>
+<td>엔비디아 (NVDA)</td>
+<td>$165.05</td>
+<td class="r"><span class="green">+31.48%</span></td>
+<td>52주 고점 대비 −32.18%, 사임 전일(173.73) 대비 −5.00%</td>
+</tr>
+<tr>
+<td>VIX</td>
+<td>26.62</td>
+<td class="r"><span class="green">−25.8%</span></td>
+<td>VIX3M 25.50 &lt; VIX · 기간구조 역전 지속</td>
+</tr>
+<tr>
+<td>HYG (하이일드 ETF)</td>
+<td>76.52</td>
+<td class="r">+0.25%</td>
+<td>같은 날 주식 +4.71%</td>
+</tr>
+<tr>
+<td>미 하이일드 OAS</td>
+<td>3.76%</td>
+<td class="r"><span class="red">+24bp</span></td>
+<td>11/20 기준 · 1년 최고(1년 백분위 100%)</td>
+</tr>
+<tr>
+<td>미 투자등급 OAS</td>
+<td>0.98%</td>
+<td class="r"><span class="red">+4bp</span></td>
+<td>11/20 기준 · 1년 최고</td>
+</tr>
+<tr>
+<td>코스피</td>
+<td>5,006.03</td>
+<td class="r"><span class="green">+6.32%</span></td>
+<td>11/24 마감 · 원·달러 1,342.83</td>
+</tr>
+</tbody>
+</table></div>
+<!-- ================= CH 1 ================= -->
+<h2 id="ch1"><span class="num">CHAPTER 01</span>열하루 — 무슨 일이 있었나</h2>
+
+<p class="lead">이번 사건은 한 회사의 인사 문제가 아니라, <strong>한 사람에게 걸린 4조 달러짜리 회사</strong>가 정치·규제·사법 세 경로를 동시에 통과한 사례다. 날짜별로 정리하면 이렇다.</p>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>날짜 (ET)</th>
+<th>사건</th>
+<th>1차 확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11/8</td>
+<td>이사회, 독립이사 위원회 구성·조사 착수</td>
+<td>언론 보도(포브스 인디아·로이터), 8-K 아님</td>
+</tr>
+<tr>
+<td>11/9</td>
+<td>주주 집단소송 제기(산호세 연방법원)</td>
+<td>로이터·CNBC</td>
+</tr>
+<tr>
+<td>11/11</td>
+<td>주주 대표소송(derivative) 제기</td>
+<td>로이터</td>
+</tr>
+<tr>
+<td><strong>11/12</strong></td>
+<td><strong>황, 사장·CEO·이사직 사임(즉시 발효)</strong>. 크레스 임시 CEO, 하비 존스 초대 의장 선임</td>
+<td><strong>8-K (0001045810-26-000082)</strong></td>
+</tr>
+<tr>
+<td>11/17</td>
+<td>3분기 실적 발표($1,158억). <strong>10-Q 미제출·"수 주 내"</strong>. 존스 의장 "이사회는 황의 복귀를 의도하지 않는다". 국가안보·수출통제위 신설, CCO 채용 착수, CEO 서치(하이드릭앤스트러글스)</td>
+<td><strong>8-K (0001045810-26-000088)</strong> + 실적콜</td>
+</tr>
+<tr>
+<td>11/18</td>
+<td>UBS 콜백: 10-Q 지연은 "조사 관련 추가 리스크 요인 기재 여부" 때문</td>
+<td>UBS 노트(테크크런치 인용)</td>
+</tr>
+<tr>
+<td>11/19</td>
+<td>캘리포니아 법무장관, 조사 소환장 송달. 황 Form 144 접수</td>
+<td>로이터·EDGAR</td>
+</tr>
+<tr>
+<td><strong>11/20</strong></td>
+<td><strong>로이터 단독: SEC 집행국이 '회계 관행'을 들여다본다</strong>. NVDA −14%($125.53), VIX 35.89</td>
+<td>로이터</td>
+</tr>
+<tr>
+<td><strong>11/22</strong></td>
+<td><strong>이사회, 만장일치로 황 복귀 의결</strong></td>
+<td><strong>8-K (0001045810-26-000090)</strong></td>
+</tr>
+<tr>
+<td>11/23</td>
+<td>08:57 8-K 접수. 개장 전 복귀 발표. 미 상무부, 메가스피드·알리바바 싱가포르 법인 블랙리스트 등재</td>
+<td>8-K + 로이터</td>
+</tr>
+<tr>
+<td>11/23</td>
+<td>NVDA +31.48%, S&amp;P +4.73%, 나스닥 +6.51%, SOX +14.03%</td>
+<td>거래소 종가</td>
+</tr>
+<tr>
+<td>12/3 (예정)</td>
+<td>황, 상원 은행위원회 공개 청문회 출석 동의</td>
+<td>로이터(11/23). 11/17 보도는 12/1로 표기 — <strong>날짜 불일치 미해결</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.1 사임은 '자진'이었지만, 복귀는 '자진'이 아니었다</h3>
+
+<p>11월 12일 8-K의 표현은 이렇다. <em>"Jensen Huang has resigned as President, Chief Executive Officer, and a member of the Board, effective immediately."</em> 사유는 공시 본문에 없고, 11월 17일 실적콜에서 존스 의장이 <em>"disclosure of personal behavior inconsistent with the company's code of conduct, standards, and cultural norms"</em>라고 설명했다.</p>
+
+<p>11월 23일 공시의 표현은 이렇게 바뀐다. <em>"the Board received input from senior levels of the United States government, and based on that input, the Board is confident that Mr. Huang's reinstatement poses no national security risk."</em></p>
+
+<p>두 문장 사이에는 <strong>기업 거버넌스의 정상 경로 밖에 있는 변수</strong>가 들어와 있다. 로이터는 복귀가 트럼프 대통령의 압력에 따른 것이라고 명시했고, 트럼프는 CNBC에 <em>"I believe my intervention was very important to get Jensen Huang back"</em>이라고 말했다. 트럼프 본인이 엔비디아 주식을 1,100만~5,500만 달러 보유하고 있으며 이날 상승으로 순자산이 최대 1,700만 달러 늘었을 수 있다는 계산도 같은 기사에 있다(로이터, 재무공개 자료 기준).</p>
+
+<p>이것이 중요한 이유는 정치적 판단의 옳고 그름이 아니라, <strong>이 회사의 리스크 프리미엄이 이제 '법과 회계'가 아니라 '정치적 의지'에 일부 걸리게 되었다</strong>는 점이다. 정치적 의지는 4년 단위로, 때로는 주 단위로 바뀐다. 12월 3일 상원 청문회는 그 의지가 어느 방향으로 움직이는지 확인하는 첫 시험대다.</p>
+
+<h3>1.2 이사회가 뒤집힌 간격은 5일이다</h3>
+
+<p>11월 17일 실적콜에서 존스 의장은 이렇게 말했다.</p>
+
+<blockquote>
+<p>"The Nvidia board unanimously accepted his resignation and <strong>does not intend to reinstate Jensen as CEO</strong>."</p>
+</blockquote>
+<p>같은 날 황은 X에 <em>"If the Board of Directors decides that my return is in the best interest of our shareholders, our employees, the company, and America, I would be honored to answer these calls and return as CEO"</em>라고 올렸다. 이사회가 문을 닫은 지 몇 시간 뒤였다. 그리고 5일 뒤, 같은 이사회가 만장일치로 문을 열었다.</p>
+
+<p>거버넌스 전문가들이 지적한 문제는 세 가지다.</p>
+
+<ul>
+  <li><strong>독립성</strong>: 같은 이사진이 5일 만에 정반대 결론을 냈다. 그 사이 공개된 것은 "미국 정부 고위급의 의견"이다.</li>
+  <li><strong>절차</strong>: 조사 위원회는 Wachtell, Lipton을 선임해 진행 중이고, 11월 23일 공시에서도 "결론까지 진행"한다고 재확인했다. 즉 <strong>조사 결과가 나오기 전에 조사 대상이 최고경영자로 복귀</strong>했다.</li>
+  <li><strong>대체 가능성</strong>: 이사회는 이미 하이드릭앤스트러글스에 CEO 서치를 맡겼다. 그 서치는 이제 무효가 됐고, 비용과 후임 승계 계획은 공시되지 않았다.</li>
+</ul>
+
+<p>이 지점에서 2026년 11월의 이 사건은 2001년과 다른 성질을 갖는다. 2001년의 붕괴는 <strong>이익과 멀티플</strong>의 문제였고, 2026년 11월의 충격은 <strong>한 사람과 한 서류</strong>의 문제였다. 사람은 하루 만에 되돌릴 수 있지만, 서류는 되돌릴 수 없다.</p>
+
+<!-- ================= CH 2 ================= -->
+<h2 id="ch2"><span class="num">CHAPTER 02</span>검증 축 ① — 8-K와 10-Q의 온도차</h2>
+
+<h3>2.1 8-K가 말한 것</h3>
+
+<p>11월 23일 8-K(Item 5.02)는 길지 않다. 핵심은 네 문장이다.</p>
+
+<ol>
+  <li>11월 22일 이사회가 황을 사장·CEO·이사로 <strong>즉시</strong> 복귀시켰다(만장일치).</li>
+  <li>크레스는 EVP·CFO로 남는다.</li>
+  <li>황의 <strong>보수·고용 조건에 관한 신규 계약은 공시되지 않았다</strong>(Item 1.01 없음, 5.02의 compensatory 항목 없음).</li>
+  <li>독립이사 위원회 조사는 계속되고, 황은 협조한다. 국가안보·수출통제위원회를 신설했고 CCO를 채용한다.</li>
+</ol>
+
+<p>여기에 첨부된 보도자료(Exhibit 99.1)가 "미국 정부 고위급의 의견"과 "국가안보 리스크 없음"을 덧붙인다.</p>
+
+<p><strong>주목할 점은 공시의 부재다.</strong> 복귀 조건(보상, 지분, 사퇴 시 재발 방지 조항, 이사회 의석, 조사 결과에 따른 재사퇴 조항)이 <strong>하나도 문서화되지 않았다</strong>. 4조 달러 기업의 최고경영자 복귀에 조건이 없다는 것은, 조건이 없어서일 수도 있고 조건을 쓰지 않기로 했기 때문일 수도 있다. 어느 쪽이든 투자자가 확인할 수 있는 것은 없다.</p>
+
+<h3>2.2 10-Q가 말할 것 (아직 말하지 않은 것)</h3>
+
+<p>10-Q는 8-K보다 훨씬 두껍고, 법적 책임이 걸린 문서다. 회사는 10-Q의 중대한 허위·누락에 대해 책임을 진다. 이번 분기 10-Q에서 시장이 봐야 할 항목은 다섯 가지다.</p>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>항목</th>
+<th>왜 중요한가</th>
+<th>현재 상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Legal Proceedings</code></td>
+<td>SEC 회계 조사, 캘리포니아·미주리 법무장관 조사, 집단소송·대표소송, DOJ 반독점, 메가스피드 수사</td>
+<td><strong>미공개</strong></td>
+</tr>
+<tr>
+<td><code>Risk Factors</code></td>
+<td>조사 관련 리스크 요인을 추가했는지. UBS는 지연 사유가 바로 이것이라고 전했다</td>
+<td><strong>미공개</strong></td>
+</tr>
+<tr>
+<td>매출 인식·지역 구분</td>
+<td>2025년부터 고객 본사 기준으로 지역 매출을 바꿨다. SEC 조사와의 연결 여부는 미확인</td>
+<td><strong>미공개</strong></td>
+</tr>
+<tr>
+<td>고객 집중도</td>
+<td>상위 고객 비중, AI 클라우드 고객과의 거래 구조(순환 금융 논란)</td>
+<td><strong>미공개</strong></td>
+</tr>
+<tr>
+<td>커밋먼트·리스</td>
+<td>공급 커밋먼트 $3,900억(직전 $2,790억), 클라우드·데이터센터 리스 $1,020억(직전 $740억)</td>
+<td>CFO 코멘터리에만 개략</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.3 온도차의 정체</h3>
+
+<p>두 문서의 온도차는 이렇게 정리된다.</p>
+
+<ul>
+  <li><strong>8-K는 '현재'를 다룬다.</strong> 누가 CEO인가. 오늘부터 누가 서명하는가. 이것은 하루 만에 확정할 수 있다.</li>
+  <li><strong>10-Q는 '과거와 미래'를 다룬다.</strong> 지난 분기에 무슨 일이 있었고, 앞으로 무엇이 회사를 물을 것인가. 이것은 조사가 끝나야 쓸 수 있다.</li>
+  <li><strong>시장은 8-K만 읽고 10-Q의 값을 지불했다.</strong> 11월 23일 NVDA에 유입된 약 1조 달러의 시가총액 증가는, 10-Q가 없던 상태에서 이뤄졌다.</li>
+</ul>
+
+<p>여기에 시간표가 하나 더 있다. <strong>12월 4일</strong>. 10-Q 법정 기한이다(분기 종료 10월 25일 + 40일). 12월 4일까지 제출하면 위법이 아니고, 넘기면 Rule 12b-25에 따라 지연 통지(NT 10-Q)를 기한 다음 영업일까지 내야 한다. 지금까지 NT 10-Q는 없고, 회사는 기한이 언제인지도 밝히지 않았다.</p>
+
+<p>정리하면 이렇다.</p>
+
+<blockquote>
+  <p><strong>11월 23일의 랠리는 '리스크가 사라졌다'는 판단이 아니라, '리스크를 확인할 서류가 아직 없다'는 사실에 대한 반응이다.</strong> 서류가 나오는 날, 같은 가격을 다시 지불해야 한다.</p>
+</blockquote>
+
+<!-- ================= CH 3 ================= -->
+<h2 id="ch3"><span class="num">CHAPTER 03</span>검증 축 ② — 주식은 환호했지만, 신용은 아직 의심한다</h2>
+
+<h3>3.1 같은 날, 두 개의 가격</h3>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>자산</th>
+<th class="r">11/20</th>
+<th class="r">11/23</th>
+<th class="r">변화</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S&amp;P 500</td>
+<td class="r">6,910.39</td>
+<td class="r"><strong>7,237.17</strong></td>
+<td class="r"><span class="green"><strong>+4.73%</strong></span></td>
+</tr>
+<tr>
+<td>나스닥 종합</td>
+<td class="r">22,617.73</td>
+<td class="r"><strong>24,089.56</strong></td>
+<td class="r"><span class="green"><strong>+6.51%</strong></span></td>
+</tr>
+<tr>
+<td>SOX (반도체)</td>
+<td class="r">8,408.59</td>
+<td class="r"><strong>9,588.05</strong></td>
+<td class="r"><span class="green"><strong>+14.03%</strong></span></td>
+</tr>
+<tr>
+<td>SPY</td>
+<td class="r">689.81</td>
+<td class="r">722.29</td>
+<td class="r"><span class="green">+4.71%</span></td>
+</tr>
+<tr>
+<td>RSP (동일가중)</td>
+<td class="r">207.44</td>
+<td class="r">212.82</td>
+<td class="r">+2.59%</td>
+</tr>
+<tr>
+<td>IWM (러셀2000)</td>
+<td class="r">256.61</td>
+<td class="r">265.74</td>
+<td class="r">+3.56%</td>
+</tr>
+<tr>
+<td>IGV (소프트웨어)</td>
+<td class="r">91.66</td>
+<td class="r">95.26</td>
+<td class="r">+3.93%</td>
+</tr>
+<tr>
+<td><strong>HYG (하이일드)</strong></td>
+<td class="r"><strong>76.33</strong></td>
+<td class="r"><strong>76.52</strong></td>
+<td class="r"><strong>+0.25%</strong></td>
+</tr>
+<tr>
+<td>TLT (장기국채)</td>
+<td class="r">81.45</td>
+<td class="r">81.69</td>
+<td class="r">+0.29%</td>
+</tr>
+<tr>
+<td>VIX</td>
+<td class="r">35.89</td>
+<td class="r">26.62</td>
+<td class="r"><span class="green">−25.8%</span></td>
+</tr>
+<tr>
+<td>VIX3M</td>
+<td class="r">30.94</td>
+<td class="r">25.50</td>
+<td class="r"><span class="green">−17.6%</span></td>
+</tr>
+<tr>
+<td>MOVE (금리변동성)</td>
+<td class="r">106.31</td>
+<td class="r">100.91</td>
+<td class="r"><span class="green">−5.1%</span></td>
+</tr>
+<tr>
+<td>미 10년물 (<code>^TNX</code> 종가)</td>
+<td class="r">4.91%</td>
+<td class="r">4.92%</td>
+<td class="r">+1bp</td>
+</tr>
+</tbody>
+</table></div>
+<p>주식은 5% 가까이 올랐고, 하이일드는 0.25% 올랐다. 이 정도의 간격은 정상적인 위험선호 회복에서 나오기 어렵다. <strong>신용시장이 이번 뉴스를 '회사의 지급능력 변화'로 읽지 않았다</strong>는 뜻이다.</p>
+
+<h3>3.2 스프레드는 1년 최고다</h3>
+
+<p>FRED 원계열(ICE BofA) 기준, 11월 20일 현재.</p>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>지표</th>
+<th class="r">11/20</th>
+<th class="r">1년 최저</th>
+<th class="r">1년 최고</th>
+<th class="r">1년 백분위</th>
+<th class="r">직전 대비</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>하이일드 OAS</td>
+<td class="r"><strong>3.76%</strong></td>
+<td class="r">2.60% (8/28)</td>
+<td class="r"><strong>3.76% (현재)</strong></td>
+<td class="r"><strong>100%</strong></td>
+<td class="r">+24bp (11/19 3.52%)</td>
+</tr>
+<tr>
+<td>CCC OAS</td>
+<td class="r"><strong>14.02%</strong></td>
+<td class="r">8.38% (1/28)</td>
+<td class="r"><strong>14.02% (현재)</strong></td>
+<td class="r"><strong>100%</strong></td>
+<td class="r">+41bp</td>
+</tr>
+<tr>
+<td>BB OAS</td>
+<td class="r"><strong>4.08%</strong></td>
+<td class="r">2.70% (9/21)</td>
+<td class="r"><strong>4.08% (현재)</strong></td>
+<td class="r"><strong>100%</strong></td>
+<td class="r">—</td>
+</tr>
+<tr>
+<td>투자등급 OAS</td>
+<td class="r"><strong>0.98%</strong></td>
+<td class="r">0.73% (1/22)</td>
+<td class="r"><strong>0.98% (현재)</strong></td>
+<td class="r"><strong>100%</strong></td>
+<td class="r">+4bp</td>
+</tr>
+<tr>
+<td>CCC–HY 격차</td>
+<td class="r">1,026bp</td>
+<td class="r">—</td>
+<td class="r">—</td>
+<td class="r">—</td>
+<td class="r">+17bp</td>
+</tr>
+<tr>
+<td>HY–IG 격차</td>
+<td class="r">278bp</td>
+<td class="r">—</td>
+<td class="r">—</td>
+<td class="r">—</td>
+<td class="r">+20bp</td>
+</tr>
+</tbody>
+</table></div>
+<p>두 가지를 구분해야 한다.</p>
+
+<p>첫째, <strong>절대 수준은 여전히 낮다.</strong> 투자등급 98bp, 하이일드 376bp는 역사적으로 '정상' 구간이다. 2008년이나 2020년 3월과 비교하면 아무 일도 일어나지 않은 수준이다.</p>
+
+<p>둘째, <strong>방향과 속도는 심상치 않다.</strong> 1년 최저에서 하이일드는 +116bp, CCC는 +564bp, 투자등급은 +25bp 벌어졌다. 특히 <strong>투자등급까지 1년 최고</strong>라는 점이 중요하다. 신용 경색은 언제나 최약체(CCC)에서 시작해 우량체(IG)로 번진다. 지금은 그 확산의 두 번째 단계다.</p>
+
+<h3>3.3 네오클라우드: 주가는 20% 넘게 뛰었고, 이자는 그대로다</h3>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>종목</th>
+<th class="r">11/20</th>
+<th class="r">11/23</th>
+<th class="r">변화</th>
+<th>신용 상태(별도 확인)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>코어위브 (CRWV)</td>
+<td class="r">39.51</td>
+<td class="r">48.33</td>
+<td class="r"><span class="green">+22.32%</span></td>
+<td>총부채 약 $500억, 무담보 15~16%, 5년 CDS 1,135bp(11/10), 고점 1,289bp(11/5), S&amp;P B+</td>
+</tr>
+<tr>
+<td>아이렌 (IREN)</td>
+<td class="r">11.82</td>
+<td class="r">14.64</td>
+<td class="r"><span class="green">+23.86%</span></td>
+<td>수주잔고의 약 48%가 마이크로소프트, Blue Owl·Pimco $24억(9%)</td>
+</tr>
+<tr>
+<td>네비우스 (NBIS)</td>
+<td class="r">81.31</td>
+<td class="r">97.80</td>
+<td class="r"><span class="green">+20.28%</span></td>
+<td>2026 캐펙 $270억, 2027 $400~450억, 현금 $74.3억(9/30), Citi 브리지 $35억(SOFR+2.75%)</td>
+</tr>
+</tbody>
+</table></div>
+<p>코어위브의 구조는 이번 국면의 축소판이다. <strong>계약 담보 대출은 액면 근처에서 거래되고, 무담보 채권만 15%대까지 밀렸다.</strong> 대주단이 확신을 잃은 것은 AI 수요가 아니라, <strong>계약 없이 빌린 돈을 굴리는 모회사의 대차대조표</strong>다. 11월 23일 주가 반등은 그 대차대조표를 바꾸지 않았다.</p>
+
+<p>네비우스의 숫자는 이 구조의 수학을 보여 준다. 2027년 캐펙 $400~450억 중 75~85%는 선수금과 자산담보 조달로 충당한다고 하고, 나머지 15~25%는 $60억~112억 규모다(계산). 회사는 이를 '갭'이라고 부르지 않았고, 어떻게 조달할지도 밝히지 않았다.</p>
+
+<p><strong>엔비디아 자신도 이 사슬의 한가운데 있다.</strong> 3분기 공급 커밋먼트는 $2,790억에서 $3,900억으로 40% 늘었고, 클라우드·리스 커밋먼트는 $740억에서 $1,020억으로 늘었다. 그리고 3분기 매출의 41%가 바로 이 네오클라우드·AI 클라우드 층에서 나왔다. <strong>가장 빨리 크는 매출의 대금 지급자가, 가장 비싸진 자금으로 사업하는 층</strong>이라는 뜻이다.</p>
+
+<h3>3.4 GPU 담보 사모대출: 아직은 '가격'이지 '손실'이 아니다</h3>
+
+<ul>
+  <li>8월 10일~10월 1일 사이 $100억 이상의 GPU 담보 대출이 성사됐다. 금리는 6~10%대, SOFR 스프레드 2.375~5.5%p.</li>
+  <li>같은 기간 대형 사모대출 평균 스프레드는 약 5.2%p였다. GPU 대출이 특별히 비싸지도, 싸지도 않았다.</li>
+  <li>스페이스X의 $440억 GPU 리스 채권(프로젝트 새턴)은 A3/A- 등급으로 8.26~8.3%(미 국채 +345bp). 다만 담보 GPU의 이동·처분 제한, 4년 내 원금 상환 조건이 붙었다.</li>
+  <li>10월 말 기준 GPU 담보 대출 부도 사례는 공개되지 않았다.</li>
+</ul>
+
+<p>즉 이 축의 결론은 <strong>'버블 붕괴'가 아니라 '한계 자금 비용의 재가격'</strong>이다. 문제는 그 재가격이 아직 주가에 반영되지 않았다는 것이다. 11월 23일 CRWV +22%는 재가격을 되돌린 것이 아니라, 재가격을 잊은 것이다.</p>
+
+<!-- ================= CH 4 ================= -->
+<h2 id="ch4"><span class="num">CHAPTER 04</span>검증 축 ③ — 유동성 천장과 2027년 EPS 방어선</h2>
+
+<h3>4.1 12월 9일은 '인하'가 아니라 '인상'이다</h3>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>항목</th>
+<th>값</th>
+<th>기준일·출처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정책금리</td>
+<td>3.75~4.00%</td>
+<td>10/28 FOMC 동결</td>
+</tr>
+<tr>
+<td>9월 조치</td>
+<td>+25bp 인상</td>
+<td>2026년 9월 FOMC</td>
+</tr>
+<tr>
+<td>10월 CPI</td>
+<td>+0.4% m/m (예상 +0.3%)</td>
+<td>11/10 BLS</td>
+</tr>
+<tr>
+<td>10월 근원 CPI</td>
+<td>+0.3% m/m (3개월 연속)</td>
+<td>11/10 BLS</td>
+</tr>
+<tr>
+<td>9월 PCE</td>
+<td>+0.5% m/m, <strong>+3.6% y/y</strong></td>
+<td>10/29 BEA</td>
+</tr>
+<tr>
+<td>9월 근원 PCE</td>
+<td>+0.3% m/m, <strong>+3.1% y/y</strong></td>
+<td>10/29 BEA</td>
+</tr>
+<tr>
+<td>12월 9일 인상 확률</td>
+<td><strong>25bp 95% 내외</strong> (Kalshi 95.6%, 11/23)</td>
+<td>CME·Kalshi</td>
+</tr>
+<tr>
+<td>50bp 확률</td>
+<td>10~14%</td>
+<td>11/10~11/23 보도</td>
+</tr>
+<tr>
+<td>2027년 말까지 반영된 인상</td>
+<td>약 69bp(3회)</td>
+<td>11/10 CME</td>
+</tr>
+</tbody>
+</table></div>
+<p>시장은 12월 9일 <strong>인상</strong>을 기정사실로 보고 있다. 12월 10일 11월 CPI가 그 판단을 재확인하거나 흔들 것이다. 주식시장이 11월 23일 +4.7% 오르는 동안 금리선물이 반영한 인상 확률은 오히려 11월 12일 87%에서 11월 23일 95.6%로 올라갔다. <strong>주가와 금리가 같은 방향을 보지 않았다.</strong></p>
+
+<h3>4.2 금리는 '실질'이 끌고 있다</h3>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>항목</th>
+<th>값</th>
+<th>1년 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>미 10년 명목</td>
+<td>4.92% (11/20)</td>
+<td>82백분위</td>
+</tr>
+<tr>
+<td>미 10년 실질(DFII10)</td>
+<td>2.77% (11/20)</td>
+<td>91백분위</td>
+</tr>
+<tr>
+<td>10년 기대인플레이션(T10YIE)</td>
+<td>2.13% (11/23)</td>
+<td><strong>1년 최저</strong></td>
+</tr>
+<tr>
+<td>10년–2년</td>
+<td>+0.29%p</td>
+<td>—</td>
+</tr>
+<tr>
+<td>10년–3개월</td>
+<td>+0.55%p</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>명목금리는 5% 부근에서 내려왔지만 <strong>실질금리는 1년 91백분위</strong>에 있고, 기대인플레이션은 1년 최저다. 이 조합은 금리 상승이 '인플레이션 기대'가 아니라 <strong>'실질 자본 비용'</strong>에서 온다는 뜻이다. 2026년 11월 21일 『두 번째 해의 해부』에서 지적한 "2001년에는 475bp 인하가 있었지만 2026년에는 그 연료가 없다"는 결론과 정확히 같은 방향이다.</p>
+
+<h3>4.3 유동성: 여유는 이미 다 썼다</h3>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>항목</th>
+<th>값</th>
+<th>기준일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>지준 잔액</td>
+<td><strong>$2조 9,797억</strong></td>
+<td>11/18 (H.4.1)</td>
+</tr>
+<tr>
+<td>지준/은행자산</td>
+<td><strong>11.4%</strong></td>
+<td>11/18 / 11/11</td>
+</tr>
+<tr>
+<td>역레포(RRP)</td>
+<td><strong>$3.5억</strong></td>
+<td>11/23 FRED</td>
+</tr>
+<tr>
+<td>TGA</td>
+<td><strong>$8,808억</strong></td>
+<td>11/20 재무부 DTS</td>
+</tr>
+<tr>
+<td>SOFR − IORB</td>
+<td><strong>+2bp</strong></td>
+<td>11/20</td>
+</tr>
+<tr>
+<td>RMP(지준관리매입)</td>
+<td><strong>0</strong> (8월 이후)</td>
+<td>10/28 FOMC 의사록·뉴욕연은</td>
+</tr>
+</tbody>
+</table></div>
+<p>읽는 법은 이렇다.</p>
+
+<ul>
+  <li>역레포는 2022~2023년의 '충격 흡수 장치'였다. 지금 잔액은 3.5억 달러로, <strong>충격이 오면 바로 지준이 맞는다.</strong></li>
+  <li>지준은 2조 9,797억 달러로 1년 전보다 910억 달러 늘었다. 연준이 2025년 12월 양적긴축을 끝내고 지준을 '충분(ample)' 수준에 묶어 두고 있기 때문이다. 위기가 아니라 <strong>여유의 하단</strong>이다.</li>
+  <li>TGA는 11월 중순 9,144억 달러에서 8,808억 달러로 줄었다. 연말 재정지출이 지준을 밀어 올리는 구간이지만, 1월 이후 재차 흡수될 수 있다.</li>
+  <li>이 환경에서 12월 인상은 '한 번 더 조이는' 것이 아니라 <strong>'여유의 하단을 더 낮추는'</strong> 것이다.</li>
+</ul>
+
+<h3>4.4 2027년 EPS $427의 방어선</h3>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>항목</th>
+<th>값</th>
+<th>출처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026 EPS 컨센서스</td>
+<td>$367.57</td>
+<td>Refinitiv, 11/12</td>
+</tr>
+<tr>
+<td><strong>2027 EPS 컨센서스</strong></td>
+<td><strong>$427.08</strong></td>
+<td>Refinitiv, 11/12</td>
+</tr>
+<tr>
+<td>2028 EPS 컨센서스</td>
+<td>$496.23</td>
+<td>Refinitiv, 11/12</td>
+</tr>
+<tr>
+<td>7,237에서의 2027 P/E</td>
+<td><strong>16.9배</strong></td>
+<td>계산</td>
+</tr>
+<tr>
+<td>전략가 서베이 2027 EPS</td>
+<td>$408</td>
+<td>블룸버그 서베이, 11/20</td>
+</tr>
+<tr>
+<td>2027년 말 목표 평균</td>
+<td>8,638</td>
+<td>같은 서베이(8명)</td>
+</tr>
+</tbody>
+</table></div>
+<p>2027년 이익은 <strong>이미 가격에 상당 부분 들어와 있다.</strong> 16.9배는 2026년 초 19.2배에서 내려온 수준이지만, 그 이익 자체가 2026년 대비 16% 성장을 전제로 한다(427.08 ÷ 367.57). 그 성장의 원천은 하나다.</p>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>하이퍼스케일러</th>
+<th class="r">2026 가이던스(중간값)</th>
+<th class="r">2027 컨센서스</th>
+<th class="r">증감</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>알파벳</td>
+<td class="r">$2,000억</td>
+<td class="r">$2,848억</td>
+<td class="r"><span class="green">+42%</span></td>
+</tr>
+<tr>
+<td>아마존</td>
+<td class="r">$2,200억</td>
+<td class="r">$2,565억</td>
+<td class="r">+17%</td>
+</tr>
+<tr>
+<td>마이크로소프트</td>
+<td class="r">$1,700억</td>
+<td class="r">$2,076억</td>
+<td class="r">+22%</td>
+</tr>
+<tr>
+<td>메타</td>
+<td class="r">$1,400억</td>
+<td class="r">$1,856억</td>
+<td class="r">+33%</td>
+</tr>
+<tr>
+<td><strong>합계</strong></td>
+<td class="r"><strong>$7,300억</strong></td>
+<td class="r"><strong>$9,345억</strong></td>
+<td class="r"><span class="green"><strong>+28%</strong></span></td>
+</tr>
+</tbody>
+</table></div>
+<p class="small">(2027년 수치는 회사 가이던스가 아니라 I/O Fund·MarketScreener 컨센서스다. 네 회사 모두 "의미 있게 늘린다"는 방향만 말했고 숫자는 4분기 실적에서 준다.)</p>
+
+<p>여기에 두 가지 경고가 붙는다.</p>
+
+<p>첫째, <strong>2026년 3분기 이미 네 회사 합계 캐펙이 영업현금흐름을 넘어섰다.</strong> 합계 캐펙 $2,019억 vs 영업현금흐름 $1,755억(115.1%), 잉여현금흐름 −$264억(본지 계산, 11/21). 자누스 헨더슨은 아마존·알파벳·메타 세 회사는 개별로도 3분기 캐펙이 영업현금흐름을 초과했다고 확인했다.</p>
+
+<p>둘째, <strong>골드만삭스의 민감도</strong>다. 2027년 하이퍼스케일러 캐펙이 컨센서스에서 ±$250B(2,500억 달러) 흔들리면 S&amp;P 500 이익 성장률이 ±6%p 움직인다. 즉 EPS $427은 '캐펙 +28%'라는 한 개의 변수에 사실상 걸려 있다.</p>
+
+<blockquote>
+  <p><strong>정리: 2027년 EPS 방어선은 밸류에이션이 아니라 설비투자 가이던스다.</strong> 1월 말~2월 초 4분기 실적에서 캐펙 가이던스가 "의미 있게"에서 숫자로 바뀔 때, $427이 유지되거나 깨진다.</p>
+</blockquote>
+
+<!-- ================= CH 5 ================= -->
+<h2 id="ch5"><span class="num">CHAPTER 05</span>검증 축 ④ — 시장 폭과 연말 수급</h2>
+
+<h3>5.1 11월 23일의 폭: 방향은 넓었고, 크기는 좁았다</h3>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>지표</th>
+<th>11/23</th>
+<th>해석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S&amp;P 500 상승/하락 종목</td>
+<td>418 / 84 (83.1%)</td>
+<td>방향은 압도적</td>
+</tr>
+<tr>
+<td>상위 50개 기여</td>
+<td><strong>4.14%p / 4.72%p</strong></td>
+<td>크기의 88%</td>
+</tr>
+<tr>
+<td>하위 450개 기여</td>
+<td>0.69%p</td>
+<td>나머지 12%</td>
+</tr>
+<tr>
+<td>NVDA 단독 기여</td>
+<td><strong>1.34%p</strong></td>
+<td>지수 상승의 28%</td>
+</tr>
+<tr>
+<td>RSP − SPY</td>
+<td><strong>−2.12%p</strong></td>
+<td>동일가중 소외</td>
+</tr>
+<tr>
+<td>50일선 상회 종목</td>
+<td><strong>43%</strong> (한 달 전 61%)</td>
+<td>추세 훼손</td>
+</tr>
+<tr>
+<td>200일선 상회 종목</td>
+<td>45%</td>
+<td>중기 훼손</td>
+</tr>
+<tr>
+<td>20일선 상회 종목</td>
+<td>27%</td>
+<td>단기 반등의 출발점</td>
+</tr>
+</tbody>
+</table></div>
+<p class="small">(상승/하락 종목 수와 상위 50개 기여도는 장중·잠정 집계다. ETF 수익률과 지수 종가는 거래소·FRED 원계열로 확인했다.)</p>
+
+<p><strong>방향은 넓었지만 크기는 한 종목에 몰렸다.</strong> 418개 종목이 올랐다는 사실은 '팔 사람이 없었다'는 뜻이고, 상위 50개가 상승분의 88%를 만들었다는 사실은 '살 사람이 한 곳에 몰렸다'는 뜻이다. 둘은 모순이 아니라, <strong>숏커버링과 지수 추종 매수의 전형적인 조합</strong>이다.</p>
+
+<p>숏커버링 여부는 1차 데이터로 확정할 수 없다(공매도 잔고·대차 데이터 미확보). 다만 정황은 강하다.</p>
+
+<ul>
+  <li>NVDA 거래량 7억 7,622만 주(직전 3~4억 주의 약 2배)</li>
+  <li>가장 많이 하락했던 종목이 가장 많이 반등: IREN +23.9%, CRWV +22.3%, NBIS +20.3%, NVDA +31.5%</li>
+  <li>같은 날 마이크론 +19%, 델 +21%, 인텔 +16% — <strong>신규 계약이나 실적 없이</strong> 움직인 종목들</li>
+  <li>상위 5개 종목이 지수 상승의 51%(팩터 집계)</li>
+</ul>
+
+<p><strong>미확인으로 남긴다.</strong> 공매도 잔고가 줄었는지, 옵션 감마가 어디서 소진됐는지는 이번 원고에서 확인하지 못했다.</p>
+
+<h3>5.2 연말 수급: 세 개의 배출구가 같은 주에 열린다</h3>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>날짜 (KST)</th>
+<th>이벤트</th>
+<th>성격</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12/2</td>
+<td>NVDA 배당 기준일($0.25)</td>
+<td>소규모</td>
+</tr>
+<tr>
+<td><strong>12/4</strong></td>
+<td><strong>NVDA 10-Q 법정 기한</strong> · 11월 고용보고서</td>
+<td>서류 + 매크로</td>
+</tr>
+<tr>
+<td><strong>12/8</strong></td>
+<td><strong>SPCX 보호예수 해제 약 7억 9,760만 주</strong> · FOMC 1일차</td>
+<td>공급 + 정책</td>
+</tr>
+<tr>
+<td><strong>12/9</strong></td>
+<td><strong>FOMC 결정(25bp 인상 예상)</strong></td>
+<td>정책</td>
+</tr>
+<tr>
+<td>12/10</td>
+<td>11월 CPI</td>
+<td>매크로</td>
+</tr>
+<tr>
+<td>12/18</td>
+<td>쿼드러플 위칭 · S&amp;P 리밸런스</td>
+<td>수급</td>
+</tr>
+<tr>
+<td>12/23</td>
+<td>NVDA 배당 지급 · 11월 PCE</td>
+<td>소규모</td>
+</tr>
+</tbody>
+</table></div>
+<p>여기에 <strong>연말 세금 매도</strong>가 겹친다. S&amp;P 500은 연초 이후 +0.8%(11/20 기준)로 사실상 제자리지만, 개별 AI 종목은 30~70% 빠진 것이 많다. 손실 확정 욕구는 지수보다 개별 종목에 집중되고, 그 매도는 12월 중순에 몰린다. 반대로 NVDA는 11월 11일 종가(173.73)보다 아직 5.0% 낮고, 52주 고점(243.37)보다 32.2% 낮다. <strong>세금 매도와 저가 매수가 같은 종목에서 만난다.</strong></p>
+
+<h3>5.3 변동성의 구조: 아직 '진정'이 아니라 '이완'</h3>
+
+<ul>
+  <li>VIX 26.62 (11/23), VIX3M 25.50. <strong>기간구조는 여전히 역전</strong>(VIX &gt; VIX3M)이다. 11월 20일(35.89 vs 30.94)보다 폭은 줄었지만 방향은 그대로다.</li>
+  <li>MOVE 100.91. 100을 넘나드는 구간으로, 금리 변동성이 주식보다 먼저 진정되지 않았다.</li>
+  <li>CNN 공포·탐욕 지수 17(극단적 공포) — 주가가 5% 올랐는데 심리는 공포 구간에 남아 있다.</li>
+</ul>
+
+<p><strong>VIX 20 아래로 내려오지 않는 한, 이 반등은 '추세 전환'이 아니라 '변동성 이완'으로 분류하는 것이 맞다.</strong></p>
+
+<h3>5.4 한국 시장은 이미 하루 늦게, 더 크게 반응했다</h3>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>날짜</th>
+<th class="r">코스피</th>
+<th class="r">변화</th>
+<th class="r">원·달러</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11/20</td>
+<td class="r">4,869.96</td>
+<td class="r">—</td>
+<td class="r">1,334.79</td>
+</tr>
+<tr>
+<td>11/23</td>
+<td class="r">4,708.54</td>
+<td class="r"><span class="red">−3.31%</span></td>
+<td class="r">1,344.31</td>
+</tr>
+<tr>
+<td><strong>11/24</strong></td>
+<td class="r"><strong>5,006.03</strong></td>
+<td class="r"><span class="green"><strong>+6.32%</strong></span></td>
+<td class="r"><strong>1,342.83</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>코스피는 미국보다 하루 늦게, 더 크게 움직였다. 11월 23일 한국 시장은 그 전날 뉴욕의 급락을 반영해 −3.31%로 마감했고(미국 반도체지수는 그날 밤 +14.03%), 다음 날 하루에 +6.32%를 되돌렸다. 지수 구성상 반도체 비중이 높아 엔비디아 뉴스에 대한 베타가 미국 지수보다 크다.</p>
+
+<p>다만 <strong>환율이 확인해 주지 않았다.</strong> 코스피가 6% 넘게 오른 날 원·달러는 1,342원으로 사실상 제자리(전일 1,344원)였다. 외국인 순매수 규모는 이 원고에서 확인하지 못했다. 주가만 오르고 환율이 따라오지 않는 반등은 추세보다 <strong>숏커버링·프로그램 매수</strong>의 성격이 강하다. 코스피는 6월 22일 고점(9,114.55) 대비 아직 −45.1%다.</p>
+
+<!-- ================= CH 6 ================= -->
+<h2 id="ch6"><span class="num">CHAPTER 06</span>세 가지 시나리오 — 확률·트리거·체크 지표</h2>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th style="width:21%"></th>
+<th><strong>A. 강세 전환</strong></th>
+<th><strong>B. 박스권 소화</strong></th>
+<th><strong>C. 재조정</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>확률</strong></td>
+<td><strong>25%</strong></td>
+<td><strong>45%</strong></td>
+<td><strong>30%</strong></td>
+</tr>
+<tr>
+<td><strong>한 줄 정의</strong></td>
+<td>10-Q가 깨끗하게 나오고 신용이 따라오는 경우</td>
+<td>서류는 나오지만 신용은 안 풀리는 경우</td>
+<td>서류가 늦거나, 내용이 나쁘거나, 정책이 더 조이는 경우</td>
+</tr>
+<tr>
+<td><strong>트리거</strong></td>
+<td>12/4까지 10-Q 제출 + 리스테이트먼트 없음 + HY OAS 3.50% 하회 + RSP/SPY 비율 반등</td>
+<td>10-Q가 12월 초에 제출되고 수치 변경 없음, HY OAS 3.5~4.0% 유지</td>
+<td>12/4 기한 미준수 또는 NT 10-Q, 리스테이트먼트·조사 확대, 12월 50bp 또는 2027년 인상 3회 이상</td>
+</tr>
+<tr>
+<td><strong>S&amp;P 500 (연말)</strong></td>
+<td>7,750~7,850 (+7~8%)</td>
+<td>6,950~7,400 (−4~+2%)</td>
+<td>6,300~6,600 (−9~−13%)</td>
+</tr>
+<tr>
+<td><strong>NVDA</strong></td>
+<td>$190~210</td>
+<td>$150~175</td>
+<td>$110~130</td>
+</tr>
+<tr>
+<td><strong>HY OAS</strong></td>
+<td>3.2~3.5%</td>
+<td>3.5~4.0%</td>
+<td>4.2% 이상</td>
+</tr>
+<tr>
+<td><strong>VIX</strong></td>
+<td>18~22</td>
+<td>22~30</td>
+<td>30 이상</td>
+</tr>
+<tr>
+<td><strong>핵심 체크</strong></td>
+<td>10-Q <code>Legal Proceedings</code> 신규 중대 항목 없음 · CCC–HY 격차 축소 · 동일가중 신고가</td>
+<td>10-Q 내용 무난 · 신용 스프레드 횡보 · 실적 시즌까지 이벤트 부재</td>
+<td>12/4 미제출 · SEC 조사 확대 보도 · 하이퍼스케일러 캐펙 가이던스 하향</td>
+</tr>
+<tr>
+<td><strong>확률가중 기여</strong></td>
+<td>7,800 × 0.25</td>
+<td>7,175 × 0.45</td>
+<td>6,450 × 0.30</td>
+</tr>
+<tr>
+<td><strong>기대값</strong></td>
+<td><strong>7,104 (−1.8%)</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>왜 박스권이 가장 높은가.</strong> 세 가지 이유다.</p>
+
+<ol>
+  <li><strong>서류 리스크는 시간이 지나면 해소되거나 폭발한다.</strong> 12월 4일까지 10-Q가 나오면 '지연'은 사라지고, 안 나오면 '지연'이 '문제'가 된다. 어느 쪽이든 방향은 서류가 정한다.</li>
+  <li><strong>신용은 주가보다 느리다.</strong> HY OAS가 1년 최고에서 3.2%까지 내려오려면 최소 두세 달이 걸린다. 그동안 주가는 오르내릴 수 있지만 추세는 만들어지지 않는다.</li>
+  <li><strong>정책이 위쪽을 막는다.</strong> 12월 인상이 95% 반영된 상태에서, 2027년 인상 횟수가 늘어나면 멀티플은 16.9배에서 더 내려간다. 18배를 회복하려면 인상 경로가 꺾여야 한다.</li>
+</ol>
+
+<p><strong>왜 C가 A보다 높은가.</strong> 10-Q 기한 미준수는 이 회사에서 전례가 없고, 그 자체로 시장이 가장 무서워하는 신호다. 반면 A는 서류·신용·정책 세 개가 동시에 좋아져야 한다. 확률의 비대칭은 여기에 있다.</p>
+
+<!-- ================= CH 7 ================= -->
+<h2 id="ch7"><span class="num">CHAPTER 07</span>앞으로 4주 — 추적해야 할 체크포인트</h2>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>#</th>
+<th>날짜 (KST)</th>
+<th>이벤트</th>
+<th>왜 중요한가</th>
+<th>통과 기준</th>
+<th>실패 신호</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>11/25 (수) 22:30</strong></td>
+<td>10월 PCE · 3분기 GDP 2차</td>
+<td>9월 PCE +3.6%, 근원 +3.1%. 12월 인상의 마지막 물가 확인</td>
+<td>근원 PCE 0.2% 이하</td>
+<td>근원 0.3% 이상 · GDP 상향</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>11/26~28</strong></td>
+<td>FRED에 11/23·11/24 신용 스프레드 반영</td>
+<td>주가가 오른 뒤 신용이 따라오는지 첫 확인</td>
+<td>HY OAS 3.70% 이하</td>
+<td>3.80% 이상</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>12/1~2</strong></td>
+<td>11월 ISM 제조업·서비스</td>
+<td>인상에도 경기가 버티는지</td>
+<td>50 상회</td>
+<td>48 이하</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>12/3 (목)</strong></td>
+<td><strong>황, 상원 은행위 청문회</strong></td>
+<td>정치적 지지의 방향. 대중 규제·Chip Security Act 논의</td>
+<td>무난한 회답·추가 제재 없음</td>
+<td>수출통제 강화·소환 연장</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>12/4 (금)</strong></td>
+<td><strong>NVDA 10-Q 법정 기한</strong></td>
+<td>이 글의 핵심 분기점</td>
+<td>기한 내 제출 · 리스테이트먼트 없음 · <code>Legal Proceedings</code> 신규 중대 항목 없음</td>
+<td>미제출 · NT 10-Q · 감사인 변경</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>12/4 (금) 22:30</strong></td>
+<td>11월 고용보고서</td>
+<td>12월 인상의 근거</td>
+<td>실업률 4.5% 이하·임금 안정</td>
+<td>임금 재가속</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>12/8 (화)</strong></td>
+<td><strong>SPCX 보호예수 해제 7억 9,760만 주</strong></td>
+<td>연말 최대 공급 물량</td>
+<td>주가 $130 이상 유지</td>
+<td>$110 이탈</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>12/9 (수) 04:00</strong></td>
+<td><strong>FOMC 결정·성명·점도표</strong></td>
+<td>25bp 인상 여부와 2027년 경로</td>
+<td>25bp + 2027년 1~2회</td>
+<td>50bp 또는 3회 이상</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>12/10 (목) 22:30</strong></td>
+<td>11월 CPI</td>
+<td>인상 경로의 재확인</td>
+<td>근원 +0.2%</td>
+<td>+0.3% 이상</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>12/18 (금)</strong></td>
+<td>쿼드러플 위칭 · S&amp;P 리밸런스</td>
+<td>연말 수급의 마지막 관문</td>
+<td>변동성 없이 통과</td>
+<td>위칭 전후 급락</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>1월 말~2월 초</strong></td>
+<td>하이퍼스케일러 4분기 실적·2027 캐펙 가이던스</td>
+<td>EPS $427의 방어선</td>
+<td>4사 합계 $9,000억 이상</td>
+<td>$8,000억 이하</td>
+</tr>
+</tbody>
+</table></div>
+<div class="note">
+  <div class="t">매일 보는 지표 4개 (5분이면 끝난다)</div>
+  <strong>HY OAS · CCC–HY 격차 · RSP/SPY 비율 · VIX–VIX3M 스프레드.</strong> 이 네 개가 같은 방향으로 움직이면 그때가 추세다.
+</div>
+
+<!-- ================= CH 8 ================= -->
+<h2 id="ch8"><span class="num">CHAPTER 08</span>이 판단을 뒤집는 조건</h2>
+
+<p>이 글의 결론은 '박스권'이다. A로 가는 조건 1~3 중 두 개, 또는 C로 가는 조건 4~6 중 두 개가 확인되면 결론을 바꿔야 한다.</p>
+
+<ol>
+  <li><strong>10-Q가 12월 4일 이전에 나오고, <span class="mono">Legal Proceedings</span>에 SEC 조사 관련 신규 중대 항목이 없고, 매출 인식·고객 집중도에 변경이 없다.</strong> → A로 이동.</li>
+  <li><strong>HY OAS가 3.50% 아래로 내려오고 CCC–HY 격차가 900bp 아래로 축소된다.</strong> → 신용이 주가를 추인. A로 이동.</li>
+  <li><strong>RSP/SPY 비율이 3일 연속 상승하고, 50일선 상회 종목이 55%를 넘는다.</strong> → 폭이 확산. A로 이동.</li>
+  <li><strong>12월 4일을 넘겨 10-Q가 나오지 않거나 NT 10-Q가 제출된다.</strong> → C로 이동.</li>
+  <li><strong>상원 청문회에서 수출통제 추가 입법이 구체화된다.</strong> → NVDA 매출의 중국·아시아 경로에 직접 타격. C로 이동.</li>
+  <li><strong>하이퍼스케일러가 2027 캐펙을 "의미 있게"에서 숫자로 바꿀 때 컨센서스(+28%)를 밑돈다.</strong> → EPS $427이 깨진다. C로 이동.</li>
+</ol>
+
+<!-- ================= CH 9 ================= -->
+<h2 id="ch9"><span class="num">CHAPTER 09</span>방법론 — 사실·추정·판단의 구분</h2>
+
+<p>이 보고서는 세 종류의 문장을 구분한다.</p>
+
+<ul>
+  <li><strong>사실(Fact)</strong>: SEC EDGAR 원문, FRED 원계열, 거래소 종가, 회사 공시·보도자료로 직접 확인한 수치. 각주에 접수번호·계열ID·기준일을 남겼다.</li>
+  <li><strong>추정(Estimate)</strong>: 컨센서스, 기관 전망, 본 보고서의 계산. 계산식과 가정을 본문에 적었다.</li>
+  <li><strong>판단(Judgment)</strong>: 시나리오 확률·가격대·순서. 통계적 예측이 아니며, 근거와 한계를 함께 적었다.</li>
+</ul>
+
+<p><strong>확인하지 못한 것(미확인)을 명시한다.</strong></p>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>항목</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11/23 상승의 숏커버링 비중</td>
+<td>공매도 잔고·대차 데이터 미확보. 정황만 제시</td>
+</tr>
+<tr>
+<td>SEC 조사가 겨냥하는 구체적 회계 계정</td>
+<td>로이터도 확인 못 함. "회계 관행" 수준</td>
+</tr>
+<tr>
+<td>조사 개시 시점</td>
+<td>미확인. 11/21 NYT는 "초기 단계"</td>
+</tr>
+<tr>
+<td>상원 청문회 날짜</td>
+<td>로이터 12/3 vs 11/17 보도 12/1 — 불일치</td>
+</tr>
+<tr>
+<td>복귀 조건(보상·지분·재사퇴 조항)</td>
+<td>8-K에 없음. 공시되지 않았는지, 조건이 없는지 미확인</td>
+</tr>
+<tr>
+<td>12/8 SPCX 보호예수 물량</td>
+<td>7억 9,760만 주(보도 기준). 회사 공시로 재확인 필요</td>
+</tr>
+<tr>
+<td>상승/하락 종목 수·상위 50개 기여도</td>
+<td>장중·잠정 집계(2차 집계). 지수 종가·ETF 수익률로 교차 확인</td>
+</tr>
+<tr>
+<td>NVDA 시가총액 증가분</td>
+<td>로이터 "약 1조 달러". 자체 계산 아님</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>실명·개인 계좌·개별 투자 권유는 담지 않는다.</strong> 모든 확률과 레벨은 시장 전체에 대한 판단이며, 특정 종목의 매매를 권하지 않는다.</p>
+
+<!-- ================= APPENDIX ================= -->
+<h2 id="appendix"><span class="num">APPENDIX</span>좌표와 출처</h2>
+
+<h3>10.1 고점 대비 위치 (11/23 종가)</h3>
+
+<div class="tblscroll"><table class="dt">
+<thead>
+<tr>
+<th>지수</th>
+<th class="r">11/23</th>
+<th class="r">고점</th>
+<th class="r">고점 대비</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S&amp;P 500</td>
+<td class="r">7,237.17</td>
+<td class="r">7,818.93 (10/6 종가)</td>
+<td class="r"><span class="red"><strong>−7.44%</strong></span></td>
+</tr>
+<tr>
+<td>나스닥 종합</td>
+<td class="r">24,089.56</td>
+<td class="r">27,599.79 (10/6)</td>
+<td class="r"><span class="red"><strong>−12.72%</strong></span></td>
+</tr>
+<tr>
+<td>SOX</td>
+<td class="r">9,588.05</td>
+<td class="r">14,634.72 (6/22)</td>
+<td class="r"><span class="red"><strong>−34.49%</strong></span></td>
+</tr>
+<tr>
+<td>NVDA</td>
+<td class="r">$165.05</td>
+<td class="r">$243.37 (52주)</td>
+<td class="r"><span class="red"><strong>−32.18%</strong></span></td>
+</tr>
+<tr>
+<td>NVDA (사임 전일 대비)</td>
+<td class="r">$165.05</td>
+<td class="r">$173.73 (11/11)</td>
+<td class="r"><span class="red"><strong>−5.00%</strong></span></td>
+</tr>
+</tbody>
+</table></div>
+<h3>10.2 엔비디아 3분기(FY27) 실적 — 8-K 원문</h3>
+
+<div class="tblscroll"><table class="dt compact">
+<thead>
+<tr>
+<th>항목</th>
+<th>값</th>
+<th>전년비</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>매출</td>
+<td><strong>$1,158억</strong></td>
+<td>+103%</td>
+</tr>
+<tr>
+<td>데이터센터</td>
+<td>$1,076억</td>
+<td>+110%</td>
+</tr>
+<tr>
+<td>— 하이퍼스케일</td>
+<td>$601억</td>
+<td>+71%</td>
+</tr>
+<tr>
+<td>— AI 클라우드·산업·엔터프라이즈</td>
+<td><strong>$475억</strong></td>
+<td><strong>+195%</strong></td>
+</tr>
+<tr>
+<td>엣지 컴퓨팅</td>
+<td>$82억</td>
+<td>+42%</td>
+</tr>
+<tr>
+<td>GAAP 매출총이익률</td>
+<td>74.8%</td>
+<td>+1.4%p</td>
+</tr>
+<tr>
+<td>GAAP EPS</td>
+<td>$2.70</td>
+<td>+108%</td>
+</tr>
+<tr>
+<td>4분기 가이던스</td>
+<td><strong>$1,300억 ±3%</strong></td>
+<td>(중국 데이터센터 매출 미포함)</td>
+</tr>
+<tr>
+<td>4분기 매출총이익률 가이던스</td>
+<td>71.0~72.0%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>공급 커밋먼트</td>
+<td><strong>$3,900억</strong> (직전 $2,790억)</td>
+<td>+40% QoQ</td>
+</tr>
+<tr>
+<td>클라우드·리스 커밋먼트</td>
+<td><strong>$1,020억</strong> (직전 $740억)</td>
+<td>+38% QoQ</td>
+</tr>
+<tr>
+<td>자사주 잔여 한도</td>
+<td>$2,273억</td>
+<td>—</td>
+</tr>
+<tr>
+<td>10-Q</td>
+<td><strong>미제출</strong> ("수 주 내")</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h3>10.3 주요 출처</h3>
+
+<p class="small"><strong>1차 공시 (SEC EDGAR, CIK 0001045810)</strong></p>
+<ul class="tight">
+  <li>8-K 2026-11-12, Item 5.02 — 사임·임시 CEO·의장 선임 (0001045810-26-000082)</li>
+  <li>8-K 2026-11-17, Item 2.02 — 3분기 실적·CFO 코멘터리·서플리멘털 (0001045810-26-000088)</li>
+  <li>8-K 2026-11-23, Item 5.02 — 복귀 (0001045810-26-000090)</li>
+  <li>10-Q 최종 제출: 2026-08-26 (FY27 2분기). 3분기분 없음.</li>
+</ul>
+
+<p class="small"><strong>경제 데이터</strong></p>
+<ul class="tight">
+  <li>FRED: BAMLH0A0HYM2, BAMLH0A3HYC, BAMLH0A2HYB, BAMLC0A0CM, DFII10, DGS10, T10YIE, T10Y2Y, T10Y3M, RRPONTSYD, WRESBAL, WTREGEN, SOFR, IORB, VIXCLS, SP500</li>
+  <li>미 재무부 DTS (TGA 11/20 마감 $880,764백만)</li>
+  <li>연준 H.4.1 (2026-11-19 공표, 11/18 주 지준 $2,979,656백만)</li>
+  <li>FOMC 10/28 의사록 (RMP 0 유지, 정책금리 3.75~4.00%)</li>
+  <li>BLS: 10월 CPI 11/10, 11월 CPI 12/10, 11월 고용 12/4</li>
+  <li>BEA: 9월 PCE 10/29, 10월 PCE·3분기 GDP 2차 11/25</li>
+</ul>
+
+<p class="small"><strong>시장 데이터</strong></p>
+<ul class="tight">
+  <li>거래소 종가: ^GSPC, ^IXIC, ^SOX, ^VIX, ^VIX3M, ^MOVE, NVDA, CRWV, IREN, NBIS, SPCX, SPY, RSP, IWM, IGV, SOXX, HYG, TLT (2026-11-23)</li>
+</ul>
+
+<p class="small"><strong>보도·연구</strong></p>
+<ul class="tight">
+  <li>로이터, 「Huang returns as Nvidia CEO after Trump intervention in abrupt board reversal」, 2026-11-23</li>
+  <li>로이터, 「EXCLUSIVE: Nvidia's accounting is a focus of US SEC investigation」, 2026-11-20</li>
+  <li>로이터, 「Explainer: What are the various US federal and state probes faced by Nvidia and Jensen Huang?」, 2026-11-24</li>
+  <li>로이터, 「Explainer: Nvidia and board still face legal risks after Jensen Huang's return」, 2026-11-24</li>
+  <li>테크크런치, 「Nvidia created a weird bit of intrigue by not filing a routine SEC report」, 2026-11-18</li>
+  <li>마켓워치, 「Why Nvidia broke with its usual practice…」, 2026-11-18</li>
+  <li>CNBC, 「CoreWeave bond yield tops 16% as AI credit stress rises」, 2026-11-06</li>
+  <li>MacKay Shields, 「Stress at the edge: CoreWeave and the AI financing model」, 2026-11-17</li>
+  <li>ComputeLabs Research, 「Where the GPU Credit Crunch Actually Is」, 2026-11-23</li>
+  <li>더 버지, 「Read everything that Nvidia's board chair had to say about Jensen Huang」, 2026-11-17</li>
+  <li>인베스팅닷컴, 「No bear in sight: Major Wall St banks set 2027 S&amp;P 500 targets」, 2026-11-20</li>
+  <li>Refinitiv S&amp;P 500 Earnings Scorecard (2026-11-12), 2027 EPS $427.08</li>
+  <li>Kalshi/CME FedWatch, 12월 인상 확률 (11/10~11/23)</li>
+</ul>
+
+<h3>마지막 한 문장</h3>
+
+<blockquote>
+  <p>11월 23일 시장이 산 것은 <strong>한 사람의 복귀</strong>였고, 아직 사지 않은 것은 <strong>한 장의 서류</strong>다. 가격은 사람에게 먼저 반응하고 서류에 나중에 반응한다. <strong>12월 4일이 그 순서를 뒤집는 날이다.</strong></p>
+</blockquote>
+
+<div class="disc">
+    <b>고지</b>
+    본 글은 정보 정리 목적이며 투자 권유가 아닙니다. 인용된 전망·확률·레벨은 작성 시점의 판단이고 미래 성과를 보장하지 않습니다. 확률은 통계적 추정이 아니라 시나리오별 판단의 상대적 무게입니다. 모든 투자 결정과 그 결과에 대한 책임은 투자자 본인에게 있습니다. 필명 '글 쓰는 범고래(ORCA)'로 씁니다.
+  </div>
+
+<div class="signoff">
+    <div class="nm">The Signal</div>
+    <div class="sl">세상의 변화를 먼저 읽는 리서치</div>
+  </div>
+
+<p></article>
+</div></p>
+<div style="max-width:640px;margin:34px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;font-size:13px;color:#7a828a;">
+    <a href="./" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="archive" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+    &nbsp;·&nbsp;
+    <a href="deep-04" style="color:#26467d;font-weight:600;text-decoration:none;">No.04 다시 읽기</a>
+    &nbsp;·&nbsp;
+    <a href="./#subscribe" style="color:#26467d;font-weight:600;text-decoration:none;">구독</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script>
+<p></body>
+</html></p>
+<!-- End Cloudflare Web Analytics -->
