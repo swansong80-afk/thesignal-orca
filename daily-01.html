@@ -91,9 +91,9 @@
   .langsw a:hover{color:var(--accent);}
   .langsw a.on{color:#fff;background:var(--accent);}
   .langsw span{margin:0 4px;color:#c3c9cf;}
-  table.dt{width:100%;border-collapse:collapse;font-size:.86rem;line-height:1.6;margin:22px 0 26px;}
+  table.dt{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.86rem;line-height:1.6;margin:22px 0 26px;}
   table.dt thead th{background:var(--cap);color:#fff;font-weight:600;text-align:left;padding:9px 11px;font-size:.82rem;}
-  table.dt td{padding:9px 11px;border-bottom:1px solid #e6e9ee;vertical-align:top;text-align:left;}
+  table.dt td{padding:9px 11px;border-bottom:1px solid #e6e9ee;vertical-align:top;text-align:left;overflow-wrap:break-word;}
   table.dt tbody tr:nth-child(even) td{background:#f7f9fb;}
   table.dt tbody tr:last-child td{border-bottom:1px solid var(--rule);}
   table.dt.compact td{padding:8px 10px;}
@@ -148,7 +148,7 @@
   <p>원문 표(보충 4)에 실린 그대로다. 국가 구분은 연방관보의 표기를 따랐다.</p>
 
   <table class="dt compact">
-    <thead><tr><th style="width:74px">국가</th><th>법인</th><th style="width:34%">별칭·소재지</th></tr></thead>
+    <thead><tr><th style="width:78px">국가</th><th style="width:36%">법인</th><th>별칭·소재지</th></tr></thead>
     <tbody>
       <tr><td>말레이시아</td><td>MSFusion Sdn. Bhd.</td><td>조호바루 타만 마운트 오스틴 / 쿠알라룸푸르 TRX 106타워 / 이스칸다르 푸트리 에코 갤러리아 / 코타팅기</td></tr>
       <tr><td>말레이시아</td><td>PT Megaspeed International</td><td>조호 에코 갤러리아 B0342 / 클랑 셀랑고르 / 조호바루 스퀘어 오피스 타워</td></tr>
@@ -188,7 +188,7 @@
   <p>엔티티리스트만 보면 "문제가 된 회사 하나가 정리된 사건"으로 읽힌다. 11월 19일 발효된 잠정최종규칙(91 FR 74970, 문서 2026-23529)을 겹치면 읽는 단위가 달라진다. 두 문서는 서로 다른 질문에 답하고, 그 질문들이 합쳐지면 우회 경로가 거의 남지 않는다.</p>
 
   <table class="dt compact">
-    <thead><tr><th style="width:96px">층</th><th style="width:26%">근거</th><th>묻는 것</th><th style="width:30%">문턱·기한</th></tr></thead>
+    <thead><tr><th style="width:64px">층</th><th style="width:25%">근거</th><th style="width:22%">묻는 것</th><th>문턱·기한</th></tr></thead>
     <tbody>
       <tr><td>목적지</td><td>§742.6(a)(6)(iii)(A)(1)</td><td>어디로 가는가</td><td>인도네시아·말레이시아·싱가포르·태국·브라질. 미국 본사 최종사용자는 §743.10 보고 시 제외</td></tr>
       <tr><td>규모·최종용도</td><td>§744.24 (신설)</td><td>누구에게 얼마나 빌려주는가</td><td>합산 12,000,000 TPP 초과, 연결 데이터센터 합산, '알면서(knowledge)'. 기존 사업자는 2027년 2월 17일까지 허가</td></tr>
