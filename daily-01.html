@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>일곱 개의 이름, 하나의 회사 — 미국이 지운 것은 회사가 아니라 경로다 — The Signal</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --card:#f4f6f8; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee;
+    --main:1180px;
+    --l3:#c0392b; --l3bg:#fdf0ef;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:#f3f4f6; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    line-height:1.9; -webkit-font-smoothing:antialiased;
+    word-break:keep-all; overflow-wrap:break-word;
+  }
+  .wrap{max-width:var(--main); margin:0 auto; padding:32px 24px 90px;}
+  .status{background:var(--cap); color:#fff; padding:12px 20px; border-radius:6px; font-size:13px; margin-bottom:20px; letter-spacing:.02em;}
+  .status b{color:#ffd7d2;}
+  .grid{display:block;}
+  article{background:#fff; border:1px solid var(--rule); border-radius:6px; padding:56px 52px 60px; box-shadow:0 1px 3px rgba(0,0,0,.04); max-width:800px; margin:0 auto;}
+
+  .masthead{font-family:"Roboto Slab",serif; font-size:.95rem; letter-spacing:.14em; color:var(--accent); font-weight:700; text-transform:uppercase; padding-bottom:20px; border-bottom:1px solid var(--rule); margin-bottom:30px;}
+  .masthead .tag{color:var(--l3); font-family:-apple-system,sans-serif; letter-spacing:0; font-size:.8rem; margin-left:10px;}
+
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft);}
+  h1{font-size:2.0rem; line-height:1.34; letter-spacing:-.02em; margin:0 0 12px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.6; color:var(--ink-soft); font-weight:500; margin:0 0 36px; letter-spacing:-.01em;}
+  h3{font-size:1.3rem; margin:48px 0 16px; letter-spacing:-.01em; font-weight:800; color:var(--cap); padding-top:18px; border-top:1px solid var(--rule);}
+  p{margin:0 0 19px; font-size:1.04rem;}
+  strong{font-weight:700;}
+  .lead{font-size:1.12rem; color:#000;}
+
+  .f{text-decoration:underline; text-decoration-color:#9aa1a8; text-underline-offset:4px; text-decoration-thickness:1.5px;}
+  .f-id{font-size:.72em; color:var(--accent); font-weight:700; vertical-align:super; margin-left:1px;}
+  .f-l3{text-decoration:underline; text-decoration-color:var(--l3); text-underline-offset:4px; text-decoration-thickness:2px; background:var(--l3bg); padding:0 2px; border-radius:2px;}
+  .f-l3 .f-id{color:var(--l3);}
+
+  blockquote{margin:28px 0; padding:18px 24px; background:var(--box); border-left:4px solid var(--accent); border-radius:4px; font-size:1.08rem; color:var(--cap); font-weight:600;}
+  blockquote p{margin:0; font-size:inherit;}
+  .box{margin:28px 0; padding:20px 24px; background:var(--card); border:1px solid var(--rule); border-radius:5px; font-size:.98rem; line-height:1.85;}
+  .box .h{font-weight:800; margin-bottom:12px; color:var(--cap);}
+  .box .l{margin-bottom:8px;} .box .l:last-child{margin-bottom:0;}
+  .box .l b{color:var(--ink);}
+
+  .weak{margin-top:40px; padding:18px 22px; background:#fafbfe; border:1px dashed var(--accent); border-radius:5px; font-size:.96rem; color:var(--ink-soft); line-height:1.8;}
+  .weak b{color:var(--cap);}
+
+  .sources{margin-top:46px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.75;}
+  .sources .h{font-family:"Roboto Slab",serif; font-weight:700; color:var(--cap); font-size:1.0rem; margin-bottom:14px; letter-spacing:.02em;}
+  .sources ol{margin:0; padding-left:20px;}
+  .sources li{margin-bottom:9px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .sources .tier{font-size:.78rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px; padding:0 5px; margin-right:6px;}
+
+  .disc{margin-top:32px; padding:16px 20px; border:1px solid var(--boxline); border-radius:4px; background:#f0f1f3; font-size:.84rem; color:#555; line-height:1.7;}
+  .disc b{display:block; margin-bottom:5px; color:#333;}
+
+  .signoff{margin-top:44px; padding-top:30px; border-top:2px solid var(--cap); text-align:center;}
+  .signoff .nm{font-family:"Roboto Slab",serif; font-size:1.7rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1;}
+  .signoff .sl{font-size:.98rem; color:var(--accent); font-weight:500; margin-top:10px; letter-spacing:.03em;}
+
+  /* 마진 원장 카드 */
+  .margin{display:flex; flex-direction:column; gap:8px; position:sticky; top:20px;}
+  .card{border:1px solid var(--boxline); border-radius:5px; padding:10px 13px; background:var(--card); font-size:12px; line-height:1.6;}
+  .card .id{font-weight:800; color:var(--accent); font-size:12.5px;}
+  .card.l3{border-color:var(--l3); background:var(--l3bg);}
+  .card.l3 .id{color:var(--l3);}
+  .card .tier{color:var(--muted); font-size:10.5px; margin-bottom:3px;}
+  .card .excerpt{color:#333; font-style:italic; margin:4px 0;}
+  .card .q{color:var(--l3); font-size:11px; margin-top:5px; font-weight:600;}
+  .card a{color:var(--accent); font-size:10.5px; word-break:break-all;}
+
+  @media (max-width:1100px){ .grid{grid-template-columns:1fr;} .margin{position:static;} }
+  @media (max-width:560px){ article{padding:38px 24px;} h1{font-size:1.6rem;} }
+
+  .sources .grp{font-weight:700;color:var(--cap);margin:16px 0 8px;font-size:.95rem}
+
+  /* Daily — language switch + data tables */
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .langsw{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+  .langsw a{color:var(--muted);text-decoration:none;font-weight:700;padding:2px 5px;border-radius:3px;}
+  .langsw a:hover{color:var(--accent);}
+  .langsw a.on{color:#fff;background:var(--accent);}
+  .langsw span{margin:0 4px;color:#c3c9cf;}
+  table.dt{width:100%;border-collapse:collapse;font-size:.86rem;line-height:1.6;margin:22px 0 26px;}
+  table.dt thead th{background:var(--cap);color:#fff;font-weight:600;text-align:left;padding:9px 11px;font-size:.82rem;}
+  table.dt td{padding:9px 11px;border-bottom:1px solid #e6e9ee;vertical-align:top;text-align:left;}
+  table.dt tbody tr:nth-child(even) td{background:#f7f9fb;}
+  table.dt tbody tr:last-child td{border-bottom:1px solid var(--rule);}
+  table.dt.compact td{padding:8px 10px;}
+  @media (max-width:560px){
+    table.dt{font-size:.78rem;line-height:1.5;}
+    table.dt thead th{font-size:.74rem;}
+    table.dt td, table.dt thead th{padding:7px 8px;}
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="canonical" href="https://thesignal-orca.pages.dev/daily-01">
+<link rel="alternate" hreflang="ko" href="https://thesignal-orca.pages.dev/daily-01">
+<link rel="alternate" hreflang="en" href="https://thesignal-orca.pages.dev/daily-01-en">
+<link rel="alternate" hreflang="x-default" href="https://thesignal-orca.pages.dev/daily-01">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Signal — 세상의 변화를 먼저 읽는 리서치">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="일곱 개의 이름, 하나의 회사 — 미국이 지운 것은 회사가 아니라 경로다">
+<meta property="og:description" content="91 FR 76148은 동남아 7곳을 엔티티리스트에 올렸다. 그 7곳은 한 회사와 그 최대 고객이었다 — 11월 19일 원격 연산 규제와 겹치자 동남아 데이터센터의 사업모델 자체가 허가 대상이 됐다.">
+<meta property="og:url" content="https://thesignal-orca.pages.dev/daily-01">
+</head>
+<body>
+<div class="wrap">
+
+<div class="grid">
+<article>
+
+  <div class="masthead">The Signal · Daily
+    <span class="langsw"><a class="on" href="/daily-01">KO</a><span>|</span><a href="/daily-01-en">EN</a></span>
+  </div>
+
+  <div class="meta">
+    <b>발행</b> · Daily No.01 · 2026년 11월 27일<br>
+    <b>도메인</b> · 지정학 × 기술 × 자본<br>
+    <b>신선도</b> · 2026년 11월 23일(현지) 사전공개·발효, 11월 25일 연방관보 게재(91 FR 76148). 11월 26일 미국 시장은 추수감사절 휴장
+  </div>
+
+  <h1>일곱 개의 이름, 하나의 회사 — 미국이 지운 것은 회사가 아니라 경로다</h1>
+  <h2 class="sub">「91 FR 76148」은 동남아의 7곳을 엔티티리스트에 올렸다. 그 7곳은 한 회사와 그 회사의 가장 큰 고객이었다. 11월 19일의 원격 연산 규제와 겹치자, 동남아 데이터센터의 사업모델 자체가 허가 대상이 됐다</h2>
+
+  <p class="lead">11월 25일(현지) 연방관보 76148쪽에 세 쪽짜리 최종규칙이 실렸다. 문서번호 2026-23999, 관보 인용 91 FR 76148~76150, 도켓 261123-0006, RIN 0694-AK59. 내용은 한 문장으로 요약된다. 말레이시아 3곳, 싱가포르 3곳, 태국 1곳, 모두 7개 법인을 수출관리규정(EAR) 보충 4(엔티티리스트)에 추가한다. 이들의 거래에는 <strong>미국 수출관리 대상 모든 품목</strong>에 대해 허가가 필요하고, 심사는 <strong>거부 추정(presumption of denial)</strong>으로 한다. 발효일은 11월 23일, 게재일은 11월 25일이다. 이를테면 이 규칙은 자기가 실린 날보다 이틀 먼저 효력을 얻었다.</p>
+
+  <p>그런데 숫자보다 중요한 것은 명단의 구성이다. 일곱 곳은 흩어진 우회업체 일곱 개가 아니다. <strong>싱가포르의 모회사 하나(Swiftdata), 그 자회사(Megaspeed International), 그리고 그 자회사의 말레이시아·태국 법인 다섯 곳</strong>, 여기에 <strong>그 회사의 가장 큰 고객이었던 알리바바의 싱가포르 자회사(Apex)</strong>가 붙은 구조다. 즉 이 문서는 판매자를 지목한 것이 아니라, 판매자·배송창구·고객을 한 줄로 묶어 하나의 도면으로 만들었다.</p>
+
+  <p>이번 사이클에서 엔티티리스트가 <strong>수요 측</strong>을 이름으로 부른 것은 처음이다. 2022년 이후 미국의 첨단 반도체 통제에서 엔티티리스트는 언제나 '물건을 넘기는 쪽'의 명단이었다. 11월 23일의 명단에는 '물건을 받아 쓰는 쪽'이 들어갔다. 그리고 같은 달 19일, 미국은 데이터센터가 중국계 기업에 빌려주는 연산 자체를 허가 대상으로 바꿔 두었다(91 FR 74970). 두 문서를 겹쳐 놓으면 남는 것은 하나다. <strong>미국이 닫은 것은 회사가 아니라 사업모델이다.</strong></p>
+
+  <h3>명단에 오른 일곱 곳</h3>
+  <p>원문 표(보충 4)에 실린 그대로다. 국가 구분은 연방관보의 표기를 따랐다.</p>
+
+  <table class="dt compact">
+    <thead><tr><th style="width:74px">국가</th><th>법인</th><th style="width:34%">별칭·소재지</th></tr></thead>
+    <tbody>
+      <tr><td>말레이시아</td><td>MSFusion Sdn. Bhd.</td><td>조호바루 타만 마운트 오스틴 / 쿠알라룸푸르 TRX 106타워 / 이스칸다르 푸트리 에코 갤러리아 / 코타팅기</td></tr>
+      <tr><td>말레이시아</td><td>PT Megaspeed International</td><td>조호 에코 갤러리아 B0342 / 클랑 셀랑고르 / 조호바루 스퀘어 오피스 타워</td></tr>
+      <tr><td>말레이시아</td><td>Speedmatrix Sdn Bhd.</td><td>별칭 Speedmatrix. PT Megaspeed와 같은 에코 갤러리아 B0342 주소</td></tr>
+      <tr><td>싱가포르</td><td>Apex Enterprise Solutions (Singapore) Private Limited</td><td>별칭 Apex. 브라스 바사 로드 라자다 원</td></tr>
+      <tr><td>싱가포르</td><td>Megaspeed International Pte. Ltd.</td><td>별칭 4개 — Megaspeed, Megaspeed International, <strong>7Road International</strong>, 7Road International Pte. Ltd. 비치 로드 / 오션 파이낸셜 센터</td></tr>
+      <tr><td>싱가포르</td><td>Swiftdata Pte. Ltd.</td><td>신밍 레인 미드뷰 시티 / 비전 익스체인지</td></tr>
+      <tr><td>태국</td><td>Megaspeed (Thailand) Co., Ltd.</td><td>별칭 2개 — 7Road International, 7Road International Pte. Ltd. 방콕 시암 피왓 타워</td></tr>
+    </tbody>
+  </table>
+
+  <p>표를 읽을 때 걸리는 지점이 하나 있다. 별칭이다. Megaspeed International과 Megaspeed(Thailand)의 별칭에 <strong>7Road International</strong>이 나란히 들어 있다. 2015년에 7Road International이라는 이름으로 설립되어 2023년 3월 Megaspeed로 사명을 바꾼 회사의 이력이, 명단에 그대로 남은 것이다(설립·개명 이력은 BBC·포춘·SBS 보도 및 기업등록 확인). 명단이 회사의 과거 이름을 별칭으로 함께 적는 것은 실무적으로 무거운 조치다. 이름을 바꿔도 같은 회사로 취급한다는 뜻이기 때문이다.</p>
+
+  <p>두 번째 지점은 말레이시아 쪽 숫자다. 연방관보는 말레이시아를 목적지로 세 곳을 올렸는데, 말레이시아 투자통상산업부(MITI)는 11월 24일 성명에서 자국 대상이 <strong>두 곳</strong>이라고 밝혔다. 스피드매트릭스와 MS퓨전이고, "MIDA 기록상 PT Megaspeed International은 말레이시아 법인이 아니며 말레이시아에서 데이터센터를 운영하거나 임차하지도 않는다"고 명시했다. 미국 명단의 '목적지'는 법적 표지이고, 현지 등록부의 '법인'은 다른 표지다. 이 간극은 다음 절부터 계속 문제가 된다.</p>
+
+  <h3>일곱 곳은 한 회사와 한 고객이다</h3>
+  <p>구조를 시간순으로 놓으면 이렇다. 2015년 싱가포르에 7Road International으로 설립, 2023년 3월 Megaspeed International로 개명, 같은 해 11월 엔비디아의 아시아태평양 공식 클라우드 파트너가 됐다. 그해 11월 싱가포르 법인 Swiftdata가 이 회사를 인수했고, 스위프트데이터 소유주인 싱가포르 사업가가 단독 이사가 됐다(포춘). 2024년에는 말레이시아 자회사 Speedmatrix가 세워졌고, 태국과 말레이시아에 배송·운영 창구가 붙었다.</p>
+
+  <p>고객 쪽은 이렇게 붙어 있다. Apex는 2023년 7월 싱가포르에 설립됐고 등록 주소가 라자다 원이다. 직상위 지주회사는 케이맨의 Cloud Intelligence Holding, 최종 모회사는 알리바바그룹이다(스트레이츠 타임스가 확보한 기업등록). 로이터는 Apex가 메가스피드와 다른 회사들에 <strong>약 42억 달러를 선급</strong>으로 지급하고 동남아의 연산 capacity를 임차했으며, 그 대가로 상대 자산 일부를 담보로 잡았다고 보도했다. 담보의 실체는 스트레이츠 타임스가 더 구체적으로 확인했다. <strong>2024년 6월 18일자 계약으로 Speedmatrix가 자사의 IT·네트워크 장비와 지식재산권을 Apex에 담보로 제공했다.</strong></p>
+
+  <p>여기서 이 명단의 성격이 드러난다. 엔티티리스트는 통상 '나쁜 회사'의 명단으로 읽히지만, 이번 문서가 실제로 그린 것은 <strong>공급망의 법률 도면</strong>이다. 지주(Swiftdata) → 운영(Megaspeed) → 배송(Speedmatrix·MSFusion·PT Megaspeed·Megaspeed Thailand) → 고객의 자금 창구(Apex). 이 도면에서 가장 낯선 칸은 마지막 칸이다. 고객의 선급금과 담보 계약은 원래 사모신용의 영역이고 수출통제의 영역이 아니었다. 명단이 Apex를 부르는 순간, 그 계약은 <strong>허가 심사의 대상이 된 거래</strong>가 된다. 담보로 잡힌 장비와 지식재산권의 가치는 법원이 아니라 허가관청의 판단에 걸리게 된다.</p>
+
+  <p>미국 상무부와 법무부는 11월 17일 공동성명에서 조사 경과를 밝혔다. 상무부가 2024년 잠재적 반도체 우회를 상시 모니터링하다 조사를 열었고, 2025년 5월 엔비디아에 기록 제출을 요구했으며, 2025년 6월의 현장 조치 이후 법무부가 형사 조사를 맡았다. 엔비디아는 2025년 6월 메가스피드를 '판매 금지(no sell)' 목록에 올렸다(로이터). 그럼에도 회사는 지난주까지 "합법적이고 규정을 준수하는 사업"이라며 외부 변호사를 선임해 내부 조사를 진행 중이라고 밝혔다. 알리바바는 명단 등재를 "잘못된(erroneous) 조치"라며 "가능한 모든 법적 수단"을 동원하겠다고 반박했다.</p>
+
+  <h3>이 문서가 실제로 하는 일</h3>
+  <p>법적 효과는 네 가지다. 첫째, 근거 조항은 15 CFR 744.11(b)이고, 판단 기준은 "구체적이고 설명 가능한 사실에 기반한 상당한 이유"다. 처벌이 아니라 <strong>위험의 지정</strong>이다. 실제로 이 문서는 어느 곳이 칩을 빼돌렸다고 단정하지 않는다. "첨단 컴퓨팅 물자의 승인되지 않은 최종용도·최종사용자로의 우회에 관여했거나 관여하게 될 중대한 위험"이라고만 쓴다. 형사 기소도, 법원의 사실인정도 아니다.</p>
+
+  <p>둘째, 허가 요건의 범위다. "미국 수출관리 대상 모든 품목"이라는 문구는 첨단 AI 칩(ECCN 3A090)과 서버(4A090)만이 아니라 부품·소프트웨어·기술까지 포함한다. 수출통제가 흔히 칩 한 개의 분류로 이야기되지만, 거래당사자가 명단에 오르면 <strong>수리 부품, 펌웨어 업데이트, 기술 지원</strong>까지 같은 허가선에 걸린다. 대부분의 허가예외(§748.5(c)~(f))도 함께 닫힌다.</p>
+
+  <p>셋째, 되돌리는 절차의 무게다. 엔티티리스트 등재는 최종사용자심사위원회(ERC)의 <strong>다수결</strong>로 결정되지만, 삭제나 수정은 <strong>만장일치</strong>로 결정된다(원문). 상무부(의장)·국무부·국방부·에너지부, 필요시 재무부가 모두 동의해야 명단에서 빠진다. 알리바바가 말한 "법적 수단"이 통상의 소송이 아니라 행정 절차와 로비의 형태를 띠는 이유가 여기 있다.</p>
+
+  <p>넷째, 시차다. 원문의 표에는 아직 <strong>"91 FR [INSERT FR PAGE NUMBER AND 11/25/2026]"</strong>라는 자리표시자가 남아 있고, 문서 말미에는 "Filed 11-23-26; 4:15 pm"이 찍혀 있다. 11월 23일 오후 4시 15분에 접수되어 25일 게재, 효력은 접수일인 23일. 수출통제개혁법(ECRA) 1762조가 사전 고지·의견수렴·발효 지연을 면제하기 때문에 가능한 방식이다. 결과는 명확하다. <strong>시장이 이 문서를 읽을 수 있었던 시간은 48시간이었고, 그 48시간의 전반부는 엔비디아 최고경영진 복귀라는 다른 사건이 테이프를 독점하고 있었다.</strong></p>
+
+  <p>운송 중 물량에 대한 구제도 좁다. 11월 23일 현재 운송 중이던 실제 주문분은 <strong>12월 23일까지</strong> 도착을 마치면 종전 자격으로 갈 수 있다. 오늘로부터 26일 남았다.</p>
+
+  <h3>11월 19일과 겹치면 무엇이 되나</h3>
+  <p>엔티티리스트만 보면 "문제가 된 회사 하나가 정리된 사건"으로 읽힌다. 11월 19일 발효된 잠정최종규칙(91 FR 74970, 문서 2026-23529)을 겹치면 읽는 단위가 달라진다. 두 문서는 서로 다른 질문에 답하고, 그 질문들이 합쳐지면 우회 경로가 거의 남지 않는다.</p>
+
+  <table class="dt compact">
+    <thead><tr><th style="width:96px">층</th><th style="width:26%">근거</th><th>묻는 것</th><th style="width:30%">문턱·기한</th></tr></thead>
+    <tbody>
+      <tr><td>목적지</td><td>§742.6(a)(6)(iii)(A)(1)</td><td>어디로 가는가</td><td>인도네시아·말레이시아·싱가포르·태국·브라질. 미국 본사 최종사용자는 §743.10 보고 시 제외</td></tr>
+      <tr><td>규모·최종용도</td><td>§744.24 (신설)</td><td>누구에게 얼마나 빌려주는가</td><td>합산 12,000,000 TPP 초과, 연결 데이터센터 합산, '알면서(knowledge)'. 기존 사업자는 2027년 2월 17일까지 허가</td></tr>
+      <tr><td>거래당사자</td><td>§744.11(b), 보충 4</td><td>누구와 거래하는가</td><td>7곳, 모든 품목, 거부 추정. 운송 중 구제는 12월 23일까지</td></tr>
+    </tbody>
+  </table>
+
+  <p>세 층은 각각 다른 회피 수법을 막는다. 목적지 규제는 <strong>선적지를 바꾸는 회피</strong>를 막고, 규모·최종용도 규제는 <strong>계약서의 이름을 바꾸는 회피</strong>를 막는다. 그런데 이 둘에는 공통의 빈틈이 있었다. 목적지가 허용 국가이고, 규모가 기준 아래이고, 계약 상대가 D:5 기업이 아니라고 우기면 통제가 비껴간다. 엔티티리스트는 그 빈틈을 <strong>당사자</strong>에서 막는다. 목적지가 합법이어도, 규모가 작아도, 상대가 명단에 있으면 거래 자체가 허가 대상이다.</p>
+
+  <p>여기에 기존 §744.23이 그대로 남아 있다는 점을 더해야 한다. D:5 기업을 위한 거래라면 규모와 무관하게 허가가 필요하고, 중국계 고객이 전체 연산의 50%를 넘게 쓰는 '주된 이용자'인 경우도 포함된다. 즉 12,000,000 TPP는 새 조항의 문턱이지, 통제 전체의 면제선이 아니다. 김·장 법률사무소와 BKL 등 국내 로펌 해설이 한목소리로 "기준 미달이 곧 허가 불요가 아니다"라고 쓰는 이유다.</p>
+
+  <p>가장 실무적인 변화는 <strong>증명</strong>이다. §744.24는 수출자에게 "알면서"를 요구하는데, 그 '알면서'는 실제 인지뿐 아니라 인지할 개연성이 높은 상태까지 포함한다. 데이터센터가 고객의 소유·지배 구조를 문서로 제시하지 못하면, 수출자는 위험신호(red flag)를 해소하지 못한 것으로 간주되고, 해소하지 못한 위험신호는 '알고 있었다'는 추정으로 이어진다(국내 로펌 해설 공통). 그래서 규정의 실제 작동 방식은 금지가 아니라 <strong>서류</strong>다. 고객의 최종 모회사, 지분 구조, 제공 연산 규모, 용도 변경 시 통지 의무를 문서로 갖춘 데이터센터만 칩을 공급받는다. Weekly No.07이 파운드리 조항에서 본 "금지가 아니라 증명"이 데이터센터 층에서 반복된다.</p>
+
+  <p>예외는 좁고, 모양이 분명하다. 상업용 추천시스템(commercial recommender system)에만 쓰이는 연산은 빠지지만, 텍스트·이미지·영상·소프트웨어를 생성하는 AI가 추천 기능을 겸하면 예외가 아니다. 예외를 받으려면 고객 명칭, 제공 TPP 합계, 실사 내역을 BIS에 보고해야 한다. 조호르에서 틱톡의 CPU 워크로드와 AI GPU 워크로드가 같은 건물 안에서 갈리는 이유가 여기에 있다.</p>
+
+  <h3>돈의 흔적이 먼저 움직였다</h3>
+  <p>이 사건을 '밀수'로만 읽으면 놓치는 것이 있다. 밀수는 창고와 선하증권의 문제지만, 메가스피드가 판 것은 창고가 아니라 <strong>계약</strong>이었다. 42억 달러 선급, 자산 담보, 2024년 6월~2025년 6월 사이 200회가 넘는 제한 품목 선적(뉴욕타임스), 2024년 6월 이후 48억 달러어치 구매(뉴욕타임스, CNBC 인용), 75억 달러 규모 유통(디 인포메이션, 포춘 인용). 숫자는 매체마다 다르지만 방향은 같다. 이 회사는 동남아에서 가장 큰 엔비디아 고객 중 하나였고, 그 매출의 상당 부분이 중국계 수요와 맞물려 있었다.</p>
+
+  <p>선급 구조가 핵심이다. 데이터센터 사업자는 고객의 선급금으로 장비를 사고, 그 장비를 담보로 대출을 받는다. 문샷 AI가 인도네시아의 B300 임대 계약(1억 5,000만 달러)을 철회했을 때 알려진 조건은 <strong>선급 50%</strong>였다. 통상 15%의 세 배가 넘는다. 새 규정이 나온 다음 날 계약이 사라졌고, 그 계약에는 이미 지불된 돈과 담보가 걸려 있었다(디 인포메이션, 회사 미확인).</p>
+
+  <p>규모도 이제 추정으로 확인된다. 세미애널리시스는 중국 기업이 아시아 4개국의 네오클라우드를 통해 약 <strong>300MW</strong>의 AI 연산을 쓰고 있다고 추산했다. 미국 싱크탱크 IFP는 올해 말 중국 기업의 해외 원격 연산을 H100 환산 <strong>약 105만 개</strong>로 보는데, 이는 중국이 확보한 전체 AI 연산 460만 개의 약 4분의 1이고 그 75%가 동남아에 있다. 전력으로는 794MW 중 506MW다. JP모건은 말레이시아 데이터센터 계획 물량 12.7GW 가운데 <strong>3.8GW(약 25%)</strong>가 중국계 운영사 몫이라고 집계했다(11월 13일).</p>
+
+  <p>그래서 신용이 먼저 반응했다. JP모건과 씨티그룹이 중국 기술기업에 서비스를 제공하는 동남아 데이터센터 관련 대출을 점검하기 시작했고(블룸버그), 피치는 11월 26일 아시아태평양 데이터센터 투자가 둔화하고 칩 확보와 고객 적격성에 따라 투자가 더 선별적으로 이뤄질 것이라고 전망했다. 한국은행도 11월 보고서에서 데이터센터 수요가 2028년까지 예상보다 10% 낮아지고 자금 조달이 조여지면 2027년 성장률이 4.1%에서 3%대 중반, 2028년은 2%대 초반까지 내려갈 수 있다고 계산했다. 같은 보고서는 아마존·알파벳·마이크로소프트·메타·오라클의 합산 회사채 발행이 2025년 상반기 204억 달러에서 하반기 880억 달러, 2026년 상반기 1,691억 달러로 늘었다고 적었다. AI 인프라의 자금 조달 구조가 이미 시장 금리에 붙어 있다는 뜻이다.</p>
+
+  <h3>두 정부의 문장</h3>
+  <p>말레이시아 MITI는 11월 13일과 24일 두 번 성명을 냈다. 요지는 세 가지다. 메가스피드와 스피드매트릭스를 "승인한 적이 없다", 스피드매트릭스는 말레이시아 데이터센터의 <strong>임차인</strong>이며 칩을 직접 반입한다, 2025년 7월부터는 미국산 고성능 AI 칩을 말레이시아에서 수출·재수출·환적·통과시키려면 전략무역법(Strategic Trade Act 2010)상 허가가 필요하다. 그리고 MIDA가 모든 데이터센터 사업자에게 공문을 보내 "7개 법인을 입주시키거나 공간·서비스를 제공하지 말 것"을 권고한다고 밝혔다.</p>
+
+  <p>싱가포르는 더 길게 답했다. 내무부는 11월 12일 성명에서 2025년 2월 경찰과 관세청이 자체 조사를 시작했다고 밝혔다. 어느 나라의 요청도 아니었다는 점을 명시했다. 2025년 6월 24일 BIS의 자발적 사후검증(PSV)과 경찰 면담이 있었고, 당시 최고경영자였던 앨리스 황은 여권이 압수됐다. 2026년 2월, 검찰과 협의한 경찰은 서버 구매 관련 허위 신고 혐의를 입증할 증거가 부족하다고 결론지었다. 다만 조사 과정에서 자신의 역할을 축소하는 부정확한 정보를 제공한 것으로 평가해 엄중 경고와 재입국 금지 조치를 내렸다. 내무부는 그녀가 <strong>간첩 혐의로 조사받은 것이 아니라고</strong> 못박았다. 메가스피드와 6명에 대한 조사는 계속 중이다.</p>
+
+  <p>로런스 웡 싱가포르 총리는 11월 24일 호주에서 이렇게 말했다. "미국은 자국 칩에 수출통제를 둡니다. 우리는 미국의 수출통제를 집행하지 않습니다. 다만 싱가포르가 그 통제를 우회하려는 기업의 경유지로 이용되고 악용되는 것은 원하지 않습니다." 이어 미국이 자체 집행을 할 수 있도록 정보 공유와 점검 편의를 제공하는 체계를 만들고 있다고 했다. 미국 쪽 정보가 충분히 제공되지 않았다는 질문에는 "일부 정보는 요청했지만 다 받지는 못했다"고 답했다.</p>
+
+  <p>두 정부의 태도는 같다. <strong>행위 기준은 받아들이고, 관할권은 거부한다.</strong> 이 분업이 사업자에게 주는 결론은 불편하다. 현지에서 적법한 것이 미국 공급망에서는 공급 불가일 수 있다. 데이터센터의 실질 규제자는 자국 정부가 아니라 칩 공급사의 허가 담당자다. 그리고 그 담당자는 지금 "고객의 최종 모회사가 어디인가"라는 질문에 서류로 답할 수 있는 사업자와만 거래한다.</p>
+
+  <h3>시장은 이 문서를 읽지 않았다</h3>
+  <p>가격은 다른 사건을 읽고 있었다. 11월 23일 엔비디아는 최고경영진 복귀 소식으로 <strong>31.5% 오른 165.05달러</strong>에 마감하며 시가총액을 하루에 9,500억 달러 이상 늘렸다. 같은 날 오후 4시 15분, 상무부는 엔티티리스트 문서를 접수했다. 다음 날 개장 전 이 소식이 돌았고, 엔비디아는 <strong>5.86% 내린 155.38달러</strong>로 마감했다. 마이크론 −10.97%, 마벨 −9.10%, ARM −8.55%, AMD −8.86%, 코어위브 −11.84%, 아이렌 −11.54%, 네비우스 −10.74%. 나스닥 −1.5%, S&amp;P500 −0.5%, 다우 +0.9%.</p>
+
+  <p>언론은 이 하락을 랠리 피로로 설명했다. 그 설명이 틀렸다고 단정할 수는 없지만, 규제의 실제 파장은 지수보다 <strong>물리적 공급망</strong>에서 먼저 나타났다. 파이낸셜타임스는 엔비디아가 제조 파트너들에게 말레이시아·싱가포르·태국·인도네시아로의 서버 출하를 중단하라고 지시했다고 보도했고(델·슈퍼마이크로가 고객에 통보), CNBC는 칩 판매사들이 <strong>"중국 기업에 용량을 조금이라도 임대하는 네오클라우드에는 칩을 공급하지 않겠다"</strong>고 통보했다고 전했다. 규정 발표 전까지 엔비디아의 기준은 '중국 기업에 50% 넘게 임대하는 고객에게는 팔지 않는다'였다. 문턱이 50%에서 0%로 내려온 것이다.</p>
+
+  <p>이 변화의 성격을 정확히 보자. 매출이 줄어드는 것이 아니라 <strong>구매 자격이 바뀌는</strong> 것이다. 어떤 사업자는 같은 돈을 내고도 칩을 살 수 없고, 어떤 사업자는 같은 칩을 사서 더 비싸게 팔 수 있다. 네오클라우드의 밸류에이션은 가동률과 고객 구성에 걸려 있고, 그 두 변수가 동시에 재설정됐다. 11월 26일 미국 시장이 추수감사절로 쉬는 동안, 한국 증시는 보합권에서 이 뉴스를 소화했다. 삼성전자와 SK하이닉스는 약보합이었다.</p>
+
+  <h3>한국은 명단에 없지만 규정 밖이 아니다</h3>
+  <p>한국은 다섯 개국에 들지 않았다. 그래서 "한국은 무관하다"는 해석이 나오는데, 두 가지가 빠져 있다. 첫째, §744.24는 데이터센터의 <strong>소재지와 무관하게</strong> 적용된다. 국내 데이터센터가 중국·마카오에 본사나 최종 모회사를 둔 기업에 12,000,000 TPP를 넘는 연산을 제공하면, 그 데이터센터에 칩을 대는 공급사가 허가를 받아야 한다. 기존에 이미 제공 중이면 <strong>2027년 2월 17일</strong>까지 허가를 받아야 하고, 이후 용도가 바뀌어도 국내 이전으로 취급된다.</p>
+
+  <p>둘째, HBM이다. 신설 §744.24의 품목 목록은 3A090 가운데 HBM(3A090.c)을 명시적으로 제외한다. 그러나 HBM이 미국 통제 전체에서 빠진 것은 아니다. §744.23에는 D:5 기업을 대상으로 한 3A090.c의 별도 허가 요건이 남아 있고, 엔티티리스트의 "모든 품목"에는 HBM도 들어간다. 즉 HBM은 직접 규제의 레버가 아니라 <strong>간접 수요의 레버</strong>다. GPU 배치 일정이 밀리면 HBM 주문도 밀린다. 다만 그 시차는 짧지 않다. 2027년 물량은 이미 매진이고 2028년 생산능력의 절반 이상이 예약됐다는 것이 업계 설명이다(서울경제).</p>
+
+  <p>한국의 증설 계획은 오히려 이 규제의 수혜를 기대하는 자리에 있다. SK그룹과 AWS가 울산에 짓는 100MW AI 데이터센터(총 7조 원, 내년 하반기 가동 예정), SK텔레콤이 2029년부터 단계적으로 확보하려는 5GW, 네이버의 해외 AI 인프라가 그 목록에 있다. 그런데 같은 규정이 이 계획들에도 적용된다. SK텔레콤의 2GW AI 팩토리와 네이버의 아시아·중동·유럽 프로젝트는 고객의 국적과 소유 구조에 따라 미국 규칙의 영향을 받을 수 있다(서울경제). 동남아에서 밀려난 중국계 수요를 한국이 대신 받는 것도 불가능하다. 한국 데이터센터도 같은 규정의 적용 대상이기 때문이다. "한국은 오염되지 않은 대체지"라는 서사는 규정의 첫 문단에서 이미 틀린다.</p>
+
+  <h3>남은 문</h3>
+  <p>완전히 닫힌 것은 아니다. 문은 세 개 남아 있고, 그중 두 개는 미국이 의도적으로 열어 둔 것이다.</p>
+
+  <p><strong>첫째, 미국 본사 고객.</strong> 다섯 개국 목적지 규제는 최종사용자나 최종 모회사가 미국에 있으면 §743.10의 월별 보고를 조건으로 적용되지 않는다. 규정의 선호가 어디에 있는지 보여주는 설계다. 중국계 수요를 없애는 것이 아니라 <strong>미국계 고객 쪽으로 옮기는</strong> 것이다. 게리 탄 올스프링 매니저가 "미국 하이퍼스케일러에 유리한 시장 환경"이라고 말한 이유다.</p>
+
+  <p><strong>둘째, 추천시스템.</strong> 상업용 추천에만 쓰이는 연산은 빠진다. 다만 생성형 기능이 붙으면 예외가 사라지고, 예외를 쓰려면 보고해야 한다. 소셜미디어·이커머스의 CPU 워크로드는 남고, 모델 학습·추론 GPU는 남지 않는다.</p>
+
+  <p><strong>셋째, 미국 기술이 없는 실리콘.</strong> 이 문은 규제가 만든 것이 아니라 규제가 확인한 것이다. 중국의 국산 가속기로 연산을 대체하면 미국 허가 문제는 사라지고, 대신 성능·수율·전력의 문제가 남는다. 미국이 두 번째 문을 닫으려는 움직임은 이미 보인다. BIS 대변인은 세마포어에 "해외에서 만든 첨단 칩이라도 메가스피드에 보내는 것은 위법"이라고 말했는데, <strong>규칙 본문에는 그런 문장이 없다</strong>. 역외 적용(foreign direct product) 논리를 예고한 것인지, 발언 실수인지는 확인되지 않는다. 이것이 다음 확장의 방향이라면 남은 문은 훨씬 좁아진다.</p>
+
+  <p>제도적으로 열려 있는 두 개의 손잡이도 기억해야 한다. §744.24(a)(2)의 '통지(is informed)' 절차는 규정 개정 없이도 특정 당사자·목적지에 허가 요건을 붙일 수 있게 한다. 그리고 다섯 개국 목록은 상무장관이 국무장관·국가안보보좌관과 협의해 <strong>국가를 추가</strong>할 수 있다. 한국이 지금 명단에 없다는 사실은 영구 면제가 아니라 현재 상태다.</p>
+
+  <h3>지켜볼 다섯 개의 시각</h3>
+  <p><strong>12월 3일</strong> — 젠슨 황 엔비디아 최고경영자가 상원 은행위원회에 출석한다. 질문의 초점은 고객 심사와 수출통제 준수 체계다. 여기서 나오는 답이 다음 명단의 크기를 정한다.</p>
+  <p><strong>12월 23일</strong> — 일곱 곳 관련 운송 중 물량의 구제 기한이 끝난다. 이날 이후 남는 재고는 명단 밖으로 나갈 수 없다.</p>
+  <p><strong>2027년 1월 19일</strong> — 91 FR 74970의 의견수렴 마감(regulations.gov, BIS-2026-0628). 12,000,000 TPP의 산정 범위, 연결 데이터센터의 정의, '상당한 규모(significant volume)'의 의미가 최종규칙에서 바뀔 수 있다. 하버트 스미스 프리힐스 크레이머는 90일 유예 조항의 "상당한 규모"가 정의되지 않았다는 점을 불확실성으로 지적했다.</p>
+  <p><strong>2027년 2월 17일</strong> — 기존 데이터센터의 90일 허가 기한. 허가를 받지 못하면 고객을 끊거나, 규모를 문턱 아래로 낮추거나, 사업을 접는 세 가지 선택지만 남는다. 동남아 데이터센터의 공실률과 전력 계약이 이날 이후에 드러난다.</p>
+  <p><strong>수시</strong> — 상무장관의 추가 국가·법인 지정, ERC의 삭제 청원(만장일치 필요), 알리바바의 행정·사법 대응, 엔비디아가 만든 수출통제위원회의 첫 공개 보고.</p>
+
+  <div class="weak">
+    <b>약한 고리 — 확인하지 못한 것</b><br>
+    ① 42억 달러 선급과 75억 달러 유통 규모는 각각 로이터의 단일 취재원, 디 인포메이션의 단일 보도다. 메가스피드는 위법을 부인하며, 어떤 당국도 아직 기소하지 않았다. ② 200회 이상 선적과 48억 달러 구매는 뉴욕타임스 보도이며 BIS가 확인한 수치가 아니다. ③ 엔비디아의 서버 출하 중단은 파이낸셜타임스 보도로, 엔비디아와 델·슈퍼마이크로의 공식 확인이 없다. ④ 조호르 연산 capacity의 90%가 바이트댄스라는 수치는 스트레이츠 타임스의 산업·정부 관계자 추정이고, 데이나원은 자사 파이프라인 기준 40% 미만이라고 반박했다. ⑤ BIS 대변인의 "해외 생산 칩도 위법" 발언은 규칙 본문과 일치하지 않는다. ⑥ 말레이시아 대상이 2곳인지 3곳인지는 미국 관보와 말레이시아 정부가 서로 다르게 말한다. ⑦ 표의 자리표시자 문구는 이 문서가 막판에 확정됐음을 보여주며, 향후 관보 정정으로 수치가 바뀔 수 있다.
+  </div>
+
+  <div class="sources">
+    <div class="h">출처</div>
+    <div class="grp">1차 — 규정·정부 문서</div>
+    <ol>
+      <li><span class="tier">1차</span>Bureau of Industry and Security, “Additions to the Entity List”, 91 FR 76148 (2026-11-25), Doc. 2026-23999, Docket 261123-0006, RIN 0694-AK59, effective 2026-11-23 — <a href="https://www.federalregister.gov/documents/2026/11/25/2026-23999/additions-to-the-entity-list">federalregister.gov/documents/2026/11/25/2026-23999</a></li>
+      <li><span class="tier">1차</span>Bureau of Industry and Security, “Addressing Remote Access to Advanced Semiconductors”, 91 FR 74970 (2026-11-19), Doc. 2026-23529, RIN 0694-AK50 — <a href="https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors">federalregister.gov/documents/2026/11/19/2026-23529</a></li>
+      <li><span class="tier">1차</span>Ministry of Investment, Trade and Industry (Malaysia), “The Addition of Malaysian Entities to the US Entity List”, 2026-11-24 — <a href="https://www.miti.gov.my/miti/resources/Media%20Release/THE_ADDITION_OF_MALAYSIAN_ENTITIES_TO_THE_US_ENTITY_LIST_-_UNDER_BUREAU_OF_INDUSTRY_AND_SECURITY_OF_THE_US_DEPARTMENT_OF_COMMERCE.pdf">miti.gov.my (media release)</a></li>
+      <li><span class="tier">1차</span>Ministry of Investment, Trade and Industry (Malaysia), “MITI Statement on Megaspeed International Pte Ltd and Speedmatrix Sdn Bhd”, 2026-11-13 — <a href="https://www.miti.gov.my/miti/resources/Speech/MEDIA_STATEMENT_13112026.pdf">miti.gov.my (statement)</a></li>
+      <li><span class="tier">1차</span>Singapore Ministry of Home Affairs, “Singapore’s Investigations into Alice Huang (Huang Le) and Megaspeed International Pte Ltd”, 2026-11-12 — <a href="https://www.mha.gov.sg/media-room/newsroom/singapore-investigations-into-alice-huang-huang-le-and-megaspeed-international-pte-ltd/">mha.gov.sg</a></li>
+      <li><span class="tier">1차</span>Chinese Ministry of Commerce, 「商务部新闻发言人就美商务部发布限制远程获取先进半导体相关措施答记者问」, 2026-11-17 — <a href="https://www.mofcom.gov.cn/syxwfb/art/2026/art_3a69f2058b724dd39cd8ecddcaa4ab87.html">mofcom.gov.cn</a></li>
+    </ol>
+    <div class="grp">2차 — 보도·법률 해설</div>
+    <ol>
+      <li><span class="tier">2차</span>Reuters, “US blacklists Alibaba subsidiary and Megaspeed linked to Nvidia scandal”, 2026-11-23 — <a href="https://www.investing.com/news/stock-market-news/us-to-blacklist-alibaba-subsidiary-and-megaspeed-linked-to-nvidia-scandal-5046337">investing.com (Reuters)</a> (42억 달러 선급, ERC 절차, 베센트 발언)</li>
+      <li><span class="tier">2차</span>Reuters, 「Factbox: What we know about Megaspeed, the Nvidia customer blacklisted by US」, 2026-11-24 — <a href="https://www.investing.com/news/stock-market-news/factboxwhat-we-know-about-megaspeed-the-nvidia-customer-blacklisted-by-us-5047829">investing.com (Reuters)</a></li>
+      <li><span class="tier">2차</span>The Straits Times, “Alibaba disputes US blacklisting of S’pore subsidiary over chip rerouting risks”, 2026-11-24(25일 갱신) — <a href="https://www.straitstimes.com/business/alibaba-disputes-us-blacklisting-of-singapore-subsidiary-over-chip-rerouting-risks">straitstimes.com</a> (Apex 지배구조, 2024-06-18 담보 계약)</li>
+      <li><span class="tier">2차</span>The Business Times, “Singapore working with US on chip export enforcement as Megaspeed probe continues: PM Wong”, 2026-11-24 — <a href="https://www.businesstimes.com.sg/singapore/singapore-working-us-chip-export-enforcement-megaspeed-probe-continues-pm-wong">businesstimes.com.sg</a></li>
+      <li><span class="tier">2차</span>Fortune, “How Megaspeed built a network in Southeast Asia to move Nvidia chips to Chinese companies”, 2026-11-11 — <a href="https://fortune.com/2026/11/11/megaspeed-nvidia-chips-china-singapore-malaysia/">fortune.com</a> (2023년 11월 Swiftdata 인수, 스피드매트릭스 설립)</li>
+      <li><span class="tier">2차</span>BBC, “How the Jensen Huang scandal exposed a headache for business-friendly Singapore”, 2026-11-13 — <a href="https://www.bbc.com/news/articles/ck1exevgql4qo">bbc.com</a> (2015년 7Road International 설립·2023년 3월 개명)</li>
+      <li><span class="tier">2차</span>Data Centre Dynamics, “Nvidia halts server shipments to Malaysia, Singapore, Thailand, and Indonesia in wake of new Dep’t of Commerce export rule — report”, 2026-11-26 — <a href="https://www.datacenterdynamics.com/en/news/nvidia-halts-server-shipments-to-malaysia-singapore-thailand-and-indonesia-in-wake-of-new-dept-of-commerce-export-rule-report/">datacenterdynamics.com</a></li>
+      <li><span class="tier">2차</span>CNBC, “Nvidia shares fall more than 5% as Huang comeback rally cools”, 2026-11-24 — <a href="https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html">cnbc.com</a> (종가·낙폭, 12월 3일 상원 증언)</li>
+      <li><span class="tier">2차</span>뉴스핌, 「엔비디아 칩 판매사들, 中에 연산력 임대하는 네오클라우드엔 공급 중단…美 규제 여파」, 2026-11-27 — <a href="https://newspim.com/news/view/20261127000037">newspim.com</a> (CNBC 보도 인용, 50%→0% 기준 변화)</li>
+      <li><span class="tier">2차</span>The Straits Times, “Sudden chill amid a boom: how US chip curbs may cloud Malaysia’s data centre ambitions”, 2026-11-25 — <a href="https://www.straitstimes.com/asia/se-asia/sudden-chill-amid-a-boom-how-us-chip-curbs-may-cloud-malaysias-data-centre-ambitions">straitstimes.com</a> (117개 DC·23,500MW, MIDA 투자 통계, 조호르 고객 구성)</li>
+      <li><span class="tier">2차</span>조선비즈, 「中 AI 막으려다 동남아 데이터센터도 '휘청'… 美 규제에 고객 이탈 위기」, 2026-11-23 — <a href="https://biz.chosun.com/international/international_general/2026/11/23/YJJTHWJDJZD4VCQFJRDBSIJ2WU/">biz.chosun.com</a> (세미애널리시스 300MW, JP모건·씨티 대출 점검)</li>
+      <li><span class="tier">2차</span>TIME Korea, 「중국의 '동남아 AI 임대' 단속 나선 미국」, 2026-11-20 — <a href="https://korea.time.com/article/2026/11/20/2026-11-20-us-curbs-china-offshore-ai-computing">korea.time.com</a> (IFP 추정, JP모건 3.8GW/12.7GW, 한국 입지 평가)</li>
+      <li><span class="tier">2차</span>AI타임스, 「문샷 AI, 미국 수출 규제에 2000억 규모 엔비디아 칩 임대 계약 취소」, 2026-11-20 — <a href="https://www.aitimes.com/news/articleView.html?idxno=217613">aitimes.com</a> (B300 1.5억 달러, 선급 50%)</li>
+      <li><span class="tier">2차</span>Herbert Smith Freehills Kramer, “New US export controls target overseas cloud computing”, 2026-11-24 — <a href="https://www.hsfkramer.com/insights/2026-11/new-us-export-controls-target-overseas-cloud-computing">hsfkramer.com</a> (§744.24 구조, 2027-02-17 기한, '상당한 규모' 미정의)</li>
+      <li><span class="tier">2차</span>BKL 법률사무소, 「美 BIS, 첨단 AI 반도체 원격 이용 통제 잠정 최종규칙 발표」, 2026-11-17 — <a href="https://www.bkl.co.kr/law/insight/newsletter/6865">bkl.co.kr</a> (HBM 제외, §744.23 병행, KYC 추정)</li>
+      <li><span class="tier">2차</span>김·장 법률사무소, 「미 상무부 첨단반도체 원격접근 규칙과 국내 데이터센터의 대응」, 2026-11-26 — <a href="https://www.shinkim.com/kor/media/newsletter/pdf/3623">shinkim.com</a> (국내 DC 의무, 12M TPP=H100 약 758장·B200 약 330장 환산)</li>
+      <li><span class="tier">2차</span>서울경제, “Jensen Huang Is Back, but Korea’s AI Supply Chain Puzzle Remains”, 2026-11-24 — <a href="https://en.sedaily.com/business/2026/11/24/jensen-huang-is-back-but-koreas-ai-supply-chain-puzzle">en.sedaily.com</a> (SKT 2GW·네이버 해외 프로젝트 노출, HBM 2027 매진)</li>
+      <li><span class="tier">2차</span>Lianhe Zaobao, “South Korea eyes data centre investment opportunities as US tightens AI chip export controls”, 2026-11-25 — <a href="https://www.zaobao.com.sg/en/news/world/south-korea-eyes-data-centre-investment-opportunities-us-tightens-ai-chip-export-controls">zaobao.com.sg</a> (한국 117개 DC, SK·AWS 울산 100MW·7조 원)</li>
+      <li><span class="tier">2차</span>Bank of Korea 11월 보고서 보도, Aju Press, “BOK warns growth back at 2% if AI buildout slows”, 2026-11-27 — <a href="https://www.ajupress.com/view/20261127083441368">ajupress.com</a> (성장률·메모리 가격 시나리오, 빅5 회사채 발행)</li>
+      <li><span class="tier">2차</span>Fitch Ratings 전망(로이터), 토큰포스트, 2026-11-26 — <a href="https://www.tokenpost.kr/news/ai/445090">tokenpost.kr</a> (아태 데이터센터 투자 둔화)</li>
+      <li><span class="tier">2차</span>Caixin Global, “U.S. Blacklists Megaspeed and Alibaba Subsidiary Over Diversion Risks”, 2026-11-25 — <a href="https://www.caixinglobal.com/2026-11-25/us-blacklists-megaspeed-and-alibaba-subsidiary-over-diversion-risks-102508429.html">caixinglobal.com</a></li>
+    </ol>
+    <div class="grp">단일출처·추정치로 취급한 항목</div>
+    <ol>
+      <li><span class="tier">단일출처</span>75억 달러 규모 칩 유통과 앨리스 황의 관계를 통한 유통 경로는 디 인포메이션 보도를 포춘이 인용한 것으로, 회사 확인이 없습니다.</li>
+      <li><span class="tier">단일출처</span>2024년 6월~2025년 6월 200회 이상 선적, 2024년 6월 이후 48억 달러 구매는 뉴욕타임스 보도입니다.</li>
+      <li><span class="tier">단일출처</span>조호르 연산 capacity의 약 90%가 바이트댄스라는 수치는 스트레이츠 타임스가 인용한 산업·정부 관계자 추정이며, 데이나원은 자사 파이프라인 기준 40% 미만이라고 반박했습니다.</li>
+      <li><span class="tier">단일출처</span>중국 기업의 해외 원격 연산 105만 H100e·794MW(IFP), 300MW(세미애널리시스), 3.8GW/12.7GW(JP모건)는 각 기관의 추정치로 산정 방식이 서로 다릅니다.</li>
+      <li><span class="tier">단일출처</span>12,000,000 TPP의 H100 환산(약 758장)은 TPP 15,832를 적용한 계산이며, B200 환산(약 330장)은 법무법인 해설의 값입니다. BIS가 공표한 환산표가 아닙니다.</li>
+    </ol>
+  </div>
+
+  <div class="disc">
+    <b>면책</b>
+    본 글은 공개된 1차 자료와 보도를 바탕으로 한 정보 제공 및 분석 목적의 글입니다. 특정 종목의 매수·매도, 목표가, 매매 시점을 제안하지 않습니다. 인용된 규제 내용은 2026년 11월 25일 연방관보 게재본(91 FR 76148)과 11월 19일 게재본(91 FR 74970) 기준이며, 2027년 1월 19일까지의 의견수렴과 최종 규칙에서 문턱·예외·국가 목록이 바뀔 수 있습니다. 엔티티리스트 등재는 형사 기소나 법원의 사실인정이 아니며, 등재된 회사들은 위법을 부인하고 있습니다. 보도에 기반한 수치는 본문과 출처 목록에서 그 성격을 밝혔으나, 회사·당국이 확인하지 않은 값은 실제와 다를 수 있습니다. 투자 판단의 최종 책임은 독자에게 있습니다.
+  </div>
+
+  <div class="signoff">
+    <div class="nm">The Signal</div>
+    <div class="sl">세상의 변화를 먼저 읽는 리서치</div>
+  </div>
+
+</article>
+
+</div>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="./" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="archive" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+    &nbsp;·&nbsp;
+    <a href="/daily-01-en" style="color:#26467d;font-weight:600;text-decoration:none;">English edition &rarr;</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

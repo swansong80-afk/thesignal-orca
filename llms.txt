@@ -11,7 +11,7 @@ This site hosts two knowledge streams by the same Korean author, under the pen n
 
 1. **The Signal** — a research publication on geopolitics, capital, industry, technology and AI.
    Every verifiable claim is checked against primary sources, and the remaining uncertainty is
-   stated openly. Content is in Korean.
+   stated openly. Articles are published in Korean, with an English edition linked from each issue.
 2. **출간 예정작 (Three Forthcoming Books, Unpublished)** — chapter-level summaries, frameworks and glossaries of three
    forthcoming Korean books on hegemony investing, technology history and investor psychology.
    Full book texts are not published; only the outlines and summaries are.
@@ -23,9 +23,9 @@ This site hosts two knowledge streams by the same Korean author, under the pen n
 - Structured feed (JSON): https://thesignal-orca.pages.dev/signals.json
 - Repository: https://github.com/swansong80-afk/thesignal-orca
 - Author: 글 쓰는 범고래 (pen name; alternate spelling 글쓰는 범고래, ORCA)
-- Language: ko
-- Last updated: 2026-11-24
-- Update cadence: The Signal Weekly 2주에 1회 · 서적 아카이브는 개정 시
+- Language: ko (each issue also has an English edition, e.g. /daily-01-en)
+- Last updated: 2026-11-27
+- Update cadence: Daily 수시 · Weekly 2주에 1회 · 서적 아카이브는 개정 시
 
 ## 저자 (Author)
 
@@ -44,6 +44,11 @@ This site hosts two knowledge streams by the same Korean author, under the pen n
 함께 원장에 봉인한 뒤, 여러 층으로 대조하고 막판에 독립 재검증한다. 예측은 공개 채점한다.
 시스템 소개는 https://thesignal-orca.pages.dev/verify-system, 제작 규칙 전문은
 https://thesignal-orca.pages.dev/verify 에 있습니다.
+
+### The Signal : Daily (일간 신호)
+
+- No.01 (2026-11-27) 「일곱 개의 이름, 하나의 회사 — 미국이 지운 것은 회사가 아니라 경로다」 — 미 상무부 BIS가 91 FR 76148로 동남아 7개 법인(Megaspeed 계열 6곳, 알리바바의 싱가포르 자회사 Apex)을 엔티티리스트에 추가. 11월 19일 원격 연산 규제(91 FR 74970, 15 CFR 744.24)와 겹쳐 동남아 데이터센터의 사업모델이 허가 대상이 된 구조를 분석. https://thesignal-orca.pages.dev/daily-01
+  - English edition: Seven Names, One Company — What Washington Closed Was a Route, Not a Firm. https://thesignal-orca.pages.dev/daily-01-en
 
 ### The Signal : Weekly (주간 신호)
 
@@ -175,10 +180,12 @@ Signal Card, Weak Links and graded source ledger as the Korean originals.
 
 ## 페이지 (Pages)
 
-- [홈](https://thesignal-orca.pages.dev/): The Signal 소개, 세 갈래 리서치, 검증 시스템, 발행인
-- [아카이브](https://thesignal-orca.pages.dev/archive): Weekly·한 주의 지도·Deep Research·Legacy 전체 목록
+- [홈](https://thesignal-orca.pages.dev/): The Signal 소개, 네 갈래 리서치, 검증 시스템, 발행인
+- [아카이브](https://thesignal-orca.pages.dev/archive): Daily·Weekly·한 주의 지도·Deep Research·Legacy 전체 목록
 - [블라인드 차트 시뮬레이터](https://thesignal-orca.pages.dev/sim): 연도를 지운 실제 역사 차트로 2개월 단위 비중 판단을 연습하는 인터랙티브 도구
 - [JSON 피드](https://thesignal-orca.pages.dev/signals.json): 전체 발행 글의 기계 판독용 메타데이터
+- [Daily No.01](https://thesignal-orca.pages.dev/daily-01): 일곱 개의 이름, 하나의 회사 — 미국이 지운 것은 회사가 아니라 경로다
+- [Daily No.01 · English](https://thesignal-orca.pages.dev/daily-01-en): Seven Names, One Company — What Washington Closed Was a Route, Not a Firm
 - [Weekly No.07](https://thesignal-orca.pages.dev/weekly-07): 만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구
 - [Weekly No.06](https://thesignal-orca.pages.dev/weekly-06): 칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경
 - [3권의 책](https://thesignal-orca.pages.dev/books): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내

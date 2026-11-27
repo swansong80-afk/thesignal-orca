@@ -4,7 +4,7 @@
   "author": "글 쓰는 범고래 (ORCA)",
   "canonical_site": "https://thesignal-orca.pages.dev",
   "feed_url": "https://thesignal-orca.pages.dev/signals.json",
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-27",
   "language": "ko",
   "verification_policy_url": "https://thesignal-orca.pages.dev/verify-system",
   "archive_url": "https://thesignal-orca.pages.dev/archive",
@@ -12,10 +12,11 @@
   "citation_format": "글 쓰는 범고래, 「글 제목」, The Signal, {url} (2026)",
   "intro": "세상의 변화를 먼저 읽는 리서치. 지정학·자본·산업·기술·AI 다섯 영역에서 1차 출처로 검증한 사실만으로 신호를 읽는 한국어 리서치 사이트. 모든 검증 가능한 주장은 1차 출처 원문·URL과 함께 원장에 봉인되고, 확인하지 못한 것은 확인하지 못했다고 표기한다. 이 피드는 발행 글의 제목·요약·핵심 수치·출처를 기계가 읽을 수 있는 형태로 제공한다. 종목 매수·매도 권유나 투자 자문이 아니다.",
   "counts": {
-    "items": 16,
+    "items": 17,
     "legacy_items": 14,
     "books": 3,
     "by_series": {
+      "daily": 1,
       "weekly": 8,
       "weekly-map": 2,
       "deep-research": 6
@@ -23,13 +24,161 @@
   },
   "field_notes": {
     "items": "현행 검증 시스템(1차 출처 원장)을 통과한 발행 글. published_at 내림차순.",
-    "series": "deep-research | weekly | weekly-map",
+    "series": "daily | deep-research | weekly | weekly-map",
     "key_metrics": "기사 본문에서 확인한 수치. value는 게재된 표기 그대로의 문자열.",
     "primary_sources": "기사가 실제로 링크한 출처. tier: primary(1차) | secondary(2차) | single-source(단일출처). 항목당 최대 12건으로 자르고 전체 건수는 source_count에 둔다.",
     "legacy_index": "검증 시스템 도입 이전 글 14편. primary_sources는 비어 있고 published_at은 월 단위(date_precision=month).",
-    "books": "출간 예정작 3권의 목차·요약 메타데이터. 본문 전문은 공개되지 않는다."
+    "books": "출간 예정작 3권의 목차·요약 메타데이터. 본문 전문은 공개되지 않는다.",
+    "title_en": "영문판이 있는 글의 영문 제목. 영문판이 없으면 필드가 없다.",
+    "url_en": "영문판 URL. 영문판이 없으면 필드가 없다. 한국어판은 url에 있다."
   },
   "items": [
+    {
+      "id": "daily-01",
+      "series": "daily",
+      "number": 1,
+      "title": "일곱 개의 이름, 하나의 회사 — 미국이 지운 것은 회사가 아니라 경로다",
+      "subtitle": "91 FR 76148은 동남아의 7곳을 엔티티리스트에 올렸다. 그 7곳은 한 회사와 그 회사의 가장 큰 고객이었다 — 11월 19일의 원격 연산 규제와 겹치자, 동남아 데이터센터의 사업모델 자체가 허가 대상이 됐다",
+      "published_at": "2026-11-27",
+      "url": "https://thesignal-orca.pages.dev/daily-01",
+      "summary": "11월 25일 연방관보(91 FR 76148, 문서 2026-23999)에 실린 최종규칙은 말레이시아 3곳·싱가포르 3곳·태국 1곳, 모두 7개 법인을 엔티티리스트에 추가했다. 발효 11월 23일, 게재 11월 25일, 모든 품목 허가·거부 추정, 운송 중 구제는 12월 23일까지다. 일곱 곳은 Megaspeed 계열 6곳과 그 최대 고객인 알리바바의 싱가포르 자회사 Apex로, 판매자·배송창구·고객이 하나의 도면으로 묶였다. 11월 19일 발효된 원격 연산 규제(§744.24, 12,000,000 aggregate TPP, 기존 사업자 2027년 2월 17일 허가 기한)와 겹치면 목적지·규모·당사자 세 층이 각각 다른 회피 수법을 막아, 동남아 데이터센터의 사업모델 자체가 허가 대상이 된다는 판단.",
+      "key_metrics": [
+        {
+          "name": "엔티티리스트 추가 법인",
+          "value": "7",
+          "unit": "개사",
+          "as_of": "2026-11-23",
+          "note": "말레이시아 3(MSFusion·PT Megaspeed International·Speedmatrix), 싱가포르 3(Apex·Megaspeed International·Swiftdata), 태국 1(Megaspeed Thailand)"
+        },
+        {
+          "name": "연방관보 인용",
+          "value": "91 FR 76148",
+          "unit": "FR",
+          "as_of": "2026-11-25",
+          "note": "문서 2026-23999, 도켓 261123-0006, RIN 0694-AK59. 접수 11/23 16:15, 게재 11/25, 발효 11/23"
+        },
+        {
+          "name": "허가 심사 정책",
+          "value": "거부 추정",
+          "unit": "—",
+          "as_of": "2026-11-23",
+          "note": "Presumption of denial, 미국 수출관리 대상 모든 품목"
+        },
+        {
+          "name": "운송 중 물량 구제 기한",
+          "value": "2026-12-23",
+          "unit": "date",
+          "as_of": "2026-11-23",
+          "note": "11/23 당시 운송 중이던 실제 주문분"
+        },
+        {
+          "name": "원격 연산 허가 문턱",
+          "value": "12,000,000",
+          "unit": "aggregate TPP",
+          "as_of": "2026-11-19",
+          "note": "§744.24 신설. H100 환산 약 758장(TPP 15,832 적용 계산)"
+        },
+        {
+          "name": "기존 데이터센터 허가 기한",
+          "value": "2027-02-17",
+          "unit": "date",
+          "as_of": "2026-11-19",
+          "note": "발효 후 90일. 허가 취득이 요건(신청만으로 부족)"
+        },
+        {
+          "name": "Apex 선급금",
+          "value": "약 42억 달러",
+          "unit": "USD",
+          "as_of": "2026-11-23",
+          "note": "로이터 단일 취재원. Speedmatrix는 2024-06-18자 계약으로 장비·IP를 담보 제공"
+        },
+        {
+          "name": "엔비디아 종가",
+          "value": "$155.38",
+          "unit": "USD",
+          "as_of": "2026-11-24",
+          "note": "당일 −5.86%. 11/23 +31.5%($165.05) 이후"
+        },
+        {
+          "name": "말레이시아 데이터센터",
+          "value": "117",
+          "unit": "곳",
+          "as_of": "2026-11-04",
+          "note": "최대 전력수요 약 23,500MW(투자통상산업부 장관 발표)"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "Bureau of Industry and Security, “Additions to the Entity List”, 91 FR 76148 (2026-11-25), Doc. 2026-23999, Docket 261123-0006, RIN 0694-AK59, effective 2026-11-23",
+          "url": "https://www.federalregister.gov/documents/2026/11/25/2026-23999/additions-to-the-entity-list"
+        },
+        {
+          "tier": "primary",
+          "source": "Bureau of Industry and Security, “Addressing Remote Access to Advanced Semiconductors”, 91 FR 74970 (2026-11-19), Doc. 2026-23529, RIN 0694-AK50",
+          "url": "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors"
+        },
+        {
+          "tier": "primary",
+          "source": "Ministry of Investment, Trade and Industry (Malaysia), “The Addition of Malaysian Entities to the US Entity List”, 2026-11-24",
+          "url": "https://www.miti.gov.my/miti/resources/Media%20Release/THE_ADDITION_OF_MALAYSIAN_ENTITIES_TO_THE_US_ENTITY_LIST_-_UNDER_BUREAU_OF_INDUSTRY_AND_SECURITY_OF_THE_US_DEPARTMENT_OF_COMMERCE.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "Ministry of Investment, Trade and Industry (Malaysia), “MITI Statement on Megaspeed International Pte Ltd and Speedmatrix Sdn Bhd”, 2026-11-13",
+          "url": "https://www.miti.gov.my/miti/resources/Speech/MEDIA_STATEMENT_13112026.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "Singapore Ministry of Home Affairs, “Singapore’s Investigations into Alice Huang (Huang Le) and Megaspeed International Pte Ltd”, 2026-11-12",
+          "url": "https://www.mha.gov.sg/media-room/newsroom/singapore-investigations-into-alice-huang-huang-le-and-megaspeed-international-pte-ltd/"
+        },
+        {
+          "tier": "primary",
+          "source": "Chinese Ministry of Commerce, 「商务部新闻发言人就美商务部发布限制远程获取先进半导体相关措施答记者问」, 2026-11-17",
+          "url": "https://www.mofcom.gov.cn/syxwfb/art/2026/art_3a69f2058b724dd39cd8ecddcaa4ab87.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "Reuters, “US blacklists Alibaba subsidiary and Megaspeed linked to Nvidia scandal”, 2026-11-23",
+          "url": "https://www.investing.com/news/stock-market-news/us-to-blacklist-alibaba-subsidiary-and-megaspeed-linked-to-nvidia-scandal-5046337"
+        },
+        {
+          "tier": "secondary",
+          "source": "Reuters, 「Factbox: What we know about Megaspeed, the Nvidia customer blacklisted by US」, 2026-11-24",
+          "url": "https://www.investing.com/news/stock-market-news/factboxwhat-we-know-about-megaspeed-the-nvidia-customer-blacklisted-by-us-5047829"
+        },
+        {
+          "tier": "secondary",
+          "source": "The Straits Times, “Alibaba disputes US blacklisting of S’pore subsidiary over chip rerouting risks”, 2026-11-24(25일 갱신)",
+          "url": "https://www.straitstimes.com/business/alibaba-disputes-us-blacklisting-of-singapore-subsidiary-over-chip-rerouting-risks"
+        },
+        {
+          "tier": "secondary",
+          "source": "The Business Times, “Singapore working with US on chip export enforcement as Megaspeed probe continues: PM Wong”, 2026-11-24",
+          "url": "https://www.businesstimes.com.sg/singapore/singapore-working-us-chip-export-enforcement-megaspeed-probe-continues-pm-wong"
+        },
+        {
+          "tier": "secondary",
+          "source": "Fortune, “How Megaspeed built a network in Southeast Asia to move Nvidia chips to Chinese companies”, 2026-11-11",
+          "url": "https://fortune.com/2026/11/11/megaspeed-nvidia-chips-china-singapore-malaysia/"
+        },
+        {
+          "tier": "secondary",
+          "source": "BBC, “How the Jensen Huang scandal exposed a headache for business-friendly Singapore”, 2026-11-13",
+          "url": "https://www.bbc.com/news/articles/ck1exevgql4qo"
+        }
+      ],
+      "source_count": 27,
+      "domains": [
+        "지정학",
+        "기술",
+        "자본"
+      ],
+      "verification": "ledger-verified",
+      "title_en": "Seven Names, One Company — What Washington Closed Was a Route, Not a Firm",
+      "url_en": "https://thesignal-orca.pages.dev/daily-01-en"
+    },
     {
       "id": "deep-05",
       "series": "deep-research",

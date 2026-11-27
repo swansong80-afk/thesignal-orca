@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seven Names, One Company — What Washington Closed Was a Route, Not a Firm — The Signal</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --card:#f4f6f8; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee;
+    --main:1180px;
+    --l3:#c0392b; --l3bg:#fdf0ef;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:#f3f4f6; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    line-height:1.9; -webkit-font-smoothing:antialiased;
+    word-break:keep-all; overflow-wrap:break-word;
+  }
+  .wrap{max-width:var(--main); margin:0 auto; padding:32px 24px 90px;}
+  .status{background:var(--cap); color:#fff; padding:12px 20px; border-radius:6px; font-size:13px; margin-bottom:20px; letter-spacing:.02em;}
+  .status b{color:#ffd7d2;}
+  .grid{display:block;}
+  article{background:#fff; border:1px solid var(--rule); border-radius:6px; padding:56px 52px 60px; box-shadow:0 1px 3px rgba(0,0,0,.04); max-width:800px; margin:0 auto;}
+
+  .masthead{font-family:"Roboto Slab",serif; font-size:.95rem; letter-spacing:.14em; color:var(--accent); font-weight:700; text-transform:uppercase; padding-bottom:20px; border-bottom:1px solid var(--rule); margin-bottom:30px;}
+  .masthead .tag{color:var(--l3); font-family:-apple-system,sans-serif; letter-spacing:0; font-size:.8rem; margin-left:10px;}
+
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft);}
+  h1{font-size:2.0rem; line-height:1.34; letter-spacing:-.02em; margin:0 0 12px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.6; color:var(--ink-soft); font-weight:500; margin:0 0 36px; letter-spacing:-.01em;}
+  h3{font-size:1.3rem; margin:48px 0 16px; letter-spacing:-.01em; font-weight:800; color:var(--cap); padding-top:18px; border-top:1px solid var(--rule);}
+  p{margin:0 0 19px; font-size:1.04rem;}
+  strong{font-weight:700;}
+  .lead{font-size:1.12rem; color:#000;}
+
+  .f{text-decoration:underline; text-decoration-color:#9aa1a8; text-underline-offset:4px; text-decoration-thickness:1.5px;}
+  .f-id{font-size:.72em; color:var(--accent); font-weight:700; vertical-align:super; margin-left:1px;}
+  .f-l3{text-decoration:underline; text-decoration-color:var(--l3); text-underline-offset:4px; text-decoration-thickness:2px; background:var(--l3bg); padding:0 2px; border-radius:2px;}
+  .f-l3 .f-id{color:var(--l3);}
+
+  blockquote{margin:28px 0; padding:18px 24px; background:var(--box); border-left:4px solid var(--accent); border-radius:4px; font-size:1.08rem; color:var(--cap); font-weight:600;}
+  blockquote p{margin:0; font-size:inherit;}
+  .box{margin:28px 0; padding:20px 24px; background:var(--card); border:1px solid var(--rule); border-radius:5px; font-size:.98rem; line-height:1.85;}
+  .box .h{font-weight:800; margin-bottom:12px; color:var(--cap);}
+  .box .l{margin-bottom:8px;} .box .l:last-child{margin-bottom:0;}
+  .box .l b{color:var(--ink);}
+
+  .weak{margin-top:40px; padding:18px 22px; background:#fafbfe; border:1px dashed var(--accent); border-radius:5px; font-size:.96rem; color:var(--ink-soft); line-height:1.8;}
+  .weak b{color:var(--cap);}
+
+  .sources{margin-top:46px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.75;}
+  .sources .h{font-family:"Roboto Slab",serif; font-weight:700; color:var(--cap); font-size:1.0rem; margin-bottom:14px; letter-spacing:.02em;}
+  .sources ol{margin:0; padding-left:20px;}
+  .sources li{margin-bottom:9px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .sources .tier{font-size:.78rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px; padding:0 5px; margin-right:6px;}
+
+  .disc{margin-top:32px; padding:16px 20px; border:1px solid var(--boxline); border-radius:4px; background:#f0f1f3; font-size:.84rem; color:#555; line-height:1.7;}
+  .disc b{display:block; margin-bottom:5px; color:#333;}
+
+  .signoff{margin-top:44px; padding-top:30px; border-top:2px solid var(--cap); text-align:center;}
+  .signoff .nm{font-family:"Roboto Slab",serif; font-size:1.7rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1;}
+  .signoff .sl{font-size:.98rem; color:var(--accent); font-weight:500; margin-top:10px; letter-spacing:.03em;}
+
+  /* 마진 원장 카드 */
+  .margin{display:flex; flex-direction:column; gap:8px; position:sticky; top:20px;}
+  .card{border:1px solid var(--boxline); border-radius:5px; padding:10px 13px; background:var(--card); font-size:12px; line-height:1.6;}
+  .card .id{font-weight:800; color:var(--accent); font-size:12.5px;}
+  .card.l3{border-color:var(--l3); background:var(--l3bg);}
+  .card.l3 .id{color:var(--l3);}
+  .card .tier{color:var(--muted); font-size:10.5px; margin-bottom:3px;}
+  .card .excerpt{color:#333; font-style:italic; margin:4px 0;}
+  .card .q{color:var(--l3); font-size:11px; margin-top:5px; font-weight:600;}
+  .card a{color:var(--accent); font-size:10.5px; word-break:break-all;}
+
+  @media (max-width:1100px){ .grid{grid-template-columns:1fr;} .margin{position:static;} }
+  @media (max-width:560px){ article{padding:38px 24px;} h1{font-size:1.6rem;} }
+
+  .sources .grp{font-weight:700;color:var(--cap);margin:16px 0 8px;font-size:.95rem}
+
+  /* Daily — language switch + data tables */
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .langsw{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+  .langsw a{color:var(--muted);text-decoration:none;font-weight:700;padding:2px 5px;border-radius:3px;}
+  .langsw a:hover{color:var(--accent);}
+  .langsw a.on{color:#fff;background:var(--accent);}
+  .langsw span{margin:0 4px;color:#c3c9cf;}
+  table.dt{width:100%;border-collapse:collapse;font-size:.86rem;line-height:1.6;margin:22px 0 26px;}
+  table.dt thead th{background:var(--cap);color:#fff;font-weight:600;text-align:left;padding:9px 11px;font-size:.82rem;}
+  table.dt td{padding:9px 11px;border-bottom:1px solid #e6e9ee;vertical-align:top;text-align:left;}
+  table.dt tbody tr:nth-child(even) td{background:#f7f9fb;}
+  table.dt tbody tr:last-child td{border-bottom:1px solid var(--rule);}
+  table.dt.compact td{padding:8px 10px;}
+  @media (max-width:560px){
+    table.dt{font-size:.78rem;line-height:1.5;}
+    table.dt thead th{font-size:.74rem;}
+    table.dt td, table.dt thead th{padding:7px 8px;}
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="canonical" href="https://thesignal-orca.pages.dev/daily-01-en">
+<link rel="alternate" hreflang="ko" href="https://thesignal-orca.pages.dev/daily-01">
+<link rel="alternate" hreflang="en" href="https://thesignal-orca.pages.dev/daily-01-en">
+<link rel="alternate" hreflang="x-default" href="https://thesignal-orca.pages.dev/daily-01">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Signal — Research that reads the change first">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="Seven Names, One Company — What Washington Closed Was a Route, Not a Firm">
+<meta property="og:description" content="91 FR 76148 added seven Southeast Asian entities to the Entity List. All seven trace to one corporate group and its largest customer.">
+<meta property="og:url" content="https://thesignal-orca.pages.dev/daily-01-en">
+</head>
+<body>
+<div class="wrap">
+
+<div class="grid">
+<article>
+
+  <div class="masthead">The Signal · Daily
+    <span class="langsw"><a href="/daily-01">KO</a><span>|</span><a class="on" href="/daily-01-en">EN</a></span>
+  </div>
+
+  <div class="meta">
+    <b>Published</b> · Daily No.01 · 27 November 2026<br>
+    <b>Domain</b> · Geopolitics × Technology × Capital<br>
+    <b>Freshness</b> · Filed and effective 23 November 2026 (US), printed 25 November 2026 in 91 FR 76148. US markets were closed on 26 November for Thanksgiving
+  </div>
+
+  <h1>Seven Names, One Company — What Washington Closed Was a Route, Not a Firm</h1>
+  <h2 class="sub">91 FR 76148 added seven Southeast Asian entities to the Entity List. All seven trace to one corporate group and its largest customer. Read together with the 19 November remote-access rule, the target is no longer a shipment but a business model</h2>
+
+  <p class="lead">On 25 November, the Federal Register printed a three-page final rule at page 76148. Document 2026-23999, citation 91 FR 76148–76150, Docket 261123-0006, RIN 0694-AK59. It does one thing. It adds seven entities — three under Malaysia, three under Singapore, one under Thailand — to Supplement No. 4 to Part 744 of the Export Administration Regulations, the Entity List. A licence is now required for <strong>all items subject to the EAR</strong> in any transaction with them, and licence applications are reviewed under a <strong>presumption of denial</strong>. The rule took effect on 23 November and was published on 25 November: it was in force two days before anyone could read it in the Register.</p>
+
+  <p>The composition of the list matters more than its length. These are not seven unrelated intermediaries. They are <strong>one Singapore holding company (Swiftdata), its operating subsidiary (Megaspeed International), five Malaysian and Thai delivery entities beneath that subsidiary</strong>, and <strong>Alibaba's Singapore subsidiary (Apex Enterprise Solutions), which was the group's largest customer</strong>. The document does not name a seller. It draws the seller, the delivery windows and the buyer on a single line.</p>
+
+  <p>In this cycle of controls, the Entity List has never before named the <strong>demand side</strong>. Since 2022 the list has been a roll of parties that hand things over. On 23 November it acquired a party that takes delivery. Six days earlier, on 19 November, the Bureau of Industry and Security had already made the compute itself licensable when a data centre rents it to a company headquartered in Country Group D:5 or Macau (91 FR 74970). Lay the two documents on top of each other and the conclusion is narrow and uncomfortable: <strong>what Washington closed is not a company but a business model.</strong></p>
+
+  <h3>What went on the list</h3>
+  <p>The entries below follow the Register's own country headings and spellings.</p>
+
+  <table class="dt compact">
+    <thead><tr><th style="width:86px">Country</th><th>Entity</th><th style="width:34%">Aliases and addresses</th></tr></thead>
+    <tbody>
+      <tr><td>Malaysia</td><td>MSFusion Sdn. Bhd.</td><td>Johor Bahru (Taman Mount Austin) / Menara Exchange 106, TRX, Kuala Lumpur / Eko Galleria, Iskandar Puteri / Bandar Cemerlang, Kota Tinggi</td></tr>
+      <tr><td>Malaysia</td><td>PT Megaspeed International</td><td>Eko Galleria B0342, Johor / Klang, Selangor / Square Office Tower, Johor Bahru</td></tr>
+      <tr><td>Malaysia</td><td>Speedmatrix Sdn Bhd.</td><td>Alias: Speedmatrix. Same Eko Galleria B0342 address as PT Megaspeed</td></tr>
+      <tr><td>Singapore</td><td>Apex Enterprise Solutions (Singapore) Private Limited</td><td>Alias: Apex. Lazada One, Bras Basah Road</td></tr>
+      <tr><td>Singapore</td><td>Megaspeed International Pte. Ltd.</td><td>Four aliases — Megaspeed, Megaspeed International, <strong>7Road International</strong>, 7Road International Pte. Ltd. Beach Road / Ocean Financial Centre</td></tr>
+      <tr><td>Singapore</td><td>Swiftdata Pte. Ltd.</td><td>Midview City, Sin Ming Lane / Vision Exchange, Venture Drive</td></tr>
+      <tr><td>Thailand</td><td>Megaspeed (Thailand) Co., Ltd.</td><td>Two aliases — 7Road International, 7Road International Pte. Ltd. Siam Piwat Tower, Bangkok</td></tr>
+    </tbody>
+  </table>
+
+  <p>Two details in that table carry more weight than they appear to. The first is the alias. Both Megaspeed International and Megaspeed (Thailand) are listed with <strong>7Road International</strong> among their aliases. That is the corporate history surfacing inside the instrument: the company was incorporated in 2015 as 7Road International, a Singapore subsidiary of the Chinese gaming firm 7Road, and renamed Megaspeed in March 2023 (corporate records as reported by BBC, Fortune and SBS). Adding a former name as an alias is not clerical housekeeping. It tells every exporter that a change of name does not change the party.</p>
+
+  <p>The second is arithmetic. The Register places three entities under Malaysia. Malaysia's Ministry of Investment, Trade and Industry (MITI), in a statement dated 24 November, says the number is <strong>two</strong> — Speedmatrix and MSFusion — and states that on MIDA's records "PT Megaspeed International is not an entity in Malaysia nor is it a data centre operator or data centre tenant operating in Malaysia." The US list's "destination" is a legal label; a national company register is a different label. From here on, that gap is the problem.</p>
+
+  <h3>One group, one customer</h3>
+  <p>Put the structure in sequence. Incorporated in Singapore in 2015 as 7Road International; renamed Megaspeed International in March 2023; became an official Nvidia cloud partner for Asia-Pacific in November 2023, according to an Nvidia letter posted on its own website. That same month, Singapore-registered Swiftdata acquired the company, and its owner, a Singapore businessman, became sole director (Fortune). In 2024 a Malaysian subsidiary, Speedmatrix, was established, and delivery and operating entities were added in Malaysia and Thailand.</p>
+
+  <p>On the demand side, Apex was incorporated in Singapore in July 2023 and registered at Lazada One, premises leased by Alibaba and Lazada. Its immediate holding company is Cloud Intelligence (Cayman) Holding; its ultimate parent is Alibaba Group Holding (corporate records obtained by The Straits Times). Reuters reports that Apex paid roughly <strong>US$4.2 billion</strong> to Megaspeed and other companies as a prepayment to rent computing capacity in Southeast Asia, and in return took security over some of their assets. The Straits Times put a date and an object on that security: under an agreement dated <strong>18 June 2024</strong>, Speedmatrix pledged specified IT and network equipment, intellectual property and related rights to Apex.</p>
+
+  <p>That last sentence is where the listing changes character. An Entity List entry is usually read as a roll of bad actors. What this document actually draws is <strong>a supply chain rendered as a legal diagram</strong>: holding company, operator, delivery entities, and the customer's financing vehicle. The unfamiliar box is the last one. Prepayment and collateral are private-credit instruments, not export-control instruments. Once Apex is named, the contract becomes <strong>a transaction inside a licensing decision</strong> — and the value of the pledged equipment and IP is set not by a court but by a licensing officer.</p>
+
+  <p>The enforcement chronology is public. In a joint statement on 17 November, the Departments of Commerce and Justice said Commerce opened its investigation in 2024 after monitoring for semiconductor diversion, requested Nvidia's records in May 2025, and that the Justice Department took the lead on a criminal investigation after the June 2025 enforcement action. Nvidia placed Megaspeed on a "no sell" list in June 2025 (Reuters). The company said as recently as last week that it conducts lawful business in compliance with US export controls and has retained outside counsel for an internal review. Alibaba called the listing "erroneous" and said it will "seek all legal avenues" to protect its rights and reputation. No charges have been brought against any of the seven.</p>
+
+  <h3>What the instrument actually does</h3>
+  <p>Four effects matter. First, the legal basis is 15 CFR 744.11(b), and the standard is "reasonable cause to believe, based on specific and articulable facts." This is a <strong>designation of risk, not a finding of wrongdoing</strong>. The rule does not say any of the seven diverted a chip. It says there is a significant risk that they are, or will be, involved in the diversion of advanced computing commodities to unauthorised end uses or end users. It is neither an indictment nor a judicial finding of fact.</p>
+
+  <p>Second, scope. "All items subject to the EAR" reaches beyond advanced AI chips (ECCN 3A090) and the servers that carry them (4A090) to components, software and technology. Export controls are usually discussed as a classification question about a chip. Once a counterparty is listed, the same licence line runs through <strong>spare parts, firmware updates and technical support</strong>, and most licence exceptions under §748.5(c)–(f) close with it.</p>
+
+  <p>Third, the asymmetry of exit. Additions are decided by the End-User Review Committee — Commerce (chair), State, Defense, Energy and, where appropriate, Treasury — by <strong>majority vote</strong>. Removals and modifications require a <strong>unanimous</strong> vote. Every agency must agree before a name comes off. That is why "legal avenues" in practice means an administrative petition and a lobbying campaign rather than litigation.</p>
+
+  <p>Fourth, timing. The Register's own table still carries the placeholder <strong>"91 FR [INSERT FR PAGE NUMBER AND 11/25/2026]"</strong>, and the document closes with "Filed 11-23-26; 4:15 pm." Filed on the afternoon of 23 November, printed on the 25th, effective on the 23rd. Section 1762 of the Export Control Reform Act of 2018 permits this: no notice of proposed rulemaking, no comment period, no delayed effective date. The practical result is that <strong>the market had 48 hours to read the document, and the first half of those 48 hours belonged to a different story</strong> — the return of Nvidia's chief executive.</p>
+
+  <p>The relief for goods in transit is narrow. Shipments en route aboard a carrier on 23 November, under actual orders, may proceed under the previous eligibility provided the export, reexport or transfer is completed no later than <strong>23 December 2026</strong>. That leaves 26 days.</p>
+
+  <h3>What happens when you read it with 19 November</h3>
+  <p>The Entity List alone reads as the resolution of one company's problem. The interim final rule that took effect on 19 November (91 FR 74970, document 2026-23529) changes the unit of analysis. The two instruments answer different questions, and together they leave very little of the diversion route intact.</p>
+
+  <table class="dt compact">
+    <thead><tr><th style="width:110px">Layer</th><th style="width:26%">Authority</th><th>The question it asks</th><th style="width:30%">Threshold and deadline</th></tr></thead>
+    <tbody>
+      <tr><td>Destination</td><td>§742.6(a)(6)(iii)(A)(1)</td><td>Where is it going?</td><td>Indonesia, Malaysia, Singapore, Thailand, Brazil; exemption for US-headquartered recipients subject to §743.10 reporting</td></tr>
+      <tr><td>Scale and end use</td><td>§744.24 (new)</td><td>To whom, and how much, is compute rented?</td><td>More than 12,000,000 aggregate TPP, aggregated across linked data centres, on "knowledge"; existing providers must obtain a licence by 17 February 2027</td></tr>
+      <tr><td>Counterparty</td><td>§744.11(b), Supp. No. 4</td><td>Who is on the other side?</td><td>Seven entities, all items, presumption of denial; transit relief to 23 December</td></tr>
+    </tbody>
+  </table>
+
+  <p>Each layer closes a different substitution. The destination rule closes <strong>changing the port</strong>. The scale and end-use rule closes <strong>changing the name on the contract</strong>. Both, however, share a gap: an operator could argue that the destination was permitted, the volume was below the threshold, and the counterparty was not a D:5 company. The Entity List closes that gap at the level of the <strong>party</strong>. A lawful destination, a small deal and a listed counterparty still produce a licence requirement.</p>
+
+  <p>The pre-existing §744.23 remains in place and must be read alongside the new section. Any transaction for a D:5-headquartered entity requires a licence regardless of scale, and so does a case where a Chinese customer is the principal user of more than 50 per cent of the capacity. The 12,000,000 TPP figure is a threshold for the new section, not a safe harbour from the regime. Korean firms advising on this — Kim &amp; Chang, BKL — make the same point: falling below the new number is not an exemption from the old one.</p>
+
+  <p>The most consequential change is evidentiary. §744.24 attaches to the shipper's "knowledge," which reaches not only actual awareness but a high probability of it. If a data centre cannot document its customers' ownership and control, the shipper is treated as having an unresolved red flag, and an unresolved red flag supports the inference that it knew. The rule therefore operates less as a prohibition than as <strong>a documentation requirement</strong>: only operators who can produce the ultimate parent, the ownership chain, the aggregate TPP delivered and a mechanism for notifying changed end use will keep receiving chips. Weekly No.07 found the same logic in the foundry provision — not a ban, a proof. It repeats here at the data-centre layer.</p>
+
+  <p>The exception is narrow and shaped. Compute used exclusively for a "commercial recommender system" is excluded, with reporting of the customer's name, the aggregate TPP supplied and the diligence performed. But generative systems — those producing text, images, audio, video or software — fall outside it even where they also recommend. That is why, inside the same Johor buildings, TikTok's CPU workloads and AI GPU workloads now sit on different sides of a licensing line.</p>
+
+  <h3>The money moved first</h3>
+  <p>Reading this as smuggling misses the mechanism. Smuggling is a question of warehouses and bills of lading. What Megaspeed sold was not floor space but <strong>a contract</strong>. A US$4.2 billion prepayment, security over assets, more than 200 shipments of restricted technology between June 2024 and June 2025 (The New York Times), US$4.8 billion of purchases since June 2024 (NYT, cited by CNBC), US$7.5 billion of chips moved through the group (The Information, cited by Fortune). The figures differ by outlet; the direction does not. This was one of Nvidia's largest customers in Southeast Asia, and a large share of that revenue was tied to Chinese demand.</p>
+
+  <p>The prepayment is the tell. A data centre operator buys equipment with a customer's advance and borrows against the equipment. When Moonshot AI cancelled a US$150 million rental of B300 capacity in Indonesia, the reported terms included a <strong>50 per cent prepayment</strong> — more than three times the usual 15 per cent. The contract disappeared the day after the new rule was announced, with money already paid and collateral already pledged (The Information; not confirmed by the company).</p>
+
+  <p>The size of the route is now estimated by several houses. SemiAnalysis puts Chinese firms' use of neocloud capacity in four Asian countries at roughly <strong>300MW</strong>. IFP estimates that by the end of 2026 Chinese companies will use about <strong>1.05 million H100-equivalents</strong> of offshore compute — roughly a quarter of the 4.6 million they hold in total — with about 75 per cent of it in Southeast Asia, or 506MW of 794MW. JPMorgan counted <strong>3.8GW of Malaysia's 12.7GW</strong> data-centre pipeline, about 25 per cent, as belonging to Chinese operators (13 November).</p>
+
+  <p>Credit moved before equity did. JPMorgan and Citigroup began reviewing loans to Southeast Asian data centres serving Chinese technology clients (Bloomberg). On 26 November Fitch said Asia-Pacific data-centre investment would slow and become more selective on chip access and customer eligibility. The Bank of Korea's November report modelled a path in which data-centre demand runs 10 per cent below expectations through 2028 with tighter financing, taking 2027 growth to the mid-3 per cent range from a projected 4.1 per cent and 2028 to the low 2s. The same report recorded combined bond issuance by Amazon, Alphabet, Microsoft, Meta and Oracle rising from US$20.4 billion in the first half of 2025 to US$88 billion in the second half and US$169.1 billion in the first half of 2026. The financing of AI infrastructure is already attached to the price of credit.</p>
+
+  <h3>What the two governments said</h3>
+  <p>Malaysia's MITI issued two statements, on 13 and 24 November. It has "never cleared" Megaspeed or Speedmatrix; Speedmatrix is a <strong>tenant</strong> in Malaysian data centres that brings in its own servers and chips; and since July 2025 anyone seeking to export, reexport, transship or transit high-performance US AI chips from or through Malaysia needs a permit under the Strategic Trade Act 2010. MIDA, the investment authority, would write to every data centre operator advising them not to host, lease space to, or provide services to the seven listed entities.</p>
+
+  <p>Singapore answered at greater length. Its Ministry of Home Affairs said on 12 November that the police and customs opened an independent investigation in February 2025, not at the request of any foreign government; that a voluntary BIS post-shipment verification took place at Megaspeed on 24 June 2025 alongside a police interview; that the then chief executive's passport was impounded; and that in February 2026 the police, in consultation with the Attorney-General's Chambers, found insufficient evidence that she had committed offences relating to the declarations under investigation. She was nonetheless assessed to have given information she knew to be inaccurate in a way that played down her role, and was given a stern warning and barred from re-entry. The ministry stated explicitly that she <strong>was not investigated for espionage</strong>. The investigation into Megaspeed and six individuals continues.</p>
+
+  <p>Prime Minister Lawrence Wong, speaking in Canberra on 24 November, put the boundary in one line: "America has export controls on its chips. We do not enforce America's export controls." Singapore did not want to be "used and abused as a conduit," he said, and was working with Washington on information sharing and on a mechanism that would let the United States conduct its own checks. Asked whether US information had been forthcoming, he said some had been requested and "not all of it was forthcoming."</p>
+
+  <p>The two governments occupy the same position: <strong>they accept the conduct standard and reject the jurisdiction.</strong> For operators, that produces an awkward conclusion. Local legality does not imply shippability. The binding decision-maker for a data centre is not its host government but the licensing desk of its chip supplier, and that desk currently trades only with operators who can document where the ultimate parent sits.</p>
+
+  <h3>The tape was reading something else</h3>
+  <p>On 23 November Nvidia closed up <strong>31.5 per cent at US$165.05</strong>, adding more than US$950 billion of market value in a day on news of its chief executive's reinstatement. At 4:15 that afternoon, Commerce filed the Entity List document. The next morning the news was in the market before the open, and Nvidia closed <strong>down 5.86 per cent at US$155.38</strong>. Micron −10.97 per cent, Marvell −9.10, Arm −8.55, AMD −8.86; CoreWeave −11.84, IREN −11.54, Nebius −10.74. Nasdaq −1.5 per cent, S&amp;P 500 −0.5, Dow +0.9.</p>
+
+  <p>The fade was reported as rally fatigue, and that explanation cannot be ruled out. But the rule's real transmission channel showed up in the physical chain first. The Financial Times reported that Nvidia had told manufacturing partners to stop shipping servers to Malaysia, Singapore, Thailand and Indonesia, with Dell and Supermicro informing customers. CNBC reported that chip sellers had told neoclouds they would not supply <strong>any operator that rents even part of its capacity to Chinese firms</strong>. Before the rule, Nvidia's line was that it would not sell to customers renting more than 50 per cent to Chinese companies. The threshold moved from 50 per cent to zero.</p>
+
+  <p>Note what kind of change that is. Revenue does not fall; <strong>eligibility changes</strong>. One operator can no longer buy at any price, while another can buy the same chip and resell capacity at a higher price. A neocloud's valuation rests on utilisation and customer mix, and both were reset in the same week. On 27 November, with US markets closed for Thanksgiving, Korea's KOSPI traded roughly flat and Samsung Electronics and SK hynix drifted lower.</p>
+
+  <h3>Korea is not listed, and is not outside the rule</h3>
+  <p>Korea is not one of the five countries, and that has produced a comfortable reading that Korea is unaffected. Two things are missing from it. First, §744.24 applies <strong>regardless of where the data centre sits</strong>. A Korean facility that supplies more than 12,000,000 aggregate TPP to a company headquartered in D:5 or Macau triggers a licence for whoever ships it the chips; an existing provider has until <strong>17 February 2027</strong> to obtain one; and a later change of use is treated as a transfer in-country.</p>
+
+  <p>Second, HBM. The item list in §744.24 expressly excludes HBM (3A090.c), but HBM has not left US controls: §744.23 retains a licence requirement for 3A090.c destined for D:5-headquartered entities, and the Entity List's "all items" reaches HBM too. HBM is therefore not the direct lever of this rule but the <strong>lever of indirect demand</strong>. If GPU deployments slip, HBM orders slip after them — though with a lag, since 2027 HBM supply is sold out and more than half of 2028 capacity is booked (Seoul Economic Daily).</p>
+
+  <p>Korea's own build-out sits on the beneficiary side of the story. SK Group and AWS are building a 100MW AI data centre in Ulsan for KRW 7 trillion, due to operate in the second half of 2027; SK Telecom plans to secure 5GW in stages from 2029; Naver has AI infrastructure projects abroad. The same rule reaches all of them: SK Telecom's 2GW AI factory and Naver's Asia, Middle East and Europe projects can be affected by customer nationality and ownership (Seoul Economic Daily). Nor can Korea absorb the Chinese demand displaced from Southeast Asia, because Korean data centres are subject to the same provision. The "clean alternative jurisdiction" story fails at the first paragraph of the rule.</p>
+
+  <h3>The doors that remain</h3>
+  <p>Three doors are open, and two of them were opened on purpose.</p>
+
+  <p><strong>US-headquartered customers.</strong> The five-country licence requirement does not apply to recipients, or ultimate parents, headquartered in the United States, provided the §743.10 monthly reporting is met. That is a design statement about preference: the policy is not to eliminate Chinese demand but to <strong>move it toward US-parented buyers</strong>. It is why Allspring's Gary Tan described the rule as creating a favourable market for US hyperscalers.</p>
+
+  <p><strong>Recommender systems.</strong> Compute used exclusively for commercial recommendation stays outside, subject to reporting. Add a generative function and the exception disappears. Social and e-commerce CPU workloads remain; training and inference on GPUs do not.</p>
+
+  <p><strong>Silicon without US technology.</strong> This door was not created by the rule; it was confirmed by it. Substituting Chinese accelerators removes the licensing question and leaves the performance, yield and power questions. Washington is already signalling that it wants this door closed too: a BIS spokesman told Semafor that sending advanced chips to Megaspeed is unlawful "even if they are made abroad." <strong>The rule text says no such thing.</strong> Whether that was a preview of a foreign-direct-product theory or a misstatement is unresolved. If it becomes policy, the remaining doors narrow sharply.</p>
+
+  <p>Two institutional handles also stay live. The "is informed" process in §744.24(a)(2) lets BIS impose a licence requirement on named parties or destinations without amending the regulations, and no licence exception can overcome it. And the five-country list can be extended: the Secretary of Commerce, in consultation with State and the National Security Advisor, may designate additional countries. Korea's absence from the list is a current state, not a permanent exemption.</p>
+
+  <h3>Five dates to watch</h3>
+  <p><strong>3 December</strong> — Nvidia's chief executive testifies before the Senate Banking Committee. The questions will centre on customer vetting and compliance architecture. The answers will shape the size of the next list.</p>
+  <p><strong>23 December</strong> — the savings clause for the seven listed entities expires. Inventory that has not moved by then cannot move.</p>
+  <p><strong>19 January 2027</strong> — comments close on 91 FR 74970 (regulations.gov, BIS-2026-0628). The scope of the 12,000,000 TPP calculation, the definition of linked data centres and the meaning of "significant volume" can all change in the final rule; HSF Kramer flags that the 90-day cure provision never defines "significant volume."</p>
+  <p><strong>17 February 2027</strong> — the 90-day licensing deadline for existing data centres. Operators that fail it have three options: cut the customers, cut the capacity below the threshold, or exit. Southeast Asian vacancy rates and power contracts will tell the story after that date.</p>
+  <p><strong>At any time</strong> — further country or entity designations by the Secretary; ERC removal petitions, which require unanimity; Alibaba's administrative and judicial response; and the first public report from Nvidia's export-control committee.</p>
+
+  <div class="weak">
+    <b>Weak links — what this piece could not confirm</b><br>
+    ① The US$4.2 billion prepayment rests on a single Reuters source; the US$7.5 billion figure is a single report by The Information, cited by Fortune. Megaspeed denies wrongdoing and no authority has charged any of the seven. ② The 200-plus shipments and US$4.8 billion of purchases are New York Times reporting, not BIS findings. ③ Nvidia's halt on server shipments is FT reporting; Nvidia, Dell and Supermicro have not confirmed it. ④ The claim that ByteDance leases about 90 per cent of Johor capacity is a Straits Times estimate from industry and government sources; DayOne says less than 40 per cent of its own pipeline is leased to TikTok. ⑤ The BIS spokesman's statement on foreign-made chips is inconsistent with the rule text. ⑥ The US Register and the Malaysian government disagree on whether two or three entities are listed under Malaysia. ⑦ The placeholder citation in the Register table indicates the rule was finalised at the last minute; later corrections are possible.
+  </div>
+
+  <div class="sources">
+    <div class="h">Sources</div>
+    <div class="grp">Primary — rules and government documents</div>
+    <ol>
+      <li><span class="tier">Primary</span>Bureau of Industry and Security, "Additions to the Entity List", 91 FR 76148 (25 Nov 2026), Doc. 2026-23999, Docket 261123-0006, RIN 0694-AK59, effective 23 Nov 2026 — <a href="https://www.federalregister.gov/documents/2026/11/25/2026-23999/additions-to-the-entity-list">federalregister.gov/documents/2026/11/25/2026-23999</a></li>
+      <li><span class="tier">Primary</span>Bureau of Industry and Security, "Addressing Remote Access to Advanced Semiconductors", 91 FR 74970 (19 Nov 2026), Doc. 2026-23529, RIN 0694-AK50 — <a href="https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors">federalregister.gov/documents/2026/11/19/2026-23529</a></li>
+      <li><span class="tier">Primary</span>Ministry of Investment, Trade and Industry (Malaysia), "The Addition of Malaysian Entities to the US Entity List", 24 Nov 2026 — <a href="https://www.miti.gov.my/miti/resources/Media%20Release/THE_ADDITION_OF_MALAYSIAN_ENTITIES_TO_THE_US_ENTITY_LIST_-_UNDER_BUREAU_OF_INDUSTRY_AND_SECURITY_OF_THE_US_DEPARTMENT_OF_COMMERCE.pdf">miti.gov.my (media release)</a></li>
+      <li><span class="tier">Primary</span>Ministry of Investment, Trade and Industry (Malaysia), "MITI Statement on Megaspeed International Pte Ltd and Speedmatrix Sdn Bhd", 13 Nov 2026 — <a href="https://www.miti.gov.my/miti/resources/Speech/MEDIA_STATEMENT_13112026.pdf">miti.gov.my (statement)</a></li>
+      <li><span class="tier">Primary</span>Singapore Ministry of Home Affairs, "Singapore's Investigations into Alice Huang (Huang Le) and Megaspeed International Pte Ltd", 12 Nov 2026 — <a href="https://www.mha.gov.sg/media-room/newsroom/singapore-investigations-into-alice-huang-huang-le-and-megaspeed-international-pte-ltd/">mha.gov.sg</a></li>
+      <li><span class="tier">Primary</span>Ministry of Commerce of China, spokesperson's remarks on the US remote-access measures, 17 Nov 2026 — <a href="https://www.mofcom.gov.cn/syxwfb/art/2026/art_3a69f2058b724dd39cd8ecddcaa4ab87.html">mofcom.gov.cn</a></li>
+    </ol>
+    <div class="grp">Secondary — reporting and legal analysis</div>
+    <ol>
+      <li><span class="tier">Secondary</span>Reuters, "US blacklists Alibaba subsidiary and Megaspeed linked to Nvidia scandal", 23 Nov 2026 — <a href="https://www.investing.com/news/stock-market-news/us-to-blacklist-alibaba-subsidiary-and-megaspeed-linked-to-nvidia-scandal-5046337">investing.com (Reuters)</a> (US$4.2bn prepayment, ERC procedure, Bessent remarks)</li>
+      <li><span class="tier">Secondary</span>Reuters, "Factbox: What we know about Megaspeed, the Nvidia customer blacklisted by US", 24 Nov 2026 — <a href="https://www.investing.com/news/stock-market-news/factboxwhat-we-know-about-megaspeed-the-nvidia-customer-blacklisted-by-us-5047829">investing.com (Reuters)</a></li>
+      <li><span class="tier">Secondary</span>The Straits Times, "Alibaba disputes US blacklisting of S'pore subsidiary over chip rerouting risks", 24 Nov 2026 — <a href="https://www.straitstimes.com/business/alibaba-disputes-us-blacklisting-of-singapore-subsidiary-over-chip-rerouting-risks">straitstimes.com</a> (Apex ownership, 18 June 2024 pledge)</li>
+      <li><span class="tier">Secondary</span>The Business Times, "Singapore working with US on chip export enforcement as Megaspeed probe continues: PM Wong", 24 Nov 2026 — <a href="https://www.businesstimes.com.sg/singapore/singapore-working-us-chip-export-enforcement-megaspeed-probe-continues-pm-wong">businesstimes.com.sg</a></li>
+      <li><span class="tier">Secondary</span>Fortune, "How Megaspeed built a network in Southeast Asia to move Nvidia chips to Chinese companies", 11 Nov 2026 — <a href="https://fortune.com/2026/11/11/megaspeed-nvidia-chips-china-singapore-malaysia/">fortune.com</a></li>
+      <li><span class="tier">Secondary</span>BBC, "How the Jensen Huang scandal exposed a headache for business-friendly Singapore", 13 Nov 2026 — <a href="https://www.bbc.com/news/articles/ck1exevgql4qo">bbc.com</a> (7Road International, 2015 incorporation, March 2023 rename)</li>
+      <li><span class="tier">Secondary</span>Data Centre Dynamics, "Nvidia halts server shipments to Malaysia, Singapore, Thailand and Indonesia in wake of new export rule — report", 26 Nov 2026 — <a href="https://www.datacenterdynamics.com/en/news/nvidia-halts-server-shipments-to-malaysia-singapore-thailand-and-indonesia-in-wake-of-new-dept-of-commerce-export-rule-report/">datacenterdynamics.com</a></li>
+      <li><span class="tier">Secondary</span>CNBC, "Nvidia shares fall more than 5% as Huang comeback rally cools", 24 Nov 2026 — <a href="https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html">cnbc.com</a> (closes, declines, 3 December testimony)</li>
+      <li><span class="tier">Secondary</span>Newspim, "Nvidia chip sellers halt supply to neoclouds leasing to Chinese firms", 27 Nov 2026 — <a href="https://newspim.com/news/view/20261127000037">newspim.com</a> (citing CNBC; 50% to zero threshold)</li>
+      <li><span class="tier">Secondary</span>The Straits Times, "Sudden chill amid a boom: how US chip curbs may cloud Malaysia's data centre ambitions", 25 Nov 2026 — <a href="https://www.straitstimes.com/asia/se-asia/sudden-chill-amid-a-boom-how-us-chip-curbs-may-cloud-malaysias-data-centre-ambitions">straitstimes.com</a> (117 data centres, 23,500MW, MIDA figures, Johor customer mix)</li>
+      <li><span class="tier">Secondary</span>Chosun Biz, "US curbs leave Southeast Asian data centres reeling as Chinese clients exit", 23 Nov 2026 — <a href="https://biz.chosun.com/international/international_general/2026/11/23/YJJTHWJDJZD4VCQFJRDBSIJ2WU/">biz.chosun.com</a> (SemiAnalysis 300MW; JPMorgan and Citi loan reviews)</li>
+      <li><span class="tier">Secondary</span>TIME Korea, "The US moves against China's Southeast Asian AI rentals", 20 Nov 2026 — <a href="https://korea.time.com/article/2026/11/20/2026-11-20-us-curbs-china-offshore-ai-computing">korea.time.com</a> (IFP estimates; JPMorgan 3.8GW of 12.7GW)</li>
+      <li><span class="tier">Secondary</span>AI Times, "Moonshot AI cancels US$150m Nvidia rental after US rule", 20 Nov 2026 — <a href="https://www.aitimes.com/news/articleView.html?idxno=217613">aitimes.com</a> (B300, 50% prepayment)</li>
+      <li><span class="tier">Secondary</span>Herbert Smith Freehills Kramer, "New US export controls target overseas cloud computing", 24 Nov 2026 — <a href="https://www.hsfkramer.com/insights/2026-11/new-us-export-controls-target-overseas-cloud-computing">hsfkramer.com</a> (§744.24 structure, 17 Feb 2027 deadline, undefined "significant volume")</li>
+      <li><span class="tier">Secondary</span>BKL, "BIS interim final rule on remote access to advanced AI semiconductors", 17 Nov 2026 — <a href="https://www.bkl.co.kr/law/insight/newsletter/6865">bkl.co.kr</a> (HBM exclusion, §744.23 parallel control, KYC inference)</li>
+      <li><span class="tier">Secondary</span>Kim &amp; Chang, "The US remote-access rule and Korean data centres", 26 Nov 2026 — <a href="https://www.shinkim.com/kor/media/newsletter/pdf/3623">shinkim.com</a> (Korean obligations; 12M TPP ≈ 758 H100 or 330 B200)</li>
+      <li><span class="tier">Secondary</span>Seoul Economic Daily, "Jensen Huang Is Back, but Korea's AI Supply Chain Puzzle Remains", 24 Nov 2026 — <a href="https://en.sedaily.com/business/2026/11/24/jensen-huang-is-back-but-koreas-ai-supply-chain-puzzle">en.sedaily.com</a> (SKT 2GW, Naver overseas exposure, HBM sold out)</li>
+      <li><span class="tier">Secondary</span>Lianhe Zaobao, "South Korea eyes data centre investment opportunities as US tightens AI chip export controls", 25 Nov 2026 — <a href="https://www.zaobao.com.sg/en/news/world/south-korea-eyes-data-centre-investment-opportunities-us-tightens-ai-chip-export-controls">zaobao.com.sg</a> (117 data centres; SK–AWS Ulsan, KRW 7tn)</li>
+      <li><span class="tier">Secondary</span>Aju Press, "BOK warns growth back at 2% if AI buildout slows", 27 Nov 2026 — <a href="https://www.ajupress.com/view/20261127083441368">ajupress.com</a> (growth and memory scenarios; Big Five bond issuance)</li>
+      <li><span class="tier">Secondary</span>Fitch Ratings outlook via Reuters, TokenPost, 26 Nov 2026 — <a href="https://www.tokenpost.kr/news/ai/445090">tokenpost.kr</a> (slower APAC data-centre investment)</li>
+      <li><span class="tier">Secondary</span>Caixin Global, "U.S. Blacklists Megaspeed and Alibaba Subsidiary Over Diversion Risks", 25 Nov 2026 — <a href="https://www.caixinglobal.com/2026-11-25/us-blacklists-megaspeed-and-alibaba-subsidiary-over-diversion-risks-102508429.html">caixinglobal.com</a></li>
+    </ol>
+    <div class="grp">Treated as single-source or estimate</div>
+    <ol>
+      <li><span class="tier">Single-source</span>The US$7.5 billion of chips moved through the group is The Information's reporting, cited by Fortune; the company has not confirmed it.</li>
+      <li><span class="tier">Single-source</span>The 200-plus shipments and US$4.8 billion of purchases are New York Times reporting.</li>
+      <li><span class="tier">Single-source</span>The ~90 per cent ByteDance share of Johor capacity is a Straits Times estimate; DayOne disputes it for its own pipeline.</li>
+      <li><span class="tier">Single-source</span>The 1.05 million H100-equivalents and 794MW (IFP), 300MW (SemiAnalysis) and 3.8GW of 12.7GW (JPMorgan) are estimates on different methodologies.</li>
+      <li><span class="tier">Single-source</span>The H100 conversion of 12,000,000 TPP (~758 units) applies a TPP of 15,832; the B200 figure (~330) comes from a law-firm note. Neither is a BIS-published conversion table.</li>
+    </ol>
+  </div>
+
+  <div class="disc">
+    <b>Disclaimer</b>
+    This is analysis for information purposes, based on public primary documents and reporting. It recommends no purchase or sale of any security and offers no price target or timing. The regulatory content reflects 91 FR 76148 (published 25 November 2026) and 91 FR 74970 (published 19 November 2026); thresholds, exceptions and country coverage may change through the comment process closing 19 January 2027 and in any final rule. An Entity List designation is neither a criminal charge nor a judicial finding of fact, and the listed companies deny wrongdoing. Figures drawn from reporting are identified as such in the text and the source list; values not confirmed by the companies or authorities may differ from fact. Investment decisions remain the reader's responsibility.
+  </div>
+
+  <div class="signoff">
+    <div class="nm">The Signal</div>
+    <div class="sl">Research that reads the change first · ORCA</div>
+  </div>
+
+</article>
+
+</div>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="./" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal home</a>
+    &nbsp;·&nbsp;
+    <a href="archive" style="color:#26467d;font-weight:600;text-decoration:none;">All past issues</a>
+    &nbsp;·&nbsp;
+    <a href="/daily-01" style="color:#26467d;font-weight:600;text-decoration:none;">한국어판 &rarr;</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

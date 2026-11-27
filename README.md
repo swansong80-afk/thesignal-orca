@@ -3,7 +3,8 @@
 필명 **글 쓰는 범고래**(ORCA)의 리서치 사이트입니다. 하나의 사이트에 두 개의 지식 스트림이 들어 있습니다.
 
 1. **The Signal** — 지정학·자본·산업·기술·AI를 1차 출처로 읽는 리서치.
-   Weekly(주간 신호) · 한 주의 지도(주간 종합) · Deep Research(심층) · 검증 시스템/검증 규칙.
+   Daily(일간 신호) · Weekly(주간 신호) · 한 주의 지도(주간 종합) · Deep Research(심층) · 검증 시스템/검증 규칙.
+   Daily와 Weekly는 같은 호의 영문판(`*-en.html`)을 함께 발행합니다.
 2. **출간 예정작** (`/books.html`) — 『패권 전쟁에 투자하라』 · 『세계는 연결되어 있지 않다』 · 『보유하는 마음』
    세 권의 목차, 장별 물음과 요약, 고유 프레임워크, 용어집, AI 인용 가이드.
 
@@ -22,8 +23,9 @@
 
 ```
 index.html                 홈 (프레임 · 검증 시스템 · 콘텐츠 · 발행인)
-archive.html               지난 글 전체 (Weekly / 한 주의 지도 / Deep Research / Legacy / 검증)
-weekly-01 … weekly-06.html Weekly (No.06 = 2026-11-17 「칩은 팔고, 연산은 허가한다」)
+archive.html               지난 글 전체 (Daily / Weekly / 한 주의 지도 / Deep Research / Legacy / 검증)
+daily-01, daily-01-en.html Daily No.01 (2026-11-27) 「일곱 개의 이름, 하나의 회사」 KO/EN
+weekly-01 … weekly-07.html Weekly (No.07 = 2026-11-20 「만든 사람이 규제 대상이다」)
 weekly-04-appendix.html    No.04 부록
 map-01.html                한 주의 지도 No.01
 deep-01 … deep-05.html      Deep Research No.01~05
@@ -53,8 +55,9 @@ favicon-32.png / apple-touch-icon.png
 
 ## 새 호를 추가할 때
 
-1. 직전 호(`weekly-0N.html`)를 복사해 본문·메타·출처만 교체합니다.
-2. `index.html`의 Weekly 카드(`최근 호`)와 `archive.html`의 Weekly 목록 최상단을 새 호로 바꿉니다.
-3. `sitemap.xml`·`llms.txt`의 Weekly 목록에 새 호를 추가합니다.
+1. 직전 호(`weekly-0N.html`)를 복사해 본문·메타·출처만 교체합니다. Daily는 `deliverables/build/signals/make-daily.py`로
+   본문 파일(`daily-0N.body.html`, `daily-0N-en.body.html`)에서 한국어판·영문판을 함께 생성합니다.
+2. `index.html`의 해당 시리즈 카드(`최근 호`)와 `archive.html` 목록 최상단을 새 호로 바꿉니다.
+3. `sitemap.xml`·`llms.txt`의 해당 시리즈 목록에 새 호를 추가합니다(영문판 URL 포함).
 4. `signals.json`에 새 항목을 넣습니다 — 요약·핵심 수치·출처를 기사 본문에서 확인한 값으로만 적고,
    최신순 정렬과 `updated_at`·`counts`를 함께 갱신합니다(생성기: `deliverables/build/signals/make-signals.py`).
