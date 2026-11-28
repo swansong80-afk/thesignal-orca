@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Permit Grants a Million Satellites — Cooling Them Was Ruled Out of Scope — The Signal</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --card:#f4f6f8; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee;
+    --main:1180px;
+    --l3:#c0392b; --l3bg:#fdf0ef;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:#f3f4f6; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    line-height:1.9; -webkit-font-smoothing:antialiased;
+    word-break:keep-all; overflow-wrap:break-word;
+  }
+  .wrap{max-width:var(--main); margin:0 auto; padding:32px 24px 90px;}
+  .status{background:var(--cap); color:#fff; padding:12px 20px; border-radius:6px; font-size:13px; margin-bottom:20px; letter-spacing:.02em;}
+  .status b{color:#ffd7d2;}
+  .grid{display:block;}
+  article{background:#fff; border:1px solid var(--rule); border-radius:6px; padding:56px 52px 60px; box-shadow:0 1px 3px rgba(0,0,0,.04); max-width:800px; margin:0 auto;}
+
+  .masthead{font-family:"Roboto Slab",serif; font-size:.95rem; letter-spacing:.14em; color:var(--accent); font-weight:700; text-transform:uppercase; padding-bottom:20px; border-bottom:1px solid var(--rule); margin-bottom:30px;}
+  .masthead .tag{color:var(--l3); font-family:-apple-system,sans-serif; letter-spacing:0; font-size:.8rem; margin-left:10px;}
+
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft);}
+  h1{font-size:2.0rem; line-height:1.34; letter-spacing:-.02em; margin:0 0 12px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.6; color:var(--ink-soft); font-weight:500; margin:0 0 36px; letter-spacing:-.01em;}
+  h3{font-size:1.3rem; margin:48px 0 16px; letter-spacing:-.01em; font-weight:800; color:var(--cap); padding-top:18px; border-top:1px solid var(--rule);}
+  p{margin:0 0 19px; font-size:1.04rem;}
+  strong{font-weight:700;}
+  .lead{font-size:1.12rem; color:#000;}
+
+  .f{text-decoration:underline; text-decoration-color:#9aa1a8; text-underline-offset:4px; text-decoration-thickness:1.5px;}
+  .f-id{font-size:.72em; color:var(--accent); font-weight:700; vertical-align:super; margin-left:1px;}
+  .f-l3{text-decoration:underline; text-decoration-color:var(--l3); text-underline-offset:4px; text-decoration-thickness:2px; background:var(--l3bg); padding:0 2px; border-radius:2px;}
+  .f-l3 .f-id{color:var(--l3);}
+
+  blockquote{margin:28px 0; padding:18px 24px; background:var(--box); border-left:4px solid var(--accent); border-radius:4px; font-size:1.08rem; color:var(--cap); font-weight:600;}
+  blockquote p{margin:0; font-size:inherit;}
+  .box{margin:28px 0; padding:20px 24px; background:var(--card); border:1px solid var(--rule); border-radius:5px; font-size:.98rem; line-height:1.85;}
+  .box .h{font-weight:800; margin-bottom:12px; color:var(--cap);}
+  .box .l{margin-bottom:8px;} .box .l:last-child{margin-bottom:0;}
+  .box .l b{color:var(--ink);}
+
+  .weak{margin-top:40px; padding:18px 22px; background:#fafbfe; border:1px dashed var(--accent); border-radius:5px; font-size:.96rem; color:var(--ink-soft); line-height:1.8;}
+  .weak b{color:var(--cap);}
+
+  .sources{margin-top:46px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.75;}
+  .sources .h{font-family:"Roboto Slab",serif; font-weight:700; color:var(--cap); font-size:1.0rem; margin-bottom:14px; letter-spacing:.02em;}
+  .sources ol{margin:0; padding-left:20px;}
+  .sources li{margin-bottom:9px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .sources .tier{font-size:.78rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px; padding:0 5px; margin-right:6px;}
+
+  .disc{margin-top:32px; padding:16px 20px; border:1px solid var(--boxline); border-radius:4px; background:#f0f1f3; font-size:.84rem; color:#555; line-height:1.7;}
+  .disc b{display:block; margin-bottom:5px; color:#333;}
+
+  .signoff{margin-top:44px; padding-top:30px; border-top:2px solid var(--cap); text-align:center;}
+  .signoff .nm{font-family:"Roboto Slab",serif; font-size:1.7rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1;}
+  .signoff .sl{font-size:.98rem; color:var(--accent); font-weight:500; margin-top:10px; letter-spacing:.03em;}
+
+  .margin{display:flex; flex-direction:column; gap:8px; position:sticky; top:20px;}
+  .card{border:1px solid var(--boxline); border-radius:5px; padding:10px 13px; background:var(--card); font-size:12px; line-height:1.6;}
+  .card .id{font-weight:800; color:var(--accent); font-size:12.5px;}
+  .card.l3{border-color:var(--l3); background:var(--l3bg);}
+  .card.l3 .id{color:var(--l3);}
+  .card .tier{color:var(--muted); font-size:10.5px; margin-bottom:3px;}
+  .card .excerpt{color:#333; font-style:italic; margin:4px 0;}
+  .card .q{color:var(--l3); font-size:11px; margin-top:5px; font-weight:600;}
+  .card a{color:var(--accent); font-size:10.5px; word-break:break-all;}
+
+  @media (max-width:1100px){ .grid{grid-template-columns:1fr;} .margin{position:static;} }
+  @media (max-width:560px){ article{padding:38px 24px;} h1{font-size:1.6rem;} }
+
+  .sources .grp{font-weight:700;color:var(--cap);margin:16px 0 8px;font-size:.95rem}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .langsw{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+  .langsw a{color:var(--muted);text-decoration:none;font-weight:700;padding:2px 5px;border-radius:3px;}
+  .langsw a:hover{color:var(--accent);}
+  .langsw a.on{color:#fff;background:var(--accent);}
+  .langsw span{margin:0 4px;color:#c3c9cf;}
+  table.dt{width:100%;border-collapse:collapse;font-size:.86rem;line-height:1.6;margin:22px 0 14px;}
+  table.dt thead th{background:var(--cap);color:#fff;font-weight:600;text-align:left;padding:9px 11px;font-size:.82rem;}
+  table.dt td{padding:9px 11px;border-bottom:1px solid #e6e9ee;vertical-align:top;text-align:left;}
+  table.dt tbody tr:nth-child(even) td{background:#f7f9fb;}
+  table.dt tbody tr:last-child td{border-bottom:1px solid var(--rule);}
+  table.dt.compact td{padding:8px 10px;}
+  .tcap{font-size:.82rem;color:var(--muted);margin:-6px 0 24px;line-height:1.6;}
+  @media (max-width:560px){
+    table.dt{font-size:.76rem;line-height:1.5;}
+    table.dt thead th{font-size:.72rem;}
+    table.dt td, table.dt thead th{padding:7px 7px;}
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="canonical" href="https://thesignal-orca.pages.dev/weekly-08-en">
+<link rel="alternate" hreflang="ko" href="https://thesignal-orca.pages.dev/weekly-08">
+<link rel="alternate" hreflang="en" href="https://thesignal-orca.pages.dev/weekly-08-en">
+<link rel="alternate" hreflang="x-default" href="https://thesignal-orca.pages.dev/weekly-08">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Signal — research that reads the change first">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="The Permit Grants a Million Satellites — Cooling Them Was Ruled Out of Scope">
+<meta property="og:description" content="The FCC did not decide whether orbital data centers work. It declared that question outside its authority — and left a 14-year runway, a deferred disposal waiver, $170 billion per gigawatt, and a radiator nobody has built.">
+<meta property="og:url" content="https://thesignal-orca.pages.dev/weekly-08-en">
+</head>
+<body>
+<div class="wrap">
+
+<div class="grid">
+<article>
+
+  <div class="masthead">The Signal · Weekly
+    <span class="langsw"><a href="/weekly-08">KO</a><span>|</span><a class="on" href="/weekly-08-en">EN</a></span>
+  </div>
+
+  <div class="meta">
+    <b>Published</b> · Weekly No.08 · 28 November 2026<br>
+    <b>Domain</b> · Space × Regulation × Capital<br>
+    <b>Freshness</b> · FCC Space Bureau order DA 26-1273, adopted and released 25 November 2026 (US), with the FCC press release of the same day, SpaceX's Q3 2026 results (20 October) and S-1 (20 May). Reporting through 27 November included
+  </div>
+
+  <h1>The Permit Grants a Million Satellites — Cooling Them Was Ruled Out of Scope</h1>
+  <h2 class="sub">The FCC did not decide whether orbital data centers work. It declared that question outside its authority and left the rest to a 14-year runway, a deferred disposal waiver, a $170 billion-per-gigawatt estimate, and a radiator nobody has yet built</h2>
+
+  <p class="lead">On 25 November the Space Bureau of the US Federal Communications Commission disposed of SpaceX's orbital data center application in an order numbered DA 26-1273. The disposition is "GRANTED-IN-PART / DEFERRED-IN-PART — With Conditions." The grant covers up to one million non-geostationary satellites, in six shells each 50 km thick at altitudes from 500 to 1,002 km, at 30-degree and sun-synchronous inclinations. The frequencies are 18.8–19.3 GHz (space-to-Earth) and 28.6–29.1 GHz (Earth-to-space) in the Ka-band.</p>
+
+  <p>The most important sentence in the fourteen pages is not the grant. It is Condition 4. SpaceX had asked the Commission to waive the rule requiring satellites ending their mission below 2,000 km to be disposed of by atmospheric re-entry, so that satellites above 600 km could be parked in Earth disposal orbits or heliocentric orbits. The Commission <strong>deferred</strong> the request. Its reason is one sentence: SpaceX "has not provided sufficient information for the Commission to determine whether its alternative disposal methods are compliant with the Commission's requirements."</p>
+
+  <p>What that deferral means in practice is heavier than the table suggests. Condition 11 finds that the debris mitigation plan for satellites operating <em>below</em> 600 km complies with the rules, and conditions the grant on a modification application carrying a final plan before any satellite operates <em>above</em> 600 km. Read the two together: of the six authorized shells, two are usable now — 550–568 km and 565–585 km. The other four, at 686–718 km, 707–744 km, 946–978 km and 967–1,002 km, stay shut until SpaceX files more paperwork.</p>
+
+  <p>And one more thing. What this licence actually regulates is a <strong>backup radio</strong>. Starmind's primary communications are optical inter-satellite links feeding results into the Starlink constellation. The Ka-band the FCC authorized is for backup and emergency telemetry, tracking and command when those optical links fail. The business itself — the compute, the heat, the optical mesh — is not the subject of this licence. The order says so itself.</p>
+
+  <blockquote><p>What the Commission licensed was not a million units of compute. It was the emergency channel through which a million units may talk to Earth. Every other question was dismissed as beyond its authority.</p></blockquote>
+
+  <p>Chairman Brendan Carr's statement frames the decision this way: "America is leading the world into the era of super intelligence… This action opens a bold new frontier for the computing infrastructure needed to power America's leadership and growth." The press release goes further, saying the grant "promises to bring the human race closer to a Kardashev II civilization — one that can harness the full power of the sun."</p>
+
+  <p>So this article asks one question. Given a fourteen-year runway, can physics and economics fill the permit inside it? The FCC did not answer. Not answering is the content of the decision.</p>
+
+  <h3>What was granted, deferred and refused</h3>
+  <p>The table below fixes what the document actually did. Every line is the order's own language.</p>
+
+  <table class="dt">
+    <thead><tr><th style="width:24%">Item</th><th>What the order says</th><th style="width:20%">Where</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Scale</strong></td><td>Up to 1,000,000 NGSO satellites. A ceiling, with no floor</td><td>Grant block</td></tr>
+      <tr><td><strong>Orbits</strong></td><td>Six nominal shells, 50 km thick, 500–1,002 km, 30° and sun-synchronous</td><td>Grant block</td></tr>
+      <tr><td><strong>Spectrum</strong></td><td>18.8–19.3 GHz (down), 28.6–29.1 GHz (up); backup and emergency TT&amp;C only; unprotected, non-interference</td><td>Grant block, Cond. 1</td></tr>
+      <tr><td><strong>Disposal above 600 km</strong></td><td>Waiver for non-re-entry disposal (Earth disposal orbits, heliocentric orbits) <strong>deferred</strong>; modification application required first</td><td>Cond. 4, ¶11</td></tr>
+      <tr><td><strong>Deployment above 600 km</strong></td><td>Barred until a modification with the final debris plan is filed — four of six shells effectively locked</td><td>Cond. 11, ¶11</td></tr>
+      <tr><td><strong>Milestones</strong></td><td>One satellite by 25 Nov 2033; 10% by 2035; 50% by 2038; full constellation by 2040</td><td>Cond. 10</td></tr>
+      <tr><td><strong>Licence term</strong></td><td>15 years, running from certification that the first satellite is operating — not from the grant</td><td>Cond. 11</td></tr>
+      <tr><td><strong>Reporting</strong></td><td>Semi-annual, 1 January and 1 July: conjunctions, satellites removed, re-entries, total deployed and orbital parameters, satellites that used Ka-band</td><td>Cond. 6</td></tr>
+      <tr><td><strong>Waivers granted</strong></td><td>Processing rounds (§§25.156–157), surety bond (§25.165), existing milestones (§25.164) replaced by the new part 100 schedule</td><td>Cond. 7–10</td></tr>
+      <tr><td><strong>Petitions denied</strong></td><td>Kuiper Systems (Amazon Leo), Viasat, and the American Astronomical Society — all three</td><td>¶20</td></tr>
+      <tr><td><strong>Dismissed</strong></td><td>Environment, optical astronomy, thermal management, technical and economic feasibility, orbital congestion</td><td>¶¶14–18</td></tr>
+    </tbody>
+  </table>
+  <p class="tcap">Source: FCC Space Bureau, DA 26-1273, 25 November 2026. "Deferred" and "conditions" are the document's own words.</p>
+
+  <h3>What the permit actually did: it slowed the clock and removed the bond</h3>
+  <p>On the numbers alone this is the largest space licence ever issued. On structure, three things happened. First, a million satellites were authorized. Second, the clock that required them to be launched <strong>was pushed back by seven years</strong>. Third, the <strong>surety bond</strong> that prices failure was waived.</p>
+
+  <p>Under the old §25.164, a licensee had to deploy 50% within six years of grant and the rest within nine. SpaceX initially asked for a complete waiver of those milestones. On 19 October it changed its request: instead of a waiver, apply the new part 100 schedule the Commission adopted in its July Space Modernization proceeding. The Commission agreed. The result is 2033, 2035, 2038 and 2040.</p>
+
+  <p>The swap matters more than the arithmetic. Under the new schedule, what is required by November 2033 is <strong>one satellite</strong>. The condition for keeping a million-satellite licence is that a single satellite is operating seven years from now. Nothing needs to fly before then. And the fifteen-year term starts not at the grant but on the day SpaceX certifies that the first satellite is operating in orbit. If that satellite flies in 2028, the licence runs to 2043. The runway is longer than fourteen years.</p>
+
+  <p>The bond waiver points the same way. The §25.165 bond exists to stop operators from warehousing orbital resources they never intend to use. The Commission's stated ground is that the spectrum use is limited to backup, non-interference operations, so "there is little public interest benefit to rigid application of the surety bond requirement." The logic is coherent: if you have licensed only an emergency radio, there is no reason to bond the emergency radio.</p>
+
+  <p>The shadow of that coherence is the point. The bond and the milestones were <strong>the instruments that measured progress</strong>. A licence without them is a licence that does not measure progress. Amazon Leo put the objection precisely in its March petition: "SpaceX seeks a waiver of any rule that might hold it accountable for deploying a million satellites on any specific timeline… The Application seems to describe a lofty ambition rather than a real plan — and a speculative placeholder rather than a complete application." The Commission denied the petition, writing that because it had applied deployment milestones, the concern was moot.</p>
+
+  <p>One thing should be said plainly. This is not a careless licence. The conditions are dense: coordination with federal systems, a 24/7 interference contact two weeks before any use of the downlink band, five categories of semi-annual reporting, a modification application before the high shells. As an administrative instrument it is careful. What it is careful <em>about</em> is radio interference and orbital debris — not whether the business exists.</p>
+
+  <h3>The line the FCC drew for itself: environment, astronomy, feasibility</h3>
+  <p>The most-quoted passage will be ¶14. Citing its October NEPA order (FCC 26-64), the Commission declined to require further environmental review of Starmind. The theory is that Commission-licensed space-based operations are "extraterritorial activities" and therefore not a major Federal action: space is not US territory, the United States is not sovereign over it, and the licence does not create federal control or responsibility over what follows.</p>
+
+  <p>The timing matters. That rule was published in the Federal Register on 17 November and, for most provisions, takes effect thirty days later — <strong>17 December</strong>. The Starmind grant came before that. The Commission knew, and wrote: the new rules "do not come into effect until 30 days after publication… but even applying our current rule framework, we decline to require further environmental review under NEPA." A second, independent basis was laid down in case the first is unavailable.</p>
+
+  <p>The details fall into place. Launch emissions are "outside of the Commission's purview," with the FAA responsible for launch environmental review. Atmospheric effects of satellites burning up on re-entry "remain speculative and not supported in the record." Optical astronomy is sufficiently addressed by SpaceX's commitment to coordinate with the National Science Foundation. The thermal signature raised by the AAS is a "non-spectrum related impact… outside the scope of the ODC's radiofrequency operations." Orbital congestion is dismissed because the rules set no limit on the number of satellites authorized with similar orbital parameters, and the Bureau "declines to invent a de facto rule in this adjudicatory licensing proceeding."</p>
+
+  <p>Then comes the paragraph that tells you what kind of document this is. To commenters who doubted that orbital data centers are feasible, efficient, or necessary, the Commission says: "In many cases, the comments seek to substitute the government's judgment regarding the viability of business endeavors for that of the applicant and private enterprise. We decline to do so."</p>
+
+  <blockquote><p>The regulator announced it would not ask whether the thing works. Instead it set, very generously, when and how many. Both sentences are needed to understand the decision.</p></blockquote>
+
+  <h3>Physics I: heat arrives first</h3>
+  <p>Of everything the FCC declined to examine, heat answers first. There is no convection in vacuum. A data centre's waste heat leaves only by radiation. Under Stefan–Boltzmann, emitted power scales with area and with the fourth power of absolute temperature. If you cannot raise the temperature, you enlarge the area — and area is mass, volume and launch cost.</p>
+
+  <p>IEEE Spectrum's June calculation shows the size of the problem. Keeping a single 700 W H100 at 60 °C requires about 1.4 m² of radiator. A rack of 32 GPUs — roughly 40 kW with CPUs, memory and networking — needs about 80 m², half a pickleball court. A 100 MW facility needs 2,500 of those racks. And ultraviolet light and atomic oxygen degrade radiator coatings in low orbit, so after five years the same heat needs 40% more area.</p>
+
+  <p>Academic models point the same way. An April analysis (arXiv 2604.27197) puts a 1 MW orbital node at 5,640 m² of photovoltaics, 2,500 m² of radiator, and 29.4 kg/kW for power, storage and heat rejection — 34 to 59 kg/kW once the spacecraft is included. The same paper notes that at that mass, matching a terrestrial benchmark of $10–40 per watt leaves $250–1,000 per kilogram for launch plus spacecraft build combined. Falcon 9's public dedicated launch price alone is 3.4 to 13.5 times above that allowance.</p>
+
+  <p>SpaceX's published first-generation satellite, AI1, aims straight at that arithmetic: 30 m deployed height, 75 m wingspan, compute payload up to 250 kW peak and 175 kW average, at 75 kW per tonne. The company says radiating into vacuum "reduces cooling power overhead by an order of magnitude" against ground cooling. At 75 kW per tonne, a satellite weighs about 2.3 tonnes on average power or 3.3 tonnes at peak. The filing's envelope is under 4 tonnes.</p>
+
+  <p>Multiply a million satellites by 175 kW and you get <strong>175 GW</strong>. That is about 103 times the 1.7 GW of nameplate compute SpaceX reported on 30 September. Part of why the number looks enormous is that the denominator is small. What is required by 2033 is one satellite, and the question is how large its radiator must be.</p>
+
+  <p>Two government documents reach the same conclusion. The GAO wrote in April that large data centers will need solar arrays "larger than any launched and assembled in space as of April 2026" and that cooling at that scale is unproven. The ICEF's November roadmap is blunter: "Thermal management is one of the most fundamental determinants of both feasibility and cost… the size and mass of the radiators — and the temperature at which the chips are allowed to run — largely set how much compute a satellite can carry." It adds that the weights claimed by leading developers "appear to be highly optimistic and beyond currently-proven technology."</p>
+
+  <h3>Physics II: mass sets the schedule</h3>
+  <p>If heat sets the ceiling per satellite, mass sets the schedule for the enterprise. A million satellites at four tonnes is four million tonnes. Consider SpaceX's own disclosures. Mass to orbit was 476 tonnes in the third quarter and 1,517 tonnes over nine months. At that rate, four million tonnes takes 8,400 quarters — about <strong>2,100 years</strong>.</p>
+
+  <p>Starship does change the equation. There were two Starship launches in the third quarter; one was Flight 14, the first orbital flight, which carried 26 Starlink V3 satellites and, by the company's account, added roughly ten times the downlink capacity of a Falcon 9 Starlink launch. The problem is scale. SpaceX's S-1 states the target plainly: "Deployment of 100 gigawatts per year via satellites carrying over 100 kilowatts of compute power per metric ton will require thousands of launches per year and the transport of approximately one million metric tons to orbit annually." The company's own framing is a million tonnes a year. Four million tonnes is four years of that.</p>
+
+  <p>Outside estimates are more conservative. The ICEF calculates that sustaining a fleet with 10% of projected 2030 AI data center demand would need "at least 700 launches of Starship-sized rockets per year (2 launches per day) in perpetuity." Amazon's petition came at the same wall from another side: 4,526 satellites were launched worldwide in 2025, so one million would take more than 220 years; with a five-year life, steady state requires replacing 200,000 a year, 44 times the entire global output of 2025.</p>
+
+  <p>None of this has to be read as proof of impossibility. If Starship genuinely flies 700 times a year, the arithmetic changes. But 700 has never been achieved, and the third quarter of 2026 saw two Starship launches. Mass is set by physics and production capacity, not by regulation, and it is the one variable that cannot be deferred.</p>
+
+  <h3>Economics: $170 billion per gigawatt, and no customers yet</h3>
+  <p>Wood Mackenzie estimated a hypothetical 1 GW orbital data center at about <strong>$170 billion</strong>. That is more than three times a terrestrial facility, and most of the gap is the cost of lifting it off Earth. The firm concluded launch costs would need to fall roughly 70% to compete.</p>
+
+  <p>SpaceX's own pace shows where this sits inside the company. Third-quarter revenue was $14.6 billion, up 161%; net income $4.4 billion; adjusted EBITDA $8.8 billion. Capital expenditure in the same quarter was <strong>$19.6 billion</strong> — more than revenue — of which $16.4 billion went to the Super Intelligence segment. Nine-month capex was $48 billion. Guidance for the fourth quarter is $35–40 billion. Backlog stood at $63 billion.</p>
+
+  <p>Most of that money goes to data centers on the ground. Nameplate compute was 1.7 GW at the end of September, with 2.5–3 GW targeted by year-end. Starmind sits beside that as an option. The S-1 defines it — "we expect to begin deploying our orbital AI compute satellites as early as 2028" — and then, in the risk factors, says of its initiatives: they "have not yet been proven at commercial scale, or at all, and may ultimately be unsuccessful."</p>
+
+  <p>The market's reaction was muted. On 25 November SPCX fell as much as 9% intraday before closing <strong>1.3% higher at $127.44</strong>. The S&amp;P 500 fell 1.6% the same day and Nvidia dropped 7.4%. The licence was not a repricing of orbital compute; it was a headline partly offset by fears about funding AI. By 27 November the stock was $131.69, up 3.3%. What moves it is the direction of rates, not the feasibility of the business.</p>
+
+  <p>And there are no customers yet. SpaceX has not named a buyer for orbital capacity; its AI revenue today comes from data centers on Earth. The licence is not revenue. It is a <strong>call option</strong>, and the option's value is set not by its strike but by the volatility of its underlying — which here is radiators and launch mass.</p>
+
+  <h3>Law: 25 December, and the deferred disposal waiver</h3>
+  <p>Two gates follow. One administrative, one judicial. Under 47 CFR §1.115, a delegated Bureau decision may be brought before the full Commission within thirty days of public notice. Based on the 25 November release, that window closes around <strong>25 December</strong>. SpaceX separately has thirty days to decline the grant as conditioned. Only after that does a federal court of appeals open.</p>
+
+  <p>The litigation has been signalled. On 8 July, Earthjustice, with Dark Sky International and others, petitioned the FCC to pause orbital data center applications pending a programmatic environmental impact statement. Its senior attorney Jan Hasselman said: "If we have to sue so that they comply, we will." After the grant he called the decision reckless. As of 27 November, no complaint had been reported as filed. That is still a threat, not a case.</p>
+
+  <p>The weakest legal point is not the extraterritorial theory in the abstract but its application. In Seven County (2025) the Supreme Court held that NEPA addresses the effects of the project under review rather than an open-ended chain of upstream and downstream consequences, while making clear that an effect occurring at a distance is not automatically outside the analysis. Aluminium oxide from re-entering satellites settling in the stratosphere, and reflected light over American territory, are not effects that occur only outside the United States. That is precisely where the Commission wrote "speculative." It is also a rule that had not yet taken effect when the licence issued.</p>
+
+  <p>In practice, though, the next gate is not the courthouse. It is the <strong>Condition 4 modification</strong>. To use the four shells above 600 km, SpaceX must file a disposal plan, and the Commission will then rule — for the first time — on disposing of satellites somewhere other than Earth's atmosphere. If heliocentric disposal is allowed, that judgment becomes the precedent for every high-altitude constellation that follows. If it is refused, more than half the constellation has nowhere to go. The deferral is not an escape; it is a scheduled next round.</p>
+
+  <p>Astronomy has already recorded the decision as a regulatory failure. The AAS said it was "disheartened and dismayed," warning that "the waste heat generated by the data centers would produce a thermal signature that would increase the infrared background of the sky" and noting "the lack of formal coordination requirements in the license." ESO said the approval "highlights the urgent need for international mechanisms capable of assessing activities whose impacts extend far beyond national borders." Neither is a party to a suit. Both are on the record.</p>
+
+  <h3>Competition: why the same band went to everyone</h3>
+  <p>Read this as an exclusive franchise and you miss the structure. The FCC is reviewing the same Ka-band, on the same terms, for competitors. Blue Origin has filed for 51,600 satellites under Project Sunrise, at 500–1,800 km and 97–104 degrees. Starcloud has filed for 88,000 at 600–850 km. The Commission's press release says it is reviewing the other proposals and "intends to issue decisions on each expeditiously."</p>
+
+  <p>So the value of this licence is not spectrum exclusivity. Having waived the processing rounds, SpaceX holds no priority; it must instead protect earlier and later operators and coordinate with them. The order uses exactly that fact to argue it is not spectrum warehousing. What remains is a <strong>starting gun and a benchmark</strong>. Once a ceiling of one million has been granted, every later review is measured against Starmind: Blue Origin's 51,600 and Starcloud's 88,000 clear a bar that has already been set very high. Carr's remark that "competitor constellations will use solar power" is not a concession; it is the policy. The licence is for an industry, not a company.</p>
+
+  <p>What is genuinely scarce, then, is not spectrum but launch mass, radiators, and space-qualified AI silicon. SpaceX said on 24 August that the first Starmind generation will use an optimized Nvidia Vera Rubin NVL72 system. Its Gigasat Factory in Bastrop, Texas, is described as enabling "thousands of AI satellites starting as soon as late 2027." None of those three bottlenecks was before the Commission. Regulation handed out the entry ticket. The race is on another track.</p>
+
+  <h3>Korea: entering through components, not platforms</h3>
+  <p>Korea's answer is already on paper. The government made a space data center one of its K-Moonshot missions and presented a three-stage roadmap at a National Assembly forum on 2 November. In November 2028 a 100 kg demonstration satellite is to ride as a secondary payload on the seventh Nuri launch, testing a domestic NPU compute module, deployed solar arrays and loop heat-pipe cooling in a dawn-dusk sun-synchronous orbit at about 561 km for more than a year. The project is budgeted at KRW 14 billion, including about KRW 2 billion for the launch. A 500 kg platform in 2031 is to demonstrate an actual AI service, with a multi-tonne platform in 2034.</p>
+
+  <p>The strategic choice is not modesty, it is positioning. The K-Moonshot task force states that competing at the same level as global big tech platforms "has no practical benefit," and has chosen instead to place Korean AI chips, power, thermal control and optical communications into the global supply chain. Seventeen companies attended the August KASA meeting, among them Rebellions, FuriosaAI, DeepX, Mobilint, SK hynix, LG Energy Solution and Hanwha Solutions.</p>
+
+  <p>That choice maps exactly onto the bottleneck list in the FCC order: heat rejection, power, radiation-tolerant compute, optical links. If Starmind moves toward 175 GW, those four become the most expensive parts. The constraints are budget and heritage. The 2027 budget proposal contains KRW 2.1 billion for core space data center technology and nothing for the demonstration satellite; to make the 2028 launch, design work must begin in January 2027. KARI's emphasis was on "space heritage": a part that performs well on the ground is not adopted without orbital operating history, and without adoption no history accumulates.</p>
+
+  <p>The comparison is uncomfortable but necessary. The United States is arguing about a licence for an industry estimated at $170 billion per gigawatt. Korea is arguing about the budget for a KRW 14 billion test satellite. That gap is about scale, not direction. But for the direction to hold, design has to start in January 2027. Starmind's fourteen-year runway and K-Moonshot's twenty-four-month development schedule sit on the same calendar.</p>
+
+  <div class="box">
+    <div class="h">Signal assessment — five markers met</div>
+    <div class="l"><b>Structural change</b> · US regulation has moved from "who launches what" to "who computes what." A satellite licence now sets the ground for compute infrastructure, and the decision pushed environment, astronomy and feasibility outside its own authority. This is the first case in which the licensing standard for space infrastructure shifted from interference to industrial policy.</div>
+    <div class="l"><b>Money and power</b> · A million satellites and the Ka-band were issued as an option. The cost is a filing and one satellite by 2033; the benefit is fourteen years of financeability and a benchmark. The power to judge moves from the FCC to radiators, launch mass and chip supply — that is, back to industry.</div>
+    <div class="l"><b>Precedent</b> · The first orbital data center constellation licence. The first combination that waives processing rounds, bond and milestones together while deferring only disposal. Blue Origin's 51,600 and Starcloud's 88,000 will be reviewed against it.</div>
+    <div class="l"><b>Domain crossing</b> · Space (orbits, debris) × energy (heat rejection, power) × regulation (spectrum, environment) × capital (capex, valuation) × astronomy × international law (extraterritoriality, ITU) all meet in one document. Korea's K-Moonshot and its semiconductor supply chain are another face of the same event.</div>
+    <div class="l"><b>Contention</b> · A grant issued before the NEPA rule took effect (17 December), the reach of the extraterritorial theory, the precedent of heliocentric disposal, four locked shells above 600 km, and the physical premise of 700 launches a year all hang together.</div>
+  </div>
+
+  <h3>What to watch</h3>
+  <p>① 17 December and 25 December. The NEPA rule's effective date and the rehearing deadline sit ten days apart. Watch whether Amazon, Viasat or the AAS file under §1.115, whether Earthjustice goes to court, and how the Commission defends applying a rule that was not yet in force.</p>
+  <p>② The above-600 km modification. It is both the key to four shells and the main event in any litigation. Watch the filing date, whether heliocentric disposal is allowed, and whether the array and radiator envelope is fixed differently from the application.</p>
+  <p>③ Q3 2027, late 2027 and 2028. The company has pointed to a first Starmind launch on Starship in the third quarter of 2027, volume production at Bastrop as soon as late 2027, and deployment from 2028. Watch Starship cadence (two in Q3), mass to orbit (476 tonnes in Q3), and the first satellite's actual orbit and thermal test results.</p>
+  <p>④ The direction of capex. Of the $35–40 billion guided for the fourth quarter, how much goes to orbit. Watch the SI capex breakdown, whether orbital capacity contracts appear in the $63 billion backlog, and whether a first customer is named.</p>
+  <p>⑤ Rival applications. Same band, same terms, same queue. Watch when and on what conditions Blue Origin's 51,600 and Starcloud's 88,000 are decided, and whether their disposal and debris conditions match Starmind's.</p>
+  <p>⑥ Korea's 2027 budget. Watch whether the KRW 2.1 billion for core technology grows to include the roughly KRW 12 billion demonstration satellite, and whether design work actually starts in January 2027.</p>
+
+  <h3>One line</h3>
+  <p>The FCC did not judge whether orbital data centers work. It declared it would not judge, and instead slowed the clock and removed the bond. The remaining examiners are the radiator and the launch mass, and neither grants deferrals.</p>
+
+  <div class="weak">
+    <b>Where this argument is weak</b> — several places the conclusion rests are not yet settled.
+    <div style="margin-top:10px">① The AI1 figures (30 m, 75 m, 250 kW peak, 175 kW average, 75 kW per tonne) come from SpaceX's product page, a marketing document. They may differ from the technical attachment in the FCC application; I could not open the ICFS filing directly and cross-checked through reporting. The 4-tonne mass ceiling, sub-1,500 m² array and sub-200 m² radiator are likewise quoted from reporting.</div>
+    <div style="margin-top:10px">② The thermal figures (m² per kW, 34–59 kg/kW, $250–1,000 per kg) are first-order estimates assuming ideal radiative rejection. Earth infrared and albedo, coolant temperature, junction temperature and radiator geometry all change the area. This article did not verify any specific satellite's thermal design.</div>
+    <div style="margin-top:10px">③ Wood Mackenzie's $170 billion per gigawatt is a hypothetical model, and the 70% launch-cost reduction is an assumption inside it.</div>
+    <div style="margin-top:10px">④ The ICEF's 700 launches and Amazon's 220 years and 44× depend on each body's assumptions about satellite life, compute per tonne and payload mass. Change the assumptions and the results change.</div>
+    <div style="margin-top:10px">⑤ "Four shells locked" is a reading of Conditions 4 and 11. How the FCC will handle satellite-by-satellite exceptions has not been published.</div>
+    <div style="margin-top:10px">⑥ That the fifteen-year term runs from first-satellite certification is the text of Condition 11, but how hard the 2033 milestone will be enforced is left to the Bureau's discretion.</div>
+    <div style="margin-top:10px">⑦ No lawsuit had been reported as of 27 November. Earthjustice's statements express intent; the filing, if any, and its claims are unknown.</div>
+    <div style="margin-top:10px">⑧ Share prices ($127.44, $131.69) and the intraday drop are from reporting. Valuation estimates vary too widely between outlets to be used here.</div>
+    <div style="margin-top:10px">⑨ SpaceX's quarterly figures and S-1 language were checked against the SEC filings. The 100 GW and one-million-tonne figures are the company's targets, not committed plans.</div>
+    <div style="margin-top:10px">⑩ Korean K-Moonshot figures come from the 2 November forum and press coverage; the budget is the 2027 proposal and may change in the National Assembly.</div>
+  </div>
+
+  <div class="sources">
+    <div class="h">Sources</div>
+    <div class="grp">Primary — read directly</div>
+    <ol>
+      <li><span class="tier">Primary</span>FCC Space Bureau, "Space Exploration Holdings LLC, Application for Launch and Operating Authority for the SpaceX Orbital Data Center System," DA 26-1273, 25 Nov 2026 (ICFS SAT-LOA-20260108-00016, Call Sign S00798) — <a href="https://docs.fcc.gov/public/attachments/DA-26-1273A1.pdf">docs.fcc.gov/public/attachments/DA-26-1273A1.pdf</a> (grant, Conditions 1–11, NEPA ¶¶14–15, optical astronomy ¶¶16–17, petitions denied ¶20, "We decline to do so" ¶18)</li>
+      <li><span class="tier">Primary</span>FCC, "FCC Authorizes 1 Million Satellites for Data Centers in Space," press release, 25 Nov 2026 — <a href="https://www.fcc.gov/document/fcc-authorizes-1-million-satellites-data-centers-space">fcc.gov/document/fcc-authorizes-1-million-satellites-data-centers-space</a> (Carr statement, Kardashev II, further proposals)</li>
+      <li><span class="tier">Primary</span>FCC, "Modernizing the Commission's National Environmental Policy Act Rules," FCC 26-64, adopted 1 Oct 2026, 91 FR 74024, published 17 Nov 2026 — <a href="https://www.federalregister.gov/documents/2026/11/17/2026-23385/modernizing-the-commissions-national-environmental-policy-act-rules">federalregister.gov/documents/2026/11/17/2026-23385</a> (extraterritorial activities, ¶¶63–70)</li>
+      <li><span class="tier">Primary</span>Space Exploration Technologies Corp., "SpaceX Reports Third Quarter 2026 Results," Form 8-K exhibit, 20 Oct 2026 — <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026066482/spaceexplorationtechnologi.htm">sec.gov/…/000162828026066482</a> (revenue $14.6bn, capex $19.6bn, SI capex $16.4bn, 1.7 GW nameplate, $63bn backlog, Q4 guidance)</li>
+      <li><span class="tier">Primary</span>Space Exploration Technologies Corp., Form 10-Q for the quarter ended 30 Sep 2026, filed 22 Oct 2026 — <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026066880/spcx-20260930.htm">sec.gov/…/000162828026066880</a> (mass to orbit 476 t and 1,517 t; 33 Falcon and 2 Starship launches)</li>
+      <li><span class="tier">Primary</span>Space Exploration Technologies Corp., Form S-1, filed 20 May 2026 — <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm">sec.gov/…/000162828026036936</a> (definition and 2028 deployment, 100 GW/year and 1m tonnes/year, ~9,600 Starlink satellites, "not yet been proven at commercial scale, or at all")</li>
+      <li><span class="tier">Primary</span>SpaceX, "Starmind" product page — <a href="https://www.spacex.com/starmind">spacex.com/starmind</a> (AI1: 30 m, 75 m wingspan, 250 kW peak / 175 kW average, 75 kW per tonne, sun-synchronous orbit, Bastrop Gigasat Factory)</li>
+      <li><span class="tier">Primary</span>American Astronomical Society, "AAS Leadership Available to Comment on FCC Approval of SpaceX's Orbital Data Center System," 25 Nov 2026 — <a href="https://aas.org/press/spacex-data-center-fcc-approval">aas.org/press/spacex-data-center-fcc-approval</a> (full statement; absence of formal coordination requirements)</li>
+      <li><span class="tier">Primary</span>Kuiper Systems LLC (Amazon Leo), Petition to Deny, 6 Mar 2026 — <a href="https://aas.org/sites/default/files/2026-03/Amazon%20Petition%20to%20Deny%20SpaceX%20Data%20Center%20Application.pdf">aas.org/…/Amazon Petition to Deny</a> (4,526 satellites in 2025, 220 years, 200,000 replacements = 44×, "lofty ambition rather than a real plan")</li>
+      <li><span class="tier">Primary</span>Viasat, Inc., Petition to Deny, 6 Mar 2026 — <a href="https://aas.org/sites/default/files/2026-03/PUBLIC%20-%20Petition%20to%20Deny%20SpaceX%20Data%20Center%20Application%20(3-6-2026).pdf">aas.org/…/PUBLIC - Petition to Deny</a> (Gen2 15,000-satellite precedent; one failed satellite above 700 km would exhaust the 100 object-year limit)</li>
+      <li><span class="tier">Primary</span>Earthjustice et al., "Petition to Initiate Programmatic Environmental Impact Statement on Orbital Data Center Applications," 8 Jul 2026 — <a href="https://earthjustice.org/wp-content/uploads/2026/07/2026.07.08-petition-for-programmatic-eis.pdf">earthjustice.org/…/2026.07.08-petition-for-programmatic-eis.pdf</a></li>
+      <li><span class="tier">Primary</span>US GAO, "Science &amp; Tech Spotlight: Data Centers in Space," GAO-26-109012, 28 Apr 2026 — <a href="https://www.gao.gov/assets/gao-26-109012.pdf">gao.gov/assets/gao-26-109012.pdf</a> (solar arrays and cooling unproven, radiation, economics)</li>
+      <li><span class="tier">Primary</span>Blue Origin, Project Sunrise application, ICFS SAT-LOA-20260120-00033, 19 Mar 2026 — <a href="https://fcc.report/IBFS/SAT-AMD-20260917-00370/0e1de88bcfd70b10c070f3542f851c26.pdf?raw=1">fcc.report (application PDF)</a> (51,600 satellites, 500–1,800 km, 97–104°, same Ka-band)</li>
+      <li><span class="tier">Primary</span>NVIDIA, "SpaceXAI Adopts NVIDIA Vera CPU to Accelerate Agentic AI at Massive Scale," 24 Aug 2026 — <a href="https://nvidianews.nvidia.com/news/spacexai-adopts-nvidia-vera-cpu-to-accelerate-agentic-ai-at-massive-scale">nvidianews.nvidia.com/…</a> (first-generation Starmind on optimized Vera Rubin NVL72)</li>
+      <li><span class="tier">Primary</span>Korea AeroSpace Administration, "Korea's Space Data Center to Become a Gateway for Domestic AI and ICT Companies," 11 Aug 2026 — <a href="https://www.kasa.go.kr/prog/bbsArticle/BBSMSTR_000000000041/view.do?mno=sub01_01&amp;nttId=B000000003412Sw4lB9">kasa.go.kr</a> (17 companies; four core technologies)</li>
+    </ol>
+    <div class="grp">Secondary — reporting and analysis</div>
+    <ol>
+      <li><span class="tier">Secondary</span>Ars Technica, "The FCC has authorized SpaceX to deploy 1 million satellites," 25 Nov 2026 — <a href="https://arstechnica.com/space/2026/11/the-fcc-has-authorized-spacex-to-deploy-1-million-satellites/">arstechnica.com/space/2026/11/…</a> (14-year runway, ~1,500 comments, refusal of environmental review)</li>
+      <li><span class="tier">Secondary</span>CNBC, "SpaceX wins FCC approval for 1 million orbital data center satellites," 25 Nov 2026 — <a href="https://www.cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html">cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html</a> (Amazon's "centuries," Earthjustice criticism)</li>
+      <li><span class="tier">Secondary</span>Reuters via NBC News, "SpaceX gets green light to deploy 1 million satellites for data centers in space," 25 Nov 2026 — <a href="https://www.nbcnews.com/science/space/spacex-fcc-authorizes-1-million-satellites-data-centers-space-rcna611341">nbcnews.com/…</a> (milestones 2033, 2035, 2038, 2040)</li>
+      <li><span class="tier">Secondary</span>Aviation Week, "FCC Greenlights SpaceX Plan For Orbital Data Centers," 25 Nov 2026 — <a href="https://aviationweek.com/space/commercial-space/fcc-greenlights-spacex-plan-orbital-data-centers">aviationweek.com/…</a> (500 km and 2,000 km as filed; AAS statement)</li>
+      <li><span class="tier">Secondary</span>Spaceflight Now, "FCC green lights SpaceX's plan to launch 1 million 'Starmind' data center satellites," 26 Nov 2026 — <a href="https://spaceflightnow.com/2026/11/26/fcc-green-lights-spacexs-plan-to-launch-1-million-starmind-data-center-satellites/">spaceflightnow.com/2026/11/26/…</a></li>
+      <li><span class="tier">Secondary</span>Via Satellite, "FCC Approves SpaceX's 1-Million Satellite Orbital Data Center Constellation," 25 Nov 2026 — <a href="https://www.satellitetoday.com/connectivity/2026/11/25/fcc-approves-spacexs-1-million-satellite-orbital-data-center-constellation/">satellitetoday.com/…</a> (Starcloud 88,000; Project Sunrise 51,600)</li>
+      <li><span class="tier">Secondary</span>SpaceNews, "Blue Origin joins the orbital data center race," 19 Mar 2026 — <a href="https://spacenews.com/blue-origin-joins-the-orbital-data-center-race/">spacenews.com/…</a></li>
+      <li><span class="tier">Secondary</span>The Space Road, "What is SpaceX Starmind? FCC approves 1 million satellites," 26 Nov 2026 — <a href="https://thespaceroad.com/articles/what-is-spacex-starmind/">thespaceroad.com/…</a> (500–2,000 km and 18.3 GHz as filed versus 500–1,002 km and 18.8 GHz granted; AI1 figures)</li>
+      <li><span class="tier">Secondary</span>IEEE Spectrum, "Why Thermodynamics Rules Future Orbital Data Centers," 11 Jun 2026 — <a href="https://spectrum.ieee.org/orbital-data-centers-heat">spectrum.ieee.org/orbital-data-centers-heat</a> (1.4 m² per chip; 80 m² per 40 kW rack; 2,500 racks per 100 MW; +40% after five years)</li>
+      <li><span class="tier">Secondary</span>arXiv 2604.27197, "Orbital Data Centers: Spacecraft Constraints and Economic Viability," Apr 2026 — <a href="https://arxiv.org/html/2604.27197v1">arxiv.org/html/2604.27197v1</a> (1 MW: 5,640 m² PV, 2,500 m² radiator, 34–59 kg/kW; $250–1,000/kg allowance)</li>
+      <li><span class="tier">Secondary</span>ICEF, "Space-Based Data Centers Roadmap: The Case for Caution — Findings and Recommendations," Nov 2026 — <a href="https://icef.go.jp/wp-content/themes/icef_new/pdf/roadmap/2026/ICEF%20SBDC%20Roadmap%20Findings%20and%20Recommendations%20Nov%202026.pdf">icef.go.jp/…/ICEF SBDC Roadmap</a> (~19,000 satellites today; 50×; 700 Starship-class launches a year; thermal limits; optimistic weight claims)</li>
+      <li><span class="tier">Secondary</span>Wood Mackenzie estimate via Yahoo Finance, 25 Nov 2026 — <a href="https://finance.yahoo.com/technology/article/spacex-stock-pares-losses-following-fcc-approval-for-data-centers-in-space-183757039.html">finance.yahoo.com/…</a> (~$170bn per GW; 70% launch-cost reduction needed; S-1 risk language; CFO's 2028 reference)</li>
+      <li><span class="tier">Secondary</span>Space Law Journal, "FCC Licenses SpaceX's Starmind: What the One Million Satellite Order Grants, Defers and Refuses to Decide," 26 Nov 2026 — <a href="https://spacelawjournal.com/fcc-spacex-starmind-million-satellite-licence/">spacelawjournal.com/…</a> (NEPA rule effective 17 December; §1.115 thirty-day window)</li>
+      <li><span class="tier">Secondary</span>Morgan Lewis, "Orbital Data Centers Could Put National Environmental Policy Act to the Test in Space," 25 Aug 2026 — <a href="https://www.morganlewis.com/pubs/2026/08/orbital-data-centers-could-put-national-environmental-policy-act-to-the-test-in-space">morganlewis.com/…</a> (Seven County analysis; extraterritoriality issues)</li>
+      <li><span class="tier">Secondary</span>ESO, "ESO statement on approval of launch of one million space data centres," 26 Nov 2026 — <a href="https://www.eso.org/public/news/eso2614/">eso.org/public/news/eso2614</a></li>
+      <li><span class="tier">Secondary</span>Newsis, "Korea's space data center to fly on Nuri in 2028 for first demonstration," 2 Nov 2026 — <a href="https://www.newsis.com/view/NISX20261102_0003851666">newsis.com/…</a> (K-Moonshot roadmap, KRW 14bn, KRW 2.1bn in the 2027 budget)</li>
+      <li><span class="tier">Secondary</span>Digital Daily, "Space data center demonstration set for the seventh Nuri launch," 3 Nov 2026 — <a href="https://www.ddaily.co.kr/page/view/2026110217234494115">ddaily.co.kr/…</a> (561 km dawn-dusk orbit, one year, four core technologies, KT SAT demand concern)</li>
+      <li><span class="tier">Secondary</span>Benzinga, "SpaceX Stock Rises: What's Going On?" 27 Nov 2026 — <a href="https://www.benzinga.com/trading-ideas/movers/26/11/63678208/spacex-stock-rises-whats-going-on">benzinga.com/…</a> ($131.69 on 27 November; S&amp;P 7,088; Nvidia −7.4%; VIX)</li>
+      <li><span class="tier">Secondary</span>GuruFocus, "SpaceX Stocks Rise 1.3% as FCC Approves 1 Million Orbital Data Center Satellites," 26 Nov 2026 — <a href="https://www.gurufocus.com/news/9227977/spacex-stocks-rise-13-as-fcc-approves-1-million-orbital-data-center-satellites">gurufocus.com/…</a> ($127.44 close; 2027 launch plans)</li>
+    </ol>
+    <div class="grp">Treated as single-source or estimate</div>
+    <ol>
+      <li><span class="tier">Single-source</span>The 4-tonne mass ceiling, sub-1,500 m² array and sub-200 m² radiator rest on reporting (Sulat AI and others) quoting the application's technical attachment, which I could not read directly.</li>
+      <li><span class="tier">Single-source</span>AI1 figures are SpaceX product-page values, not independently verified flight data.</li>
+      <li><span class="tier">Single-source</span>The figure of roughly 1,500 public comments is Ars Technica's count; the FCC order says only "a substantial number of comments."</li>
+      <li><span class="tier">Single-source</span>The first Starmind launch in Q3 2027 comes from reporting on investor communications, not a company release.</li>
+      <li><span class="tier">Single-source</span>"10% of 2030 AI data center demand" and 700 launches are the ICEF's assumption-based estimates.</li>
+    </ol>
+  </div>
+
+  <div class="disc">
+    <b>Disclaimer</b>
+    This article is for information and analysis, based on public primary documents and reporting. It does not recommend buying or selling any security, nor any target price or timing. Regulatory content reflects FCC Space Bureau order DA 26-1273 of 25 November 2026 and the NEPA order FCC 26-64 adopted on 1 October 2026; conditions and interpretations may change through rehearing, litigation or modification. Thermal, mass and cost figures are model-based and assumption-dependent, and this article has not verified the flight performance of any satellite. Company financials are taken from SEC filings, but orbital compute schedules and scale are the company's projections, not committed plans. Investment decisions remain the reader's responsibility.
+  </div>
+
+  <div class="signoff">
+    <div class="nm">The Signal</div>
+    <div class="sl">Research that reads the change first</div>
+  </div>
+
+</article>
+
+</div>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="./" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal home</a>
+    &nbsp;·&nbsp;
+    <a href="archive" style="color:#26467d;font-weight:600;text-decoration:none;">All past issues</a>
+    &nbsp;·&nbsp;
+    <a href="/weekly-08" style="color:#26467d;font-weight:600;text-decoration:none;">한국어판 &rarr;</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

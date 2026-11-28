@@ -4,7 +4,7 @@
   "author": "글 쓰는 범고래 (ORCA)",
   "canonical_site": "https://thesignal-orca.pages.dev",
   "feed_url": "https://thesignal-orca.pages.dev/signals.json",
-  "updated_at": "2026-11-27",
+  "updated_at": "2026-11-28",
   "language": "ko",
   "verification_policy_url": "https://thesignal-orca.pages.dev/verify-system",
   "archive_url": "https://thesignal-orca.pages.dev/archive",
@@ -12,12 +12,12 @@
   "citation_format": "글 쓰는 범고래, 「글 제목」, The Signal, {url} (2026)",
   "intro": "세상의 변화를 먼저 읽는 리서치. 지정학·자본·산업·기술·AI 다섯 영역에서 1차 출처로 검증한 사실만으로 신호를 읽는 한국어 리서치 사이트. 모든 검증 가능한 주장은 1차 출처 원문·URL과 함께 원장에 봉인되고, 확인하지 못한 것은 확인하지 못했다고 표기한다. 이 피드는 발행 글의 제목·요약·핵심 수치·출처를 기계가 읽을 수 있는 형태로 제공한다. 종목 매수·매도 권유나 투자 자문이 아니다.",
   "counts": {
-    "items": 17,
+    "items": 18,
     "legacy_items": 14,
     "books": 3,
     "by_series": {
       "daily": 1,
-      "weekly": 8,
+      "weekly": 9,
       "weekly-map": 2,
       "deep-research": 6
     }
@@ -33,6 +33,235 @@
     "url_en": "영문판 URL. 영문판이 없으면 필드가 없다. 한국어판은 url에 있다."
   },
   "items": [
+    {
+      "id": "weekly-08",
+      "series": "weekly",
+      "number": 8,
+      "title": "허가는 백만 기를 주었다 — 그 백만 기를 식히는 일은 허가 대상이 아니다",
+      "subtitle": "FCC는 궤도 데이터센터가 작동하는지를 판정하지 않았다. 그 질문을 자기 권한 밖이라고 선언했을 뿐이다. 남은 것은 14년의 활주로, 유예된 폐기 궤도, 1GW당 1,700억 달러의 견적, 그리고 아직 아무도 만들어 보지 않은 방열판이다",
+      "published_at": "2026-11-28",
+      "url": "https://thesignal-orca.pages.dev/weekly-08",
+      "summary": "11월 25일 FCC 우주국은 문서 DA 26-1273으로 스페이스X 스타마인드(위성 최대 100만 기, 500~1,002km 껍질 6개)를 '일부 허가·일부 유예, 조건부'로 처리했다. 허가한 것은 18.8~19.3/28.6~29.1GHz의 백업·비상 TT&C뿐이고, 600km 위 위성의 대기 재진입 외 폐기 방식 면제는 유예되어 상위 4개 껍질이 잠겼다. 처리 라운드·보증금·기존 마일스톤(6년 50%·9년 전량)을 면제하고 2033년 1기·2035년 10%·2038년 50%·2040년 전량으로 바꿨으며, 면허 15년은 첫 위성 인증 시점부터 기산한다. 환경(NEPA '영토 외'·FCC 26-64, 12월 17일 발효)·광학천문·열관리·기술·경제적 타당성은 권한 밖으로 각하했다. 100만 기×175kW=175GW, 4톤 기준 400만 톤은 3분기 궤도 투입 476톤의 2,100년분이며, ICEF는 2030년 수요 10%에 연 700회 스타십급 발사가 필요하다고 본다. 1GW당 우드맥킨지 추정 1,700억 달러, 스페이스X 3분기 설비투자 196억 달러. 판단: 규제가 준 것은 연산 용량이 아니라 옵션이며, 남은 심사관은 방열판과 발사 질량이다.",
+      "key_metrics": [
+        {
+          "name": "허가 규모",
+          "value": "1,000,000",
+          "unit": "기 (상한)",
+          "as_of": "2026-11-25",
+          "note": "NGSO. DA 26-1273 Grant. 하한 없음"
+        },
+        {
+          "name": "허가 궤도",
+          "value": "500–1,002",
+          "unit": "km",
+          "as_of": "2026-11-25",
+          "note": "50km 두께 껍질 6개, 30도·태양동기. 신청서는 500~2,000km였다"
+        },
+        {
+          "name": "주파수",
+          "value": "18.8–19.3 / 28.6–29.1",
+          "unit": "GHz",
+          "as_of": "2026-11-25",
+          "note": "백업·비상 TT&C 전용, 비보호·비간섭. 주 통신은 광 ISL"
+        },
+        {
+          "name": "폐기 방식 면제",
+          "value": "DEFERRED",
+          "unit": "—",
+          "as_of": "2026-11-25",
+          "note": "600km 위 위성의 지구 폐기 궤도·태양 주회 궤도. 수정 신청 전 배치 불가"
+        },
+        {
+          "name": "배치 마일스톤",
+          "value": "2033 / 2035 / 2038 / 2040",
+          "unit": "연도",
+          "as_of": "2026-11-25",
+          "note": "1기 / 10% / 50% / 전량. 기존 6년 50%·9년 전량에서 교체"
+        },
+        {
+          "name": "면허 기간",
+          "value": "15",
+          "unit": "년",
+          "as_of": "2026-11-25",
+          "note": "첫 위성 궤도 운용 인증 시점부터 기산"
+        },
+        {
+          "name": "AI1 컴퓨트 탑재량",
+          "value": "250 / 175",
+          "unit": "kW 피크/평균",
+          "as_of": "2026-11-26",
+          "note": "스페이스X 제품 페이지. 75kW/톤, 질량 약 2.3~3.3톤"
+        },
+        {
+          "name": "100만 기 총 컴퓨트",
+          "value": "175",
+          "unit": "GW",
+          "as_of": "2026-11-28",
+          "note": "100만×175kW. 지상 명판 1.7GW의 약 103배"
+        },
+        {
+          "name": "방열 면적",
+          "value": "2,500",
+          "unit": "㎡/1MW",
+          "as_of": "2026-06-11",
+          "note": "IEEE Spectrum·arXiv 2604.27197 근사. 40kW 랙 80㎡"
+        },
+        {
+          "name": "1GW 궤도 데이터센터 비용",
+          "value": "1,700억",
+          "unit": "달러",
+          "as_of": "2026-11-25",
+          "note": "우드맥킨지 추정, 지상의 3배 이상, 발사비 70% 인하 필요"
+        },
+        {
+          "name": "스페이스X 3분기 설비투자",
+          "value": "196",
+          "unit": "억 달러",
+          "as_of": "2026-09-30",
+          "note": "매출 146억 달러 초과. 4분기 가이던스 350억~400억 달러"
+        },
+        {
+          "name": "3분기 궤도 투입 질량",
+          "value": "476",
+          "unit": "톤",
+          "as_of": "2026-09-30",
+          "note": "9개월 누적 1,517톤. 400만 톤은 이 속도로 2,100년"
+        },
+        {
+          "name": "스타십급 발사 필요량",
+          "value": "700",
+          "unit": "회/년",
+          "as_of": "2026-11",
+          "note": "ICEF, 2030년 AI 데이터센터 수요 10% 유지 가정, 영구"
+        }
+      ],
+      "primary_sources": [
+        {
+          "tier": "primary",
+          "source": "FCC Space Bureau, “Space Exploration Holdings LLC, Application for Launch and Operating Authority for the SpaceX Orbital Data Center System”, DA 26-1273, 2026-11-25, ICFS SAT-LOA-20260108-00016, Call Sign S00798",
+          "url": "https://docs.fcc.gov/public/attachments/DA-26-1273A1.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "FCC, “FCC Authorizes 1 Million Satellites for Data Centers in Space”, press release, 2026-11-25",
+          "url": "https://www.fcc.gov/document/fcc-authorizes-1-million-satellites-data-centers-space"
+        },
+        {
+          "tier": "primary",
+          "source": "FCC, “Modernizing the Commission's National Environmental Policy Act Rules”, FCC 26-64, adopted 2026-10-01, 91 FR 74024, published 2026-11-17",
+          "url": "https://www.federalregister.gov/documents/2026/11/17/2026-23385/modernizing-the-commissions-national-environmental-policy-act-rules"
+        },
+        {
+          "tier": "primary",
+          "source": "Space Exploration Technologies Corp., “SpaceX Reports Third Quarter 2026 Results”, Form 8-K exhibit, 2026-10-20",
+          "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026066482/spaceexplorationtechnologi.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "Space Exploration Technologies Corp., Form 10-Q, quarter ended 2026-09-30, filed 2026-10-22",
+          "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026066880/spcx-20260930.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "Space Exploration Technologies Corp., Form S-1, filed 2026-05-20",
+          "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm"
+        },
+        {
+          "tier": "primary",
+          "source": "SpaceX, “Starmind” product page (AI1 specifications, Gigasat Factory)",
+          "url": "https://www.spacex.com/starmind"
+        },
+        {
+          "tier": "primary",
+          "source": "American Astronomical Society, “AAS Leadership Available to Comment on FCC Approval of SpaceX's Orbital Data Center System”, 2026-11-25",
+          "url": "https://aas.org/press/spacex-data-center-fcc-approval"
+        },
+        {
+          "tier": "primary",
+          "source": "Kuiper Systems LLC (Amazon Leo), Petition to Deny, 2026-03-06",
+          "url": "https://aas.org/sites/default/files/2026-03/Amazon%20Petition%20to%20Deny%20SpaceX%20Data%20Center%20Application.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "Viasat, Inc., Petition to Deny, 2026-03-06",
+          "url": "https://aas.org/sites/default/files/2026-03/PUBLIC%20-%20Petition%20to%20Deny%20SpaceX%20Data%20Center%20Application%20(3-6-2026).pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "Earthjustice et al., “Petition to Initiate Programmatic Environmental Impact Statement on Orbital Data Center Applications”, 2026-07-08",
+          "url": "https://earthjustice.org/wp-content/uploads/2026/07/2026.07.08-petition-for-programmatic-eis.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "U.S. GAO, “Science & Tech Spotlight: Data Centers in Space”, GAO-26-109012, 2026-04-28",
+          "url": "https://www.gao.gov/assets/gao-26-109012.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "Blue Origin, Project Sunrise application, ICFS SAT-LOA-20260120-00033, 2026-03-19",
+          "url": "https://fcc.report/IBFS/SAT-AMD-20260917-00370/0e1de88bcfd70b10c070f3542f851c26.pdf"
+        },
+        {
+          "tier": "primary",
+          "source": "NVIDIA, “SpaceXAI Adopts NVIDIA Vera CPU to Accelerate Agentic AI at Massive Scale”, 2026-08-24",
+          "url": "https://nvidianews.nvidia.com/news/spacexai-adopts-nvidia-vera-cpu-to-accelerate-agentic-ai-at-massive-scale"
+        },
+        {
+          "tier": "primary",
+          "source": "Korea AeroSpace Administration, “Korea's Space Data Center to Become a Gateway for Domestic AI and ICT Companies”, 2026-08-11",
+          "url": "https://www.kasa.go.kr/prog/bbsArticle/BBSMSTR_000000000041/view.do?mno=sub01_01&nttId=B000000003412Sw4lB9"
+        },
+        {
+          "tier": "secondary",
+          "source": "Ars Technica, “The FCC has authorized SpaceX to deploy 1 million satellites”, 2026-11-25",
+          "url": "https://arstechnica.com/space/2026/11/the-fcc-has-authorized-spacex-to-deploy-1-million-satellites/"
+        },
+        {
+          "tier": "secondary",
+          "source": "CNBC, “SpaceX wins FCC approval for 1 million orbital data center satellites”, 2026-11-25",
+          "url": "https://www.cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "IEEE Spectrum, “Why Thermodynamics Rules Future Orbital Data Centers”, 2026-06-11",
+          "url": "https://spectrum.ieee.org/orbital-data-centers-heat"
+        },
+        {
+          "tier": "secondary",
+          "source": "arXiv 2604.27197, “Orbital Data Centers: Spacecraft Constraints and Economic Viability”, 2026-04",
+          "url": "https://arxiv.org/html/2604.27197v1"
+        },
+        {
+          "tier": "secondary",
+          "source": "ICEF, “Space-Based Data Centers Roadmap: The Case for Caution”, 2026-11",
+          "url": "https://icef.go.jp/wp-content/themes/icef_new/pdf/roadmap/2026/ICEF%20SBDC%20Roadmap%20Findings%20and%20Recommendations%20Nov%202026.pdf"
+        },
+        {
+          "tier": "secondary",
+          "source": "Space Law Journal, “FCC Licenses SpaceX's Starmind”, 2026-11-26 (NEPA rule effective 2026-12-17; 47 CFR 1.115 30-day window)",
+          "url": "https://spacelawjournal.com/fcc-spacex-starmind-million-satellite-licence/"
+        },
+        {
+          "tier": "secondary",
+          "source": "Wood Mackenzie estimate via Yahoo Finance, 2026-11-25 (about USD 170bn per GW; 70% launch-cost reduction needed)",
+          "url": "https://finance.yahoo.com/technology/article/spacex-stock-pares-losses-following-fcc-approval-for-data-centers-in-space-183757039.html"
+        },
+        {
+          "tier": "secondary",
+          "source": "Newsis, 「韓 우주 데이터센터, 2028년 누리호로 첫 실증」, 2026-11-02 (K-Moonshot roadmap)",
+          "url": "https://www.newsis.com/view/NISX20261102_0003851666"
+        }
+      ],
+      "source_count": 22,
+      "domains": [
+        "우주",
+        "규제",
+        "자본"
+      ],
+      "verification": "ledger-verified",
+      "title_en": "The Permit Grants a Million Satellites — Cooling Them Was Ruled Out of Scope",
+      "url_en": "https://thesignal-orca.pages.dev/weekly-08-en"
+    },
     {
       "id": "daily-01",
       "series": "daily",

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>허가는 백만 기를 주었다 — 그 백만 기를 식히는 일은 허가 대상이 아니다 — The Signal</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#16181A; --ink-soft:#4a5158; --muted:#7a828a;
+    --rule:#e3e6e9; --card:#f4f6f8; --cap:#1c3155; --accent:#26467d;
+    --box:#f4f6fb; --boxline:#d8e0ee;
+    --main:1180px;
+    --l3:#c0392b; --l3bg:#fdf0ef;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:#f3f4f6; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    line-height:1.9; -webkit-font-smoothing:antialiased;
+    word-break:keep-all; overflow-wrap:break-word;
+  }
+  .wrap{max-width:var(--main); margin:0 auto; padding:32px 24px 90px;}
+  .status{background:var(--cap); color:#fff; padding:12px 20px; border-radius:6px; font-size:13px; margin-bottom:20px; letter-spacing:.02em;}
+  .status b{color:#ffd7d2;}
+  .grid{display:block;}
+  article{background:#fff; border:1px solid var(--rule); border-radius:6px; padding:56px 52px 60px; box-shadow:0 1px 3px rgba(0,0,0,.04); max-width:800px; margin:0 auto;}
+
+  .masthead{font-family:"Roboto Slab",serif; font-size:.95rem; letter-spacing:.14em; color:var(--accent); font-weight:700; text-transform:uppercase; padding-bottom:20px; border-bottom:1px solid var(--rule); margin-bottom:30px;}
+  .masthead .tag{color:var(--l3); font-family:-apple-system,sans-serif; letter-spacing:0; font-size:.8rem; margin-left:10px;}
+
+  .meta{font-size:13px; color:var(--muted); margin:0 0 30px; line-height:2;}
+  .meta b{color:var(--ink-soft);}
+  h1{font-size:2.0rem; line-height:1.34; letter-spacing:-.02em; margin:0 0 12px; font-weight:800;}
+  h2.sub{font-size:1.12rem; line-height:1.6; color:var(--ink-soft); font-weight:500; margin:0 0 36px; letter-spacing:-.01em;}
+  h3{font-size:1.3rem; margin:48px 0 16px; letter-spacing:-.01em; font-weight:800; color:var(--cap); padding-top:18px; border-top:1px solid var(--rule);}
+  p{margin:0 0 19px; font-size:1.04rem;}
+  strong{font-weight:700;}
+  .lead{font-size:1.12rem; color:#000;}
+
+  .f{text-decoration:underline; text-decoration-color:#9aa1a8; text-underline-offset:4px; text-decoration-thickness:1.5px;}
+  .f-id{font-size:.72em; color:var(--accent); font-weight:700; vertical-align:super; margin-left:1px;}
+  .f-l3{text-decoration:underline; text-decoration-color:var(--l3); text-underline-offset:4px; text-decoration-thickness:2px; background:var(--l3bg); padding:0 2px; border-radius:2px;}
+  .f-l3 .f-id{color:var(--l3);}
+
+  blockquote{margin:28px 0; padding:18px 24px; background:var(--box); border-left:4px solid var(--accent); border-radius:4px; font-size:1.08rem; color:var(--cap); font-weight:600;}
+  blockquote p{margin:0; font-size:inherit;}
+  .box{margin:28px 0; padding:20px 24px; background:var(--card); border:1px solid var(--rule); border-radius:5px; font-size:.98rem; line-height:1.85;}
+  .box .h{font-weight:800; margin-bottom:12px; color:var(--cap);}
+  .box .l{margin-bottom:8px;} .box .l:last-child{margin-bottom:0;}
+  .box .l b{color:var(--ink);}
+
+  .weak{margin-top:40px; padding:18px 22px; background:#fafbfe; border:1px dashed var(--accent); border-radius:5px; font-size:.96rem; color:var(--ink-soft); line-height:1.8;}
+  .weak b{color:var(--cap);}
+
+  .sources{margin-top:46px; padding-top:22px; border-top:2px solid var(--cap); font-size:.9rem; color:var(--ink-soft); line-height:1.75;}
+  .sources .h{font-family:"Roboto Slab",serif; font-weight:700; color:var(--cap); font-size:1.0rem; margin-bottom:14px; letter-spacing:.02em;}
+  .sources ol{margin:0; padding-left:20px;}
+  .sources li{margin-bottom:9px;}
+  .sources a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; word-break:break-all;}
+  .sources .tier{font-size:.78rem; color:var(--muted); border:1px solid var(--boxline); border-radius:3px; padding:0 5px; margin-right:6px;}
+
+  .disc{margin-top:32px; padding:16px 20px; border:1px solid var(--boxline); border-radius:4px; background:#f0f1f3; font-size:.84rem; color:#555; line-height:1.7;}
+  .disc b{display:block; margin-bottom:5px; color:#333;}
+
+  .signoff{margin-top:44px; padding-top:30px; border-top:2px solid var(--cap); text-align:center;}
+  .signoff .nm{font-family:"Roboto Slab",serif; font-size:1.7rem; font-weight:700; color:var(--cap); text-transform:uppercase; letter-spacing:.05em; line-height:1;}
+  .signoff .sl{font-size:.98rem; color:var(--accent); font-weight:500; margin-top:10px; letter-spacing:.03em;}
+
+  /* 마진 원장 카드 */
+  .margin{display:flex; flex-direction:column; gap:8px; position:sticky; top:20px;}
+  .card{border:1px solid var(--boxline); border-radius:5px; padding:10px 13px; background:var(--card); font-size:12px; line-height:1.6;}
+  .card .id{font-weight:800; color:var(--accent); font-size:12.5px;}
+  .card.l3{border-color:var(--l3); background:var(--l3bg);}
+  .card.l3 .id{color:var(--l3);}
+  .card .tier{color:var(--muted); font-size:10.5px; margin-bottom:3px;}
+  .card .excerpt{color:#333; font-style:italic; margin:4px 0;}
+  .card .q{color:var(--l3); font-size:11px; margin-top:5px; font-weight:600;}
+  .card a{color:var(--accent); font-size:10.5px; word-break:break-all;}
+
+  @media (max-width:1100px){ .grid{grid-template-columns:1fr;} .margin{position:static;} }
+  @media (max-width:560px){ article{padding:38px 24px;} h1{font-size:1.6rem;} }
+
+  .sources .grp{font-weight:700;color:var(--cap);margin:16px 0 8px;font-size:.95rem}
+
+  /* language switch + data tables */
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .langsw{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+  .langsw a{color:var(--muted);text-decoration:none;font-weight:700;padding:2px 5px;border-radius:3px;}
+  .langsw a:hover{color:var(--accent);}
+  .langsw a.on{color:#fff;background:var(--accent);}
+  .langsw span{margin:0 4px;color:#c3c9cf;}
+  table.dt{width:100%;border-collapse:collapse;font-size:.86rem;line-height:1.6;margin:22px 0 14px;}
+  table.dt thead th{background:var(--cap);color:#fff;font-weight:600;text-align:left;padding:9px 11px;font-size:.82rem;}
+  table.dt td{padding:9px 11px;border-bottom:1px solid #e6e9ee;vertical-align:top;text-align:left;}
+  table.dt tbody tr:nth-child(even) td{background:#f7f9fb;}
+  table.dt tbody tr:last-child td{border-bottom:1px solid var(--rule);}
+  table.dt.compact td{padding:8px 10px;}
+  table.dt td.n{white-space:nowrap;text-align:right;}
+  .tcap{font-size:.82rem;color:var(--muted);margin:-6px 0 24px;line-height:1.6;}
+  @media (max-width:560px){
+    table.dt{font-size:.76rem;line-height:1.5;}
+    table.dt thead th{font-size:.72rem;}
+    table.dt td, table.dt thead th{padding:7px 7px;}
+    table.dt td.n{white-space:normal;text-align:left;}
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="canonical" href="https://thesignal-orca.pages.dev/weekly-08">
+<link rel="alternate" hreflang="ko" href="https://thesignal-orca.pages.dev/weekly-08">
+<link rel="alternate" hreflang="en" href="https://thesignal-orca.pages.dev/weekly-08-en">
+<link rel="alternate" hreflang="x-default" href="https://thesignal-orca.pages.dev/weekly-08">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Signal — 세상의 변화를 먼저 읽는 리서치">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="허가는 백만 기를 주었다 — 그 백만 기를 식히는 일은 허가 대상이 아니다">
+<meta property="og:description" content="FCC는 궤도 데이터센터가 작동하는지를 판정하지 않았다. 그 질문을 자기 권한 밖이라고 선언했을 뿐이다 — 14년 활주로, 유예된 폐기 궤도, 1GW당 1,700억 달러, 그리고 연 100만 톤.">
+<meta property="og:url" content="https://thesignal-orca.pages.dev/weekly-08">
+</head>
+<body>
+<div class="wrap">
+
+<div class="grid">
+<article>
+
+  <div class="masthead">The Signal · Weekly
+    <span class="langsw"><a class="on" href="/weekly-08">KO</a><span>|</span><a href="/weekly-08-en">EN</a></span>
+  </div>
+
+  <div class="meta">
+    <b>발행</b> · Weekly No.08 · 2026년 11월 28일<br>
+    <b>도메인</b> · 우주 × 규제 × 자본<br>
+    <b>신선도</b> · 2026년 11월 25일(현지) FCC 우주국 문서 DA 26-1273 채택·공개, 같은 날 FCC 보도자료 및 스페이스X 3분기 실적(10월 20일)·S-1(5월 20일) 기준. 11월 26~27일 반응 보도까지 반영
+  </div>
+
+  <h1>허가는 백만 기를 주었다 — 그 백만 기를 식히는 일은 허가 대상이 아니다</h1>
+  <h2 class="sub">FCC는 궤도 데이터센터가 작동하는지를 판정하지 않았다. 그 질문을 자기 권한 밖이라고 선언했을 뿐이다. 남은 것은 14년의 활주로, 유예된 폐기 궤도, 1GW당 1,700억 달러의 견적, 그리고 아직 아무도 만들어 보지 않은 방열판이다</h2>
+
+  <p class="lead">11월 25일(현지), 미국 연방통신위원회(FCC) 우주국은 문서번호 DA 26-1273으로 스페이스X의 궤도 데이터센터 시스템 '스타마인드(Starmind)' 신청을 처리했다. 처리 결과는 '일부 허가·일부 유예, 조건부(GRANTED-IN-PART / DEFERRED-IN-PART – With Conditions)'다. 허가 규모는 비정지궤도(NGSO) 위성 100만 기. 궤도는 두께 50km의 껍질 여섯 개, 고도 500~1,002km, 경사각 30도와 태양동기궤도다. 주파수는 18.8~19.3GHz(우주→지구)와 28.6~29.1GHz(지구→우주)의 Ka 대역.</p>
+
+  <p>그런데 이 14쪽짜리 문서에서 가장 중요한 문장은 허가 문장이 아니다. 조건 4다. 스페이스X가 요청한 '고도 600km 위 위성을 대기 재진입이 아닌 지구 폐기 궤도나 태양 주회 궤도로 보내겠다'는 규정 면제 신청을, FCC는 <strong>유예(DEFERRED)</strong>했다. 이유는 한 줄이다. "대체 폐기 방식이 위원회 규정을 충족하는지 판단하기에 충분한 정보를 스페이스X가 제공하지 않았다."</p>
+
+  <p>이 유예가 실무에서 뜻하는 것은 표보다 무겁다. FCC는 같은 문서 조건 11에서 "600km 아래에서 운용되는 스타마인드 위성의 궤도 잔해 완화 계획은 규정을 충족한다"고 썼다. 뒤집으면 600km 위는 충족하지 않는다는 뜻이다. 그 고도에서 위성을 배치·운용하려면 잔해 완화 계획을 담은 <strong>수정 신청</strong>을 먼저 내야 한다. 허가받은 껍질 여섯 개 가운데 지금 바로 쓸 수 있는 것은 550~568km와 565~585km 두 개다. 686~718km, 707~744km, 946~978km, 967~1,002km 네 개는 서류를 더 내기 전까지 열리지 않는다.</p>
+
+  <p>그리고 한 가지 더. 이 허가가 실제로 규율하는 것은 <strong>비상용 무전기</strong>다. 스타마인드의 주 통신은 위성 간 광통신(ISL)이고, 그것으로 스타링크 망에 결과를 넘긴다. FCC가 허가한 Ka 대역은 그 광통신이 고장 났을 때 쓰는 백업·비상 추적·명령(TT&amp;C) 전용이다. 즉 사업의 본체인 연산과 열과 광링크는 이 면허의 대상이 아니다. 문서 스스로 그렇게 적었다.</p>
+
+  <blockquote><p>위원회가 허가한 것은 100만 기의 컴퓨트가 아니라, 100만 기가 지구와 통신할 수 있는 비상 채널이다. 나머지 질문은 "권한 밖"으로 각하됐다.</p></blockquote>
+
+  <p>브렌던 카 FCC 위원장의 성명은 이 문서를 이렇게 요약한다. "미국은 초지능(Super Intelligence) 시대로 세계를 이끌고 있다. … 이 조치는 미국의 리더십과 성장을 떠받칠 컴퓨팅 인프라에 대담한 새 영역을 연다." 보도자료는 한 걸음 더 나간다. 이 결정이 인류를 "태양의 힘 전체를 활용하는 문명, 카르다셰프 II형 문명"에 가깝게 만든다고 썼다.</p>
+
+  <p>그래서 이 글의 질문은 하나로 좁혀진다. 규제가 14년을 주었을 때, 그 14년 안에 물리와 경제가 이 허가를 채워 줄 수 있는가. FCC는 그 질문에 답하지 않았다. 답하지 않는 것이 이 결정의 내용이다.</p>
+
+  <h3>무엇이 허가되고, 무엇이 유예되고, 무엇이 거부되었나</h3>
+  <p>문서가 실제로 한 일을 표로 고정해 두자. 아래는 모두 DA 26-1273의 문언이다.</p>
+
+  <table class="dt">
+    <thead><tr><th style="width:24%">항목</th><th>내용</th><th style="width:22%">문서 위치</th></tr></thead>
+    <tbody>
+      <tr><td><strong>허가 규모</strong></td><td>NGSO 위성 최대 1,000,000기. '상한'이며 하한이 아니다</td><td>Grant 표제부</td></tr>
+      <tr><td><strong>궤도</strong></td><td>두께 50km 껍질, 고도 500~1,002km, 30도 경사각·태양동기. 공칭 껍질 6개</td><td>Grant 표제부</td></tr>
+      <tr><td><strong>주파수</strong></td><td>18.8~19.3GHz(우주→지구), 28.6~29.1GHz(지구→우주). 백업·비상 TT&amp;C 전용, 비보호·비간섭</td><td>Grant 표제부, 조건 1</td></tr>
+      <tr><td><strong>600km 위 폐기</strong></td><td>대기 재진입 외 방식(지구 폐기 궤도·태양 주회 궤도) 면제 신청 → <strong>유예</strong>. 해당 위성 배치 전 수정 신청 필요</td><td>조건 4, §11</td></tr>
+      <tr><td><strong>600km 위 배치</strong></td><td>최종 잔해 완화 계획 담은 수정 신청 전까지 배치 불가. 사실상 상위 4개 껍질 잠김</td><td>조건 11, §11</td></tr>
+      <tr><td><strong>마일스톤</strong></td><td>1기 2033-11-25 / 10% 2035-11-25 / 50% 2038-11-25 / 전량 2040-11-25</td><td>조건 10</td></tr>
+      <tr><td><strong>면허 기간</strong></td><td>15년. 첫 위성 궤도 배치·운용 적합성 인증 시점부터 기산(3시 EST)</td><td>조건 11</td></tr>
+      <tr><td><strong>보고 의무</strong></td><td>매년 1월 1일·7월 1일 반기 보고 — 근접 사건 수, 운용 제외 위성 수, 재진입 수, 총 배치 수·궤도요소, Ka 대역 사용 위성 수</td><td>조건 6</td></tr>
+      <tr><td><strong>면제 승인</strong></td><td>처리 라운드(§25.156·25.157), 보증금(§25.165), 기존 마일스톤(§25.164) → 신규 part 100 일정 적용</td><td>조건 7~10</td></tr>
+      <tr><td><strong>청원 기각</strong></td><td>아마존 레오(쿠이퍼), 비아샛, 미국천문학회(AAS)의 허가거부 청원 3건 모두 기각</td><td>§20</td></tr>
+      <tr><td><strong>각하</strong></td><td>환경영향, 광학천문, 열관리, 기술·경제적 실현성, 궤도 혼잡 — "위원회 권한 밖"</td><td>§14~18</td></tr>
+    </tbody>
+  </table>
+  <p class="tcap">출처: FCC 우주국, DA 26-1273, 2026-11-25. '유예'와 '조건'은 문서가 쓴 표현 그대로다.</p>
+
+  <h3>허가장이 실제로 한 일 — 시계를 늦추고, 보증금을 지웠다</h3>
+  <p>숫자만 보면 이 결정은 '역대 최대 규모의 우주 허가'다. 구조를 보면 다른 것이 보인다. FCC가 한 일은 크게 세 가지다. 첫째, 100만 기를 승인했다. 둘째, 그 100만 기를 언제까지 올리라고 요구하던 <strong>기존 시계를 7년 늦췄다</strong>. 셋째, 실패에 대비해 미리 돈을 걸게 하는 <strong>보증금을 없앴다</strong>.</p>
+
+  <p>기존 규칙 §25.164는 허가 후 6년 안에 50%, 9년 안에 전량을 배치하라고 요구한다. 스페이스X가 처음 요청한 것은 이 마일스톤의 '전면 면제'였다. 그러다 10월 19일 서한에서 요청을 바꿨다. 전면 면제 대신, 위원회가 7월 'Space Modernization' 절차에서 새로 채택한 part 100 일정을 적용해 달라는 것이었다. FCC는 이를 받아들였다. 결과가 2033년 1기, 2035년 10%, 2038년 50%, 2040년 전량이다.</p>
+
+  <p>이 교체의 의미는 산술보다 크다. 새 일정에서 2033년 11월까지 요구되는 것은 <strong>위성 한 기</strong>다. 100만 기짜리 면허를 유지하는 조건이 7년 뒤까지 위성 한 기라는 뜻이다. 그 사이에 아무것도 올리지 않아도 면허는 살아 있다. 게다가 면허 기간 15년은 허가일이 아니라 <strong>첫 위성이 궤도에서 정상 작동한다고 인증한 날</strong>부터 시작된다. 첫 위성이 2028년에 오르면 면허는 2043년까지 유효하다. 활주로는 14년이 아니라 그보다 길다.</p>
+
+  <p>보증금 면제도 같은 방향이다. §25.165의 보증금은 사업자가 궤도 자원을 사재기하고 실제로는 발사하지 않는 것을 막는 장치다. FCC는 면제 근거로 "스펙트럼 사용이 백업·비간섭에 한정되어 있어 엄격한 보증금 적용의 공익 편익이 작다"는 점을 들었다. 논리는 일관된다. 비상용 무전기만 허가했으니 그 무전기에 보증금을 걸 이유가 없다.</p>
+
+  <p>문제는 그 일관성이 만드는 그림자다. 보증금과 마일스톤은 <strong>진척을 재는 자</strong>였다. 그것을 없앤 허가는 진척을 재지 않는 허가다. 아마존 레오가 3월 청원에서 이 점을 정확히 찔렀다. "스페이스X는 백만 기 배치를 어떤 구체적 일정으로도 책임지지 않으려 한다. 이 신청서는 실제 계획이라기보다 야심의 표현이고, 완성된 신청서라기보다 투기적 자리표시자다." FCC는 이 문장을 각하했다. 대신 "새 마일스톤을 적용했으므로 그 우려는 실효됐다"고 썼다.</p>
+
+  <p>여기서 한 가지를 분명히 해 두자. 이 결정은 무책임한 면허가 아니다. 조건은 촘촘하다. 연방 시스템과의 조정, 24/7 간섭 담당 연락처, 반기 보고 다섯 항목, 600km 위 배치 전 수정 신청. 행정적으로 이 문서는 정교하다. 다만 그 정교함이 향한 곳이 <strong>전파 간섭과 궤도 잔해</strong>이지, 사업의 성립 여부가 아니라는 것이다.</p>
+
+  <h3>FCC가 스스로 그은 선 — 환경·천문·타당성</h3>
+  <p>문서에서 가장 자주 인용될 부분은 §14다. FCC는 10월 1일 채택한 NEPA 규칙 개정(FCC 26-64)을 근거로, 스타마인드에 대해 추가 환경 검토를 하지 않겠다고 밝혔다. 그 개정의 핵심은 "위원회가 허가하는 우주 기반 활동은 '영토 외 활동(extraterritorial activities)'이므로 NEPA상 중대한 연방 행위(MFA)가 아니다"라는 판단이다. 우주는 미국 영토가 아니고, 우주에 대한 미국의 주권도 없으므로 NEPA의 관할 밖이라는 논리다.</p>
+
+  <p>시점을 짚어 둘 필요가 있다. 그 개정은 11월 17일 연방관보에 실렸고, 대부분 조항의 효력은 게재 30일 뒤인 <strong>12월 17일</strong>에 발생한다. 스타마인드 허가는 그 전에 나왔다. FCC는 이 간극을 알고 있었고, 문서에 이렇게 썼다. "새 규칙은 연방관보 게재 30일 후 또는 정보수집법(PRA) 절차 종료 후 효력을 얻는다. 다만 현행 규칙 체계를 적용하더라도 우리는 NEPA상 추가 검토를 요구하지 않는다." 즉 새 규칙이 아직 발효되지 않았더라도, 결론은 같다는 이중의 근거를 세워 둔 것이다.</p>
+
+  <p>세부는 이렇게 정리된다. 발사 배기가스와 대기 영향은 "FCC의 권한 밖"이며 FAA가 발사 환경 검토를 맡는다. 위성이 재진입하며 타는 것의 대기 영향은 "추측적이며 기록으로 뒷받침되지 않는다". 광학천문은 스페이스X의 NSF 협의 약속으로 충분하다. AAS가 제기한 열 서명(thermal signature) 문제는 "전파 운용과 무관한 영향이므로 검토 범위 밖"이다. 궤도 혼잡은 "위원회 규칙이 유사 궤도요소로 허가할 수 있는 위성 수에 상한을 두지 않으며, 이 심사 절차에서 사실상의 규칙을 만들지 않는다"는 이유로 각하됐다.</p>
+
+  <p>그리고 마지막 문단이 이 문서의 성격을 가장 잘 보여준다. 궤도 데이터센터가 기술적으로 되는지, 지상보다 효율적인지, 정말 필요한지에 대한 의견들에 대해 FCC는 이렇게 썼다. "많은 경우 이 의견들은 사업의 실행 가능성에 관한 정부의 판단을 신청인과 민간 기업의 판단으로 대체하려 한다. 우리는 그렇게 하지 않겠다(We decline to do so)."</p>
+
+  <blockquote><p>규제는 "되는지"를 묻지 않겠다고 선언했다. 대신 "언제까지 몇 기"를 아주 관대하게 정했다. 이 두 문장이 함께 있어야 이 결정이 이해된다.</p></blockquote>
+
+  <h3>물리 1 — 열이 먼저 도착한다</h3>
+  <p>FCC가 검토하지 않은 것 중 가장 먼저 답을 요구하는 것은 열이다. 우주에는 대류가 없다. 데이터센터가 낸 열은 오직 복사로만 나간다. 슈테판-볼츠만 법칙에 따라 방출량은 면적에 비례하고 절대온도의 네제곱에 비례한다. 온도를 올릴 수 없으면 면적을 늘려야 하고, 면적은 곧 질량과 부피와 발사비다.</p>
+
+  <p>IEEE Spectrum이 6월에 실은 계산이 이 문제의 크기를 보여준다. 700W를 쓰는 H100 한 장을 60도로 유지하려면 복사면적이 약 1.4㎡ 필요하다. GPU 32장이 들어간 랙(CPU·메모리·네트워크 포함 약 40kW)이면 약 80㎡, 배구장 절반 크기다. 100MW급 데이터센터라면 그 랙이 2,500개 필요하다. 여기에 저궤도의 자외선과 원자 산소가 방열판 코팅을 갉아먹어, 5년 뒤에는 같은 열을 내보내는 데 40% 더 넓은 면적이 필요하다.</p>
+
+  <p>학술 모델도 같은 방향을 가리킨다. 4월 공개된 분석(arXiv 2604.27197)은 1MW 규모 궤도 노드에 태양전지 5,640㎡, 방열판 2,500㎡, 전지·축전·방열을 합쳐 29.4kg/kW가 필요하고, 위성 본체를 더하면 34~59kg/kW가 된다고 계산한다. 같은 논문은 이 무게에서 지상 인프라 벤치마크(10~40달러/W)를 맞추려면 발사비와 제작비를 합쳐 kg당 250~1,000달러 안에 넣어야 한다고 지적한다. 팔콘9의 공개된 전용 발사 단가만으로도 그 허들은 이미 3.4~13.5배 넘는다.</p>
+
+  <p>스페이스X가 공개한 1세대 위성 'AI1'의 제원은 이 계산을 정면으로 겨냥한다. 전개 높이 30m, 날개 폭 75m, 컴퓨트 탑재량 최대 250kW(평균 175kW), 기체 효율 75kW/톤. 회사는 "진공으로 열을 복사하기 때문에 지상 냉각 설비 대비 냉각 전력 부담을 한 자릿수 배 줄인다"고 설명한다. 75kW/톤이 평균 기준이라면 위성 1기 무게는 약 2.3톤, 피크 기준이면 3.3톤이다. 신청서가 제시한 기체 상한은 4톤이다.</p>
+
+  <p>100만 기에 평균 175kW를 곱하면 <strong>175GW</strong>다. 이는 스페이스X가 9월 30일 기준으로 보유한 지상 명판 컴퓨트 1.7GW의 약 103배다. 숫자가 커 보이는 이유는 분모가 작아서이기도 하다. 2033년까지 필요한 것은 1기, 그 한 기의 방열판 면적이 문제다.</p>
+
+  <p>이 지점에서 정부 문서 두 개가 같은 결론을 낸다. 미 회계감사원(GAO)은 4월 보고서에서 "대형 데이터센터의 전력·냉각 요구는 추가 공학 개발이 필요하며, 2026년 4월 현재 우주에서 발사·조립된 어떤 것보다 큰 태양전지판이 필요하다. 이 규모의 냉각 해법도 입증되지 않았다"고 썼다. 국제에너지경제포럼(ICEF)이 11월에 낸 '우주 데이터센터 로드맵: 신중론'은 더 직접적이다. "열관리는 실현성과 비용을 결정하는 가장 근본적인 변수다. 진공에서는 폐열을 복사로만 버릴 수 있으므로 방열판의 크기와 질량, 그리고 칩을 어느 온도에서 돌릴 수 있는지가 위성이 실을 수 있는 연산량을 사실상 정한다." 같은 보고서는 "선도 개발사들이 주장하는 중량은 매우 낙관적이며 현재 입증된 기술을 넘어선다"고 덧붙였다.</p>
+
+  <h3>물리 2 — 질량이 일정표를 정한다</h3>
+  <p>열이 위성 한 기의 상한을 정한다면, 질량은 사업 전체의 일정을 정한다. 100만 기 × 4톤은 400만 톤이다. 스페이스X의 3분기 실적 공시를 보자. 3분기 궤도 투입 질량은 476톤, 9개월 누적 1,517톤이다. 이 속도로 400만 톤을 올리면 8,400분기, 약 <strong>2,100년</strong>이다.</p>
+
+  <p>스타십이 이 방정식을 바꾸는 것은 맞다. 3분기 스타십 발사는 2회였고, 그중 한 번이 첫 궤도 비행(Flight 14)으로 스타링크 V3 위성 26기를 실었다. 회사는 이 한 번이 팔콘9 스타링크 발사 대비 하향 용량을 약 10배 늘렸다고 밝혔다. 문제는 규모다. 스페이스X는 S-1에서 이렇게 썼다. "연 100GW를 위성으로 배치하려면 연간 수천 회의 발사와 약 100만 톤의 질량을 궤도로 옮겨야 한다." 회사 자신이 연 100만 톤을 전제로 잡았다. 400만 톤은 그 4년분이다.</p>
+
+  <p>외부 계산은 더 보수적이다. ICEF는 "2030년 AI 데이터센터 수요의 10%를 우주에서 감당하는 함대를 유지하려면 스타십급 발사를 연 700회, 하루 2회씩 영구히 해야 한다"고 추정한다. 아마존의 3월 청원은 다른 각도에서 같은 벽을 짚었다. "2025년 전 세계가 발사한 위성은 4,526기다. 그 속도로 100만 기를 올리면 220년이 넘는다. 5년 수명을 가정하면 매년 20만 기를 교체해야 하는데, 이는 2025년 전 세계 발사량의 44배다."</p>
+
+  <p>이 숫자들을 '불가능'의 증거로 읽을 필요는 없다. 스타십이 연 700회를 실제로 돌린다면 계산은 바뀐다. 다만 그 700회는 아직 한 번도 달성된 적이 없고, 2026년 3분기 스타십 발사는 2회였다. 질량은 규제가 아니라 물리와 생산능력이 정하는 변수이고, 이 변수만은 유예할 방법이 없다.</p>
+
+  <h3>경제 — 1GW당 1,700억 달러, 그리고 아직 고객이 없다</h3>
+  <p>컨설팅사 우드맥킨지는 가상의 1GW 궤도 데이터센터 비용을 약 <strong>1,700억 달러</strong>로 추정했다. 지상 데이터센터의 3배가 넘고, 차이의 대부분은 지구에서 올리는 비용이다. 이 회사는 경쟁력을 갖추려면 발사비가 약 70% 내려가야 한다고 본다.</p>
+
+  <p>스페이스X의 현재 속도를 보면 이 사업이 회사 재무에서 어디에 있는지 분명해진다. 3분기 매출은 146억 달러(전년 대비 +161%), 순이익 44억 달러, 조정 EBITDA 89억 달러였다. 같은 분기 설비투자는 <strong>196억 달러</strong>로 매출을 넘었고, 그중 164억 달러가 초지능(SI) 부문이었다. 9개월 누적 설비투자는 480억 달러. 회사는 4분기 설비투자를 350억~400억 달러로 제시했다. 수주잔고는 630억 달러다.</p>
+
+  <p>이 돈의 대부분은 지상 데이터센터로 간다. 9월 말 명판 컴퓨트 1.7GW, 연말까지 2.5~3GW가 목표다. 스타마인드는 그 옆에 붙은 선택지다. S-1은 이 선택지를 이렇게 규정한다. "궤도 AI 컴퓨트 위성을 이르면 2028년부터 배치할 것으로 예상한다." 그리고 위험 요인에는 이렇게 적었다. "궤도 AI 컴퓨트를 규모 있게 개발하려는 우리의 계획은 상당한 기술적 복잡성과 미검증 기술을 포함하며, 상업적 실행 가능성에 도달하지 못할 수 있다. … 상업적 규모에서, 또는 전혀 입증된 적이 없으며, 궁극적으로 성공하지 못할 수 있다."</p>
+
+  <p>시장의 반응도 담담했다. 허가가 나온 11월 25일 SPCX는 장중 9%까지 밀렸다가 전일 대비 1.3% 오른 <strong>127.44달러</strong>에 마감했다. 같은 날 S&amp;P500은 1.6% 하락했고 엔비디아는 7.4% 빠졌다. 허가는 궤도 데이터센터의 가치를 인정받은 사건이 아니라, AI 자금 조달 우려 속에서 겨우 상쇄된 재료였다. 11월 27일 주가는 131.69달러로 3.3% 올랐다. 사업의 성립 여부가 아니라 금리의 방향이 주가를 움직이고 있다는 뜻이다.</p>
+
+  <p>그리고 아직 고객이 없다. 스페이스X는 궤도 연산 용량을 판매할 고객을 공개하지 않았다. 오늘 회사의 AI 매출은 지상 데이터센터에서 나온다. 면허는 매출이 아니라 <strong>옵션</strong>이다. 옵션의 가격은 행사가가 아니라 기초자산의 변동성으로 매겨지고, 이 옵션의 기초자산은 방열판과 발사 질량이다.</p>
+
+  <h3>법 — 12월 25일, 그리고 유예된 폐기 궤도</h3>
+  <p>이 결정에 대한 다음 관문은 두 개다. 하나는 행정, 하나는 사법이다. FCC 규칙 §1.115는 우주국 같은 위임 결정에 대해 공개 통지 후 30일 안에 위원회 전원에 재심을 신청할 수 있게 한다. 11월 25일 공개 기준으로 그 창은 <strong>12월 25일 전후</strong>에 닫힌다. 스페이스X에도 조건을 거절할 30일이 주어졌다. 그 뒤에야 연방항소법원 문이 열린다.</p>
+
+  <p>예고된 소송은 이미 있다. 환경단체 얼스저스티스는 7월 8일 다크스카이 인터내셔널 등과 함께 궤도 데이터센터 신청을 멈추고 프로그램적 환경영향평가서(PEIS)를 하라는 청원을 FCC에 냈다. 이 단체의 얀 하셀만 변호사는 "준수하도록 소송해야 한다면 하겠다"고 말했다. 허가 직후에는 이 결정을 "무모하다"고 규정했다. 11월 27일 기준으로 실제 소장이 접수됐다는 보도는 확인되지 않는다. 아직 말과 예고의 단계다.</p>
+
+  <p>법리적으로 가장 취약한 지점은 '영토 외' 논리 자체보다 그 적용이다. 대법원은 2025년 Seven County 사건에서 NEPA가 검토 대상 '프로젝트'의 환경영향을 다루는 것이지 무한히 확장된 상·하류 영향까지 다루는 것은 아니라고 하면서도, 영향이 물리적 위치와 다른 곳에서 나타난다고 해서 곧바로 검토 밖이라는 뜻은 아니라고 했다. 재진입 연소가 성층권에 남기는 알루미늄 산화물, 위성 반사광이 미국 영토의 밤하늘에 미치는 영향은 '미국 밖에서만' 일어나는 효과가 아니다. FCC가 "추측적"이라고 잘라낸 부분이 정확히 소송의 쟁점이 될 자리다. 게다가 새 규칙은 허가 시점에 아직 발효 전이었다.</p>
+
+  <p>그러나 실무적으로 더 중요한 다음 관문은 소송이 아니다. <strong>조건 4의 수정 신청</strong>이다. 스페이스X가 600km 위 껍질 네 개를 쓰려면 폐기 계획을 담은 수정 신청을 내야 하고, FCC는 그 안에서 '대기 재진입이 아닌 폐기'를 처음으로 판정하게 된다. 태양 주회 궤도로 위성을 보내는 것을 허용하면, 그 판단은 이후 모든 고고도 군집의 선례가 된다. 반대로 거부하면 100만 기의 절반 이상이 들어갈 자리가 없어진다. 유예는 회피가 아니라 다음 라운드의 예고다.</p>
+
+  <p>천문학 쪽 반응은 이 결정을 규제 실패로 기록했다. AAS는 "실망하고 경악했다"며 "이 규모의 군집이 내는 의도적·비의도적 전파 방출은 전파천문학 연구를 위태롭게 하고, 데이터센터가 내는 폐열은 적외선 배경을 높여 민감한 관측 장비의 효용을 위협한다"고 밝혔다. 유럽남방천문대(ESO)는 "이 승인은 국경을 넘어 전 지구적 공공재에 영향을 미치는 활동을 평가할 국제적 메커니즘의 필요성을 보여준다"고 했다. 두 기관 모두 소송의 당사자는 아니다. 그러나 기록은 남았다.</p>
+
+  <h3>경쟁 — 같은 대역을 모두에게 준 이유</h3>
+  <p>이 허가를 '독점'으로 읽으면 구조를 놓친다. FCC는 같은 Ka 대역(18.8~19.3GHz / 28.6~29.1GHz)을 경쟁자들에게도 같은 조건으로 검토하고 있다. 블루오리진은 '프로젝트 선라이즈'로 51,600기(500~1,800km, 경사각 97~104도)를 신청했고, 스타클라우드는 88,000기(600~850km)를 신청했다. FCC는 보도자료에서 "다른 궤도 데이터센터 제안들도 계속 검토 중이며 신속히 결정할 것"이라고 밝혔다.</p>
+
+  <p>그래서 이 면허의 가치는 스펙트럼 배타성이 아니다. 처리 라운드 면제로 스페이스X는 어떤 우선권도 갖지 않는다. 오히려 기존·미래 사업자를 보호하고 조정할 의무를 진다. 문서도 그 점을 근거로 "스펙트럼 사재기가 아니다"라고 항변한다. 그렇다면 남는 것은 무엇인가. <strong>시작 신호와 선례</strong>다. 100만 기라는 상한을 먼저 받아 두면, 이후 모든 심사에서 '스타마인드 수준'이 기준점이 된다. 경쟁자의 5만 기, 8만 기 신청은 그 기준점 아래에서 비교적 쉽게 통과한다. 카 위원장이 "경쟁 군집들도 태양광을 쓸 것"이라고 말한 것은 정책의 의도가 배타적 허가가 아니라 <strong>산업 전체의 허가</strong>임을 보여준다.</p>
+
+  <p>그러면 진짜 희소한 것은 무엇인가. 스펙트럼이 아니라 발사 질량, 방열판, 그리고 우주 등급 AI 칩이다. 스페이스X는 첫 세대 스타마인드에 엔비디아 베라 루빈 NVL72 기반 시스템을 쓴다고 8월 24일 밝혔다. 텍사스 배스트롭의 '기가샛 팩토리'는 "이르면 2027년 말부터 수천 기의 AI 위성"을 목표로 한다고 회사가 공개했다. 이 세 병목 중 어느 것도 FCC가 심사한 대상이 아니다. 규제가 나눠 준 것은 입장권이고, 경주는 다른 트랙에서 벌어진다.</p>
+
+  <h3>한국 — 플랫폼이 아니라 부품으로 들어가는 문</h3>
+  <p>한국의 답은 이미 나와 있다. 정부는 K-문샷의 우주 미션으로 '우주 데이터센터'를 택했고, 11월 2일 국회 토론회에서 3단계 로드맵을 공개했다. 2028년 11월 누리호 7차 발사에 100kg급 소형 검증위성을 부탑재로 올려 국산 NPU 연산 모듈과 전개형 태양전지판, 루프 히트파이프 냉각장치를 약 561km 여명-황혼 태양동기궤도에서 1년 이상 시험한다. 사업비는 발사비 약 20억원을 포함해 140억원. 2031년 500kg급에서 실제 AI 서비스를 구현하고, 2034년 수톤급 대형 플랫폼으로 확대한다.</p>
+
+  <p>전략의 핵심은 겸손함이 아니라 선택이다. K-문샷 추진단은 "글로벌 빅테크가 추진하는 플랫폼 경쟁에 같은 수준으로 뛰어드는 것은 실효적 실익이 없다"고 명시하고, 국산 AI 반도체·전력·열제어·광통신 부품을 글로벌 공급망에 넣는 쪽을 택했다. 8월 우주항공청 간담회에는 리벨리온·퓨리오사AI·딥엑스·모빌린트·SK하이닉스·LG에너지솔루션·한화솔루션 등 17개사가 참석했다.</p>
+
+  <p>이 선택은 이번 FCC 문서가 정리한 병목 목록과 정확히 겹친다. 방열, 전력, 방사선 내성 연산, 광링크. 스타마인드가 175GW를 향해 갈수록 이 네 가지가 가장 비싼 부품이 된다. 문제는 예산과 이력이다. 2027년 정부 예산안에 반영된 우주 데이터센터 핵심기술 예산은 21억원이고, 검증위성 개발비는 들어가지 않았다. 2028년 발사에 맞추려면 2027년 1월 착수가 최소 조건이다. 항우연이 강조한 것은 '우주 헤리티지'다. 지상에서 성능이 좋아도 궤도 운용 이력이 없으면 채택되지 않고, 채택되지 않으면 이력이 쌓이지 않는 순환이다.</p>
+
+  <p>비교가 불편하지만 필요하다. 미국은 1GW당 1,700억 달러짜리 산업의 허가를 논의하고 있고, 한국은 140억원짜리 실증위성의 예산을 논의하고 있다. 이 차이는 규모의 문제이지 방향의 문제가 아니다. 다만 방향이 맞으려면 2027년 1월에 설계가 시작되어야 한다. 스타마인드의 14년 활주로와 K-문샷의 24개월 개발 기간은 같은 달력 위에 있다.</p>
+
+  <div class="box">
+    <div class="h">신호 판정 — 5표식 충족</div>
+    <div class="l"><b>구조변화</b> · 미국 규제가 '누가 무엇을 쏘아 올리는가'에서 '누가 무엇을 계산하는가'로 넘어갔다. FCC가 위성 허가로 연산 인프라의 입지를 정하고, 그 판단에서 환경·천문·타당성을 권한 밖으로 밀어냈다. 우주 인프라의 허가 기준이 통신 간섭에서 산업 정책으로 이동한 첫 사례다.</div>
+    <div class="l"><b>자금·권력 이동</b> · 100만 기와 Ka 대역의 사용권이 사실상 '옵션'으로 발급됐다. 비용은 신청서와 2033년의 위성 한 기, 편익은 14년간 금융조달 가능성과 기준점 선점이다. 판정 권한은 FCC에서 방열판·발사 질량·칩 공급으로, 다시 산업으로 옮겨간다.</div>
+    <div class="l"><b>선례</b> · 궤도 데이터센터 군집 허가 1호. 처리 라운드·보증금·마일스톤을 동시에 면제하고, 폐기 방식만 유예한 첫 결합이다. 블루오리진 51,600기, 스타클라우드 88,000기가 이 기준점 위에서 심사된다.</div>
+    <div class="l"><b>도메인 교차</b> · 우주(궤도·잔해) × 에너지(방열·전력) × 규제(통신·환경) × 자본(설비투자·밸류에이션) × 천문학 × 국제법(영토 외·ITU)이 한 문서에 겹친다. 한국의 K-문샷과 반도체·부품 공급망도 같은 사건의 다른 면이다.</div>
+    <div class="l"><b>논란</b> · NEPA 규칙 발효(12월 17일) 전 허가, '영토 외' 논리의 적용 범위, 유예된 폐기 궤도(태양 주회 궤도)의 선례화, 600km 위 4개 껍질의 잠금, 그리고 연 700회 발사라는 물리적 전제가 동시에 걸려 있다.</div>
+  </div>
+
+  <h3>무엇을 지켜볼 것인가</h3>
+  <p>① 12월 17일과 12월 25일. NEPA 개정 규칙의 효력 발생일과 재심 신청 기한이 열흘 간격으로 붙어 있다. 확인 지표 — 아마존·비아샛·AAS가 §1.115 재심을 신청하는지, 얼스저스티스가 법원에 가는지, 그리고 그때 FCC가 새 규칙의 소급 적용을 어떻게 방어하는지.</p>
+  <p>② 600km 위 수정 신청. 상위 4개 껍질을 여는 열쇠이자 소송의 본류다. 확인 지표 — 제출 시점, 태양 주회 궤기를 허용하는지, 방열판·태양전지판 면적 상한이 신청서와 다르게 확정되는지.</p>
+  <p>③ 2027년 3분기와 2027년 말, 2028년. 회사는 2027년 3분기 스타십에 첫 스타마인드 발사를 계획하고, 배스트롭 공장에서 이르면 2027년 말 양산, 2028년 배치 개시를 말한다. 확인 지표 — 스타십 발사 횟수(3분기 2회), 궤도 투입 질량(3분기 476톤), 첫 위성의 실제 궤도·발열 시험 결과.</p>
+  <p>④ 설비투자의 방향. 4분기 350억~400억 달러 가이던스가 궤도로 얼마나 가는지. 확인 지표 — SI 부문 설비투자 내역, 수주잔고(630억 달러)에 궤도 연산 계약이 처음 등장하는지, 첫 고객 공개 여부.</p>
+  <p>⑤ 경쟁 신청의 처리. 같은 대역, 같은 조건으로 줄을 서 있다. 확인 지표 — 블루오리진 51,600기·스타클라우드 88,000기의 결정 시점과 조건, 그리고 폐기·잔해 조건이 스타마인드와 같은지.</p>
+  <p>⑥ 한국의 2027년 예산. 확인 지표 — 우주 데이터센터 핵심기술 예산(21억원)이 검증위성 개발비(약 120억원)까지 포함해 확대되는지, 2027년 1월 설계 착수가 이뤄지는지.</p>
+
+  <h3>한 줄 요약</h3>
+  <p>FCC는 궤도 데이터센터가 되는지를 심사하지 않았다. 심사하지 않겠다고 선언하고, 그 대신 시계를 늦추고 보증금을 지웠다. 남은 심사관은 방열판과 발사 질량이고, 그 둘은 유예를 받지 않았다.</p>
+
+  <div class="weak">
+    <b>약한 고리를 먼저 밝힙니다</b> — 이 글의 결론이 기대는 곳곳에 아직 굳지 않은 부분이 있습니다.
+    <div style="margin-top:10px">① 1세대 위성 'AI1'의 제원(30m·75m·250kW 피크·175kW 평균·75kW/톤)은 스페이스X의 제품 페이지에 실린 값이며, 마케팅 문서입니다. FCC 신청서 기술 부속서와 수치가 다를 수 있고, 신청서 원문은 ICFS에서 직접 열람하지 못해 언론 보도로 교차 확인했습니다. 위성 질량 상한 4톤, 태양전지판 1,500㎡ 미만, 방열판 200㎡ 미만 역시 보도 인용입니다.</div>
+    <div style="margin-top:10px">② 방열 계산(㎡/kW, 34~59kg/kW, kg당 250~1,000달러)은 이상적 복사 냉각을 전제한 1차 근사입니다. 실제로는 지구 적외선·알베도, 냉각재 온도, 칩 정션 온도, 방열판 형상에 따라 면적이 달라집니다. 이 글은 특정 위성의 실제 열 설계를 검증한 것이 아닙니다.</div>
+    <div style="margin-top:10px">③ 우드맥킨지의 '1GW당 1,700억 달러'는 가상 모델의 추정치이고, 발사비 70% 인하 전제도 같은 모델의 가정입니다.</div>
+    <div style="margin-top:10px">④ ICEF의 '연 700회', 아마존 청원의 '220년·44배'는 각 기관의 가정(위성 수명, 톤당 연산밀도, 발사 질량)에 기반한 계산입니다. 가정이 바뀌면 결과도 바뀝니다.</div>
+    <div style="margin-top:10px">⑤ '600km 위 4개 껍질 잠김'은 조건 4와 11의 문언 해석입니다. FCC가 개별 위성 단위 예외를 어떻게 운영할지는 아직 공개되지 않았습니다.</div>
+    <div style="margin-top:10px">⑥ '면허 15년이 첫 위성 인증부터'라는 점은 조건 11의 문언이지만, 2033년 마일스톤을 놓쳤을 때의 집행 강도는 우주국 재량에 달려 있습니다.</div>
+    <div style="margin-top:10px">⑦ 소송은 11월 27일 기준으로 제기 보도가 확인되지 않습니다. 얼스저스티스의 발언은 의사 표명이며, 제소 여부·청구 취지는 확정되지 않았습니다.</div>
+    <div style="margin-top:10px">⑧ 주가(127.44달러, 131.69달러)와 장중 낙폭은 보도 기준입니다. 시가총액·밸류에이션 수치는 매체별 추정이 크게 갈려 본문에 쓰지 않았습니다.</div>
+    <div style="margin-top:10px">⑨ 스페이스X의 3분기 수치와 S-1 문언은 SEC 공시 원문(8-K·10-Q·S-1)에서 확인했습니다. 다만 '연 100GW·연 100만 톤'은 회사의 목표 서술이지 확정 계획이 아닙니다.</div>
+    <div style="margin-top:10px">⑩ 한국 K-문샷 수치는 11월 2일 국회 토론회 발표와 보도에 근거하며, 예산은 2027년 정부 예산안 기준으로 국회 심의에서 바뀔 수 있습니다.</div>
+  </div>
+
+  <div class="sources">
+    <div class="h">출처</div>
+    <div class="grp">1차 출처(직접 확인)</div>
+    <ol>
+      <li><span class="tier">1차</span>FCC 우주국, 「Space Exploration Holdings LLC, Application for Launch and Operating Authority for the SpaceX Orbital Data Center System」, DA 26-1273, 2026-11-25 (ICFS SAT-LOA-20260108-00016, Call Sign S00798) — <a href="https://docs.fcc.gov/public/attachments/DA-26-1273A1.pdf">docs.fcc.gov/public/attachments/DA-26-1273A1.pdf</a> (허가 규모·궤도·주파수, 조건 1~11, NEPA §14~15, 광학천문 §16~17, 청원 기각 §20, "We decline to do so" §18)</li>
+      <li><span class="tier">1차</span>FCC, 「FCC Authorizes 1 Million Satellites for Data Centers in Space」 보도자료, 2026-11-25 — <a href="https://www.fcc.gov/document/fcc-authorizes-1-million-satellites-data-centers-space">fcc.gov/document/fcc-authorizes-1-million-satellites-data-centers-space</a> (카 위원장 성명, 카르다셰프 II, 경쟁 제안 검토 예고)</li>
+      <li><span class="tier">1차</span>FCC, 「Modernizing the Commission's National Environmental Policy Act Rules」, FCC 26-64, 2026-10-01 채택, 91 FR 74024, 2026-11-17 게재 — <a href="https://www.federalregister.gov/documents/2026/11/17/2026-23385/modernizing-the-commissions-national-environmental-policy-act-rules">federalregister.gov/documents/2026/11/17/2026-23385</a> (영토 외 활동·MFA 배제 §63~70)</li>
+      <li><span class="tier">1차</span>Space Exploration Technologies Corp., 「SpaceX Reports Third Quarter 2026 Results」, 8-K/실적발표, 2026-10-20 — <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026066482/spaceexplorationtechnologi.htm">sec.gov/…/000162828026066482</a> (매출 146억 달러, 설비투자 196억 달러, SI 164억 달러, 명판 1.7GW, 수주잔고 630억 달러, 4분기 350억~400억 달러 가이던스)</li>
+      <li><span class="tier">1차</span>Space Exploration Technologies Corp., Form 10-Q, 2026-09-30 분기, 2026-10-22 제출 — <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026066880/spcx-20260930.htm">sec.gov/…/000162828026066880</a> (궤도 투입 질량 476톤·1,517톤, 팔콘 33회·스타십 2회)</li>
+      <li><span class="tier">1차</span>Space Exploration Technologies Corp., Form S-1, 2026-05-20 제출 — <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm">sec.gov/…/000162828026036936</a> (궤도 AI 컴퓨트 정의·2028년 배치, 연 100GW·연 100만 톤·연 수천 회 발사, 스타링크 9,600기, 위험요인 "not yet been proven at commercial scale, or at all")</li>
+      <li><span class="tier">1차</span>SpaceX, 「Starmind」 제품 페이지 — <a href="https://www.spacex.com/starmind">spacex.com/starmind</a> (AI1 전개 높이 30m·날개 폭 75m·250kW 피크·175kW 평균·75kW/톤, 태양동기궤도, 배스트롭 기가샛 팩토리)</li>
+      <li><span class="tier">1차</span>American Astronomical Society, 「AAS Leadership Available to Comment on FCC Approval of SpaceX's Orbital Data Center System」, 2026-11-25 — <a href="https://aas.org/press/spacex-data-center-fcc-approval">aas.org/press/spacex-data-center-fcc-approval</a> (공식 성명 전문, "formal coordination requirements" 부재 지적)</li>
+      <li><span class="tier">1차</span>Kuiper Systems LLC(아마존 레오), Petition to Deny, 2026-03-06 — <a href="https://aas.org/sites/default/files/2026-03/Amazon%20Petition%20to%20Deny%20SpaceX%20Data%20Center%20Application.pdf">aas.org/…/Amazon Petition to Deny</a> (2025년 전 세계 4,526기, 220년, 연 20만 기 교체=44배, "lofty ambition rather than a real plan")</li>
+      <li><span class="tier">1차</span>Viasat, Inc., Petition to Deny, 2026-03-06 — <a href="https://aas.org/sites/default/files/2026-03/PUBLIC%20-%20Petition%20to%20Deny%20SpaceX%20Data%20Center%20Application%20(3-6-2026).pdf">aas.org/…/PUBLIC - Petition to Deny</a> (Gen2 15,000기 상한 선례, 700km 위 100 object-year 한계)</li>
+      <li><span class="tier">1차</span>Earthjustice 외, 「Petition to Initiate Programmatic Environmental Impact Statement on Orbital Data Center Applications」, 2026-07-08 — <a href="https://earthjustice.org/wp-content/uploads/2026/07/2026.07.08-petition-for-programmatic-eis.pdf">earthjustice.org/…/2026.07.08-petition-for-programmatic-eis.pdf</a></li>
+      <li><span class="tier">1차</span>U.S. GAO, 「Science &amp; Tech Spotlight: Data Centers in Space」, GAO-26-109012, 2026-04-28 — <a href="https://www.gao.gov/assets/gao-26-109012.pdf">gao.gov/assets/gao-26-109012.pdf</a> (태양전지판·냉각 미검증, 방사선, 경제성)</li>
+      <li><span class="tier">1차</span>Blue Origin, Project Sunrise 신청서, ICFS SAT-LOA-20260120-00033, 2026-03-19 — <a href="https://fcc.report/IBFS/SAT-AMD-20260917-00370/0e1de88bcfd70b10c070f3542f851c26.pdf?raw=1">fcc.report (신청서 PDF)</a> (51,600기, 500~1,800km, 97~104도, 동일 Ka 대역)</li>
+      <li><span class="tier">1차</span>NVIDIA, 「SpaceXAI Adopts NVIDIA Vera CPU to Accelerate Agentic AI at Massive Scale」, 2026-08-24 — <a href="https://nvidianews.nvidia.com/news/spacexai-adopts-nvidia-vera-cpu-to-accelerate-agentic-ai-at-massive-scale">nvidianews.nvidia.com/…</a> (1세대 스타마인드, 베라 루빈 NVL72 기반)</li>
+      <li><span class="tier">1차</span>우주항공청(KASA), 「Korea's Space Data Center to Become a Gateway for Domestic AI and ICT Companies」, 2026-08-11 — <a href="https://www.kasa.go.kr/prog/bbsArticle/BBSMSTR_000000000041/view.do?mno=sub01_01&amp;nttId=B000000003412Sw4lB9">kasa.go.kr</a> (17개사 참여, 핵심기술 4종)</li>
+    </ol>
+    <div class="grp">2차 출처(보도·분석)</div>
+    <ol>
+      <li><span class="tier">2차</span>Ars Technica, 「The FCC has authorized SpaceX to deploy 1 million satellites」, 2026-11-25 — <a href="https://arstechnica.com/space/2026/11/the-fcc-has-authorized-spacex-to-deploy-1-million-satellites/">arstechnica.com/space/2026/11/…</a> (14년 활주로, 약 1,500건 의견, 환경 검토 거부)</li>
+      <li><span class="tier">2차</span>CNBC, 「SpaceX wins FCC approval for 1 million orbital data center satellites」, 2026-11-25 — <a href="https://www.cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html">cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html</a> (아마존 "centuries", 얼스저스티스 비판)</li>
+      <li><span class="tier">2차</span>Reuters(NBC News), 「SpaceX gets green light to deploy 1 million satellites for data centers in space」, 2026-11-25 — <a href="https://www.nbcnews.com/science/space/spacex-fcc-authorizes-1-million-satellites-data-centers-space-rcna611341">nbcnews.com/…</a> (마일스톤 2033·2035·2038·2040)</li>
+      <li><span class="tier">2차</span>Aviation Week, 「FCC Greenlights SpaceX Plan For Orbital Data Centers」, 2026-11-25 — <a href="https://aviationweek.com/space/commercial-space/fcc-greenlights-spacex-plan-orbital-data-centers">aviationweek.com/…</a> (신청서상 500km·2,000km, AAS 성명)</li>
+      <li><span class="tier">2차</span>Spaceflight Now, 「FCC green lights SpaceX's plan to launch 1 million 'Starmind' data center satellites」, 2026-11-26 — <a href="https://spaceflightnow.com/2026/11/26/fcc-green-lights-spacexs-plan-to-launch-1-million-starmind-data-center-satellites/">spaceflightnow.com/2026/11/26/…</a></li>
+      <li><span class="tier">2차</span>Via Satellite, 「FCC Approves SpaceX's 1-Million Satellite Orbital Data Center Constellation」, 2026-11-25 — <a href="https://www.satellitetoday.com/connectivity/2026/11/25/fcc-approves-spacexs-1-million-satellite-orbital-data-center-constellation/">satellitetoday.com/…</a> (스타클라우드 88,000기, 선라이즈 51,600기)</li>
+      <li><span class="tier">2차</span>SpaceNews, 「Blue Origin joins the orbital data center race」, 2026-03-19 — <a href="https://spacenews.com/blue-origin-joins-the-orbital-data-center-race/">spacenews.com/…</a></li>
+      <li><span class="tier">2차</span>The Space Road, 「What is SpaceX Starmind? FCC approves 1 million satellites」, 2026-11-26 — <a href="https://thespaceroad.com/articles/what-is-spacex-starmind/">thespaceroad.com/…</a> (신청 당시 500~2,000km·18.3GHz → 허가 500~1,002km·18.8GHz, AI1 제원)</li>
+      <li><span class="tier">2차</span>IEEE Spectrum, 「Why Thermodynamics Rules Future Orbital Data Centers」, 2026-06-11 — <a href="https://spectrum.ieee.org/orbital-data-centers-heat">spectrum.ieee.org/orbital-data-centers-heat</a> (1.4㎡/칩, 40kW 랙 80㎡, 100MW 2,500기, 5년 후 +40%)</li>
+      <li><span class="tier">2차</span>arXiv 2604.27197, 「Orbital Data Centers: Spacecraft Constraints and Economic Viability」, 2026-04 — <a href="https://arxiv.org/html/2604.27197v1">arxiv.org/html/2604.27197v1</a> (1MW: 태양전지 5,640㎡·방열판 2,500㎡·34~59kg/kW, kg당 250~1,000달러)</li>
+      <li><span class="tier">2차</span>ICEF, 「Space-Based Data Centers Roadmap: The Case for Caution — Findings and Recommendations」, 2026-11 — <a href="https://icef.go.jp/wp-content/themes/icef_new/pdf/roadmap/2026/ICEF%20SBDC%20Roadmap%20Findings%20and%20Recommendations%20Nov%202026.pdf">icef.go.jp/…/ICEF SBDC Roadmap</a> (현재 위성 약 19,000기, 50배, 연 700회 스타십급 발사, 열관리·중량 낙관론)</li>
+      <li><span class="tier">2차</span>Wood Mackenzie 추정(Yahoo Finance 인용), 2026-11-25 — <a href="https://finance.yahoo.com/technology/article/spacex-stock-pares-losses-following-fcc-approval-for-data-centers-in-space-183757039.html">finance.yahoo.com/…</a> (1GW당 약 1,700억 달러, 발사비 70% 인하 필요, S-1 위험요인, CFO 2028년 언급)</li>
+      <li><span class="tier">2차</span>Space Law Journal, 「FCC Licenses SpaceX's Starmind: What the One Million Satellite Order Grants, Defers and Refuses to Decide」, 2026-11-26 — <a href="https://spacelawjournal.com/fcc-spacex-starmind-million-satellite-licence/">spacelawjournal.com/…</a> (NEPA 규칙 12월 17일 발효, §1.115 30일 재심 창)</li>
+      <li><span class="tier">2차</span>Morgan Lewis, 「Orbital Data Centers Could Put National Environmental Policy Act to the Test in Space」, 2026-08-25 — <a href="https://www.morganlewis.com/pubs/2026/08/orbital-data-centers-could-put-national-environmental-policy-act-to-the-test-in-space">morganlewis.com/…</a> (Seven County 법리, 영토 외 논리의 쟁점)</li>
+      <li><span class="tier">2차</span>ESO, 「ESO statement on approval of launch of one million space data centres」, 2026-11-26 — <a href="https://www.eso.org/public/news/eso2614/">eso.org/public/news/eso2614</a></li>
+      <li><span class="tier">2차</span>뉴시스, 「韓 우주 데이터센터, 2028년 누리호로 첫 실증…국산 AI 반도체 검증」, 2026-11-02 — <a href="https://www.newsis.com/view/NISX20261102_0003851666">newsis.com/…</a> (K-문샷 로드맵, 140억원, 2027년 예산 21억원)</li>
+      <li><span class="tier">2차</span>디지털데일리, 「누리호 7차 발사에 국산 우주데이터센터 실증 '시동'…예산·수요는 숙제」, 2026-11-03 — <a href="https://www.ddaily.co.kr/page/view/2026110217234494115">ddaily.co.kr/…</a> (561km 여명-황혼 궤도, 1년 운용, 핵심기술 4종, KT SAT 수요 지적)</li>
+      <li><span class="tier">2차</span>Benzinga, 「SpaceX Stock Rises: What's Going On?」, 2026-11-27 — <a href="https://www.benzinga.com/trading-ideas/movers/26/11/63678208/spacex-stock-rises-whats-going-on">benzinga.com/…</a> (11월 27일 131.69달러, S&amp;P 7,088, 엔비디아 −7.4%, VIX)</li>
+      <li><span class="tier">2차</span>GuruFocus, 「SpaceX Stocks Rise 1.3% as FCC Approves 1 Million Orbital Data Center Satellites」, 2026-11-26 — <a href="https://www.gurufocus.com/news/9227977/spacex-stocks-rise-13-as-fcc-approves-1-million-orbital-data-center-satellites">gurufocus.com/…</a> (127.44달러 종가, 2027년 발사 계획)</li>
+    </ol>
+    <div class="grp">단일출처·추정치로 취급한 항목</div>
+    <ol>
+      <li><span class="tier">단일출처</span>위성 1기 질량 상한 4톤, 태양전지판 1,500㎡ 미만, 방열판 200㎡ 미만은 신청서 기술 부속서를 인용한 보도(Sulat AI 등)에 근거하며, 원문 부속서를 직접 열람하지 못했습니다.</li>
+      <li><span class="tier">단일출처</span>AI1 제원은 스페이스X 제품 페이지 값이며, 회사가 공개한 마케팅 수치입니다. 독립 검증된 비행 데이터가 아닙니다.</li>
+      <li><span class="tier">단일출처</span>'1,500건 공개 의견'은 Ars Technica 집계입니다. FCC는 문서에서 "상당한 수의 의견(substantial number of comments)"이라고만 표기했습니다.</li>
+      <li><span class="tier">단일출처</span>2027년 3분기 첫 스타마인드 발사 계획은 투자자 대상 설명을 인용한 보도에 근거합니다. 회사 공식 발표문으로 확인하지 못했습니다.</li>
+      <li><span class="tier">단일출처</span>'2030년 AI 데이터센터 수요의 10%'와 '연 700회'는 ICEF의 가정 기반 추정입니다.</li>
+    </ol>
+  </div>
+
+  <div class="disc">
+    <b>면책</b>
+    본 글은 공개된 1차 자료와 보도를 바탕으로 한 정보 제공 및 분석 목적의 글입니다. 특정 종목의 매수·매도, 목표가, 매매 시점을 제안하지 않습니다. 인용된 규제 내용은 2026년 11월 25일 FCC 우주국 문서 DA 26-1273과 같은 해 10월 1일 채택된 NEPA 규칙 개정(FCC 26-64) 기준이며, 재심·소송·수정 신청 과정에서 조건과 해석이 바뀔 수 있습니다. 방열·질량·비용 수치는 인용한 모델과 가정에 기반한 값으로 실제 설계와 다를 수 있고, 이 글은 어떤 위성의 비행 성능도 검증하지 않았습니다. 회사 재무 수치는 SEC 공시 원문에 근거하나, 궤도 연산 사업의 일정과 규모는 회사의 전망이며 확정 계획이 아닙니다. 투자 판단의 최종 책임은 독자에게 있습니다.
+  </div>
+
+  <div class="signoff">
+    <div class="nm">The Signal</div>
+    <div class="sl">세상의 변화를 먼저 읽는 리서치</div>
+  </div>
+
+</article>
+
+</div>
+</div>
+
+<div style="max-width:640px;margin:44px auto 0;padding:0 18px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="text-align:center;margin-top:0;font-size:13px;color:#7a828a;">
+    <a href="./" style="color:#26467d;font-weight:600;text-decoration:none;">&larr; The Signal 홈</a>
+    &nbsp;·&nbsp;
+    <a href="archive" style="color:#26467d;font-weight:600;text-decoration:none;">지난 글 전체 보기</a>
+    &nbsp;·&nbsp;
+    <a href="/weekly-08-en" style="color:#26467d;font-weight:600;text-decoration:none;">English edition &rarr;</a>
+  </div>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ca5346b9ff6948baa3c91f6d0e9ed017"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

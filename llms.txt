@@ -24,7 +24,7 @@ This site hosts two knowledge streams by the same Korean author, under the pen n
 - Repository: https://github.com/swansong80-afk/thesignal-orca
 - Author: 글 쓰는 범고래 (pen name; alternate spelling 글쓰는 범고래, ORCA)
 - Language: ko (each issue also has an English edition, e.g. /daily-01-en)
-- Last updated: 2026-11-27
+- Last updated: 2026-11-28
 - Update cadence: Daily 수시 · Weekly 2주에 1회 · 서적 아카이브는 개정 시
 
 ## 저자 (Author)
@@ -51,6 +51,9 @@ https://thesignal-orca.pages.dev/verify 에 있습니다.
   - English edition: Seven Names, One Company — What Washington Closed Was a Route, Not a Firm. https://thesignal-orca.pages.dev/daily-01-en
 
 ### The Signal : Weekly (주간 신호)
+
+- No.08 (2026-11-28) 「허가는 백만 기를 주었다 — 그 백만 기를 식히는 일은 허가 대상이 아니다」 — FCC 우주국이 DA 26-1273으로 스페이스X 스타마인드(위성 최대 100만 기, 500~1,002km)를 '일부 허가·일부 유예'로 처리. 600km 위 폐기 방식 면제는 유예되어 상위 4개 껍질이 잠겼고, 처리 라운드·보증금·기존 마일스톤은 면제되어 2033/2035/2038/2040 일정으로 교체. 환경·광학천문·열관리·타당성은 권한 밖으로 각하. 175GW·400만 톤·1GW당 1,700억 달러의 물리·경제 병목 분석. https://thesignal-orca.pages.dev/weekly-08
+  - English edition: The Permit Grants a Million Satellites — Cooling Them Was Ruled Out of Scope. https://thesignal-orca.pages.dev/weekly-08-en
 
 - No.07 (2026-11-20) 「만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구」 — TSMC·삼성의 16나노 이하 중국 고객 주문 중단, 승인 설계사·OSAT 명단 의존, 그리고 로직·HBM·첨단 패키징의 삼중 병목. https://thesignal-orca.pages.dev/weekly-07
 - No.06 (2026-11-17) 「칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경」 — 미 상무부 BIS의 데이터센터 원격 접속 규제(잠정최종규칙)와 AI Diffusion Rule 폐기. https://thesignal-orca.pages.dev/weekly-06
@@ -186,6 +189,8 @@ Signal Card, Weak Links and graded source ledger as the Korean originals.
 - [JSON 피드](https://thesignal-orca.pages.dev/signals.json): 전체 발행 글의 기계 판독용 메타데이터
 - [Daily No.01](https://thesignal-orca.pages.dev/daily-01): 일곱 개의 이름, 하나의 회사 — 미국이 지운 것은 회사가 아니라 경로다
 - [Daily No.01 · English](https://thesignal-orca.pages.dev/daily-01-en): Seven Names, One Company — What Washington Closed Was a Route, Not a Firm
+- [Weekly No.08](https://thesignal-orca.pages.dev/weekly-08): 허가는 백만 기를 주었다 — 그 백만 기를 식히는 일은 허가 대상이 아니다
+- [Weekly No.08 · English](https://thesignal-orca.pages.dev/weekly-08-en): The Permit Grants a Million Satellites — Cooling Them Was Ruled Out of Scope
 - [Weekly No.07](https://thesignal-orca.pages.dev/weekly-07): 만든 사람이 규제 대상이다 — 16나노 아래에서 닫힌 마지막 탈출구
 - [Weekly No.06](https://thesignal-orca.pages.dev/weekly-06): 칩은 팔고, 연산은 허가한다 — 758장 H100에 그어진 새 국경
 - [3권의 책](https://thesignal-orca.pages.dev/books): 전체 목차, 장별 물음과 요약, 부별 여는 글, 핵심 용어, 인용 안내
