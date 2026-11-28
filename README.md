@@ -25,7 +25,7 @@
 index.html                 홈 (프레임 · 검증 시스템 · 콘텐츠 · 발행인)
 archive.html               지난 글 전체 (Daily / Weekly / 한 주의 지도 / Deep Research / Legacy / 검증)
 daily-01, daily-01-en.html Daily No.01 (2026-11-27) 「일곱 개의 이름, 하나의 회사」 KO/EN
-weekly-01 … weekly-07.html Weekly (No.07 = 2026-11-20 「만든 사람이 규제 대상이다」)
+weekly-01 … weekly-08.html Weekly (No.08 = 2026-11-28 「허가는 백만 기를 주었다」, KO/EN 동시 발행)
 weekly-04-appendix.html    No.04 부록
 map-01.html                한 주의 지도 No.01
 deep-01 … deep-05.html      Deep Research No.01~05
